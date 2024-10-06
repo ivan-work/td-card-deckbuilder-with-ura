@@ -31,20 +31,23 @@ public class GameManager : MonoBehaviour {
   public static GameManager Instance { get; private set; }
 
   private void Awake() {
-    // If there is an instance, and it's not me, delete myself.
-
     if (Instance != null && Instance != this) {
       Destroy(this);
     } else {
       Instance = this;
     }
+    
+    EventManager.EndTurn.AddListener(() => turn++);
   }
 
   public List<Card> deck = new List<Card>();
   public List<Card> hand = new List<Card>();
   public List<Card> discard = new List<Card>();
+  public int turn = 0;
+
 
   void Start() {
+
     Debug.Log("I'm ready");
 
     for (int i = 0; i < 5; i++) {
@@ -54,12 +57,15 @@ public class GameManager : MonoBehaviour {
       deck.Add(new SwordsmanTowerCard());
     }
 
+    EventManager.OnDeckUpdate();
 
-    Debug.Log($"[{string.Join(",", deck)}]");
+    Debug.Log($"{deck.Count} [{string.Join(",", deck)}]");
 
     DrawHand();
 
-    Debug.Log($"[{string.Join(",", deck)}]");
+    EventManager.OnDeckUpdate();
+
+    Debug.Log($"{deck.Count} [{string.Join(",", deck)}]");
   }
 
   void DrawHand() {

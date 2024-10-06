@@ -4,13 +4,11 @@ using TMPro;
 using UnityEngine;
 
 public class Deck : MonoBehaviour {
-  // Start is called before the first frame update
-  void Start() {
-
+  private void Start() {
+    EventManager.DeckUpdate.AddListener(UpdateDeckCounter);
   }
 
-  // Update is called once per frame
-  void Update() {
+  void UpdateDeckCounter() {
     gameObject.GetComponentInChildren<TextMeshPro>().text = $"{GameManager.Instance.deck.Count}";
   }
 }

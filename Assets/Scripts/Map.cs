@@ -13,7 +13,10 @@ enum CellType {
 
 public class Map : MonoBehaviour {
   [SerializeField] CellPrefab cellPrefab;
-  [SerializeField] CardPrefab cardPrefab;
+  [SerializeField] GameObject spawnerPrefab;
+  [SerializeField] GameObject mobPrefab;
+
+  List<GameObject> spawners = new List<GameObject>();
 
   void Start() {
     int[][] level = {
@@ -26,12 +29,31 @@ public class Map : MonoBehaviour {
 
     for (int y = 0; y < level.Length; y++) {
       for (int x = 0; x < level[y].Length; x++) {
-        CellPrefab instance = Instantiate(cellPrefab);
-        instance.transform.position = new Vector3(x * 1.1f, y * 1.1f, 0);
-        instance.GetComponent<SpriteRenderer>().color = getColor((CellType)level[y][x]);
+        CellPrefab instance = Instantiate(cellPrefab, new Vector3(x, y, 0), Quaternion.identity);
+        CellType cellType = (CellType)level[y][x];
+        instance.GetComponent<SpriteRenderer>().color = getColor(cellType);
+
+        if (cellType == CellType.SPAWNER) {
+          GameObject spawner = Instantiate(spawnerPrefab, new Vector3(x, y, -1), Quaternion.identity);
+          spawners.Add(spawner);
+        }
       }
     }
 
+    EventManager.EndTurn.AddListener(OnEndTurn);
+  }
+
+  void OnEndTurn() {
+    int turn = GameManager.Instance.turn;
+    if (turn % 2 == 0) {
+      foreach (var spawner in spawners) {
+        SpawnMob(spawner);
+      }
+    }
+  }
+
+  void SpawnMob(GameObject spawner) {
+    GameObject mob = Instantiate(mobPrefab, spawner.transform.position + Vector3.right, Quaternion.identity);
   }
 
   Color getColor(CellType map) => map switch {
