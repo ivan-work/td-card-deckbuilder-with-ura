@@ -29,7 +29,7 @@ public class Map : MonoBehaviour {
 
     for (int y = 0; y < level.Length; y++) {
       for (int x = 0; x < level[y].Length; x++) {
-        CellPrefab instance = Instantiate(cellPrefab, new Vector3(x, y, 0), Quaternion.identity);
+        CellPrefab instance = Instantiate(cellPrefab, new Vector3(x, y, 0), Quaternion.identity, this.transform);
         CellType cellType = (CellType)level[y][x];
         instance.GetComponent<SpriteRenderer>().color = getColor(cellType);
 

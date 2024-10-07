@@ -1,31 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Card {
-  public string name { get; }
 
-  public Card(string _name) {
-    name = _name;
-  }
-}
-
-public class SlashCard : Card {
-  public SlashCard() : base("SlashCard") { }
-}
-
-public class PierceCard : Card {
-  public PierceCard() : base("PierceCard") { }
-}
-
-public class ArcherTowerCard : Card {
-  public ArcherTowerCard() : base("ArcherTowerCard") { }
-}
-
-public class SwordsmanTowerCard : Card {
-  public SwordsmanTowerCard() : base("SwordsmanTowerCard") { }
-}
 
 public class GameManager : MonoBehaviour {
   public static GameManager Instance { get; private set; }
@@ -36,7 +15,7 @@ public class GameManager : MonoBehaviour {
     } else {
       Instance = this;
     }
-    
+
     EventManager.EndTurn.AddListener(() => turn++);
   }
 
