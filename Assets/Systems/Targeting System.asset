@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e24ca3ee7c223c46a764547beb86511, type: 3}
+  m_Name: Targeting System
+  m_EditorClassIdentifier: 
+  mouseIndicatorPrefab: {fileID: 6592400535453725894, guid: d7bf2aed76b4c474280cf8bb06187a09, type: 3}
+  gridSystem: {fileID: 0}
+  towerPrefab: {fileID: 5164088686705510088, guid: 9f7ed8d268127874fa558cbb2d509db1, type: 3}

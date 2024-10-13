@@ -9,35 +9,29 @@ public class TargetSystem : MonoBehaviour {
   [SerializeField] private GridSystem gridSystem;
 
   [SerializeField] private GameObject towerPrefab;
-  bool enabled = false;
+  Card selectedCard;
 
   void Start() {
     StopTargeting();
+    EventManager.OnCardClicked.AddListener(OnCardClicked);
   }
 
-  public void OnCardClicked() {
-    StartTargeting();
+  public void OnCardClicked(Card card) {
+    StartTargeting(card);
   }
 
   private void Update() {
-    if (enabled) {
+    if (selectedCard != null) {
       mouseIndicator.transform.position = gridSystem.grid.GetCellCenterWorld((Vector3Int)GetMouseCell());
     }
 
-    if (enabled && Input.GetMouseButtonDown(0)) {
+    if (selectedCard != null && Input.GetMouseButtonDown(0)) {
+      selectedCard.onTargetClicked(
+        gridSystem,
+        GetMouseCell()
+      );
+      
       StopTargeting();
-      // var tower = Instantiate(towerPrefab, gridSystem.grid.GetCellCenterWorld(GetMouseCell()), Quaternion.identity, gridSystem.grid.transform);
-      DealDamage(GetMouseCell(), 3);
-    }
-  }
-
-  void DealDamage(Vector2Int gridPos, int damage) {
-    var mobs = gridSystem.getGridEntities(gridPos);
-    foreach (var mob in mobs) {
-      HealthComponent mobHealth = mob.GetComponent<HealthComponent>();
-      if (mobHealth) {
-        mobHealth.OnDamage(damage);
-      }
     }
   }
 
@@ -47,13 +41,13 @@ public class TargetSystem : MonoBehaviour {
     return ((Vector2Int)cellPosition);
   }
 
-  void StartTargeting() {
-    enabled = true;
+  void StartTargeting(Card card) {
+    selectedCard = card;
     mouseIndicator.SetActive(true);
   }
 
   void StopTargeting() {
-    enabled = false;
+    selectedCard = null;
     mouseIndicator.SetActive(false);
   }
 }
