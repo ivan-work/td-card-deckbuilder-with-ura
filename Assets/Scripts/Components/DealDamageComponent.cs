@@ -1,7 +1,7 @@
 using UnityEngine;
 
-public class DealDamageComponent {
-  public bool isValidTarget(GridSystem gridSystem, Vector2Int gridPos) {
+public static class DealDamageComponent {
+  public static bool isValidTarget(GridSystem gridSystem, Vector2Int gridPos) {
     var entities = gridSystem.getGridEntities(gridPos);
     foreach (var entity in entities) {
       HealthComponent entityHealth = entity.GetComponent<HealthComponent>();
@@ -12,7 +12,7 @@ public class DealDamageComponent {
     return false;
   }
 
-  public void dealDamage(GridSystem gridSystem, Vector2Int gridPos, int damage) {
+  public static void dealDamage(GridSystem gridSystem, Vector2Int gridPos, int damage) {
     var entities = gridSystem.getGridEntities(gridPos);
     foreach (var entity in entities) {
       HealthComponent entityHealth = entity.GetComponent<HealthComponent>();

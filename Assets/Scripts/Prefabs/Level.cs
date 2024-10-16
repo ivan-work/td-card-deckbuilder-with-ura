@@ -11,7 +11,7 @@ public class Level : MonoBehaviour {
 
   List<GameObject> spawners = new List<GameObject>();
 
-  void Start() {
+  private void Start() {
     int[][] level = {
       new []{0,0,0,0,0,0,0,0,0,0},
       new []{0,0,0,0,0,0,0,0,0,0},
@@ -22,13 +22,13 @@ public class Level : MonoBehaviour {
 
     for (int y = 0; y < level.Length; y++) {
       for (int x = 0; x < level[y].Length; x++) {
-        CellType cellType = (CellType)level[y][x];
+        var cellType = (CellType)level[y][x];
 
-        CellPrefab instance = Instantiate(cellPrefab, transform).OnSpawn(cellType);
+        var instance = Instantiate(cellPrefab, transform).OnSpawn(cellType);
         instance.GetComponent<GridComponent>().moveTo(new Vector2Int(x, y));
 
-        if (cellType == CellType.SPAWNER) {
-          GameObject spawner = Instantiate(spawnerPrefab, transform);
+        if (cellType == CellType.Spawner) {
+          var spawner = Instantiate(spawnerPrefab, transform);
           spawner.GetComponent<GridComponent>().moveTo(new Vector2Int(x, y));
           spawners.Add(spawner);
         }
@@ -47,7 +47,7 @@ public class Level : MonoBehaviour {
 
   void OnEndTurn() {
     int turn = GameManager.Instance.turn;
-    if (turn % 2 == 0) {
+    if (turn % 3 == 0) {
       foreach (var spawner in spawners) {
         SpawnMob(spawner);
       }

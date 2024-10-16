@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -8,12 +9,18 @@ public class MobPrefab : MonoBehaviour {
   void Awake() {
     healthComponent = GetComponent<HealthComponent>();
     gridComponent = GetComponent<GridComponent>();
+  }
+
+  private void OnEnable() {
     EventManager.PhaseMobAction.AddListener(OnMobAction);
+  }
+
+  private void OnDisable() {
+    EventManager.PhaseMobAction.RemoveListener(OnMobAction);
   }
 
   void OnMobAction() {
     gridComponent.moveTo(gridComponent.gridPos + Vector2Int.right);
-    // gameObject.transform.position += Vector3.right;
   }
 
   void Update() {

@@ -1,38 +1,22 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Unity.Collections;
 using UnityEngine;
 
 public class GridComponent : MonoBehaviour {
-    public enum Layer
-    {
-        Ground,
-        Entity,
-        Mob
-    };
-
-  [SerializeField] public Layer layer;
   [SerializeField] public GridSystem gridSystem;
 
   [SerializeField] public Vector2Int gridPos = Vector2Int.zero;
+
   private Vector2Int prevGridPos = Vector2Int.zero;
 
   private void Awake() {
-    if (GetComponentInParent<GridSystem>()) {
-      gridSystem = GetComponentInParent<GridSystem>();
-    } else {
-      throw new NoComponentException($"No component ${typeof (GridSystem)}");
-    }
+    gridSystem = this.GetAssertComponentInParent<GridSystem>();
   }
 
   private void OnEnable() {
-    gridSystem.register(this, this.gridPos);
+    gridSystem.register(this, gridPos);
   }
 
   private void OnDisable() {
-    gridSystem.unregister(this, this.gridPos);
+    gridSystem.unregister(this, gridPos);
   }
 
   public void moveTo(Vector2Int gridPos) {
@@ -40,10 +24,11 @@ public class GridComponent : MonoBehaviour {
   }
 
   private void Update() {
-    if (prevGridPos != gridPos) {
-      moveTo(gridPos);
-      prevGridPos = gridPos;
-    }
+    // if (prevGridPos != gridPos) {
+    //   moveTo(gridPos);
+    //   prevGridPos = gridPos;
+    // }
+
     gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, gridPos2World(gridPos), Time.deltaTime);
   }
 

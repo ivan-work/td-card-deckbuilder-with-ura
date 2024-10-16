@@ -5,11 +5,11 @@ using UnityEngine;
 public class Card : ScriptableObject {
   [SerializeField] public string cardName;
 
-  virtual public void doCardAction(GridSystem gridSystem, Vector2Int vector2Int) {
+  public virtual void doCardAction(GridSystem gridSystem, Vector2Int vector2Int) {
     throw new NotImplementedException();
   }
 
-  virtual public bool isValidTarget(GridSystem gridSystem, Vector2Int vector2Int) {
+  public virtual bool isValidTarget(GridSystem gridSystem, Vector2Int vector2Int) {
     throw new NotImplementedException();
   }
   // [SerializeField] public GameObject cardPrefab;

@@ -1,35 +1,34 @@
 using System;
 using System.Collections.Generic;
-using Unity.Collections;
 using UnityEngine;
-using UnityEngine.AI;
 
 [RequireComponent(typeof (Grid))]
 public class GridSystem : MonoBehaviour {
-  Dictionary<Vector2Int, List<GridComponent>> entities = new();
+  readonly Dictionary<Vector2Int, List<GridComponent>> entities = new();
   [NonSerialized] public Grid grid;
 
   private void Awake() {
     grid = GetComponent<Grid>();
   }
 
-  public void moveTo(GridComponent GridComponent, Vector2Int newGridPos) {
-    unregister(GridComponent, GridComponent.gridPos);
-    GridComponent.gridPos = newGridPos;
-    register(GridComponent, GridComponent.gridPos);
+  public void moveTo(GridComponent gridComponent, Vector2Int newGridPos) {
+    unregister(gridComponent, gridComponent.gridPos);
+    gridComponent.gridPos = newGridPos;
+    register(gridComponent, gridComponent.gridPos);
   }
 
-  public void register(GridComponent GridComponent, Vector2Int gridPos) {
+  public void register(GridComponent gridComponent, Vector2Int gridPos) {
     if (!entities.ContainsKey(gridPos)) {
       entities.Add(gridPos, new List<GridComponent>());
     }
-    entities[gridPos].Add(GridComponent);
+    entities[gridPos].Add(gridComponent);
   }
 
-  public void unregister(GridComponent GridComponent, Vector2Int gridPos) {
+  public void unregister(GridComponent gridComponent, Vector2Int gridPos) {
     if (entities.ContainsKey(gridPos)) {
-      entities[gridPos].Remove(GridComponent);
+      entities[gridPos].Remove(gridComponent);
     }
+    // Debug.Log($"Unregister@{gridPos}: {entities[gridPos]}");
   }
 
   public List<GridComponent> getGridEntities(Vector2Int gridPos) {

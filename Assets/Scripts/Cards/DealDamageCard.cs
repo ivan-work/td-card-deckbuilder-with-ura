@@ -3,13 +3,12 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Card/DealDamageCard")]
 public class DealDamageCard : Card {
   [SerializeField] public int damage;
-  readonly DealDamageComponent dealDamageComponent = new();
 
-  override public void doCardAction(GridSystem gridSystem, Vector2Int gridPos) {
-    dealDamageComponent.dealDamage(gridSystem, gridPos, 3);
+  public override void doCardAction(GridSystem gridSystem, Vector2Int gridPos) {
+    DealDamageComponent.dealDamage(gridSystem, gridPos, damage);
   }
 
-  override public bool isValidTarget(GridSystem gridSystem, Vector2Int gridPos) {
-    return dealDamageComponent.isValidTarget(gridSystem, gridPos);
+  public override bool isValidTarget(GridSystem gridSystem, Vector2Int gridPos) {
+    return DealDamageComponent.isValidTarget(gridSystem, gridPos);
   }
 }

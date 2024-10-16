@@ -9,7 +9,6 @@ public class HandView : MonoBehaviour {
 
   // Start is called before the first frame update
   void Start() {
-    Debug.Log("Hand.Start()");
     List<Card> cards = GameManager.Instance.hand;
     // List<GameObject> cardObjects = new List<GameObject>();
     var i = 0;

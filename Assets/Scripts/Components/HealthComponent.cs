@@ -10,8 +10,8 @@ public class HealthComponent : MonoBehaviour {
 
   public void OnDamage(int damage) {
     currentHp -= damage;
-    if (currentHp < 0) {
-      Destroy(this.gameObject);
+    if (currentHp <= 0) {
+      Destroy(gameObject);
     }
   }
 }

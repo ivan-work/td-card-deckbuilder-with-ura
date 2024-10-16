@@ -6,12 +6,10 @@ using UnityEngine;
 
 /*
 TODO:
-Валидация целей - опознавание кто на клетке, подсветочка
 
 */
 
 public class GameManager : MonoBehaviour {
-
   public static GameManager Instance { get; private set; }
 
   private void Awake() {
@@ -22,8 +20,6 @@ public class GameManager : MonoBehaviour {
     }
 
     EventManager.EndTurn.AddListener(() => turn++);
-
-    Debug.Log("I'm ready");
 
     EventManager.OnDeckUpdate();
 
@@ -40,23 +36,28 @@ public class GameManager : MonoBehaviour {
   public List<Card> hand = new List<Card>();
   public List<Card> discard = new List<Card>();
   public int turn = 0;
+  private bool isBusy;
 
-
-  void Start() {
-  }
-
-  void DrawHand() {
-    for (int i = 0; i < 4; i++) {
-      Card card = deck.First();
+  private void DrawHand() {
+    for (var i = 0; i < 4; i++) {
+      var card = deck.First();
       deck.RemoveAt(0);
       hand.Add(card);
     }
   }
 
   public void EndTurn() {
+    if (isBusy) StartCoroutine(EndTurnCoroutine());
+  }
+
+  private IEnumerator EndTurnCoroutine() {
+    isBusy = true;
     EventManager.PhaseTowerAction.Invoke();
+    yield return new WaitForSeconds(1);
     EventManager.PhaseMobAction.Invoke();
-   
+    yield return new WaitForSeconds(1);
     EventManager.EndTurn.Invoke();
+    yield return new WaitForSeconds(1);
+    isBusy = false;
   }
 }

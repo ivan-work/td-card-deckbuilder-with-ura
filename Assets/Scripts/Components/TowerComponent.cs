@@ -3,24 +3,19 @@ using UnityEngine;
 public class TowerComponent : MonoBehaviour {
   [SerializeField] int damage = 3;
   [SerializeField] int range = 3;
-  readonly DealDamageComponent dealDamageComponent = new();
 
   public Vector2Int? targetPos = null;
   GridComponent gridComponent;
 
   void Start() {
-    if (GetComponent<GridComponent>()) {
-      gridComponent = GetComponent<GridComponent>();
-    } else {
-      throw new NoComponentException($"No component ${typeof(GridComponent)}");
-    }
+    gridComponent = this.GetAssertComponent<GridComponent>();
     EventManager.PhaseTowerAction.AddListener(OnTowerAction);
     EventManager.EndTurn.AddListener(OnEndTurn);
   }
 
   void OnTowerAction() {
     if (targetPos.HasValue) {
-      dealDamageComponent.dealDamage(gridComponent.gridSystem, targetPos.Value, damage);
+      DealDamageComponent.dealDamage(gridComponent.gridSystem, targetPos.Value, damage);
     }
   }
 
@@ -41,6 +36,6 @@ public class TowerComponent : MonoBehaviour {
   }
 
   public bool isValidTarget(GridSystem gridSystem, Vector2Int gridPos) {
-    return dealDamageComponent.isValidTarget(gridSystem, gridPos);
+    return DealDamageComponent.isValidTarget(gridSystem, gridPos);
   }
 }
