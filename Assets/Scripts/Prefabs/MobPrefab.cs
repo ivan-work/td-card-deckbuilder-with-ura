@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using TMPro;
-using Unity.Collections;
 using UnityEngine;
 
 public class MobPrefab : MonoBehaviour {
@@ -12,10 +8,10 @@ public class MobPrefab : MonoBehaviour {
   void Awake() {
     healthComponent = GetComponent<HealthComponent>();
     gridComponent = GetComponent<GridComponent>();
-    EventManager.EndTurn.AddListener(OnEndTurn);
+    EventManager.PhaseMobAction.AddListener(OnMobAction);
   }
 
-  void OnEndTurn() {
+  void OnMobAction() {
     gridComponent.moveTo(gridComponent.gridPos + Vector2Int.right);
     // gameObject.transform.position += Vector3.right;
   }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Card : ScriptableObject {
   [SerializeField] public string cardName;
 
-  virtual public void onTargetClicked(GridSystem gridSystem, Vector2Int vector2Int) {
+  virtual public void doCardAction(GridSystem gridSystem, Vector2Int vector2Int) {
     throw new NotImplementedException();
   }
 

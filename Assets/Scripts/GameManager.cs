@@ -52,4 +52,11 @@ public class GameManager : MonoBehaviour {
       hand.Add(card);
     }
   }
+
+  public void EndTurn() {
+    EventManager.PhaseTowerAction.Invoke();
+    EventManager.PhaseMobAction.Invoke();
+   
+    EventManager.EndTurn.Invoke();
+  }
 }

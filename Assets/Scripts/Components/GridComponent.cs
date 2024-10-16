@@ -22,6 +22,8 @@ public class GridComponent : MonoBehaviour {
   private void Awake() {
     if (GetComponentInParent<GridSystem>()) {
       gridSystem = GetComponentInParent<GridSystem>();
+    } else {
+      throw new NoComponentException($"No component ${typeof (GridSystem)}");
     }
   }
 
@@ -45,7 +47,7 @@ public class GridComponent : MonoBehaviour {
     gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, gridPos2World(gridPos), Time.deltaTime);
   }
 
-  Vector3 gridPos2World(Vector2Int vector) {
+  public Vector3 gridPos2World(Vector2Int vector) {
     Vector3 worldPosition = gridSystem.grid.GetCellCenterWorld(new Vector3Int(vector.x, vector.y));
     worldPosition.z = gameObject.transform.position.z;
     return worldPosition;

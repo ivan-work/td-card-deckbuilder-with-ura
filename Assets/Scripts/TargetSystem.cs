@@ -22,7 +22,10 @@ public class TargetSystem : MonoBehaviour {
 
   private void Update() {
     if (selectedCard != null) {
-      mouseIndicator.transform.position = gridSystem.grid.GetCellCenterWorld((Vector3Int)GetMouseCell());
+      Vector3 mousePosition = gridSystem.grid.GetCellCenterWorld((Vector3Int)GetMouseCell());
+      mousePosition.z = mouseIndicator.transform.position.z;
+      mouseIndicator.transform.position = mousePosition;
+
       var isValid = selectedCard.isValidTarget(gridSystem, GetMouseCell());
       if (isValid) {
         mouseIndicator.GetComponent<SpriteRenderer>().color = Color.green;
@@ -30,13 +33,15 @@ public class TargetSystem : MonoBehaviour {
         mouseIndicator.GetComponent<SpriteRenderer>().color = Color.red;
       }
 
+      if (Input.GetMouseButtonDown(0)) {
+        if (isValid) {
+          selectedCard.doCardAction(
+            gridSystem,
+            GetMouseCell()
+          );
 
-      if (isValid && Input.GetMouseButtonDown(0)) {
-        selectedCard.onTargetClicked(
-          gridSystem,
-          GetMouseCell()
-        );
-        
+          GameManager.Instance.EndTurn();
+        }
         StopTargeting();
       }
     }
