@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using Unity.Collections;
 using UnityEngine;
@@ -19,21 +20,9 @@ public class Map : MonoBehaviour {
 
   [SerializeField] int width, height;
 
-  Grid grid;
-  GridSystem gridSystem;
-  const int tileLayer = 2;
-  const int mobLayer = -1;
-
-
   List<GameObject> spawners = new List<GameObject>();
 
   void Start() {
-    grid = GetComponent<Grid>();
-    gridSystem = GetComponent<GridSystem>();
-
-
-
-
     int[][] level = {
       new []{0,0,0,0,0,0,0,0,0,0},
       new []{0,0,0,0,0,0,0,0,0,0},
@@ -44,8 +33,10 @@ public class Map : MonoBehaviour {
 
     for (int y = 0; y < level.Length; y++) {
       for (int x = 0; x < level[y].Length; x++) {
-        CellPrefab instance = Instantiate(cellPrefab, getPosition(new Vector2Int(x, y), tileLayer), Quaternion.identity, transform);
         CellType cellType = (CellType)level[y][x];
+
+        CellPrefab instance = Instantiate(cellPrefab, transform);
+        instance.GetComponent<GridComponent>().moveTo(new Vector2Int(x, y));
         instance.GetComponent<SpriteRenderer>().color = getColor(cellType);
 
         if (cellType == CellType.SPAWNER) {
@@ -59,6 +50,13 @@ public class Map : MonoBehaviour {
     EventManager.EndTurn.AddListener(OnEndTurn);
   }
 
+  void SpawnMob(GameObject spawner) {
+    GameObject mob = Instantiate(mobPrefab, transform);
+    mob.GetComponent<GridComponent>().moveTo(
+      spawner.GetComponent<GridComponent>().gridPos
+    );
+  }
+
   void OnEndTurn() {
     int turn = GameManager.Instance.turn;
     if (turn % 2 == 0) {
@@ -68,21 +66,11 @@ public class Map : MonoBehaviour {
     }
   }
 
-  void SpawnMob(GameObject spawner) {
-    GameObject mob = Instantiate(mobPrefab, transform);
-    mob.GetComponent<GridComponent>().moveTo(
-      (Vector2Int)grid.WorldToCell(spawner.transform.position)
-    );
-  }
-
-  Vector3 getPosition(Vector2Int position, int layer) {
-    return grid.GetCellCenterWorld(new Vector3Int(position.x, position.y, layer));
-  }
-
-  Color getColor(CellType map) => map switch {
+  Color getColor(CellType cell) => cell switch {
     CellType.EMPTY => new Color(.5f, .5f, .5f),
     CellType.ROAD => new Color(1, 1, 1),
     CellType.BASE => new Color(0, 1, 0),
     CellType.SPAWNER => new Color(1, 0, 0),
+    _        => throw new InvalidEnumArgumentException (nameof(cell)),
   };
 }

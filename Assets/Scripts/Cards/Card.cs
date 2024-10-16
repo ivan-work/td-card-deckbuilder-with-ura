@@ -8,6 +8,10 @@ public class Card : ScriptableObject {
   virtual public void onTargetClicked(GridSystem gridSystem, Vector2Int vector2Int) {
     throw new NotImplementedException();
   }
+
+  virtual public bool isValidTarget(GridSystem gridSystem, Vector2Int vector2Int) {
+    throw new NotImplementedException();
+  }
   // [SerializeField] public GameObject cardPrefab;
 
   // public void OnInstantiate() {

@@ -23,15 +23,22 @@ public class TargetSystem : MonoBehaviour {
   private void Update() {
     if (selectedCard != null) {
       mouseIndicator.transform.position = gridSystem.grid.GetCellCenterWorld((Vector3Int)GetMouseCell());
-    }
+      var isValid = selectedCard.isValidTarget(gridSystem, GetMouseCell());
+      if (isValid) {
+        mouseIndicator.GetComponent<SpriteRenderer>().color = Color.green;
+      } else {
+        mouseIndicator.GetComponent<SpriteRenderer>().color = Color.red;
+      }
 
-    if (selectedCard != null && Input.GetMouseButtonDown(0)) {
-      selectedCard.onTargetClicked(
-        gridSystem,
-        GetMouseCell()
-      );
-      
-      StopTargeting();
+
+      if (isValid && Input.GetMouseButtonDown(0)) {
+        selectedCard.onTargetClicked(
+          gridSystem,
+          GetMouseCell()
+        );
+        
+        StopTargeting();
+      }
     }
   }
 

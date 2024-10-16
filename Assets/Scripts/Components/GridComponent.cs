@@ -6,6 +6,14 @@ using Unity.Collections;
 using UnityEngine;
 
 public class GridComponent : MonoBehaviour {
+    public enum Layer
+    {
+        Ground,
+        Entity,
+        Mob
+    };
+
+  [SerializeField] public Layer layer;
   [SerializeField] public GridSystem gridSystem;
 
   [SerializeField] public Vector2Int gridPos = Vector2Int.zero;
