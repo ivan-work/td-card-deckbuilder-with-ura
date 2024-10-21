@@ -15,7 +15,7 @@ public class HandView : MonoBehaviour {
     foreach (var card in cards) {
       var instance = Instantiate(prefab);
       instance.card = card;
-      instance.transform.position = gameObject.transform.position + new Vector3(4 * ++i, 0);
+      instance.transform.position = gameObject.transform.position + new Vector3(2.2f * ++i, 0);
       instance.OnInstantiate();
     }
   }

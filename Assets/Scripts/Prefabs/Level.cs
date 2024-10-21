@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,7 +36,7 @@ public class Level : MonoBehaviour {
       }
     }
 
-    EventManager.EndTurn.AddListener(OnEndTurn);
+    EventManager.PhaseActionSlow.AddListener(OnEndTurn);
   }
 
   void SpawnMob(GameObject spawner) {
@@ -45,12 +46,13 @@ public class Level : MonoBehaviour {
     );
   }
 
-  void OnEndTurn() {
+  IEnumerator OnEndTurn() {
     int turn = GameManager.Instance.turn;
     if (turn % 3 == 0) {
       foreach (var spawner in spawners) {
         SpawnMob(spawner);
       }
     }
+    yield break;
   }
 }

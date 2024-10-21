@@ -47,17 +47,19 @@ public class GameManager : MonoBehaviour {
   }
 
   public void EndTurn() {
-    if (isBusy) StartCoroutine(EndTurnCoroutine());
+    if (!isBusy) StartCoroutine(EndTurnCoroutine());
   }
 
   private IEnumerator EndTurnCoroutine() {
     isBusy = true;
-    EventManager.PhaseTowerAction.Invoke();
-    yield return new WaitForSeconds(1);
-    EventManager.PhaseMobAction.Invoke();
-    yield return new WaitForSeconds(1);
-    EventManager.EndTurn.Invoke();
-    yield return new WaitForSeconds(1);
+    Debug.Log($"Turn({turn}): Fast");
+    yield return StartCoroutine(EventManager.PhaseActionFast.Invoke(this));
+    Debug.Log($"Turn({turn}): Move");
+    yield return StartCoroutine(EventManager.PhaseMove.Invoke(this));
+    Debug.Log($"Turn({turn}): Slow");
+    yield return StartCoroutine(EventManager.PhaseActionSlow.Invoke(this));
     isBusy = false;
+    turn++;
+    yield return null;
   }
 }

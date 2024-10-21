@@ -9,4 +9,8 @@ public static class EventManager {
   public static UnityEvent EndTurn = new();
 
   public static UnityEvent<Card> OnCardClicked = new();
+  
+  public static readonly CoroutineList PhaseActionFast = new ();
+  public static readonly CoroutineList PhaseMove = new ();
+  public static readonly CoroutineList PhaseActionSlow = new ();
 }

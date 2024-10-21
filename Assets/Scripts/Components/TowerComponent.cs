@@ -1,26 +1,39 @@
+using System.Collections;
 using UnityEngine;
 
 public class TowerComponent : MonoBehaviour {
-  [SerializeField] int damage = 3;
-  [SerializeField] int range = 3;
+  [SerializeField] private int damage = 3;
+  [SerializeField] private int range = 3;
+  [SerializeField] private Vector3 shootAttachment = Vector3.zero;
+  [SerializeField] private BulletPrefab bulletPrefab;
 
-  public Vector2Int? targetPos = null;
+  public Vector2Int? targetPos;
   GridComponent gridComponent;
 
   void Start() {
     gridComponent = this.GetAssertComponent<GridComponent>();
-    EventManager.PhaseTowerAction.AddListener(OnTowerAction);
-    EventManager.EndTurn.AddListener(OnEndTurn);
+    
+    EventManager.PhaseActionFast.AddListener(OnActionFast);
+    EventManager.PhaseActionSlow.AddListener(OnActionSlow);
+  }
+  
+  private void OnDestroy() {
+    Debug.Log("TowerComponent.OnDestroy");
+    EventManager.PhaseActionFast.RemoveListener(OnActionFast);
+    EventManager.PhaseActionSlow.RemoveListener(OnActionSlow);
   }
 
-  void OnTowerAction() {
+  private IEnumerator OnActionFast() {
     if (targetPos.HasValue) {
+      var bullet = Instantiate(bulletPrefab, gameObject.transform.position + shootAttachment, Quaternion.identity);
+      yield return StartCoroutine(bullet.Shoot(gridComponent.gridPos2World(targetPos.Value)));
       DealDamageComponent.dealDamage(gridComponent.gridSystem, targetPos.Value, damage);
     }
   }
 
-  void OnEndTurn() {
+  private IEnumerator OnActionSlow() {
     targetPos = SearchNewTarget();
+    yield break;
   }
 
   private Vector2Int? SearchNewTarget() {
