@@ -1,28 +1,36 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class TowerComponent : MonoBehaviour {
   [SerializeField] private int damage = 3;
   [SerializeField] private int range = 3;
-  [SerializeField] private Vector3 shootAttachment = Vector3.zero;
+  [SerializeField] private GameObject shootAttachmentGO;
+  private Vector3 shootAttachment = Vector3.zero;
   [SerializeField] private BulletPrefab bulletPrefab;
 
   public Vector2Int? targetPos;
   GridComponent gridComponent;
 
-  void Start() {
+  private void OnEnable() {
+    Debug.Log("TowerComponent.OnEnable()");
     gridComponent = this.GetAssertComponent<GridComponent>();
     
     EventManager.PhaseActionFast.AddListener(OnActionFast);
     EventManager.PhaseActionSlow.AddListener(OnActionSlow);
   }
   
-  private void OnDestroy() {
-    Debug.Log("TowerComponent.OnDestroy");
+  private void OnDisable() {
+    Debug.Log("TowerComponent.OnDisable");
     EventManager.PhaseActionFast.RemoveListener(OnActionFast);
     EventManager.PhaseActionSlow.RemoveListener(OnActionSlow);
   }
 
+  void Start() {
+    Debug.Log("TowerComponent.Start()");
+    shootAttachment = shootAttachmentGO.transform.localPosition;
+  }
+  
   private IEnumerator OnActionFast() {
     if (targetPos.HasValue) {
       var bullet = Instantiate(bulletPrefab, gameObject.transform.position + shootAttachment, Quaternion.identity);

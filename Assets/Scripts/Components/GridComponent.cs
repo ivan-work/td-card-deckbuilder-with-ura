@@ -7,6 +7,7 @@ public class GridComponent : MonoBehaviour {
   [SerializeField] public Vector2Int gridPos = Vector2Int.zero;
 
   private void Awake() {
+    Debug.Log("GridComponent.Awake()");
     gridSystem = this.GetAssertComponentInParent<GridSystem>();
   }
 

@@ -11,9 +11,12 @@ public class TargetSystem : MonoBehaviour {
   [SerializeField] private GameObject towerPrefab;
   Card selectedCard;
 
+  private void Awake() {
+    EventManager.CardClicked.AddListener(OnCardClicked);
+  }
+
   void Start() {
     StopTargeting();
-    EventManager.OnCardClicked.AddListener(OnCardClicked);
   }
 
   public void OnCardClicked(Card card) {
@@ -21,7 +24,7 @@ public class TargetSystem : MonoBehaviour {
   }
 
   private void Update() {
-    if (selectedCard != null) {
+    if (selectedCard != null && !GameManager.Instance.isBusy) {
       Vector3 mousePosition = gridSystem.grid.GetCellCenterWorld((Vector3Int)GetMouseCell());
       mousePosition.z = mouseIndicator.transform.position.z;
       mouseIndicator.transform.position = mousePosition;
@@ -39,6 +42,8 @@ public class TargetSystem : MonoBehaviour {
             gridSystem,
             GetMouseCell()
           );
+
+          // EventManager.CardDiscard.Invoke(selectedCard);
 
           GameManager.Instance.EndTurn();
         }

@@ -10,9 +10,6 @@ public class MobPrefab : MonoBehaviour {
   void Awake() {
     healthComponent = GetComponent<HealthComponent>();
     gridComponent = GetComponent<GridComponent>();
-  }
-
-  private void Start() {
     EventManager.PhaseMove.AddListener(OnMove);
   }
 
