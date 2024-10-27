@@ -1,5 +1,7 @@
+using System;
 using System.ComponentModel;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -15,7 +17,7 @@ public class CellPrefab : MonoBehaviour {
 
   public CellPrefab OnSpawn(CellType _cellType) {
     cellType = _cellType;
-    GetComponent<SpriteRenderer>().color = getColor(cellType);
+    this.GetAssertComponentInChildren<SpriteRenderer>().color = getColor(cellType);
     return this;
   }
 
@@ -26,4 +28,10 @@ public class CellPrefab : MonoBehaviour {
     CellType.Spawner => new Color(1, 0, 0),
     _ => throw new InvalidEnumArgumentException(nameof(cell)),
   };
+
+  private void Start() {
+    if (TryGetComponent(out PathComponent pathComponent) && TryGetComponent(out TextMeshPro text)) {
+      text.text = $"{pathComponent.distanceToBase}";
+    }
+  }
 }

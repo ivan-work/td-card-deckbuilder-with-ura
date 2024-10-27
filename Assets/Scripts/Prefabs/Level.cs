@@ -32,7 +32,10 @@ public class Level : MonoBehaviour {
     };
 
     // List<CellPrefab> queue = new();
-    Queue<PathComponent> pathfindingQueue = new();
+    // Queue<PathComponent> pathfindingQueue = new();
+    // var pathfindingQueue = new IntervalHeap ();
+    var pathfindingQueue = new List<PathComponent>();
+    var pathfindingVisitedSet = new HashSet<PathComponent>();
 
     for (int y = 0; y < level.Length; y++) {
       for (int x = 0; x < level[y].Length; x++) {
@@ -47,7 +50,8 @@ public class Level : MonoBehaviour {
 
         if (cellType == CellType.Base) {
           instance.GetComponent<PathComponent>().distanceToBase = 0;
-          pathfindingQueue.Enqueue(instance.GetComponent<PathComponent>());
+          pathfindingQueue.Add(instance.GetComponent<PathComponent>());
+          pathfindingVisitedSet.Add(instance.GetComponent<PathComponent>());
         }
 
         if (cellType == CellType.Spawner) {
@@ -59,15 +63,21 @@ public class Level : MonoBehaviour {
     }
 
     while (pathfindingQueue.Any()) {
-      var pathCell = pathfindingQueue.Dequeue();
+      var pathCell = pathfindingQueue
+        .Aggregate((prev, next) => prev.distanceToBase < next.distanceToBase ? prev : next);
+      pathfindingQueue.Remove(pathCell); // #TODO Переделать на PriorityQueue
       var neighbors = pathCell.getNeighbors();
 
       foreach (var neighbor in neighbors) {
+        if (pathfindingVisitedSet.Contains(neighbor)) continue;
+
+        pathfindingVisitedSet.Add(neighbor);
+
         var localDistance = pathCell.distanceToBase + neighbor.moveCost;
-        if (localDistance < neighbor.distanceToBase) {
-          neighbor.distanceToBase = localDistance;
-        }
-        // писать код дальше
+
+        neighbor.distanceToBase = localDistance;
+
+        pathfindingQueue.Add(neighbor);
       }
     }
 

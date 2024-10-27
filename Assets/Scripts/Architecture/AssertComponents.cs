@@ -20,4 +20,9 @@ public static class AssertComponents {
     var component = target.GetComponentInParent<T>() ?? throw new NoComponentException($"No component ${typeof(T)}");
     return component;
   }
+
+  public static T GetAssertComponentInChildren<T>(this MonoBehaviour target) {
+    var component = target.GetComponentInChildren<T>() ?? throw new NoComponentException($"No component ${typeof(T)}");
+    return component;
+  }
 }
