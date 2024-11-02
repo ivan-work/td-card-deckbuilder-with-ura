@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour {
       Instance = this;
     }
 
-    EventManager.EndTurn.AddListener(() => turn++);
     EventManager.CardDraw.AddListener(OnCardDraw);
     EventManager.CardDiscard.AddListener(OnCardDiscard);
   }
@@ -58,6 +57,7 @@ public class GameManager : MonoBehaviour {
 
   public void EndTurn() {
     Debug.Log("GameManager.EndTurn()");
+    EventManager.EndTurn.Invoke();
     if (!isBusy) StartCoroutine(EndTurnCoroutine());
   }
 

@@ -1,10 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
+using JetBrains.Annotations;
 using UnityEngine;
-using UnityEngine.Networking;
 using Random = UnityEngine.Random;
 
 public class MoveComponent : MonoBehaviour {
@@ -19,14 +17,21 @@ public class MoveComponent : MonoBehaviour {
 
   void Awake() {
     gridComponent = this.GetAssertComponent<GridComponent>();
-    EventManager.PhaseMove.AddListener(XXX);
+    EventManager.PhaseMove.AddListener(OnPhaseMove);
+    EventManager.EndTurn.AddListener(() => state = State.Calm);
   }
   
   private void OnDestroy() {
-    EventManager.PhaseMove.RemoveListener(XXX);
+    EventManager.PhaseMove.RemoveListener(OnPhaseMove);
   }
 
-  private void XXX() {
+  private IEnumerator OnPhaseMove() {
+    startMovingChain();
+    
+    yield break;
+  }
+
+  private void startMovingChain() {
     if (state == State.Tired) return;
     
     state = State.Charged;
@@ -38,31 +43,41 @@ public class MoveComponent : MonoBehaviour {
       return;
     }
 
-    var targetMoveComponent = findTargetMoveComponent(targetPos.Value);
+    var canMove = checkIfNextChainMoved(targetPos.Value); // Двигает других мобов
+    
+    if (canMove) {
+      changePositionToTargetPos(targetPos.Value);
+    }
+    state = State.Tired;
+  }
+
+  private bool checkIfNextChainMoved(Vector2Int targetPos) {
+    var targetMoveComponent = findTargetMoveComponent(targetPos);
 
     if (!targetMoveComponent) {
-      doMove(targetPos.Value);
-      return;
+      // Никого нет, можно ходить
+      return true;
     }
 
     var targetState = targetMoveComponent.state;
 
-    switch (targetState) {
-      case State.Calm:
-        targetMoveComponent.state = State.Charged;
-        targetMoveComponent.XXX();
-        break;
-      case State.Charged:
-        break;
-      case State.Tired:
-        state = State.Tired;
-        return;
-      default:
-        throw new ArgumentOutOfRangeException();
+    if (targetState == State.Calm) {
+      // Другой чел чилит, заряжаем его
+      targetMoveComponent.startMovingChain();
+
+      if (targetPos != targetMoveComponent.gridComponent.gridPos) {
+        // Другой чел походил, ходим сами его
+        return true;
+      }
+    } else if (targetState == State.Charged) {
+      // Другой чел заряжен = мы наткнулись на цикл, если мы ходим, то и он свалит
+      return true;
     }
+
+    return false;
   }
 
-  void doMove(Vector2Int targetPos) {
+  private void changePositionToTargetPos(Vector2Int targetPos) {
     var sourcePos = gridComponent.gridPos;
     
     StartCoroutine(
@@ -74,20 +89,20 @@ public class MoveComponent : MonoBehaviour {
       )
     );
     
-    state = State.Tired;
     gridComponent.moveTo(targetPos);
   }
 
+  [CanBeNull]
   private MoveComponent findTargetMoveComponent(Vector2Int targetPos) {
     return gridComponent.gridSystem.getGridEntities(targetPos)
       .Select(entity => entity.GetComponent<MoveComponent>())
-      .First(entity => entity);
+      .FirstOrDefault(entity => entity);
   }
   
   private Vector2Int? findPath() {
     var mobCell = gridComponent.gridSystem.getGridEntities(gridComponent.gridPos)
       .Select(entity => entity.GetComponent<PathComponent>())
-      .First(entity => entity);
+      .FirstOrDefault(entity => entity.GetComponent<PathComponent>());
 
     if (mobCell != null) {
       var minimumNeighbor = mobCell.getNeighbors()
