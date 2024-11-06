@@ -102,7 +102,7 @@ public class MoveComponent : MonoBehaviour {
   private Vector2Int? findPath() {
     var mobCell = gridComponent.gridSystem.getGridEntities(gridComponent.gridPos)
       .Select(entity => entity.GetComponent<PathComponent>())
-      .FirstOrDefault(entity => entity.GetComponent<PathComponent>());
+      .FirstOrDefault(entity => entity);
 
     if (mobCell != null) {
       var minimumNeighbor = mobCell.getNeighbors()

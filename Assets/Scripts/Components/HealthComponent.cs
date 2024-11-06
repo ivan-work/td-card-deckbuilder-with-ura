@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HealthComponent : MonoBehaviour {
+public class HealthComponent : MonoBehaviour, IGameComponent {
   [SerializeField] public int initialHp = 5;
   [SerializeField] public int currentHp = 5;
 
@@ -15,3 +15,5 @@ public class HealthComponent : MonoBehaviour {
     }
   }
 }
+
+public interface IGameComponent { }
