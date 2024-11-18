@@ -46,7 +46,7 @@ public class MoveComponent : MonoBehaviour {
     var canMove = checkIfNextChainMoved(targetPos.Value); // Двигает других мобов
     
     if (canMove) {
-      changePositionToTargetPos(targetPos.Value);
+      StartCoroutine(changePositionToTargetPos(targetPos.Value));
     }
     state = State.Tired;
   }
@@ -77,19 +77,17 @@ public class MoveComponent : MonoBehaviour {
     return false;
   }
 
-  private void changePositionToTargetPos(Vector2Int targetPos) {
+  public IEnumerator changePositionToTargetPos(Vector2Int targetPos) {
     var sourcePos = gridComponent.gridPos;
     
-    StartCoroutine(
-      CorouTweens.LerpWithSpeed(
-        gridComponent.gridPos2World(sourcePos),
-        gridComponent.gridPos2World(targetPos),
-        2,
-        (value) => transform.position = value
-      )
-    );
-    
     gridComponent.moveTo(targetPos);
+
+    return CorouTweens.LerpWithSpeed(
+      gridComponent.gridPos2World(sourcePos),
+      gridComponent.gridPos2World(targetPos),
+      2,
+      (value) => transform.position = value
+    );
   }
 
   [CanBeNull]

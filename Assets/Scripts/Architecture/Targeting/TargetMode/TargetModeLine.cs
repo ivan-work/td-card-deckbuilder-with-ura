@@ -21,11 +21,6 @@ public class TargetModeLine : AbstractTargetMode {
       return false;
     }
 
-    card.doCardAction(
-      gridSystem,
-      selectionResult.affectedCells
-    );
-
     return true;
   }
 
@@ -61,7 +56,6 @@ public class TargetModeLine : AbstractTargetMode {
     var distanceToMouse = mouseCell - startCell.Value;
 
     resetIndicators();
-    affectedCells.Add(startCell.Value);
 
     var vectorComponentLong = Math.Abs(distanceToMouse.x) > Math.Abs(distanceToMouse.y) ? 0 : 1;
     var vectorComponentShort = vectorComponentLong == 0 ? 1 : 0;

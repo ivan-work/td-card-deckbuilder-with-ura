@@ -1,12 +1,11 @@
-using System.Linq;
-using Unity.VisualScripting;
+using System.Collections;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Card/BuildTowerCard")]
 public class BuildTowerCard : Card {
   [SerializeField] GameObject towerPrefab;
 
-  public override void doCardAction(GridSystem gridSystem, Vector2Int[] gridPoses) {
+  public override IEnumerator doCardAction(GridSystem gridSystem, Vector2Int[] gridPoses) {
     foreach (var gridPos in gridPoses) {
       var entities = gridSystem.getGridEntities(gridPos);
 
@@ -28,5 +27,7 @@ public class BuildTowerCard : Card {
         tower.GetComponent<BuildTowerComponent>().enabled = true;
       }
     }
+
+    yield break;
   }
 }

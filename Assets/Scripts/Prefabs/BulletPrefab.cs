@@ -2,7 +2,7 @@
 using UnityEngine;
 
 public class BulletPrefab : MonoBehaviour {
-  public int speed = 4;
+  public int speed = 15;
 
   public IEnumerator Shoot(Vector3 targetPosition) {
     transform.up = gameObject.transform.position - targetPosition;

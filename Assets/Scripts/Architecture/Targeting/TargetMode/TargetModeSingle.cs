@@ -22,13 +22,6 @@ public class TargetModeSingle : AbstractTargetMode {
   }
 
   public override bool onClick(GridSystem gridSystem, SelectionResult selectionResult) {
-    card.doCardAction(
-      gridSystem,
-      selectionResult.affectedCells
-    );
-
-    cellIndicator.SetActive(false);
-
     return true;
   }
 }

@@ -44,6 +44,12 @@ public class GridSystem : MonoBehaviour {
     return new List<GridComponent>();
   }
 
+  public IEnumerable<T> getGridEntitiesSpecial<T>(Vector2Int gridPos) where T : MonoBehaviour {
+    return getGridEntities(gridPos)
+      .Select(entity => entity.GetComponent<T>())
+      .Where(entity => entity != null);
+  }
+
   public IEnumerable<GridComponent> getNeighbors4(Vector2Int gridPos) {
     IEnumerable<GridComponent> results = new List<GridComponent>();
 

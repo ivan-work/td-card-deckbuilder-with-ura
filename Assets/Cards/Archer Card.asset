@@ -10,16 +10,10 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82fe34d944dc48c4e91699eddd35aefc, type: 3}
-  m_Name: Archer Card 1
+  m_Name: Archer Card
   m_EditorClassIdentifier: 
   cardName: Archer card
-  targetMode:
-    rid: -2
-  shapeMode: {fileID: 11400000, guid: 0c73d9c2a5d45c9419f5e43a3eb84113, type: 2}
-  targetCondition: []
+  targetMode: 0
+  targetCondition:
+  - {fileID: 11400000, guid: 5320f5cd73735bf4e8be966ee5fd585f, type: 2}
   towerPrefab: {fileID: 3299584715087770911, guid: 965fd730c61ecab438d100039a0164c4, type: 3}
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
