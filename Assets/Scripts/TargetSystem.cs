@@ -27,6 +27,7 @@ public class TargetSystem : MonoBehaviour {
 
   void StopTargeting() {
     currentTargetMode = null;
+    CellIndicatorObjectPool.SharedInstance.reset();
   }
 
   private void Update() {
@@ -40,28 +41,20 @@ public class TargetSystem : MonoBehaviour {
         targetCondition
       );
       
-      // Двигать курсор
-      
-      
       if (!GameManager.Instance.isBusy) {
-        // var mouseCell = GetMouseCell();
-
-      
-        // var selectionResult = currentTargetMode.card.shapeMode.drawIndicator(
-        //   gridSystem: gridSystem,
-        //   mouseIndicator: mouseIndicator, 
-        //   centerGridPos: mouseCell,
-        //   condition: targetCondition
-        // );
-
-        if (Input.GetMouseButton(0)) {
+        if (Input.GetMouseButtonDown(1)) {
+          StopTargeting();
+        }
+        if (Input.GetMouseButtonDown(0)) {
+          // Debug.Log($"CLICK HAPPENED, valid: {selectionResult.isValid}");
           if (selectionResult.isValid) {
-            var result = currentTargetMode.onClick(
+            var shouldEndTargeting = currentTargetMode.onClick(
               gridSystem,
               selectionResult
             );
+            // Debug.Log($"shouldEndTargeting {shouldEndTargeting}");
 
-            if (result) {
+            if (shouldEndTargeting) {
               StopTargeting();
               GameManager.Instance.EndTurn();
             }

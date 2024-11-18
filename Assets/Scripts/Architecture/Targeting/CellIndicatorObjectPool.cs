@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CellIndicatorObjectPool : MonoBehaviour {
@@ -7,11 +8,11 @@ public class CellIndicatorObjectPool : MonoBehaviour {
   public GameObject objectToPool;
   public int amountToPool;
 
-  void Awake() {
+  private void Awake() {
     SharedInstance = this;
   }
 
-  void Start() {
+  private void Start() {
     pooledObjects = new List<GameObject>();
     GameObject tmp;
     for (int i = 0; i < amountToPool; i++) {
@@ -21,8 +22,8 @@ public class CellIndicatorObjectPool : MonoBehaviour {
     }
   }
 
-  public GameObject GetPooledObject() {
-    for (int i = 0; i < amountToPool; i++) {
+  public GameObject getPooledObject() {
+    for (var i = 0; i < amountToPool; i++) {
       if (!pooledObjects[i].activeInHierarchy) {
         pooledObjects[i].SetActive(true);
         return pooledObjects[i];
@@ -30,5 +31,9 @@ public class CellIndicatorObjectPool : MonoBehaviour {
     }
     
     return null;
+  }
+
+  public void reset() {
+    pooledObjects.ForEach(pooledObject => pooledObject.SetActive(false));
   }
 }

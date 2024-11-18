@@ -4,7 +4,7 @@
 public class TargetModeSingle : AbstractTargetMode {
   public TargetModeSingle(Card card) : base(card) { }
 
-  private GameObject cellIndicator = CellIndicatorObjectPool.SharedInstance.GetPooledObject();
+  private GameObject cellIndicator = CellIndicatorObjectPool.SharedInstance.getPooledObject();
 
 
   public override SelectionResult drawIndicator(GridSystem gridSystem, Vector2Int mouseCell,
@@ -32,3 +32,4 @@ public class TargetModeSingle : AbstractTargetMode {
     return true;
   }
 }
+
