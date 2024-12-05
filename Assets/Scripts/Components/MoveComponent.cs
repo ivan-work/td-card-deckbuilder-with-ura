@@ -12,7 +12,7 @@ public class MoveComponent : MonoBehaviour {
     Tired
   }
 
-  private GridComponent gridComponent;
+  public GridComponent gridComponent;
   private State state = State.Calm;
 
   void Awake() {

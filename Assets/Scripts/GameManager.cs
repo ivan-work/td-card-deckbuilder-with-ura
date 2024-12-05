@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 /*
 TODO:
@@ -56,22 +57,16 @@ public class GameManager : MonoBehaviour {
   }
 
   public void EndTurn() {
-    Debug.Log("GameManager.EndTurn()");
-    EventManager.EndTurn.Invoke();
-    if (!isBusy) StartCoroutine(EndTurnCoroutine());
+    EventManager.AmStartTurn.Invoke();
+    EventManager.AmApplyEffects.Invoke();
+    // Debug.Log("GameManager.EndTurn()");
+    // EventManager.EndTurn.Invoke();
+    // if (!isBusy) StartCoroutine(EndTurnCoroutine());
+    // StartNewTurn();
   }
 
-  private IEnumerator EndTurnCoroutine() {
-    isBusy = true;
-    Debug.Log($"Turn({turn}): Fast");
-    yield return StartCoroutine(EventManager.PhaseActionFast.Invoke(this));
-    Debug.Log($"Turn({turn}): Move");
-    yield return StartCoroutine(EventManager.PhaseMove.Invoke(this));
-    Debug.Log($"Turn({turn}): Slow");
-    yield return StartCoroutine(EventManager.PhaseActionSlow.Invoke(this));
-    isBusy = false;
-    turn++;
-    yield return null;
+  public void StartNewTurn() {
+    
   }
 }
 
