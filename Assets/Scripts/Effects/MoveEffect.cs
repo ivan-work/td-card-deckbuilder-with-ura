@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System.Diagnostics;
+using System.Linq;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 struct MoveAnimation {
   public float time;
@@ -7,34 +9,35 @@ struct MoveAnimation {
   public Vector3 targetPosition;
 }
 
+[DebuggerDisplay("ME:([sourcePos]=>[targetPos])")]
 public class MoveEffect : BaseEffect {
-  private MoveComponent component;
-  private Vector2Int direction;
+  private readonly MoveComponent component;
+  private readonly Vector2Int targetPos;
   private MoveAnimation animation;
 
-  public MoveEffect(MoveComponent component, Vector2Int direction) {
+  private Vector2Int sourcePos => component.gridComponent.gridPos;
+
+  public MoveEffect(MoveComponent component, Vector2Int targetPos) {
     this.component = component;
-    this.direction = direction;
+    this.targetPos = targetPos;
   }
 
   public override void start() {
     var gridComponent = component.gridComponent;
 
-    var sourcePos = gridComponent.gridPos;
-    var targetPos = sourcePos + direction;
-
     var hasPath = gridComponent.gridSystem.getGridEntitiesSpecial<PathComponent>(targetPos).Any();
     var hasMob = gridComponent.gridSystem.getGridEntitiesSpecial<MoveComponent>(targetPos).Any();
 
+    Debug.Log($"Starting {this}: {hasPath && !hasMob}");
     if (hasPath && !hasMob) {
-      gridComponent.moveTo(targetPos);
-
       animation = new MoveAnimation {
         time = 0f,
         sourcePosition = gridComponent.gridPos2World(sourcePos),
         targetPosition = gridComponent.gridPos2World(targetPos)
       };
       active = true;
+      
+      gridComponent.moveTo(targetPos);
     }
   }
 
@@ -44,9 +47,13 @@ public class MoveEffect : BaseEffect {
     var percents = animation.time / duration;
     component.gameObject.transform.position =
       Vector3.Lerp(animation.sourcePosition, animation.targetPosition, percents);
-    
+
     if (percents >= 1) {
       active = false;
     }
+  }
+
+  public override string ToString() {
+    return $"MoveEffect({sourcePos}=>{targetPos})";
   }
 }

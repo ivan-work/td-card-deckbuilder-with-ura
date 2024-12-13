@@ -12,6 +12,7 @@ public class GridComponent : MonoBehaviour {
   }
 
   private void Start() {
+    moveTo(gridPos);
     gameObject.transform.position = gridPos2World(gridPos);
   }
 

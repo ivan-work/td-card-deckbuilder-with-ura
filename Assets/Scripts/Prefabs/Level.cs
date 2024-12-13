@@ -86,9 +86,7 @@ public class Level : MonoBehaviour {
 
   void SpawnMob(GameObject spawner) {
     GameObject mob = Instantiate(mobPrefab, transform);
-    mob.GetComponent<GridComponent>().moveTo(
-      spawner.GetComponent<GridComponent>().gridPos
-    );
+    mob.GetComponent<GridComponent>().gridPos = spawner.GetComponent<GridComponent>().gridPos;
   }
 
   IEnumerator OnEndTurn() {

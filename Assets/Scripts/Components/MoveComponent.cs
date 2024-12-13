@@ -1,11 +1,11 @@
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class MoveComponent : MonoBehaviour {
+public class MoveComponent : MonoBehaviour, IHasIntent {
   private enum State {
     Calm,
     Charged,
@@ -17,44 +17,47 @@ public class MoveComponent : MonoBehaviour {
 
   void Awake() {
     gridComponent = this.GetAssertComponent<GridComponent>();
-    EventManager.PhaseMove.AddListener(OnPhaseMove);
     EventManager.EndTurn.AddListener(() => state = State.Calm);
   }
-  
-  private void OnDestroy() {
-    EventManager.PhaseMove.RemoveListener(OnPhaseMove);
+
+  public IEnumerable<BaseEffect> getIntents() {
+    List<BaseEffect> intents = new();
+    startMovingChain(effect => {
+      Debug.Log($"Adding {effect}");
+      intents.Add(effect);
+    });
+    return intents;
   }
 
-  private IEnumerator OnPhaseMove() {
-    startMovingChain();
-    
-    yield break;
-  }
+  private bool startMovingChain(Action<BaseEffect> addEffect) {
+    Debug.Log($"MoveComponent(pos: {gridComponent.gridPos}, state: {state}).startMovingChain()");
+    if (state == State.Tired) return false;
 
-  private void startMovingChain() {
-    if (state == State.Tired) return;
-    
     state = State.Charged;
 
     var targetPos = findPath();
 
     if (!targetPos.HasValue) {
       state = State.Tired;
-      return;
+      return false;
     }
 
-    var canMove = checkIfNextChainMoved(targetPos.Value); // Двигает других мобов
+    var canMove = checkIfNextChainMoved(addEffect, targetPos.Value); // Двигает других мобов
     
-    if (canMove) {
-      StartCoroutine(changePositionToTargetPos(targetPos.Value));
-    }
     state = State.Tired;
+
+    if (canMove) {
+      addEffect(new MoveEffect(this, targetPos.Value));
+    }
+
+    return canMove;
   }
 
-  private bool checkIfNextChainMoved(Vector2Int targetPos) {
+  private bool checkIfNextChainMoved(Action<BaseEffect> addEffect, Vector2Int targetPos) {
     var targetMoveComponent = findTargetMoveComponent(targetPos);
 
     if (!targetMoveComponent) {
+      Debug.Log($".checkIfNextChainMoved: Никого нет, можно ходить => true");
       // Никого нет, можно ходить
       return true;
     }
@@ -62,32 +65,18 @@ public class MoveComponent : MonoBehaviour {
     var targetState = targetMoveComponent.state;
 
     if (targetState == State.Calm) {
+      Debug.Log($".checkIfNextChainMoved: Другой чел чилит, заряжаем его => ???");
       // Другой чел чилит, заряжаем его
-      targetMoveComponent.startMovingChain();
-
-      if (targetPos != targetMoveComponent.gridComponent.gridPos) {
-        // Другой чел походил, ходим сами его
-        return true;
-      }
+      return targetMoveComponent.startMovingChain(addEffect);
     } else if (targetState == State.Charged) {
+      
       // Другой чел заряжен = мы наткнулись на цикл, если мы ходим, то и он свалит
+      Debug.Log($".checkIfNextChainMoved: Другой чел заряжен => true");
       return true;
     }
 
+    Debug.Log($".checkIfNextChainMoved: false");
     return false;
-  }
-
-  public IEnumerator changePositionToTargetPos(Vector2Int targetPos) {
-    var sourcePos = gridComponent.gridPos;
-    
-    gridComponent.moveTo(targetPos);
-
-    return CorouTweens.LerpWithSpeed(
-      gridComponent.gridPos2World(sourcePos),
-      gridComponent.gridPos2World(targetPos),
-      2,
-      (value) => transform.position = value
-    );
   }
 
   [CanBeNull]
@@ -95,8 +84,10 @@ public class MoveComponent : MonoBehaviour {
     return gridComponent.gridSystem.getGridEntities(targetPos)
       .Select(entity => entity.GetComponent<MoveComponent>())
       .FirstOrDefault(entity => entity);
+    
+    // если у этих мув компонентов есть мув эффект, то в целом там никого и нет так-то
   }
-  
+
   private Vector2Int? findPath() {
     var mobCell = gridComponent.gridSystem.getGridEntities(gridComponent.gridPos)
       .Select(entity => entity.GetComponent<PathComponent>())

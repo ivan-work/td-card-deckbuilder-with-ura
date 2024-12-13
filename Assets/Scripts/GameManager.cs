@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour {
   }
 
   public void EndTurn() {
+    EventManager.EndTurn.Invoke();
     EventManager.AmStartTurn.Invoke();
     EventManager.AmApplyEffects.Invoke();
     // Debug.Log("GameManager.EndTurn()");
