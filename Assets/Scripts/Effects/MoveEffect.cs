@@ -17,9 +17,9 @@ public class MoveEffect : BaseEffect {
 
   private Vector2Int sourcePos => component.gridComponent.gridPos;
 
-  public MoveEffect(MoveComponent component, Vector2Int targetPos) {
+  public MoveEffect(MoveComponent component, Vector2Int direction) {
     this.component = component;
-    this.targetPos = targetPos;
+    this.targetPos = sourcePos + direction;
   }
 
   public override void start() {

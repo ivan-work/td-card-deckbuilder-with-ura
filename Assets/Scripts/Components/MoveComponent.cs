@@ -47,7 +47,7 @@ public class MoveComponent : MonoBehaviour, IHasIntent {
     state = State.Tired;
 
     if (canMove) {
-      addEffect(new MoveEffect(this, targetPos.Value));
+      addEffect(new MoveEffect(this, targetPos.Value - gridComponent.gridPos));
     }
 
     return canMove;
