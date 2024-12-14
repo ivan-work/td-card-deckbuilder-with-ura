@@ -1,11 +1,12 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Card/BuildTowerCard")]
 public class BuildTowerCard : Card {
   [SerializeField] GameObject towerPrefab;
 
-  public override IEnumerator doCardAction(GridSystem gridSystem, Vector2Int[] gridPoses) {
+  public override IEnumerable<BaseEffect> doCardAction(GridSystem gridSystem, Vector2Int[] gridPoses) {
     foreach (var gridPos in gridPoses) {
       var entities = gridSystem.getGridEntities(gridPos);
 
@@ -28,6 +29,6 @@ public class BuildTowerCard : Card {
       }
     }
 
-    yield break;
+    return new List<BaseEffect>();
   }
 }

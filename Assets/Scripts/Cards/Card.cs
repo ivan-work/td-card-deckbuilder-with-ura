@@ -1,6 +1,5 @@
 using System;
-using System.Collections;
-using TMPro;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Card : ScriptableObject {
@@ -8,7 +7,7 @@ public class Card : ScriptableObject {
   [SerializeField] public TargetModesHelper.TargetMode targetMode;
   [SerializeField] public AbstractTargetCondition[] targetCondition;
 
-  public virtual IEnumerator doCardAction(GridSystem gridSystem, Vector2Int[] affectedCells) {
+  public virtual IEnumerable<BaseEffect> doCardAction(GridSystem gridSystem, Vector2Int[] affectedCells) {
     throw new NotImplementedException();
   }
 }

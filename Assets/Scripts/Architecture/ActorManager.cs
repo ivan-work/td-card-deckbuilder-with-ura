@@ -1,20 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class ActorManager : MonoBehaviour {
-  private readonly LinkedList<BaseEffect> queuedEffects = new();
+  public LinkedList<BaseEffect> queuedEffects = new();
   private readonly LinkedList<BaseEffect> activeEffects = new();
+  private bool isActive;
 
   private void Awake() {
-    EventManager.AmStartTurn.AddListener(OnStartTurn);
-    EventManager.AmApplyEffects.AddListener(OnApplyEffects);
+    Debug.Log("ActorManager.Awake()");
+    EventManager.PhaseGetIntents.AddListener(OnGetIntents);
+    EventManager.PhaseApplyEffects.AddListener(OnApplyEffects);
   }
 
-  private void OnStartTurn() {
+  private void OnGetIntents() {
+    Debug.Log("ActorManager.OnGetIntents()");
     EventManager.AmStartRequestIntent.Invoke(this);
   }
 
@@ -24,7 +26,9 @@ public class ActorManager : MonoBehaviour {
   }
 
   private void OnApplyEffects() {
-    Debug.Log(queuedEffects.Aggregate(new StringBuilder("On Apply Effects: "), (sb, val) => sb.Append(val).Append(", "), sb => sb.ToString()));
+    isActive = true;
+    Debug.Log(queuedEffects.Aggregate(new StringBuilder("On Apply Effects: "), (sb, val) => sb.Append(val).Append(", "),
+      sb => sb.ToString()));
     while (queuedEffects.First != null) {
       var currentEffect = queuedEffects.First();
 
@@ -37,11 +41,18 @@ public class ActorManager : MonoBehaviour {
   }
 
   private void Update() {
-    foreach (var activeEffect in activeEffects.ToList()) {
-      if (!activeEffect.active) {
-        activeEffects.Remove(activeEffect);
-      } else {
-        activeEffect.update();
+    if (isActive) {
+      foreach (var activeEffect in activeEffects.ToList()) {
+        if (!activeEffect.active) {
+          activeEffects.Remove(activeEffect);
+        } else {
+          activeEffect.update();
+        }
+      }
+
+      if (!activeEffects.Any()) {
+        isActive = false;
+        EventManager.PhaseGetIntents.Invoke();
       }
     }
   }

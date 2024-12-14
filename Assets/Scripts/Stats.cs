@@ -8,6 +8,6 @@ public class Stats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      EventManager.EndTurn.AddListener(() => GetComponent<TextMeshPro>().text = $"Turn {GameManager.Instance.turn}");  
+      EventManager.PhasePlayerIntent.AddListener(() => GetComponent<TextMeshPro>().text = $"Turn {GameManager.Instance.turn}");  
     }
 }

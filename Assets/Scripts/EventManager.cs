@@ -14,7 +14,9 @@ public static class EventManager {
   public static readonly CoroutineList PhaseMove = new ();
   public static readonly CoroutineList PhaseActionSlow = new ();
 
-  public static readonly UnityEvent AmStartTurn = new();
+  public static readonly UnityEvent PhaseGetIntents = new();
+  public static readonly UnityEvent PhasePlayerIntent = new();
+  public static readonly UnityEvent PhaseApplyEffects = new();
+  
   public static readonly UnityEvent<ActorManager> AmStartRequestIntent = new();
-  public static readonly UnityEvent AmApplyEffects = new();
 }

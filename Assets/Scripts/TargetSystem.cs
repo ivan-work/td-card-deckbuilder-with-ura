@@ -1,20 +1,27 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 public class TargetSystem : MonoBehaviour {
   [SerializeField] private GridSystem gridSystem;
 
   AbstractTargetMode currentTargetMode;
+  [SerializeField] ActorManager actorManager;
 
   private void Awake() {
+    Debug.Log("TargetSystem.Awake()");
     EventManager.CardClicked.AddListener(OnCardClicked);
+    EventManager.AmStartRequestIntent.AddListener(OnAmStartRequestIntent);
   }
 
-  void Start() {
-    StopTargeting();
+  private void OnAmStartRequestIntent(ActorManager _actorManager) {
+    Debug.Log($"TargetSystem.OnAmStartRequestIntent({_actorManager})");
+    actorManager = _actorManager;
+    Debug.Log($"TargetSystem.OnAmStartRequestIntent({actorManager != null})");
   }
 
   public void OnCardClicked(Card card) {
@@ -22,10 +29,14 @@ public class TargetSystem : MonoBehaviour {
   }
 
   void StartTargeting(Card card) {
-    currentTargetMode = TargetModesHelper.createTargetMode(card);
+    Debug.Log($"TargetSystem.StartTargeting({actorManager}, {actorManager != null})");
+    if (actorManager) {
+      currentTargetMode = TargetModesHelper.createTargetMode(card);
+    }
   }
 
   void StopTargeting() {
+    actorManager = null;
     currentTargetMode = null;
     CellIndicatorObjectPool.SharedInstance.reset();
   }
@@ -40,7 +51,7 @@ public class TargetSystem : MonoBehaviour {
         targetCondition
       );
 
-      if (!GameManager.Instance.isBusy) {
+      if (GameManager.Instance.watchPlayersActions) {
         if (Input.GetMouseButtonDown(1)) {
           StopTargeting();
         }
@@ -55,14 +66,18 @@ public class TargetSystem : MonoBehaviour {
             // Debug.Log($"shouldEndTargeting {shouldEndTargeting}");
 
             if (shouldEndTargeting) {
-              StartCoroutine(currentTargetMode.card.doCardAction(
-                gridSystem,
-                selectionResult.affectedCells
-              ));
+              actorManager.queuedEffects = new LinkedList<BaseEffect>(
+                currentTargetMode.card.doCardAction(
+                    gridSystem,
+                    selectionResult.affectedCells
+                  )
+                  .Concat(actorManager.queuedEffects)
+              );
+
 
               StopTargeting();
-              
-              GameManager.Instance.EndTurn();
+
+              EventManager.PhasePlayerIntent.Invoke();
             }
           } else {
             StopTargeting();

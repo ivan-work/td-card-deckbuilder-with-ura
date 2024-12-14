@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
@@ -23,6 +24,7 @@ public class MoveEffect : BaseEffect {
   }
 
   public override void start() {
+    if (component.gameObject.IsDestroyed()) return; // TODO better death
     var gridComponent = component.gridComponent;
 
     var hasPath = gridComponent.gridSystem.getGridEntitiesSpecial<PathComponent>(targetPos).Any();
@@ -42,6 +44,12 @@ public class MoveEffect : BaseEffect {
   }
 
   protected override void animate() {
+    if (component.IsDestroyed()) {
+      // TODO better death
+      active = false;
+      return;
+    }
+    
     var duration = 1f;
     animation.time += Time.deltaTime;
     var percents = animation.time / duration;

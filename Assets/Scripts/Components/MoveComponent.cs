@@ -17,7 +17,7 @@ public class MoveComponent : MonoBehaviour, IHasIntent {
 
   void Awake() {
     gridComponent = this.GetAssertComponent<GridComponent>();
-    EventManager.EndTurn.AddListener(() => state = State.Calm);
+    EventManager.PhasePlayerIntent.AddListener(() => state = State.Calm);
   }
 
   public IEnumerable<BaseEffect> getIntents() {

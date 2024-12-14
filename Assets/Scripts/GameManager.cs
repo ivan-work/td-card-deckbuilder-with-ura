@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour {
   public List<Card> hand = new();
   public List<Card> discard = new(); // #TODO
   public int turn = 0;
-  public bool isBusy;
+  public bool watchPlayersActions;
   const int HandSize = 4;
 
   private void Awake() {
@@ -29,10 +29,14 @@ public class GameManager : MonoBehaviour {
 
     EventManager.CardDraw.AddListener(OnCardDraw);
     EventManager.CardDiscard.AddListener(OnCardDiscard);
+    EventManager.PhaseGetIntents.AddListener(OnPhaseGetIntents);
+    EventManager.PhasePlayerIntent.AddListener(OnPhasePlayerIntent);
+    EventManager.PhaseApplyEffects.AddListener(OnPhaseApplyEffects);
   }
 
   private void Start() {
     DrawHand();
+    EventManager.PhaseGetIntents.Invoke();
   }
 
   public void DrawHand() {
@@ -56,18 +60,16 @@ public class GameManager : MonoBehaviour {
     deck.Add(card);
   }
 
-  public void EndTurn() {
-    EventManager.EndTurn.Invoke();
-    EventManager.AmStartTurn.Invoke();
-    EventManager.AmApplyEffects.Invoke();
-    // Debug.Log("GameManager.EndTurn()");
-    // EventManager.EndTurn.Invoke();
-    // if (!isBusy) StartCoroutine(EndTurnCoroutine());
-    // StartNewTurn();
+  private void OnPhaseGetIntents() {
+    watchPlayersActions = true;
   }
 
-  public void StartNewTurn() {
-    
+  private void OnPhasePlayerIntent() {
+    watchPlayersActions = false;
+    EventManager.PhaseApplyEffects.Invoke();
+  }
+
+  private void OnPhaseApplyEffects() {
   }
 }
 

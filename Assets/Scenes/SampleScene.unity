@@ -568,7 +568,7 @@ Transform:
   m_GameObject: {fileID: 513715634}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.99, y: 0.02, z: 0}
+  m_LocalPosition: {x: 6.99, y: 0.02, z: 1}
   m_LocalScale: {x: 16.6643, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1330,7 +1330,7 @@ MonoBehaviour:
   hand: []
   discard: []
   turn: 0
-  isBusy: 0
+  watchPlayersActions: 0
 --- !u!4 &948432313
 Transform:
   m_ObjectHideFlags: 0
@@ -1565,6 +1565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridSystem: {fileID: 693277887}
+  actorManager: {fileID: 0}
 --- !u!4 &1295087023
 Transform:
   m_ObjectHideFlags: 0

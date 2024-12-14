@@ -13,6 +13,6 @@ public class Deck : MonoBehaviour, IPointerClickHandler {
   
   public void OnPointerClick(PointerEventData eventData) {
     GameManager.Instance.DrawHand();
-    GameManager.Instance.EndTurn();
+    EventManager.PhasePlayerIntent.Invoke();
   }
 }

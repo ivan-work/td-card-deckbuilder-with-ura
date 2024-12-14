@@ -7,6 +7,6 @@ using UnityEngine.UI;
 
 public class EndTurnButton : MonoBehaviour, IPointerClickHandler {
   public void OnPointerClick(PointerEventData eventData) {
-    GameManager.Instance.EndTurn();
+    EventManager.PhasePlayerIntent.Invoke();
   }
 }
