@@ -12,7 +12,7 @@ public class DamageEffect : BaseEffect {
     this.damage = damage;
   }
 
-  public override void start() {
+  public override void start(ActorManager am) {
     gridSystem.getGridEntitiesSpecial<HealthComponent>(gridPos)
       .ToList()
       .ForEach((entityHealth) => {

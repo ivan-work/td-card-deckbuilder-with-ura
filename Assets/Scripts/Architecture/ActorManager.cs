@@ -7,7 +7,7 @@ using UnityEngine;
 public class ActorManager : MonoBehaviour {
   public LinkedList<BaseEffect> queuedEffects = new();
   private readonly LinkedList<BaseEffect> activeEffects = new();
-  private bool isActive;
+  private bool isAppyingEffects;
 
   private void Awake() {
     Debug.Log("ActorManager.Awake()");
@@ -20,38 +20,43 @@ public class ActorManager : MonoBehaviour {
     EventManager.AmStartRequestIntent.Invoke(this);
   }
 
-  public void addEffects(IEnumerable<BaseEffect> effects) {
+  public void addEffects(params BaseEffect[] effects) {
     queuedEffects.AddRange(effects);
     // Debug.Log(queuedEffects.Aggregate(new StringBuilder("Current chain of effects: "), (sb, val) => sb.Append(val).Append(", "), sb => sb.ToString()));
   }
 
+  public void addImmediateEffects(params BaseEffect[] effects) {
+    // хз как добавить массив вначале линкед листа
+    queuedEffects = new LinkedList<BaseEffect>(effects.Concat(queuedEffects));
+  }
+
   private void OnApplyEffects() {
-    isActive = true;
+    isAppyingEffects = true;
     Debug.Log(queuedEffects.Aggregate(new StringBuilder("On Apply Effects: "), (sb, val) => sb.Append(val).Append(", "),
       sb => sb.ToString()));
-    while (queuedEffects.First != null) {
-      var currentEffect = queuedEffects.First();
-
-      queuedEffects.RemoveFirst();
-
-      activeEffects.AddLast(currentEffect);
-
-      currentEffect.start();
-    }
   }
 
   private void Update() {
-    if (isActive) {
+    if (isAppyingEffects) {
+      if (queuedEffects.Any()) {
+        var currentEffect = queuedEffects.First();
+        if (!(currentEffect.waitForOthers && activeEffects.Any())) {
+          queuedEffects.RemoveFirst();
+          activeEffects.AddLast(currentEffect);
+          currentEffect.start(this);
+        }
+      }
+
       foreach (var activeEffect in activeEffects.ToList()) {
-        if (!activeEffect.active) {
+        if (!activeEffect.isActive) {
           activeEffects.Remove(activeEffect);
         } else {
           activeEffect.update();
         }
       }
 
-      if (!activeEffects.Any()) {
-        isActive = false;
+      if (!queuedEffects.Any() && !activeEffects.Any()) {
+        isAppyingEffects = false;
         EventManager.PhaseGetIntents.Invoke();
       }
     }

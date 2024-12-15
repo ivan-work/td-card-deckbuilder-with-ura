@@ -1,12 +1,13 @@
 ﻿public abstract class BaseEffect {
-  public bool active = false;
+  public bool isActive = false;
+  public bool waitForOthers = true;
 
-  public abstract void start();
+  public abstract void start(ActorManager am);
 
   protected virtual void animate() { }
 
   public void update() {
-    if (active) {
+    if (isActive) {
       animate();
     }
   }

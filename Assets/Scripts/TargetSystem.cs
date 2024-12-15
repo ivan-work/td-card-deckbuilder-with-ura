@@ -36,7 +36,6 @@ public class TargetSystem : MonoBehaviour {
   }
 
   void StopTargeting() {
-    actorManager = null;
     currentTargetMode = null;
     CellIndicatorObjectPool.SharedInstance.reset();
   }
@@ -66,14 +65,12 @@ public class TargetSystem : MonoBehaviour {
             // Debug.Log($"shouldEndTargeting {shouldEndTargeting}");
 
             if (shouldEndTargeting) {
-              actorManager.queuedEffects = new LinkedList<BaseEffect>(
+              actorManager.addImmediateEffects(
                 currentTargetMode.card.doCardAction(
-                    gridSystem,
-                    selectionResult.affectedCells
-                  )
-                  .Concat(actorManager.queuedEffects)
+                  gridSystem,
+                  selectionResult.affectedCells
+                ).ToArray()
               );
-
 
               StopTargeting();
 

@@ -10,6 +10,6 @@ public class ActorComponent : MonoBehaviour {
   private void OnStartRequestIntent(ActorManager actorManager) {
     var intents = GetComponents<IHasIntent>()
       .SelectMany(intentMaker => intentMaker.getIntents());
-    actorManager.addEffects(intents);
+    actorManager.addEffects(intents.ToArray());
   }
 }

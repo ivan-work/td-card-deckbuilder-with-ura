@@ -4,27 +4,30 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
-struct MoveAnimation {
+public struct MoveAnimation {
   public float time;
   public Vector3 sourcePosition;
   public Vector3 targetPosition;
+  public float duration;
 }
 
 [DebuggerDisplay("ME:([sourcePos]=>[targetPos])")]
 public class MoveEffect : BaseEffect {
   private readonly MoveComponent component;
-  private readonly Vector2Int targetPos;
+  private readonly Vector2Int direction;
   private MoveAnimation animation;
 
   private Vector2Int sourcePos => component.gridComponent.gridPos;
+  private Vector2Int targetPos => sourcePos + direction;
 
   public MoveEffect(MoveComponent component, Vector2Int direction) {
     this.component = component;
-    this.targetPos = sourcePos + direction;
+    this.direction = direction;
   }
 
-  public override void start() {
+  public override void start(ActorManager am) {
     if (component.gameObject.IsDestroyed()) return; // TODO better death
+    
     var gridComponent = component.gridComponent;
 
     var hasPath = gridComponent.gridSystem.getGridEntitiesSpecial<PathComponent>(targetPos).Any();
@@ -34,10 +37,11 @@ public class MoveEffect : BaseEffect {
     if (hasPath && !hasMob) {
       animation = new MoveAnimation {
         time = 0f,
+        duration = 0.3f,
         sourcePosition = gridComponent.gridPos2World(sourcePos),
         targetPosition = gridComponent.gridPos2World(targetPos)
       };
-      active = true;
+      isActive = true;
       
       gridComponent.moveTo(targetPos);
     }
@@ -46,22 +50,21 @@ public class MoveEffect : BaseEffect {
   protected override void animate() {
     if (component.IsDestroyed()) {
       // TODO better death
-      active = false;
+      isActive = false;
       return;
     }
-    
-    var duration = 1f;
+
     animation.time += Time.deltaTime;
-    var percents = animation.time / duration;
+    var percents = animation.time / animation.duration;
     component.gameObject.transform.position =
       Vector3.Lerp(animation.sourcePosition, animation.targetPosition, percents);
 
     if (percents >= 1) {
-      active = false;
+      isActive = false;
     }
   }
 
   public override string ToString() {
-    return $"MoveEffect({sourcePos}=>{targetPos})";
+    return $"MoveEffect({sourcePos}+{direction})";
   }
 }
