@@ -8,7 +8,7 @@ public class PushEffect : BaseEffect {
   private readonly MoveComponent component;
   private readonly Vector2Int direction;
   private readonly int force;
-  private MoveAnimation animation;
+  private BaseAnimation animation;
 
   private Vector2Int sourcePos => component.gridComponent.gridPos;
   private Vector2Int targetPos => sourcePos + direction;
@@ -27,8 +27,6 @@ public class PushEffect : BaseEffect {
     var hasMobs = gridComponent.gridSystem.getGridEntitiesSpecial<MoveComponent>(targetPos).Any();
     if (hasPath && !hasMobs) {
       animation = new MoveAnimation {
-        time = 0f,
-        duration = 0.3f,
         sourcePosition = gridComponent.gridPos2World(sourcePos),
         targetPosition = gridComponent.gridPos2World(targetPos)
       };
@@ -41,6 +39,11 @@ public class PushEffect : BaseEffect {
       am.addImmediateEffects(
         new DamageEffect(gridComponent.gridSystem, sourcePos, force),
         new DamageEffect(gridComponent.gridSystem, targetPos, force));
+        animation = new MoveAttemptAnimation {
+          sourcePosition = gridComponent.gridPos2World(sourcePos),
+          targetPosition = gridComponent.gridPos2World(targetPos)
+        };
+        isActive = true;
     }
   }
 
@@ -51,13 +54,6 @@ public class PushEffect : BaseEffect {
       return;
     }
 
-    animation.time += Time.deltaTime;
-    var percents = animation.time / animation.duration;
-    component.gameObject.transform.position =
-      Vector3.Lerp(animation.sourcePosition, animation.targetPosition, percents);
-
-    if (percents >= 1) {
-      isActive = false;
-    }
+    isActive = animation.animate(component);
   }
 }

@@ -29,9 +29,9 @@ public class MoveComponent : MonoBehaviour, IHasIntent {
     return intents;
   }
 
-  private bool startMovingChain(Action<BaseEffect> addEffect) {
+  private void startMovingChain(Action<BaseEffect> addEffect) {
     Debug.Log($"MoveComponent(pos: {gridComponent.gridPos}, state: {state}).startMovingChain()");
-    if (state == State.Tired) return false;
+    if (state == State.Tired) return;
 
     state = State.Charged;
 
@@ -39,44 +39,23 @@ public class MoveComponent : MonoBehaviour, IHasIntent {
 
     if (!targetPos.HasValue) {
       state = State.Tired;
-      return false;
+      return;
     }
 
-    var canMove = checkIfNextChainMoved(addEffect, targetPos.Value); // Двигает других мобов
+    TryChargeNextTarget(addEffect, targetPos.Value); // Двигает других мобов
     
     state = State.Tired;
 
-    if (canMove) {
-      addEffect(new MoveEffect(this, targetPos.Value - gridComponent.gridPos));
-    }
-
-    return canMove;
+    addEffect(new MoveEffect(this, targetPos.Value - gridComponent.gridPos));
   }
 
-  private bool checkIfNextChainMoved(Action<BaseEffect> addEffect, Vector2Int targetPos) {
+  private void TryChargeNextTarget(Action<BaseEffect> addEffect, Vector2Int targetPos) {
     var targetMoveComponent = findTargetMoveComponent(targetPos);
-
-    if (!targetMoveComponent) {
-      Debug.Log($".checkIfNextChainMoved: Никого нет, можно ходить => true");
-      // Никого нет, можно ходить
-      return true;
-    }
-
-    var targetState = targetMoveComponent.state;
-
-    if (targetState == State.Calm) {
+    if (targetMoveComponent?.state == State.Calm) {
       Debug.Log($".checkIfNextChainMoved: Другой чел чилит, заряжаем его => ???");
       // Другой чел чилит, заряжаем его
-      return targetMoveComponent.startMovingChain(addEffect);
-    } else if (targetState == State.Charged) {
-      
-      // Другой чел заряжен = мы наткнулись на цикл, если мы ходим, то и он свалит
-      Debug.Log($".checkIfNextChainMoved: Другой чел заряжен => true");
-      return true;
-    }
-
-    Debug.Log($".checkIfNextChainMoved: false");
-    return false;
+      targetMoveComponent.startMovingChain(addEffect);
+    } 
   }
 
   [CanBeNull]
