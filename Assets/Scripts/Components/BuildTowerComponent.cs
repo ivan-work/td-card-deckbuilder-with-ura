@@ -23,7 +23,7 @@ public class BuildTowerComponent : MonoBehaviour {
 
   public void makeProgress() {
     currentTurn += 1;
-    if (currentTurn >= 3) {
+    if (currentTurn >= maxTurns) {
       enabled = false;
       buildingLabel.enabled = false;
       GetComponent<TowerComponent>().enabled = true;

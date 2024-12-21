@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Effects;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,8 +9,11 @@ public class ActorComponent : MonoBehaviour {
   }
 
   private void OnStartRequestIntent(ActorManager actorManager) {
-    var intents = GetComponents<IHasIntent>()
-      .SelectMany(intentMaker => intentMaker.getIntents());
-    actorManager.addEffects(intents.ToArray());
+    GetComponents<IHasIntent>()
+      .Where(component => component.isActiveAndEnabled)
+      .ToList()
+      .ForEach(component => {
+        component.getIntents(actorManager);
+      });
   }
 }

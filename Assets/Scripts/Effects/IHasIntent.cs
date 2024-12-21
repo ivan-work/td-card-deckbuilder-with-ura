@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-
-public interface IHasIntent {
-  IEnumerable<BaseEffect> getIntents();
+﻿namespace Effects {
+  public interface IHasIntent {
+    bool isActiveAndEnabled { get; }
+    void getIntents(ActorManager actorManager);
+  }
 }

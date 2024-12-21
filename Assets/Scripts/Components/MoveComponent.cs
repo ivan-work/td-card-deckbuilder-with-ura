@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Effects;
 using JetBrains.Annotations;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -12,21 +13,20 @@ public class MoveComponent : MonoBehaviour, IHasIntent {
     Tired
   }
 
-  public GridComponent gridComponent;
   private State state = State.Calm;
+  
+  public GridComponent gridComponent;
 
-  void Awake() {
+  private void Awake() {
     gridComponent = this.GetAssertComponent<GridComponent>();
     EventManager.PhasePlayerIntent.AddListener(() => state = State.Calm);
   }
 
-  public IEnumerable<BaseEffect> getIntents() {
-    List<BaseEffect> intents = new();
+  public void getIntents(ActorManager actorManager) {
     startMovingChain(effect => {
       Debug.Log($"Adding {effect}");
-      intents.Add(effect);
+      actorManager.addEffects(effect);
     });
-    return intents;
   }
 
   private void startMovingChain(Action<BaseEffect> addEffect) {

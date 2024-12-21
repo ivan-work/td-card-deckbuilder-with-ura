@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Effects;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Card/DealDamageCard")]

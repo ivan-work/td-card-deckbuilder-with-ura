@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Linq;
+using Effects;
 using Unity.VisualScripting;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
@@ -21,7 +22,7 @@ public class PushEffect : BaseEffect {
 
   public override void start(ActorManager am) {
     if (component.gameObject.IsDestroyed()) return; // TODO better death
-    
+
     var gridComponent = component.gridComponent;
     var hasPath = gridComponent.gridSystem.getGridEntitiesSpecial<PathComponent>(targetPos).Any();
     var hasMobs = gridComponent.gridSystem.getGridEntitiesSpecial<MoveComponent>(targetPos).Any();
@@ -38,12 +39,13 @@ public class PushEffect : BaseEffect {
     } else {
       am.addImmediateEffects(
         new DamageEffect(gridComponent.gridSystem, sourcePos, force),
-        new DamageEffect(gridComponent.gridSystem, targetPos, force));
-        animation = new MoveAttemptAnimation {
-          sourcePosition = gridComponent.gridPos2World(sourcePos),
-          targetPosition = gridComponent.gridPos2World(targetPos)
-        };
-        isActive = true;
+        new DamageEffect(gridComponent.gridSystem, targetPos, force)
+      );
+      animation = new MoveAttemptAnimation {
+        sourcePosition = gridComponent.gridPos2World(sourcePos),
+        targetPosition = gridComponent.gridPos2World(targetPos)
+      };
+      isActive = true;
     }
   }
 
