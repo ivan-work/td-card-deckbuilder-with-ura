@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour {
   public int turn = 0;
   public bool watchPlayersActions;
   const int HandSize = 4;
+  [SerializeField] private GameObject sprite;
 
   private void Awake() {
     if (Instance != null && Instance != this) {

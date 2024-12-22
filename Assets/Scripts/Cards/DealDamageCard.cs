@@ -8,6 +8,6 @@ public class DealDamageCard : Card {
   [SerializeField] public int damage;
 
   public override IEnumerable<BaseEffect> doCardAction(GridSystem gridSystem, Vector2Int[] gridPoses) {
-    return gridPoses.Select(gridPos => new DamageEffect(gridSystem, gridPos, damage));
+    return gridPoses.Select(gridPos => new DamageEffect(gridPos, DamageType.Slash, damage));
   }
 }

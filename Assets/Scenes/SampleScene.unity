@@ -1271,6 +1271,7 @@ MonoBehaviour:
   discard: []
   turn: 0
   watchPlayersActions: 0
+  sprite: {fileID: -2253911629886400664, guid: 16cb90d3dc475fd41b0422c2ff90c453, type: 3}
 --- !u!4 &948432313
 Transform:
   m_ObjectHideFlags: 0
@@ -1859,7 +1860,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1648595187}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 10, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

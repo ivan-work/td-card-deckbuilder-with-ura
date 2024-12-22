@@ -1,14 +1,18 @@
-﻿public abstract class BaseEffect {
-  public bool isActive = false;
-  public bool waitForOthers = true;
+﻿using Architecture;
 
-  public abstract void start(ActorManager am);
+namespace Effects {
+  public abstract class BaseEffect {
+    public bool isActive = false;
+    public bool waitForOthers = true;
 
-  protected virtual void animate() { }
+    public abstract void start(ActorManager am, GridSystem gridSystem);
 
-  public void update() {
-    if (isActive) {
-      animate();
+    protected virtual void animate() { }
+
+    public void update() {
+      if (isActive) {
+        animate();
+      }
     }
   }
 }

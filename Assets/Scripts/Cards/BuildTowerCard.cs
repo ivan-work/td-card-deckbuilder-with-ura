@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Components;
+using Effects;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Card/BuildTowerCard")]

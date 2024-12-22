@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Components;
 using UnityEngine;
 
 
@@ -60,5 +61,17 @@ public class GridSystem : MonoBehaviour {
     }
 
     return results;
+  }
+  
+  public Vector3 gridPos2World(Vector2Int vector) {
+    var worldPosition = grid.GetCellCenterWorld(new Vector3Int(vector.x, vector.y));
+    worldPosition.z = gameObject.transform.position.z;
+    return worldPosition;
+  }
+  
+  public Vector3 gridPos2World(Vector2Int vector, float? z) {
+    var worldPosition = grid.GetCellCenterWorld(new Vector3Int(vector.x, vector.y));
+    worldPosition.z = z ?? gameObject.transform.position.z;
+    return worldPosition;
   }
 }

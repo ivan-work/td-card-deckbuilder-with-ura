@@ -1,3 +1,5 @@
-﻿public abstract class BaseAnimation {
-	public abstract bool animate(MoveComponent component);
+﻿namespace Effects.EffectAnimations {
+  public abstract class BaseAnimation {
+    public abstract bool animate();
+  }
 }

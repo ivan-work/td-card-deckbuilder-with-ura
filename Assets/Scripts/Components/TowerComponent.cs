@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Architecture;
+using Components;
 using Effects;
 using UnityEngine;
 
@@ -22,7 +24,7 @@ public class TowerComponent : MonoBehaviour, IHasIntent {
     if (targetPos.HasValue) {
       actorManager.addImmediateEffects(
         new ShootEffect(this, targetPos.Value),
-        new DamageEffect(this.gridComponent.gridSystem, targetPos.Value, damage)
+        new DamageEffect(targetPos.Value, DamageType.Pierce, damage)
       );
     }
   }

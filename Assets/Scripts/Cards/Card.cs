@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Effects;
 using UnityEngine;
 
 public class Card : ScriptableObject {

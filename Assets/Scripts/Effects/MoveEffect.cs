@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Linq;
+using Architecture;
+using Effects.EffectAnimations;
 using Unity.VisualScripting;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
@@ -7,55 +9,41 @@ using Debug = UnityEngine.Debug;
 
 namespace Effects {
   [DebuggerDisplay("ME:([sourcePos]=>[targetPos])")]
-  public class MoveEffect : BaseEffect {
-    private readonly MoveComponent component;
+  public class MoveEffect : SimpleComponentEffect {
+    private readonly MoveComponent moveComponent;
     private readonly Vector2Int direction;
-    private BaseAnimation animation;
 
-
-    private Vector2Int sourcePos => component.gridComponent.gridPos;
+    private Vector2Int sourcePos => moveComponent.gridComponent.gridPos;
     private Vector2Int targetPos => sourcePos + direction;
 
-    public MoveEffect(MoveComponent component, Vector2Int direction) {
-      this.component = component;
+    public MoveEffect(MoveComponent moveComponent, Vector2Int direction) : base(moveComponent) {
+      this.moveComponent = moveComponent;
       this.direction = direction;
     }
 
-    public override void start(ActorManager am) {
-      if (component.gameObject.IsDestroyed()) return; // TODO better death
+    public override void start(ActorManager am, GridSystem gridSystem) {
+      if (moveComponent.gameObject.IsDestroyed()) return; // TODO better death
 
-      var gridComponent = component.gridComponent;
-
-      var hasPath = gridComponent.gridSystem.getGridEntitiesSpecial<PathComponent>(targetPos).Any();
-      var hasMob = gridComponent.gridSystem.getGridEntitiesSpecial<MoveComponent>(targetPos).Any();
+      bool hasPath = gridSystem.getGridEntitiesSpecial<PathComponent>(targetPos).Any();
+      bool hasMob = gridSystem.getGridEntitiesSpecial<MoveComponent>(targetPos).Any();
 
       Debug.Log($"Starting {this}: {hasPath && !hasMob}");
 
 
       if (hasPath && !hasMob) {
         animation = new MoveAnimation {
-          sourcePosition = gridComponent.gridPos2World(sourcePos),
-          targetPosition = gridComponent.gridPos2World(targetPos)
+          component = moveComponent,
+          sourcePosition = gridSystem.gridPos2World(sourcePos),
+          targetPosition = gridSystem.gridPos2World(targetPos)
         };
-        gridComponent.moveTo(targetPos);
+        moveComponent.gridComponent.moveTo(targetPos);
       } else {
-        animation = new MoveAttemptAnimation() {
-          sourcePosition = gridComponent.gridPos2World(sourcePos),
-          targetPosition = gridComponent.gridPos2World(targetPos)
+        animation = new MoveAttemptAnimation {
+          component = moveComponent,
+          sourcePosition = gridSystem.gridPos2World(sourcePos),
+          targetPosition = gridSystem.gridPos2World(targetPos)
         };
       }
-
-      isActive = true;
-    }
-
-    protected override void animate() {
-      if (component.IsDestroyed()) {
-        // TODO better death
-        isActive = false;
-        return;
-      }
-
-      isActive = animation.animate(component);
     }
 
     public override string ToString() {

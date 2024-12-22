@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Architecture;
 using UnityEngine;
 
 namespace Effects {
@@ -13,7 +14,7 @@ namespace Effects {
       this.targetPos = targetPos;
     }
 
-    public override void start(ActorManager am) {
+    public override void start(ActorManager am, GridSystem gridSystem) {
       isActive = true;
       am.StartCoroutine(playAnimation(am));
     }
