@@ -25,10 +25,11 @@ namespace Effects {
       bool hasPath = gridSystem.getGridEntitiesSpecial<PathComponent>(targetPos).Any();
       bool hasMobs = gridSystem.getGridEntitiesSpecial<MoveComponent>(targetPos).Any();
       if (hasPath && !hasMobs) {
-        animation = new MoveAnimation {
-          sourcePosition = gridSystem.gridPos2World(sourcePos),
-          targetPosition = gridSystem.gridPos2World(targetPos)
-        };
+        animation = new MoveAnimation(
+          moveComponent,
+          gridSystem.gridPos2World(sourcePos),
+          gridSystem.gridPos2World(targetPos)
+        );
         moveComponent.gridComponent.moveTo(targetPos);
         if (force > 1) {
           am.addImmediateEffects(new PushEffect(moveComponent, direction, force - 1));
@@ -38,10 +39,11 @@ namespace Effects {
           new DamageEffect(sourcePos, DamageType.Blunt, force),
           new DamageEffect(targetPos, DamageType.Blunt, force)
         );
-        animation = new MoveAttemptAnimation {
-          sourcePosition = gridSystem.gridPos2World(sourcePos),
-          targetPosition = gridSystem.gridPos2World(targetPos)
-        };
+        animation = new MoveAttemptAnimation(
+          moveComponent,
+          gridSystem.gridPos2World(sourcePos),
+          gridSystem.gridPos2World(targetPos)
+        );
       }
     }
   }

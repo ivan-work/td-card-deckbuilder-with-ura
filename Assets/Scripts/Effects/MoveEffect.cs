@@ -31,18 +31,18 @@ namespace Effects {
 
 
       if (hasPath && !hasMob) {
-        animation = new MoveAnimation {
-          component = moveComponent,
-          sourcePosition = gridSystem.gridPos2World(sourcePos),
-          targetPosition = gridSystem.gridPos2World(targetPos)
-        };
+        animation = new MoveAnimation(
+          moveComponent,
+          gridSystem.gridPos2World(sourcePos),
+          gridSystem.gridPos2World(targetPos)
+        );
         moveComponent.gridComponent.moveTo(targetPos);
       } else {
-        animation = new MoveAttemptAnimation {
-          component = moveComponent,
-          sourcePosition = gridSystem.gridPos2World(sourcePos),
-          targetPosition = gridSystem.gridPos2World(targetPos)
-        };
+        animation = new MoveAttemptAnimation(
+          moveComponent,
+          gridSystem.gridPos2World(sourcePos),
+          gridSystem.gridPos2World(targetPos)
+        );
       }
     }
 
