@@ -1,7 +1,9 @@
 ﻿using System.Diagnostics;
 using System.Linq;
 using Architecture;
+using Components;
 using Effects.EffectAnimations;
+using Status;
 using Unity.VisualScripting;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
@@ -31,18 +33,20 @@ namespace Effects {
 
 
       if (hasPath && !hasMob) {
-        animation = new MoveAnimation(
-          moveComponent,
-          gridSystem.gridPos2World(sourcePos),
-          gridSystem.gridPos2World(targetPos)
-        );
+        animation = new MoveAnimation(moveComponent, gridSystem.gridPos2World(sourcePos), gridSystem.gridPos2World(targetPos));
         moveComponent.gridComponent.moveTo(targetPos);
+
+
+        moveComponent.gameObject.GetComponents<StatusComponent>().ToList().ForEach(statusComponent => {
+          var context = new StatusContext() {
+            actorManager = am,
+            component = statusComponent
+          };
+          statusComponent.OnMove(context);
+        });
       } else {
-        animation = new MoveAttemptAnimation(
-          moveComponent,
-          gridSystem.gridPos2World(sourcePos),
-          gridSystem.gridPos2World(targetPos)
-        );
+        animation = new MoveAttemptAnimation(moveComponent, gridSystem.gridPos2World(sourcePos),
+          gridSystem.gridPos2World(targetPos));
       }
     }
 

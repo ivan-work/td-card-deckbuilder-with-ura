@@ -6,7 +6,7 @@ namespace Components {
   public class HealthComponent : MonoBehaviour, ITargetableComponent {
     [SerializeField] public int initialHp = 5;
     [SerializeField] public int currentHp = 5;
-
+    
     private void Start() {
       currentHp = initialHp;
     }
