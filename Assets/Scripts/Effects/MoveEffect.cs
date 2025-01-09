@@ -37,12 +37,8 @@ namespace Effects {
         moveComponent.gridComponent.moveTo(targetPos);
 
 
-        moveComponent.gameObject.GetComponents<StatusComponent>().ToList().ForEach(statusComponent => {
-          var context = new StatusContext() {
-            actorManager = am,
-            component = statusComponent
-          };
-          statusComponent.OnMove(context);
+        moveComponent.GetComponents<StatusComponent>().ToList().ForEach(statusComponent => {
+          statusComponent.OnMove(am);
         });
       } else {
         animation = new MoveAttemptAnimation(moveComponent, gridSystem.gridPos2World(sourcePos),

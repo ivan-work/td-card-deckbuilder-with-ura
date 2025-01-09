@@ -24,8 +24,8 @@ public enum DamageType {
 namespace Effects {
   public class DamageEffect : BaseEffect {
     private readonly Vector2Int gridPos;
-    private readonly DamageType damageType;
-    private readonly int damage;
+    public readonly DamageType damageType;
+    public readonly int damage;
     private BaseAnimation animation;
 
     public DamageEffect(Vector2Int gridPos, DamageType damageType, int damage) {
@@ -35,13 +35,18 @@ namespace Effects {
     }
 
     public override void start(ActorManager am, GridSystem gridSystem) {
+      
       gridSystem.getGridEntitiesSpecial<HealthComponent>(gridPos)
         .ToList()
-        .ForEach((entityHealth) => { entityHealth.OnDamage(damage); });
+        .ForEach((entityHealth) => {
+          entityHealth.OnDamage(damage);
+          entityHealth.GetComponents<StatusComponent>().ToList().ForEach(component => component.OnDamage(am, this));
+        });
 
       // var sprite = Object.Instantiate(Resources.Load<GameObject>("Aseprite/slash"));
       isActive = true;
       animation = new DamageAnimation(gridSystem.gridPos2World(gridPos, -5), damageType);
+
     }
 
     protected override void animate() {

@@ -13,7 +13,6 @@ namespace Status {
       if (count <= 0) {
         Object.DestroyImmediate(context.component);
       }
-      
     }
   }
 }

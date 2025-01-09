@@ -17,6 +17,7 @@ namespace Architecture {
       Debug.Log("ActorManager.Awake()");
       EventManager.PhaseGetIntents.AddListener(OnGetIntents);
       EventManager.PhaseApplyEffects.AddListener(OnApplyEffects);
+
       gridSystem = FindObjectOfType<GridSystem>();
       if (!gridSystem) throw new NoComponentException($"No component ${typeof(GridSystem)}");
     }
@@ -37,11 +38,13 @@ namespace Architecture {
     }
 
     private void OnApplyEffects() {
+      EventManager.AmEndTurn.Invoke(this);
       isAppyingEffects = true;
       Debug.Log(queuedEffects.Aggregate(new StringBuilder("On Apply Effects: "),
         (sb, val) => sb.Append(val).Append(", "),
         sb => sb.ToString()));
     }
+
 
     private void Update() {
       if (isAppyingEffects) {

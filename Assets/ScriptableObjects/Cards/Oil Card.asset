@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a20a0deac5c54932be0dbe0632529da8, type: 3}
-  m_Name: Test Card
+  m_Script: {fileID: 11500000, guid: 9367c7946ec54f38b9d9f613129cf7e3, type: 3}
+  m_Name: Oil Card
   m_EditorClassIdentifier: 
-  cardName: Test
+  cardName: 
   targetMode: 0
-  targetCondition:
-  - {fileID: 11400000, guid: f3621047f6ac78340a4420ad3bc1bba2, type: 2}
-  count: 3
+  targetCondition: []

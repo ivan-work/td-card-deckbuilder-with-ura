@@ -1,4 +1,5 @@
 using Architecture;
+using Status;
 using UnityEngine.Events;
 
 public static class EventManager {
@@ -19,5 +20,8 @@ public static class EventManager {
   public static readonly UnityEvent PhasePlayerIntent = new();
   public static readonly UnityEvent PhaseApplyEffects = new();
   
+  
   public static readonly UnityEvent<ActorManager> AmStartRequestIntent = new();
+  public static readonly UnityEvent<ActorManager> AmEndTurn = new();
+
 }
