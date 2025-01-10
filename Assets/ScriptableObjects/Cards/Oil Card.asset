@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9367c7946ec54f38b9d9f613129cf7e3, type: 3}
   m_Name: Oil Card
   m_EditorClassIdentifier: 
-  cardName: 
+  cardName: Oild
   targetMode: 0
-  targetCondition: []
+  targetCondition:
+  - {fileID: 11400000, guid: fb153646edd4e42478b9becf924039a3, type: 2}
