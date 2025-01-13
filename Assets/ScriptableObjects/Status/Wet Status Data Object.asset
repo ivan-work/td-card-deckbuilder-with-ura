@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9367c7946ec54f38b9d9f613129cf7e3, type: 3}
-  m_Name: Oil Card
+  m_Script: {fileID: 11500000, guid: 459fcdcf80294887b58d39d31f382577, type: 3}
+  m_Name: Wet Status Data Object
   m_EditorClassIdentifier: 
-  cardName: Oil
-  targetMode: 0
-  targetCondition:
-  - {fileID: 11400000, guid: fb153646edd4e42478b9becf924039a3, type: 2}
+  displayName: Wet
+  icon: {fileID: 0}
+  damageType: 4
+  anotherStatus: {fileID: 11400000, guid: 60c094a750ac77745ba7161ae2140fc6, type: 2}

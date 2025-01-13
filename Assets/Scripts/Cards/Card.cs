@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Effects;
 using UnityEngine;
 
-public class Card : ScriptableObject {
+public abstract class Card : ScriptableObject {
   [SerializeField] public string cardName;
   [SerializeField] public TargetModesHelper.TargetMode targetMode;
   [SerializeField] public AbstractTargetCondition[] targetCondition;

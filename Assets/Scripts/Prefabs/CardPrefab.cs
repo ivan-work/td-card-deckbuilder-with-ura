@@ -6,7 +6,7 @@ public class CardPrefab : MonoBehaviour, IPointerClickHandler {
   [SerializeField] public Card card;
 
   public void Start() {
-    gameObject.GetComponentInChildren<TextMeshPro>().text = $"{card.name}";
+    gameObject.GetComponentInChildren<TextMeshPro>().text = $"{card.cardName}";
   }
   
   public void OnPointerClick(PointerEventData eventData) {

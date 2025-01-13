@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 459fcdcf80294887b58d39d31f382577, type: 3}
+  m_Name: Oiled Status Data Object
+  m_EditorClassIdentifier: 
+  displayName: Oiled
+  icon: {fileID: -2253911629886400664, guid: c16d2af8b014c744d843f694abcf6f2e, type: 3}
+  damageType: 3
+  anotherStatus: {fileID: 11400000, guid: b179dde485b4cdb4a836ad427e07c66d, type: 2}

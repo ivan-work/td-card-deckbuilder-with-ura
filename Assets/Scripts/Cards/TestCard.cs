@@ -12,10 +12,13 @@ namespace Cards {
     [SerializeField] public int count;
 
     public override IEnumerable<BaseEffect> doCardAction(GridSystem gridSystem, Vector2Int[] gridPoses) {
-      return gridPoses.SelectMany(gridPos => {
-        return gridSystem.getGridEntitiesSpecial<HealthComponent>(gridPos);
-        
-      }).Select(healthComponent => new ApplyStatusEffect(healthComponent.gameObject, new BurningStatus(count)));
+      return Enumerable.Empty<BaseEffect>();
+      // return gridPoses
+      //   .SelectMany(gridSystem.getGridEntitiesSpecial<StatusComponent>)
+      //   .Select(component => new ApplyStatusEffect(component, new StatusStruct {
+      //     stacks = count,
+      //     data = ... // TODO GET DATA
+      //   }));
     }
   }
 }

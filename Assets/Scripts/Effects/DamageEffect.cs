@@ -35,7 +35,6 @@ namespace Effects {
     }
 
     public override void start(ActorManager am, GridSystem gridSystem) {
-      
       gridSystem.getGridEntitiesSpecial<HealthComponent>(gridPos)
         .ToList()
         .ForEach((entityHealth) => {

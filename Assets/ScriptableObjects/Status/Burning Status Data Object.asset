@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9367c7946ec54f38b9d9f613129cf7e3, type: 3}
-  m_Name: Oil Card
+  m_Script: {fileID: 11500000, guid: c6d9565ce73847c4be23619785054841, type: 3}
+  m_Name: Burning Status Data Object
   m_EditorClassIdentifier: 
-  cardName: Oil
-  targetMode: 0
-  targetCondition:
-  - {fileID: 11400000, guid: fb153646edd4e42478b9becf924039a3, type: 2}
+  displayName: Burning
+  icon: {fileID: -2253911629886400664, guid: 575f8a13b0ac76744a171af12fae8dd1, type: 3}

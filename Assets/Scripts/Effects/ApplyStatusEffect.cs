@@ -7,16 +7,15 @@ using UnityEngine;
 
 namespace Effects {
   public class ApplyStatusEffect : BaseEffect {
-    private readonly GameObject target;
-    private readonly BaseStatus status;
+    private readonly StatusComponent target;
+    private readonly StatusStruct statusStruct;
 
-    public ApplyStatusEffect(GameObject target, BaseStatus status) {  
+    public ApplyStatusEffect(StatusComponent target, StatusStruct statusStruct) {  
       this.target = target;
-      this.status = status;
+      this.statusStruct = statusStruct;
     }
     public override void start(ActorManager am, GridSystem gridSystem) {
-      var statusComponent = target.AddComponent<StatusComponent>();
-      statusComponent.status = status;
+      target.addStatus(statusStruct, am);
     }
   }
 }
