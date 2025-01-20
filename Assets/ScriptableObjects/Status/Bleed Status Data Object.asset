@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Bleed Status Data Object
   m_EditorClassIdentifier: 
   displayName: Bleeding
-  icon: {fileID: -2253911629886400664, guid: f76bac4b41efafc4788bff9a38a83609, type: 3}
+  icon: {fileID: -7734827726100787617, guid: f76bac4b41efafc4788bff9a38a83609, type: 3}

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 872196139396462db9d5234c50440863, type: 3}
   m_Name: Freezing Status Data Object
   m_EditorClassIdentifier: 
-  displayName: 
-  icon: {fileID: 0}
+  displayName: Freezing
+  icon: {fileID: 8967629473463261973, guid: adde1314cac85c143b669c48a1a2af85, type: 3}

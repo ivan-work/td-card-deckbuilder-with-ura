@@ -16,4 +16,4 @@ MonoBehaviour:
   targetMode: 0
   targetCondition:
   - {fileID: 11400000, guid: f3621047f6ac78340a4420ad3bc1bba2, type: 2}
-  count: 3
+  count: 2

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Status.StatusData {
   public class BaseStatusData : ScriptableObject {
     [SerializeField] public string displayName;
-    [SerializeField] public GameObject icon;
+    [SerializeField] public Sprite icon;
 
     public virtual void OnApply(StatusContext context) { }
     

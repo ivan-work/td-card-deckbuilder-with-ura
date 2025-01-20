@@ -8,10 +8,7 @@ namespace Status.StatusData {
     [SerializeField] private BaseStatusData anotherStatus;
 
     public override void OnEndTurn(StatusContext context) {
-      context.statusStruct.stacks--;
-      if (context.statusStruct.stacks <= 0) {
-        context.component.removeStatus(context.statusStruct);
-      }
+      context.component.decreaseStatus(context.statusStruct);
     }
 
     public override void OnDamage(StatusContext context, DamageEffect damageEffect) {

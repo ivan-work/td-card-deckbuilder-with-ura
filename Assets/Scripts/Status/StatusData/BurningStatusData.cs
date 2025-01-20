@@ -9,12 +9,8 @@ namespace Status.StatusData {
       context.actorManager.addImmediateEffects(
         new DamageEffect(context.component.gridComponent.gridPos, DamageType.Fire, context.statusStruct.stacks)
       );
-      
-      context.statusStruct.stacks--;
-      
-      if (context.statusStruct.stacks <= 0) {
-        context.component.removeStatus(context.statusStruct);
-      }
+
+      context.component.decreaseStatus(context.statusStruct);
     }
   }
 }

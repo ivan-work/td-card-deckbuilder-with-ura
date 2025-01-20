@@ -4,6 +4,8 @@ using System.Linq;
 using Components;
 using Effects;
 using Status;
+using Status.StatusData;
+using UnityEditor;
 using UnityEngine;
 
 namespace Cards {
@@ -12,13 +14,15 @@ namespace Cards {
     [SerializeField] public int count;
 
     public override IEnumerable<BaseEffect> doCardAction(GridSystem gridSystem, Vector2Int[] gridPoses) {
-      return Enumerable.Empty<BaseEffect>();
-      // return gridPoses
-      //   .SelectMany(gridSystem.getGridEntitiesSpecial<StatusComponent>)
-      //   .Select(component => new ApplyStatusEffect(component, new StatusStruct {
-      //     stacks = count,
-      //     data = ... // TODO GET DATA
-      //   }));
+      // return Enumerable.Empty<BaseEffect>();
+      return gridPoses
+        .SelectMany(gridSystem.getGridEntitiesSpecial<StatusComponent>)
+        .Select(component =>
+          new ApplyStatusEffect(component, new StatusStruct(
+            AssetDatabase.LoadAssetAtPath<BaseStatusData>("Assets/ScriptableObjects/Status/Bleed Status Data Object.asset"),
+            count
+          ))
+        );
     }
   }
 }

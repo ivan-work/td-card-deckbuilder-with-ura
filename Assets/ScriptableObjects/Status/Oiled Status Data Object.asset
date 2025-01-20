@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Oiled Status Data Object
   m_EditorClassIdentifier: 
   displayName: Oiled
-  icon: {fileID: -2253911629886400664, guid: c16d2af8b014c744d843f694abcf6f2e, type: 3}
+  icon: {fileID: 8967629473463261973, guid: c16d2af8b014c744d843f694abcf6f2e, type: 3}
   damageType: 3
   anotherStatus: {fileID: 11400000, guid: b179dde485b4cdb4a836ad427e07c66d, type: 2}

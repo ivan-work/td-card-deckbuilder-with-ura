@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Wet Status Data Object
   m_EditorClassIdentifier: 
   displayName: Wet
-  icon: {fileID: 0}
+  icon: {fileID: 8967629473463261973, guid: adde1314cac85c143b669c48a1a2af85, type: 3}
   damageType: 4
   anotherStatus: {fileID: 11400000, guid: 60c094a750ac77745ba7161ae2140fc6, type: 2}
