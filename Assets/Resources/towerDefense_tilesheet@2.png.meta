@@ -1,0 +1,7066 @@
+fileFormatVersion: 2
+guid: b71ccfe1240e98b45ab36f75c8fc76d6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6942529229463317226
+    second: towerDefense_tilesheet@2_0
+  - first:
+      213: -6172813621342368735
+    second: towerDefense_tilesheet@2_1
+  - first:
+      213: -2222281394853371726
+    second: towerDefense_tilesheet@2_2
+  - first:
+      213: 6280852008862489807
+    second: towerDefense_tilesheet@2_3
+  - first:
+      213: -1830236551898423855
+    second: towerDefense_tilesheet@2_4
+  - first:
+      213: 7390659247515025099
+    second: towerDefense_tilesheet@2_5
+  - first:
+      213: -4325103305193759774
+    second: towerDefense_tilesheet@2_6
+  - first:
+      213: 1623293904889186236
+    second: towerDefense_tilesheet@2_7
+  - first:
+      213: 668523359957352226
+    second: towerDefense_tilesheet@2_8
+  - first:
+      213: -5191486218319225936
+    second: towerDefense_tilesheet@2_9
+  - first:
+      213: -5883731955006007435
+    second: towerDefense_tilesheet@2_10
+  - first:
+      213: 3563038481018498928
+    second: towerDefense_tilesheet@2_11
+  - first:
+      213: -7306558704089408034
+    second: towerDefense_tilesheet@2_12
+  - first:
+      213: -8506388685883607075
+    second: towerDefense_tilesheet@2_13
+  - first:
+      213: -7371120387281452167
+    second: towerDefense_tilesheet@2_14
+  - first:
+      213: 7273889984496384276
+    second: towerDefense_tilesheet@2_15
+  - first:
+      213: -1535749064117039087
+    second: towerDefense_tilesheet@2_16
+  - first:
+      213: 1220097820752975890
+    second: towerDefense_tilesheet@2_17
+  - first:
+      213: 6331460045360748994
+    second: towerDefense_tilesheet@2_18
+  - first:
+      213: 4695282832425303243
+    second: towerDefense_tilesheet@2_19
+  - first:
+      213: 5676673653638158957
+    second: towerDefense_tilesheet@2_20
+  - first:
+      213: -4623976400168295903
+    second: towerDefense_tilesheet@2_21
+  - first:
+      213: -1851102042020089604
+    second: towerDefense_tilesheet@2_22
+  - first:
+      213: 6024120149572973775
+    second: towerDefense_tilesheet@2_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1538
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aea6de41d81d85060800000000000000
+      internalID: 6942529229463317226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_1
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 1538
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12c023367b2c55aa0800000000000000
+      internalID: -6172813621342368735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_2
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 1538
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b02ec478ded821e0800000000000000
+      internalID: -2222281394853371726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_3
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 1538
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcc1c0bef911a2750800000000000000
+      internalID: 6280852008862489807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_4
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 1538
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dd98259d81b996e0800000000000000
+      internalID: -1830236551898423855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_5
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 1538
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bceb610ad65e09660800000000000000
+      internalID: 7390659247515025099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_6
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 1538
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ebde0595752af3c0800000000000000
+      internalID: -4325103305193759774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_7
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 1538
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb70af6b439178610800000000000000
+      internalID: 1623293904889186236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_8
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 1538
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22ffe423472174900800000000000000
+      internalID: 668523359957352226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_9
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 1538
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bb1fb44ac224f7b0800000000000000
+      internalID: -5191486218319225936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_10
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 1538
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5779044d5f8c85ea0800000000000000
+      internalID: -5883731955006007435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_11
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 1538
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07fa726ee94727130800000000000000
+      internalID: 3563038481018498928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_12
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 1538
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edd56380293e99a90800000000000000
+      internalID: -7306558704089408034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_13
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 1538
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd771881f8c33f980800000000000000
+      internalID: -8506388685883607075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_14
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 1538
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9730377cf0584b990800000000000000
+      internalID: -7371120387281452167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_15
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 1538
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 419bd25f66c02f460800000000000000
+      internalID: 7273889984496384276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_16
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 1538
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1105a29ec5cefaae0800000000000000
+      internalID: -1535749064117039087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_17
+      rect:
+        serializedVersion: 2
+        x: 2178
+        y: 1538
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 218953de088aee010800000000000000
+      internalID: 1220097820752975890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_18
+      rect:
+        serializedVersion: 2
+        x: 2306
+        y: 1538
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c95e41ad5dddd750800000000000000
+      internalID: 6331460045360748994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_19
+      rect:
+        serializedVersion: 2
+        x: 2434
+        y: 1538
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcc33b20cdef82140800000000000000
+      internalID: 4695282832425303243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_20
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 1538
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6adbe69c9897ce40800000000000000
+      internalID: 5676673653638158957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_21
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 1538
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 122ed2286f554dfb0800000000000000
+      internalID: -4623976400168295903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_22
+      rect:
+        serializedVersion: 2
+        x: 2818
+        y: 1538
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf0746610809f46e0800000000000000
+      internalID: -1851102042020089604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_23
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1410
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc4f19fdb59f99350800000000000000
+      internalID: 6024120149572973775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_24
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 1410
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28976a0e149d7664da19aa552f727574
+      internalID: 1296906104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_25
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 1410
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a760213a34d6bac46a4f83cc51629187
+      internalID: 1626121034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_26
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 1410
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 574ce4381c8752f48841c3b2c3d36521
+      internalID: -1598086620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_27
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 1410
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c6a78692c5f7e04da8c9d6c4643b0e1
+      internalID: -1388310902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_28
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 1410
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34666384fd317794b93405c211736c73
+      internalID: 1984239094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_29
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 1410
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c73ec08fec680eb4dbb6560f5e12e5f0
+      internalID: -655182690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_30
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 1410
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05e6a8c00ede1734ea6bd10452246136
+      internalID: 340381731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_31
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 1410
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db5e65329bcebff49b7e8c82287abea6
+      internalID: -179805753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_32
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 1410
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3863498591064ef45a358245cadd6b00
+      internalID: -47668085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_33
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 1410
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b435874bbc4f7e04082710d8fb9c7f6e
+      internalID: -1588916197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_34
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 1410
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8894f21505a865745a4a70ea67bc4606
+      internalID: 1522420015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_35
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 1410
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c56cbab4428a014b9870e119d8e4f5f
+      internalID: -1264728777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_36
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 1410
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89f0199302b2c8c4785fab44755dd6c2
+      internalID: -1537690652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_37
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 1410
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af60feeb2ae3aa042a67a106b2bca67e
+      internalID: -79473951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_38
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 1410
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3697813ffab491944b7609bf21a354bd
+      internalID: -95915618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_39
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 1410
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14586a3f8f344274fb0216a3c9812b60
+      internalID: -1572051798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_40
+      rect:
+        serializedVersion: 2
+        x: 2178
+        y: 1410
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c070b24d39585e44a8d0747fac27da6
+      internalID: 443482098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_41
+      rect:
+        serializedVersion: 2
+        x: 2306
+        y: 1410
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 666848afc9f436c4583f76980781a0cb
+      internalID: 966557107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_42
+      rect:
+        serializedVersion: 2
+        x: 2434
+        y: 1410
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ae1241a1de3a80418aaa819a1aa166a
+      internalID: 928832022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_43
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 1410
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d818a6554ab89664e9e9a83072d070ef
+      internalID: 1531829484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_44
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 1410
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74d4217bdb466ba4983e4a52cfeec4e7
+      internalID: 980274119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_45
+      rect:
+        serializedVersion: 2
+        x: 2818
+        y: 1410
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c2d5b5c758ce7145aaa28ca2b21a2e3
+      internalID: -834044856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_46
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1282
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e9cd51e9379a62429a22c3010f68e71
+      internalID: 1398959337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_47
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 1282
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 855694db64e23ef49b918bcb44a8e643
+      internalID: 2051750615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_48
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 1282
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 079e6aa8edaaa664db732aa1793d1165
+      internalID: 725667896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_49
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 1282
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bef8b419af85f114f95f38ffffbaa922
+      internalID: 2107219145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_50
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 1282
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81c6ec974c84935478ada723f4b8ec15
+      internalID: 163088896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_51
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 1282
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2e49751059d91a4b876d5a6b1c8be90
+      internalID: -843276842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_52
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 1282
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 271713e81c9cbb34eb80d04fd9e3af80
+      internalID: 552183264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_53
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 1282
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7181960b8d51944faa4e0d79fddd2a6
+      internalID: 530102551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_54
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 1282
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e983ec88f2507649aaf93e39c6646d9
+      internalID: -66067380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_55
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 1282
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 365777f1abb2bb144ac3412f7ba2d6e1
+      internalID: -1565261010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_56
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 1282
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b03d65be88b51a44abb69a6f0fbcb64c
+      internalID: 840787997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_57
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 1282
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84cb7afdae64cfe4c88ba4a27de06e9f
+      internalID: 2019616777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_58
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 1282
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1f721dff650b834cb68f9f90776f1fa
+      internalID: 462428992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_59
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 1282
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73d744a60770317439faefb19cf375c1
+      internalID: -720502987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_60
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 1282
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a4569fe5f518b9438c7c9ad42ae651a
+      internalID: -359274866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_61
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 1282
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00065b319a179e84caba1510ab135463
+      internalID: 1619654495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_62
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 1282
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7971b971afebc124898c21ee5771350b
+      internalID: -251438540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_63
+      rect:
+        serializedVersion: 2
+        x: 2178
+        y: 1282
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd85c53be2001dc4c8d6565130e600bd
+      internalID: -25362498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_64
+      rect:
+        serializedVersion: 2
+        x: 2306
+        y: 1282
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 761777d9b97a5094196030f894a3dea8
+      internalID: 44757940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_65
+      rect:
+        serializedVersion: 2
+        x: 2434
+        y: 1282
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2acba418fa3142444a7183353d6d9830
+      internalID: 1221636706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_66
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 1282
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 413765e157d7c184883ae84532205bdc
+      internalID: 767562642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_67
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 1282
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1cce4ac8c6de324b82805d872df8912
+      internalID: 2004018164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_68
+      rect:
+        serializedVersion: 2
+        x: 2818
+        y: 1282
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b5dc6a6bead08346b0dfeb407b75ecf
+      internalID: 5831332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_69
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1154
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5efc7df184da0448bd737864b0cb7c0
+      internalID: 1631561911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_70
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 1154
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0956dffb5d7799d4fbb8baf4032830ab
+      internalID: -1737084458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_71
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 1154
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccd413524f70bb2428aa61bd8ee9429c
+      internalID: -1159918230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_72
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 1154
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e9aee586a05df5419c3cbff6ff3b194
+      internalID: 1197508984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_73
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 1154
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db94ce282a70e234a877592899788443
+      internalID: -302843416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_74
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 1154
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54dd4cfe7916aeb4c921c78c25c55393
+      internalID: -1532223928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_75
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 1154
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c5160e9b0a4bad408f3fff4ba0188ea
+      internalID: 1624343600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_76
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 1154
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e24df7ad3aa659429547d1f6a327727
+      internalID: -2033950943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_77
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 1154
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ae20cc04a30a9f49b9bb223df5b8119
+      internalID: 2109730313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_78
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 1154
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e600d487bbad9fd478dbde6af120347e
+      internalID: -888986903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_79
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 1154
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a04cfbe2e74fd3f46b146a0da91e6599
+      internalID: 183872680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_80
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 1154
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1303f37d8e81b642ae47ab10c68078f
+      internalID: 1052013053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_81
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 1154
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c732213654a42a640b0917719b067b18
+      internalID: 851409336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_82
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 1154
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32152bd38134ef7438ba0093b8b2da62
+      internalID: -292962021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_83
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 1154
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf9259f2718595149aa3a51b13a0e006
+      internalID: -959366756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_84
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 1154
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c08845f385eac3940a9d7fdf10a1fab4
+      internalID: 2124234309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_85
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 1154
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 081d228b3934aa04bb83958cee74018f
+      internalID: 146389682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_86
+      rect:
+        serializedVersion: 2
+        x: 2178
+        y: 1154
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bccff144f53bdd4e8b7e2a350714714
+      internalID: -1903527366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_87
+      rect:
+        serializedVersion: 2
+        x: 2306
+        y: 1154
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13368a699e6746948a0a8f0fb29d72b1
+      internalID: 1040488599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_88
+      rect:
+        serializedVersion: 2
+        x: 2434
+        y: 1154
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19e8438c98203b942ba238b13b446183
+      internalID: -2009563699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_89
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 1154
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48822893bc00df0469ad45fe92267e76
+      internalID: 1518511240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_90
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 1154
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7f29d5552860494eab9c160e224d6fe
+      internalID: 481459924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_91
+      rect:
+        serializedVersion: 2
+        x: 2818
+        y: 1154
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d34302593e62de444a09f35a6d32939d
+      internalID: -984066488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_92
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1026
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ced670bd0b90f814f93dd464a0a0c934
+      internalID: 909667565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_93
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 1026
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72cb28d8e1aa17441bafa9807a19c802
+      internalID: 1320224119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_94
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 1026
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e17099cfca0b0a4785ddfe177a24f33
+      internalID: -1912137452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_95
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 1026
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d6e97c7a214c474bb73f73188234cac
+      internalID: 1011595452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_96
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 1026
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17db0215b8d39f04da2f4cf5a210b484
+      internalID: -1767437859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_97
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 1026
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c16a17440d4a7d640968912bbe5380fd
+      internalID: -156555129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_98
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 1026
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e6fd17a03ca94048907b003a4ebfd0c
+      internalID: -611513384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_99
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 1026
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e523740a9d7f225488241e1914c321b5
+      internalID: -1153058274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_100
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 1026
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fb4421245180e34aba5dab84f57d33f
+      internalID: -1571649617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_101
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 1026
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ecbb246cc4a4ea4c9dd2a1f66dc8725
+      internalID: 811896050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_102
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 1026
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 738182ba376929341aa6d9d61d285945
+      internalID: -171864972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_103
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 1026
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaf0467f0859c604d91aea869096103e
+      internalID: 1798389870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_104
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 1026
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea8a267863a4ec14e8060a4090e229f7
+      internalID: 1199589663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_105
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 1026
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 166bd4db0c4ea99459fd42b5bd337d85
+      internalID: -1653264393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_106
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 1026
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09b88951d17a7834aba3729e215dc419
+      internalID: 1717284901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_107
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 1026
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 258f1ce127473e549a0ed60d04a937fe
+      internalID: -883262115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_108
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 1026
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24b99a084ae34f143ae54e4169b83d8e
+      internalID: 137855639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_109
+      rect:
+        serializedVersion: 2
+        x: 2178
+        y: 1026
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a75fe67c5aff06a4296699bec615e55a
+      internalID: -416982391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_110
+      rect:
+        serializedVersion: 2
+        x: 2306
+        y: 1026
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b87db8d543b9b154daff7b98f6c64a7d
+      internalID: -218699707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_111
+      rect:
+        serializedVersion: 2
+        x: 2434
+        y: 1026
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad7b5871354454b4bb6863e690a982c6
+      internalID: -1511078921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_112
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 1026
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2890842d86fc5ff4d9c28c0ac77b1f05
+      internalID: -1833848297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_113
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 1026
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0321c8c5dc7859b469fe2a2d307a8365
+      internalID: 1944204224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_114
+      rect:
+        serializedVersion: 2
+        x: 2818
+        y: 1026
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3fca7e7fe9ff7841b960c494ec2bf26
+      internalID: 931908304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_115
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 898
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67d619e59f8d4914a96d8e7d79b88d5a
+      internalID: 710037594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_116
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 898
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b2955dc0f00ffe409ee85e6015b9bc5
+      internalID: 974001960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_117
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 898
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ed19fe7fc818cb4c99883481bbe707c
+      internalID: -1299069832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_118
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 898
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ea5de5d37785324eb060e74f7f4e872
+      internalID: -1087162885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_119
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 898
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 070f068bb91137b45ac2ec1334f852c3
+      internalID: -1550018879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_120
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 898
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bd0adf856f0ea34db7a7904316a139c
+      internalID: -2132491694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_121
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 898
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8774f74bbc00e7d4596cb9f7acbf4a5d
+      internalID: 834091760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_122
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 898
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0980a786fb69caf4f9921fc9156dc8e6
+      internalID: -748282531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_123
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 898
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40339e5392da6f44899ff495c2a5872e
+      internalID: -1438651071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_124
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 898
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5fb27c3d4cdacc4da79f55bcdbc3e3b
+      internalID: -1949174116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_125
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 898
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1de43e03a42a131449afd817f64f8938
+      internalID: -1839903588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_126
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 898
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d41b9fde44212b4fbf437b5b929b530
+      internalID: 1606431219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_127
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 898
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b8d56c82b98ff445835af9d40020c6c
+      internalID: 1052012234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_128
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 898
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ade58ccf0d93d044b88147d28bf73008
+      internalID: -894421723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_129
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 898
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c81fe75da812874ba7a939cc9b78190
+      internalID: 2127471543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_130
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 898
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecea900852b0a1942b3ee6d13fda43d7
+      internalID: -13204174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_131
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 898
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dbcf3065b967e64d9791149e7bd96fa
+      internalID: -193724277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_132
+      rect:
+        serializedVersion: 2
+        x: 2178
+        y: 898
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58e47c9c8fa321d4eb0729c7eb939b97
+      internalID: 1673152673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_133
+      rect:
+        serializedVersion: 2
+        x: 2306
+        y: 898
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14f92fe98a688d74e9c511cbe7cb28cc
+      internalID: -1941037363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_134
+      rect:
+        serializedVersion: 2
+        x: 2434
+        y: 898
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e781ec2937a515145af0e773a709921e
+      internalID: 2080881374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_135
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 898
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f06833a641c96d44dacf319fe4b8186f
+      internalID: 310467776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_136
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 898
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bba0912f75abc14b807836d8d27a78d
+      internalID: -584415126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_137
+      rect:
+        serializedVersion: 2
+        x: 2818
+        y: 898
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b8e12d90ec26dd46aefe8e26f6f5252
+      internalID: -1507122625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_138
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 770
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2170102b65ac145428b6265819b08f54
+      internalID: 1758954023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_139
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 770
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0632a931b0f40d64cb6d3ac2f2a527ee
+      internalID: -949522664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_140
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 770
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f29308adf6340854aa819db0106f446e
+      internalID: -1498098881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_141
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 770
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92db145c2e09c3d469c7809a7bd494ea
+      internalID: -1559276210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_142
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 770
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36ed8ca0cf93e5a4fad0ac2428f68c6e
+      internalID: -2016679342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_143
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 770
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dd7e34a5767fd5439e74241629042de
+      internalID: -929668935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_144
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 770
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a67887e2b3ad72446bb53fce64fa4fb5
+      internalID: -380982575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_145
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 770
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84a46078422dc4f4f817edc995914459
+      internalID: 1812519342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_146
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 770
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad5c9e1dbb00b3e409df7e4b777be3ed
+      internalID: -2021705418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_147
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 770
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 256c5215c3e7838458bdb537cad96a0c
+      internalID: 1761490931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_148
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 770
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0777a0b75fed1db4b964540844015be7
+      internalID: 1562071446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_149
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 770
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ea831dd5787bf149861dba4394b10a0
+      internalID: 1971081478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_150
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 770
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b408ec90672852428263c6767d9b848
+      internalID: -1274358556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_151
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 770
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04010aa5a37817f4880e9e830cb9831e
+      internalID: -614975822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_152
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 770
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15c56a467d871904ea14550409097292
+      internalID: -822407700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_153
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 770
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a625150cafc0e59418af99735b3c7863
+      internalID: -1720727344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_154
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 770
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 846e89002a4f7504484d8fea1b289312
+      internalID: -1635877889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_155
+      rect:
+        serializedVersion: 2
+        x: 2178
+        y: 770
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f49b5412ae9092c45b8f1fd6ff456fe3
+      internalID: 1601533983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_156
+      rect:
+        serializedVersion: 2
+        x: 2306
+        y: 770
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08d93f8c9e386f14fa5c3b05d94bf767
+      internalID: -866346833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_157
+      rect:
+        serializedVersion: 2
+        x: 2434
+        y: 770
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28f4ade738f023546bc3e32fe6136d84
+      internalID: 536583737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_158
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 770
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 849c51fe67d5ff44c86ec7f5bbb62f56
+      internalID: -41192455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_159
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 770
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf4f87e2d90291647945c374b3c8cf7a
+      internalID: -356781383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_160
+      rect:
+        serializedVersion: 2
+        x: 2818
+        y: 770
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3d7be94b47c46e4aaaa21b2ac023634
+      internalID: 1342995725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_161
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 642
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cce20396c51d22c4db475d321ce6e682
+      internalID: -2020642088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_162
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 642
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c68b619bd6bd9cc438c1c0f508e47a5b
+      internalID: -1249448762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_163
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 642
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c8ce91d0de434d4ca8aab5a124656f1
+      internalID: -1959544282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_164
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 642
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42d1692f3360d5540b4d30e1a79e9802
+      internalID: 1580003061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_165
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 642
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e77d298e1524573479b8a4709f084e5b
+      internalID: 1786406869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_166
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 642
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ce73bef30897a34cbc50ff824fb3914
+      internalID: -1090662272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_167
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 642
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2f0a7524af33714687a439df87c0f4b
+      internalID: 1926655994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_168
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 642
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3f032650bac9704b80655993f393566
+      internalID: 1518537710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_169
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 642
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed27b3ac34a2d5f4fa50c49f66d66212
+      internalID: -390110736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_170
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 642
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0bc8679511c08f48931d5bf06500acb
+      internalID: -2133947341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_171
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 642
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4323aeb524588c45806749460974e9e
+      internalID: -1713614999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_172
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 642
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 193e1c7642ca7944f8dbd7ca4b5850ef
+      internalID: 805242390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_173
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 642
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e027a8ed55575404693cbb1717683bca
+      internalID: -449008724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_174
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 642
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 075ac06b9c3f84948be89cdbf6314ca2
+      internalID: -1401983594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_175
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 642
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74b52d7863980bb47a82b982c512ed3c
+      internalID: 552494794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_176
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 642
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e777820e722f9424e901bd044bc70467
+      internalID: -173302781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_177
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 642
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12d5069d06a64d24f851c1281ec8893b
+      internalID: 2038986831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_178
+      rect:
+        serializedVersion: 2
+        x: 2178
+        y: 642
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aabd3d56b1fcc54f9ba075a31cced99
+      internalID: -2114605772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_179
+      rect:
+        serializedVersion: 2
+        x: 2306
+        y: 642
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e82e6d7217929643851304cf796ae5d
+      internalID: 1488819791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_180
+      rect:
+        serializedVersion: 2
+        x: 2434
+        y: 642
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a82b513b22079ed4a98954b68215fd37
+      internalID: 1439846362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_181
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 642
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b80a95800602109499fda6af6df8476d
+      internalID: 1355283492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_182
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 642
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4b3f5d700434ae4cb696401018831d7
+      internalID: -174391133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_183
+      rect:
+        serializedVersion: 2
+        x: 2818
+        y: 642
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 691ccb4c8a597334bbd3ae3669c98e2b
+      internalID: 922575191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_184
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 514
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dd03f9a6c8ace749826d0818e92a0f7
+      internalID: -8466663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_185
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 514
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eaf44eab7e1bb7449ab0d5f6cede7c4
+      internalID: 1596557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_186
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 514
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 289953943a100fa4095d99e9dfcec300
+      internalID: -520250100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_187
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 514
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e87d755b0eef094ca5761cf6ebc252f
+      internalID: -251199173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_188
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 514
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64093933e816b1246a1f6868293eedfa
+      internalID: -158643460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_189
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 514
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faff250c8e7cfb943890fb7ee2d7f400
+      internalID: -279424334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_190
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 514
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97bcdd618252ae3409e90527687f729d
+      internalID: 506259683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_191
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 514
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df48051cfd30ef442962530c9b0ac6ef
+      internalID: -886750699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_192
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 514
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1036e22295eaa8b41a868f50bb6d3160
+      internalID: 1591784474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_193
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 514
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f6c6ad4873dac94b8b3e401778c1641
+      internalID: 777651992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_194
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 514
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d4aa2d80481e1d4799d2958eabc06ca
+      internalID: 1507892851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_195
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 514
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8619435e0ffe0e443b4661c3451a3199
+      internalID: 946459451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_196
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 514
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9c0d3364450fea4b891a7c777d0dfa0
+      internalID: -35401677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_197
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 514
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3b2fa48b60f35e45b6ce995e2b6be4b
+      internalID: -1909205945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_198
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 514
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4217e59d17376ca4f86f60ef88607bb3
+      internalID: -718282722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_199
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 514
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e71aef53e51214c43814f0c92569b466
+      internalID: 423493965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_200
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 514
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2f00e06f33e266409c91cbb6811b7e0
+      internalID: 1143393159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_201
+      rect:
+        serializedVersion: 2
+        x: 2178
+        y: 514
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f21cdc2ee2a5e04e8bc71d56ed7c2b1
+      internalID: -814857386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_202
+      rect:
+        serializedVersion: 2
+        x: 2306
+        y: 514
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e0dfb5f75b54bf47a7ba42fc52996c8
+      internalID: 457975200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_203
+      rect:
+        serializedVersion: 2
+        x: 2434
+        y: 514
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1086ca5f43e9fab48aa583dfb4cb0a4a
+      internalID: 1002902050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_204
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 514
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5926edf23427324e873c131db46beac
+      internalID: -1772730950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_205
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 514
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 506e77a0456bf944ebdcd4e2c70e83eb
+      internalID: 154670623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_206
+      rect:
+        serializedVersion: 2
+        x: 2818
+        y: 514
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 014ce5ae1b10dcb48a286a7df4b73223
+      internalID: -441208370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_207
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 386
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44a06b8f95a45aa4d8807d222c8646ca
+      internalID: 1908831158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_208
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 386
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c0d8de90838978419cc555282078652
+      internalID: 934541621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_209
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 386
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e968f4bcd4b5d8d4e8461f90bce1c2f7
+      internalID: -1191457402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_210
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 386
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aed66b9f8c079747b8e895bc46e43c9
+      internalID: 264453983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_211
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 386
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d44cf653528d3a24aab64aa6709b3abb
+      internalID: -709244679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_212
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 386
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f785e439ce0c3f34f8805f6a202d0380
+      internalID: 2069268462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_213
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 386
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44bddb96c21cd524bbd24cbdd6c1a5b5
+      internalID: 1305469450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_214
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 386
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80897d51a16b8e1468e3041bd12cbb87
+      internalID: 1756310465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_215
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 386
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b309c35aae595c24e81af88211cad79d
+      internalID: -1885462910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_216
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 386
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be7d5e302c706094bbb5edf36ec003be
+      internalID: 1785994924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_217
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 386
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20af1b93beb8e9846931733da2fa8c62
+      internalID: -1892973179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_218
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 386
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 077f79ff9825d0c41b3cbe6da2c9b760
+      internalID: -1302859282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_219
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 386
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50366b3a7fe3a9c4cbab026fb284ce9d
+      internalID: 33054769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_220
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 386
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34a669a2ff6427148b44edb8a333fa93
+      internalID: -1968328262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_221
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 386
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb0b05cb7e363ec46a683348f5ffeea0
+      internalID: -1023986343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_222
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 386
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 575beb2d89cba6c4298f47816a08e9a7
+      internalID: 365091645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_223
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 386
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77047d600e44e4646aaf0240705d04d5
+      internalID: -592472782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_224
+      rect:
+        serializedVersion: 2
+        x: 2178
+        y: 386
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1cd2a79acdb56445a171efcacc15d7f
+      internalID: -281004749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_225
+      rect:
+        serializedVersion: 2
+        x: 2306
+        y: 386
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9c4e77c080fb784f86087d5b0703cb5
+      internalID: -587392599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_226
+      rect:
+        serializedVersion: 2
+        x: 2434
+        y: 386
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbf2c7751623ea044a6deb252efedd94
+      internalID: 594028843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_227
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 386
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 520c51fc764a3074086c3fe515f2bbfd
+      internalID: -1222583257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_228
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 386
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81e953656b27b07479b19b0a907cdaf1
+      internalID: -1614058332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_229
+      rect:
+        serializedVersion: 2
+        x: 2818
+        y: 386
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfe054a746155c141afb42481a7cb65e
+      internalID: 1917448455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_230
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 258
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4696a5de58817c429de3fc4ff0f53ff
+      internalID: -1071344723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_231
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 258
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdeb5e9713a245d4485c4915bffddfb3
+      internalID: -833617374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_232
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 258
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfb4cec72e9fd774d8c7b7ae68bebda9
+      internalID: -1719708596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_233
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 258
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67ba8ab067d5cff47b5b4cee14b43508
+      internalID: 1538092306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_234
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 258
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9edc719172fd9ad48abf74658fa5b1a7
+      internalID: -886600958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_235
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 258
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93e723116c9450d459ccdeb45fd2ba70
+      internalID: 1897358303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_236
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 258
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e0db8355e01c544ca2bfc2f67c9b2b8
+      internalID: 1455844293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_237
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 258
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7c092ecb61a4cd45a03dbad0d2ce6b8
+      internalID: -1104011024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_238
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 258
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99ea93b1b3ee14d4494819cee67551c0
+      internalID: -2100328412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_239
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 258
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e309a0b655c5d04f9aba053435a001a
+      internalID: -267095382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_240
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 258
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffe88b97b0ed6de42b4ab2aac18802af
+      internalID: 154096830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_241
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 258
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11a7a3fc65e595f4fae27869c8530bd0
+      internalID: -513704788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_242
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 258
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b03f7259f47cce64c8a20831e647a929
+      internalID: 1984875570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_243
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 258
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81470ea57e48e4e41803eac4f105aa2f
+      internalID: 2024036661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_244
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 258
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3d75bd39c9c1004a9d57075044f1f0c
+      internalID: 1200766757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tdt-human
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 258
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf483b3cf06546e44b78a3aa878c104a
+      internalID: 957536652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tdt-robot
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 258
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 454f4972ca05b384eba1531575a1e78e
+      internalID: 1296298921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tdt-monkey
+      rect:
+        serializedVersion: 2
+        x: 2178
+        y: 258
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d548f1b2ae60624c936348e1a8d7cae
+      internalID: -532648937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tdt-zombie
+      rect:
+        serializedVersion: 2
+        x: 2306
+        y: 258
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03ef80f13b3f93943a22aa7493369248
+      internalID: -364275251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tdt-cannon-1
+      rect:
+        serializedVersion: 2
+        x: 2434
+        y: 258
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70dac85c9c6710e408c65f47fc04985b
+      internalID: 437335213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tdt-cannon-2
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 258
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6d3b397fb8fca24d9be831aa23c73ac
+      internalID: 506430595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tdt-rocket-1
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 258
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b264a56d087a6a848882336a7208a1a9
+      internalID: 1278633160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tdt-rocket-2
+      rect:
+        serializedVersion: 2
+        x: 2818
+        y: 258
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79349766b1eb2d54f97024be0f84542c
+      internalID: 2138807379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_253
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 130
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 563ce7081478e384fb5998e3b77ab64e
+      internalID: -138441560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_254
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 130
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 058214e756bcc684c8028a186f99f50e
+      internalID: 1668503983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_255
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 130
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04ad5a4c7776b0840bf54a8242a400d4
+      internalID: -626643173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_256
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 130
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6de6872c9df5bc64da2e1a0c4dadebee
+      internalID: 987511338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_257
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 130
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce6b83be85f9e0d4480936d4fa1137b9
+      internalID: 1366351167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_258
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 130
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3077f1a3a5c63d84a98155d8a3642046
+      internalID: -1706746019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_259
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 130
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f4b6c16ca25d90459469edf516d5863
+      internalID: -85063363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_260
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 130
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68cb506f13840e949b8a949b9069c34d
+      internalID: 1243696459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_261
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 130
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee443258e299ae84fb2dbe98792769ff
+      internalID: -104579796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_262
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 130
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd83e60da0df5f94d9a8ee729d915cf8
+      internalID: -1381766258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_263
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 130
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ac914885be379c45a27e4ab459fc5b3
+      internalID: 358221990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_264
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 130
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7a9bd874ce342140ac228aa99534ada
+      internalID: -1610367606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_265
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 130
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bfc231d22a6250449ae2f3b78b8495d
+      internalID: -1069985792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_266
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 130
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fcb15d6c1f669a48baae95be93f7333
+      internalID: -1025292758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_267
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 130
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0ea0937aeb423f41be6cd7bbb3eb17b
+      internalID: -191037461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tdt-tank-base-1
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 130
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59cb02239eaaff746824fffe5b54fedf
+      internalID: -701821901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tdt-tank-base-2
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 130
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd799e76c2365a439e4f5b818a21b9f
+      internalID: 1693309439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_270
+      rect:
+        serializedVersion: 2
+        x: 2178
+        y: 130
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff746004a393ccb4a8bf78bb48e78ff7
+      internalID: 735831479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_271
+      rect:
+        serializedVersion: 2
+        x: 2306
+        y: 130
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6c532d8bb8173e4aac0557d2994cdef
+      internalID: 1907154808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_272
+      rect:
+        serializedVersion: 2
+        x: 2434
+        y: 130
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9590d20f27979c246befb94698ef82a6
+      internalID: 1638336528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_273
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 130
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9da5498648bc114e95e9b6835fe9f37
+      internalID: -177521057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_274
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 130
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14a0227429c0e8942a9c26eab7c654db
+      internalID: 1694264774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_275
+      rect:
+        serializedVersion: 2
+        x: 2818
+        y: 130
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd4edce1dff9a1d4aaf1656e073a477b
+      internalID: 904580960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tdt_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27fb7d32d8f65f04993050594e9b8eef
+      internalID: 1510442878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tdt_1
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 2
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30eca6258076c78438d9cd9a13bc4cd1
+      internalID: -1985763503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_278
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 2
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58d248f65ab516442b374bd0adf441e2
+      internalID: 643039028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_279
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 2
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ff51cc952bde1d489eeddcceb48db02
+      internalID: -1372103406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_280
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 2
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b72ed07a9dcad00479bbb53ac722dff8
+      internalID: -2100870759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_281
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 2
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4371e86c32ccd3746941e71ad1e089c1
+      internalID: 1015655412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_282
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 2
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e02335ed08a498478b3ae7915d00c2e
+      internalID: 1913292561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_283
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 2
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5742d030af65a3f4088699671fa48572
+      internalID: 936688562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_284
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 2
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d910f6f8acb3a1419079c095ff7421c
+      internalID: 1272473941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_285
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 2
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf8c5ac385fc1c2438e54d08fff017bd
+      internalID: -1588877020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_286
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 2
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e69304cbab159a1449ff3549ad79b981
+      internalID: 679633490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_287
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 2
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e15e5baf455573419d4e6616d865800
+      internalID: 1586869276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_288
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 2
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be198148a32089a4886b81c511077e84
+      internalID: -127996396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_289
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 2
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33075331497949a4f8520eca70f330f8
+      internalID: 67894671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_290
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 2
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44e54f46a29629f42bb3757a4f32faf5
+      internalID: -1866882032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tdt-tank-cannon-1
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 2
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e25b18e383e62f4a93c39bd8c6f1038
+      internalID: 1779127705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tdt-tank-cannon-2
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 2
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3994ce82b10502479d95220699e10cd
+      internalID: 1895737934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_293
+      rect:
+        serializedVersion: 2
+        x: 2178
+        y: 2
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6373eabcdc1ee714fab33e768b5787c5
+      internalID: 1025504032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_294
+      rect:
+        serializedVersion: 2
+        x: 2306
+        y: 2
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5db744dceacdea94382e3084e17c3537
+      internalID: -1011589842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_295
+      rect:
+        serializedVersion: 2
+        x: 2434
+        y: 2
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5ad2b0c8b624d24e830a46d04f558b0
+      internalID: -1723599955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_296
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 2
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e08f7d4c5222f424ebdf06296a5a76a2
+      internalID: -1563413101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_297
+      rect:
+        serializedVersion: 2
+        x: 2690
+        y: 2
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65caf8785c7b9b04c835f95707b6f7f0
+      internalID: 92441415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towerDefense_tilesheet@2_298
+      rect:
+        serializedVersion: 2
+        x: 2818
+        y: 2
+        width: 124
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98585badfbc4cd6469e508dad7e94401
+      internalID: 1562752697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e50553ac84174449a5ec9f0e0147c43
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tdt-cannon-1: 437335213
+      tdt-cannon-2: 506430595
+      tdt-human: 957536652
+      tdt-monkey: -532648937
+      tdt-robot: 1296298921
+      tdt-rocket-1: 1278633160
+      tdt-rocket-2: 2138807379
+      tdt-tank-base-1: -701821901
+      tdt-tank-base-2: 1693309439
+      tdt-tank-cannon-1: 1779127705
+      tdt-tank-cannon-2: 1895737934
+      tdt-zombie: -364275251
+      tdt_0: 1510442878
+      tdt_1: -1985763503
+      towerDefense_tilesheet@2_0: 6942529229463317226
+      towerDefense_tilesheet@2_1: -6172813621342368735
+      towerDefense_tilesheet@2_10: -5883731955006007435
+      towerDefense_tilesheet@2_100: -1571649617
+      towerDefense_tilesheet@2_101: 811896050
+      towerDefense_tilesheet@2_102: -171864972
+      towerDefense_tilesheet@2_103: 1798389870
+      towerDefense_tilesheet@2_104: 1199589663
+      towerDefense_tilesheet@2_105: -1653264393
+      towerDefense_tilesheet@2_106: 1717284901
+      towerDefense_tilesheet@2_107: -883262115
+      towerDefense_tilesheet@2_108: 137855639
+      towerDefense_tilesheet@2_109: -416982391
+      towerDefense_tilesheet@2_11: 3563038481018498928
+      towerDefense_tilesheet@2_110: -218699707
+      towerDefense_tilesheet@2_111: -1511078921
+      towerDefense_tilesheet@2_112: -1833848297
+      towerDefense_tilesheet@2_113: 1944204224
+      towerDefense_tilesheet@2_114: 931908304
+      towerDefense_tilesheet@2_115: 710037594
+      towerDefense_tilesheet@2_116: 974001960
+      towerDefense_tilesheet@2_117: -1299069832
+      towerDefense_tilesheet@2_118: -1087162885
+      towerDefense_tilesheet@2_119: -1550018879
+      towerDefense_tilesheet@2_12: -7306558704089408034
+      towerDefense_tilesheet@2_120: -2132491694
+      towerDefense_tilesheet@2_121: 834091760
+      towerDefense_tilesheet@2_122: -748282531
+      towerDefense_tilesheet@2_123: -1438651071
+      towerDefense_tilesheet@2_124: -1949174116
+      towerDefense_tilesheet@2_125: -1839903588
+      towerDefense_tilesheet@2_126: 1606431219
+      towerDefense_tilesheet@2_127: 1052012234
+      towerDefense_tilesheet@2_128: -894421723
+      towerDefense_tilesheet@2_129: 2127471543
+      towerDefense_tilesheet@2_13: -8506388685883607075
+      towerDefense_tilesheet@2_130: -13204174
+      towerDefense_tilesheet@2_131: -193724277
+      towerDefense_tilesheet@2_132: 1673152673
+      towerDefense_tilesheet@2_133: -1941037363
+      towerDefense_tilesheet@2_134: 2080881374
+      towerDefense_tilesheet@2_135: 310467776
+      towerDefense_tilesheet@2_136: -584415126
+      towerDefense_tilesheet@2_137: -1507122625
+      towerDefense_tilesheet@2_138: 1758954023
+      towerDefense_tilesheet@2_139: -949522664
+      towerDefense_tilesheet@2_14: -7371120387281452167
+      towerDefense_tilesheet@2_140: -1498098881
+      towerDefense_tilesheet@2_141: -1559276210
+      towerDefense_tilesheet@2_142: -2016679342
+      towerDefense_tilesheet@2_143: -929668935
+      towerDefense_tilesheet@2_144: -380982575
+      towerDefense_tilesheet@2_145: 1812519342
+      towerDefense_tilesheet@2_146: -2021705418
+      towerDefense_tilesheet@2_147: 1761490931
+      towerDefense_tilesheet@2_148: 1562071446
+      towerDefense_tilesheet@2_149: 1971081478
+      towerDefense_tilesheet@2_15: 7273889984496384276
+      towerDefense_tilesheet@2_150: -1274358556
+      towerDefense_tilesheet@2_151: -614975822
+      towerDefense_tilesheet@2_152: -822407700
+      towerDefense_tilesheet@2_153: -1720727344
+      towerDefense_tilesheet@2_154: -1635877889
+      towerDefense_tilesheet@2_155: 1601533983
+      towerDefense_tilesheet@2_156: -866346833
+      towerDefense_tilesheet@2_157: 536583737
+      towerDefense_tilesheet@2_158: -41192455
+      towerDefense_tilesheet@2_159: -356781383
+      towerDefense_tilesheet@2_16: -1535749064117039087
+      towerDefense_tilesheet@2_160: 1342995725
+      towerDefense_tilesheet@2_161: -2020642088
+      towerDefense_tilesheet@2_162: -1249448762
+      towerDefense_tilesheet@2_163: -1959544282
+      towerDefense_tilesheet@2_164: 1580003061
+      towerDefense_tilesheet@2_165: 1786406869
+      towerDefense_tilesheet@2_166: -1090662272
+      towerDefense_tilesheet@2_167: 1926655994
+      towerDefense_tilesheet@2_168: 1518537710
+      towerDefense_tilesheet@2_169: -390110736
+      towerDefense_tilesheet@2_17: 1220097820752975890
+      towerDefense_tilesheet@2_170: -2133947341
+      towerDefense_tilesheet@2_171: -1713614999
+      towerDefense_tilesheet@2_172: 805242390
+      towerDefense_tilesheet@2_173: -449008724
+      towerDefense_tilesheet@2_174: -1401983594
+      towerDefense_tilesheet@2_175: 552494794
+      towerDefense_tilesheet@2_176: -173302781
+      towerDefense_tilesheet@2_177: 2038986831
+      towerDefense_tilesheet@2_178: -2114605772
+      towerDefense_tilesheet@2_179: 1488819791
+      towerDefense_tilesheet@2_18: 6331460045360748994
+      towerDefense_tilesheet@2_180: 1439846362
+      towerDefense_tilesheet@2_181: 1355283492
+      towerDefense_tilesheet@2_182: -174391133
+      towerDefense_tilesheet@2_183: 922575191
+      towerDefense_tilesheet@2_184: -8466663
+      towerDefense_tilesheet@2_185: 1596557
+      towerDefense_tilesheet@2_186: -520250100
+      towerDefense_tilesheet@2_187: -251199173
+      towerDefense_tilesheet@2_188: -158643460
+      towerDefense_tilesheet@2_189: -279424334
+      towerDefense_tilesheet@2_19: 4695282832425303243
+      towerDefense_tilesheet@2_190: 506259683
+      towerDefense_tilesheet@2_191: -886750699
+      towerDefense_tilesheet@2_192: 1591784474
+      towerDefense_tilesheet@2_193: 777651992
+      towerDefense_tilesheet@2_194: 1507892851
+      towerDefense_tilesheet@2_195: 946459451
+      towerDefense_tilesheet@2_196: -35401677
+      towerDefense_tilesheet@2_197: -1909205945
+      towerDefense_tilesheet@2_198: -718282722
+      towerDefense_tilesheet@2_199: 423493965
+      towerDefense_tilesheet@2_2: -2222281394853371726
+      towerDefense_tilesheet@2_20: 5676673653638158957
+      towerDefense_tilesheet@2_200: 1143393159
+      towerDefense_tilesheet@2_201: -814857386
+      towerDefense_tilesheet@2_202: 457975200
+      towerDefense_tilesheet@2_203: 1002902050
+      towerDefense_tilesheet@2_204: -1772730950
+      towerDefense_tilesheet@2_205: 154670623
+      towerDefense_tilesheet@2_206: -441208370
+      towerDefense_tilesheet@2_207: 1908831158
+      towerDefense_tilesheet@2_208: 934541621
+      towerDefense_tilesheet@2_209: -1191457402
+      towerDefense_tilesheet@2_21: -4623976400168295903
+      towerDefense_tilesheet@2_210: 264453983
+      towerDefense_tilesheet@2_211: -709244679
+      towerDefense_tilesheet@2_212: 2069268462
+      towerDefense_tilesheet@2_213: 1305469450
+      towerDefense_tilesheet@2_214: 1756310465
+      towerDefense_tilesheet@2_215: -1885462910
+      towerDefense_tilesheet@2_216: 1785994924
+      towerDefense_tilesheet@2_217: -1892973179
+      towerDefense_tilesheet@2_218: -1302859282
+      towerDefense_tilesheet@2_219: 33054769
+      towerDefense_tilesheet@2_22: -1851102042020089604
+      towerDefense_tilesheet@2_220: -1968328262
+      towerDefense_tilesheet@2_221: -1023986343
+      towerDefense_tilesheet@2_222: 365091645
+      towerDefense_tilesheet@2_223: -592472782
+      towerDefense_tilesheet@2_224: -281004749
+      towerDefense_tilesheet@2_225: -587392599
+      towerDefense_tilesheet@2_226: 594028843
+      towerDefense_tilesheet@2_227: -1222583257
+      towerDefense_tilesheet@2_228: -1614058332
+      towerDefense_tilesheet@2_229: 1917448455
+      towerDefense_tilesheet@2_23: 6024120149572973775
+      towerDefense_tilesheet@2_230: -1071344723
+      towerDefense_tilesheet@2_231: -833617374
+      towerDefense_tilesheet@2_232: -1719708596
+      towerDefense_tilesheet@2_233: 1538092306
+      towerDefense_tilesheet@2_234: -886600958
+      towerDefense_tilesheet@2_235: 1897358303
+      towerDefense_tilesheet@2_236: 1455844293
+      towerDefense_tilesheet@2_237: -1104011024
+      towerDefense_tilesheet@2_238: -2100328412
+      towerDefense_tilesheet@2_239: -267095382
+      towerDefense_tilesheet@2_24: 1296906104
+      towerDefense_tilesheet@2_240: 154096830
+      towerDefense_tilesheet@2_241: -513704788
+      towerDefense_tilesheet@2_242: 1984875570
+      towerDefense_tilesheet@2_243: 2024036661
+      towerDefense_tilesheet@2_244: 1200766757
+      towerDefense_tilesheet@2_25: 1626121034
+      towerDefense_tilesheet@2_253: -138441560
+      towerDefense_tilesheet@2_254: 1668503983
+      towerDefense_tilesheet@2_255: -626643173
+      towerDefense_tilesheet@2_256: 987511338
+      towerDefense_tilesheet@2_257: 1366351167
+      towerDefense_tilesheet@2_258: -1706746019
+      towerDefense_tilesheet@2_259: -85063363
+      towerDefense_tilesheet@2_26: -1598086620
+      towerDefense_tilesheet@2_260: 1243696459
+      towerDefense_tilesheet@2_261: -104579796
+      towerDefense_tilesheet@2_262: -1381766258
+      towerDefense_tilesheet@2_263: 358221990
+      towerDefense_tilesheet@2_264: -1610367606
+      towerDefense_tilesheet@2_265: -1069985792
+      towerDefense_tilesheet@2_266: -1025292758
+      towerDefense_tilesheet@2_267: -191037461
+      towerDefense_tilesheet@2_27: -1388310902
+      towerDefense_tilesheet@2_270: 735831479
+      towerDefense_tilesheet@2_271: 1907154808
+      towerDefense_tilesheet@2_272: 1638336528
+      towerDefense_tilesheet@2_273: -177521057
+      towerDefense_tilesheet@2_274: 1694264774
+      towerDefense_tilesheet@2_275: 904580960
+      towerDefense_tilesheet@2_278: 643039028
+      towerDefense_tilesheet@2_279: -1372103406
+      towerDefense_tilesheet@2_28: 1984239094
+      towerDefense_tilesheet@2_280: -2100870759
+      towerDefense_tilesheet@2_281: 1015655412
+      towerDefense_tilesheet@2_282: 1913292561
+      towerDefense_tilesheet@2_283: 936688562
+      towerDefense_tilesheet@2_284: 1272473941
+      towerDefense_tilesheet@2_285: -1588877020
+      towerDefense_tilesheet@2_286: 679633490
+      towerDefense_tilesheet@2_287: 1586869276
+      towerDefense_tilesheet@2_288: -127996396
+      towerDefense_tilesheet@2_289: 67894671
+      towerDefense_tilesheet@2_29: -655182690
+      towerDefense_tilesheet@2_290: -1866882032
+      towerDefense_tilesheet@2_293: 1025504032
+      towerDefense_tilesheet@2_294: -1011589842
+      towerDefense_tilesheet@2_295: -1723599955
+      towerDefense_tilesheet@2_296: -1563413101
+      towerDefense_tilesheet@2_297: 92441415
+      towerDefense_tilesheet@2_298: 1562752697
+      towerDefense_tilesheet@2_3: 6280852008862489807
+      towerDefense_tilesheet@2_30: 340381731
+      towerDefense_tilesheet@2_31: -179805753
+      towerDefense_tilesheet@2_32: -47668085
+      towerDefense_tilesheet@2_33: -1588916197
+      towerDefense_tilesheet@2_34: 1522420015
+      towerDefense_tilesheet@2_35: -1264728777
+      towerDefense_tilesheet@2_36: -1537690652
+      towerDefense_tilesheet@2_37: -79473951
+      towerDefense_tilesheet@2_38: -95915618
+      towerDefense_tilesheet@2_39: -1572051798
+      towerDefense_tilesheet@2_4: -1830236551898423855
+      towerDefense_tilesheet@2_40: 443482098
+      towerDefense_tilesheet@2_41: 966557107
+      towerDefense_tilesheet@2_42: 928832022
+      towerDefense_tilesheet@2_43: 1531829484
+      towerDefense_tilesheet@2_44: 980274119
+      towerDefense_tilesheet@2_45: -834044856
+      towerDefense_tilesheet@2_46: 1398959337
+      towerDefense_tilesheet@2_47: 2051750615
+      towerDefense_tilesheet@2_48: 725667896
+      towerDefense_tilesheet@2_49: 2107219145
+      towerDefense_tilesheet@2_5: 7390659247515025099
+      towerDefense_tilesheet@2_50: 163088896
+      towerDefense_tilesheet@2_51: -843276842
+      towerDefense_tilesheet@2_52: 552183264
+      towerDefense_tilesheet@2_53: 530102551
+      towerDefense_tilesheet@2_54: -66067380
+      towerDefense_tilesheet@2_55: -1565261010
+      towerDefense_tilesheet@2_56: 840787997
+      towerDefense_tilesheet@2_57: 2019616777
+      towerDefense_tilesheet@2_58: 462428992
+      towerDefense_tilesheet@2_59: -720502987
+      towerDefense_tilesheet@2_6: -4325103305193759774
+      towerDefense_tilesheet@2_60: -359274866
+      towerDefense_tilesheet@2_61: 1619654495
+      towerDefense_tilesheet@2_62: -251438540
+      towerDefense_tilesheet@2_63: -25362498
+      towerDefense_tilesheet@2_64: 44757940
+      towerDefense_tilesheet@2_65: 1221636706
+      towerDefense_tilesheet@2_66: 767562642
+      towerDefense_tilesheet@2_67: 2004018164
+      towerDefense_tilesheet@2_68: 5831332
+      towerDefense_tilesheet@2_69: 1631561911
+      towerDefense_tilesheet@2_7: 1623293904889186236
+      towerDefense_tilesheet@2_70: -1737084458
+      towerDefense_tilesheet@2_71: -1159918230
+      towerDefense_tilesheet@2_72: 1197508984
+      towerDefense_tilesheet@2_73: -302843416
+      towerDefense_tilesheet@2_74: -1532223928
+      towerDefense_tilesheet@2_75: 1624343600
+      towerDefense_tilesheet@2_76: -2033950943
+      towerDefense_tilesheet@2_77: 2109730313
+      towerDefense_tilesheet@2_78: -888986903
+      towerDefense_tilesheet@2_79: 183872680
+      towerDefense_tilesheet@2_8: 668523359957352226
+      towerDefense_tilesheet@2_80: 1052013053
+      towerDefense_tilesheet@2_81: 851409336
+      towerDefense_tilesheet@2_82: -292962021
+      towerDefense_tilesheet@2_83: -959366756
+      towerDefense_tilesheet@2_84: 2124234309
+      towerDefense_tilesheet@2_85: 146389682
+      towerDefense_tilesheet@2_86: -1903527366
+      towerDefense_tilesheet@2_87: 1040488599
+      towerDefense_tilesheet@2_88: -2009563699
+      towerDefense_tilesheet@2_89: 1518511240
+      towerDefense_tilesheet@2_9: -5191486218319225936
+      towerDefense_tilesheet@2_90: 481459924
+      towerDefense_tilesheet@2_91: -984066488
+      towerDefense_tilesheet@2_92: 909667565
+      towerDefense_tilesheet@2_93: 1320224119
+      towerDefense_tilesheet@2_94: -1912137452
+      towerDefense_tilesheet@2_95: 1011595452
+      towerDefense_tilesheet@2_96: -1767437859
+      towerDefense_tilesheet@2_97: -156555129
+      towerDefense_tilesheet@2_98: -611513384
+      towerDefense_tilesheet@2_99: -1153058274
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

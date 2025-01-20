@@ -18,12 +18,12 @@ namespace Architecture {
       EventManager.PhaseGetIntents.AddListener(OnGetIntents);
       EventManager.PhaseApplyEffects.AddListener(OnApplyEffects);
 
-      gridSystem = FindObjectOfType<GridSystem>();
+      gridSystem = FindFirstObjectByType<GridSystem>();
       if (!gridSystem) throw new NoComponentException($"No component ${typeof(GridSystem)}");
     }
 
     private void OnGetIntents() {
-      Debug.Log("ActorManager.OnGetIntents()");
+      // Debug.Log("ActorManager.OnGetIntents()");
       EventManager.AmStartRequestIntent.Invoke(this);
     }
 

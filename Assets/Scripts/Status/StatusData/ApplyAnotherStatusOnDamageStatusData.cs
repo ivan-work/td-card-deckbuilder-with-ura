@@ -2,7 +2,6 @@
 using UnityEngine;
 
 namespace Status.StatusData {
-  
   [CreateAssetMenu(menuName = "Status/ApplyAnotherStatusOnDamageStatusData")]
   public class ApplyAnotherStatusOnDamageStatusData : BaseStatusData {
     [SerializeField] private DamageType damageType;
@@ -18,10 +17,13 @@ namespace Status.StatusData {
     public override void OnDamage(StatusContext context, DamageEffect damageEffect) {
       if (damageEffect.damageType == damageType && !context.component.hasStatus(anotherStatus)) {
         context.actorManager.addImmediateEffects(
-          new ApplyStatusEffect(context.component, new StatusStruct {
-            stacks = context.statusStruct.stacks,
-            data = anotherStatus
-          })
+          new ApplyStatusEffect(
+            context.component,
+            new StatusStruct(
+              anotherStatus,
+              context.statusStruct.stacks
+            )
+          )
         );
       }
     }

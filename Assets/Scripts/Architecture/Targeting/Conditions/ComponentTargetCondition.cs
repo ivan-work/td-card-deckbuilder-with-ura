@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Linq;
+using System.Xml;
 using B83;
 using Components;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Utils;
 
 [CreateAssetMenu(menuName = "Architecture/Targeting/Condition/ComponentTargetCondition")]
 public class ComponentTargetCondition : AbstractTargetCondition {

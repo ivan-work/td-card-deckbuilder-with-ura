@@ -15,10 +15,10 @@ namespace Cards {
       return gridPoses
         .SelectMany(gridSystem.getGridEntitiesSpecial<StatusComponent>)
         .Select(component =>
-          new ApplyStatusEffect(component, new StatusStruct {
-            data = AssetDatabase.LoadAssetAtPath<BaseStatusData>("Assets/ScriptableObjects/Status/Oiled Status Data Object.asset"),
-            stacks = 5
-          })
+          new ApplyStatusEffect(component, new StatusStruct(
+            AssetDatabase.LoadAssetAtPath<BaseStatusData>("Assets/ScriptableObjects/Status/Oiled Status Data Object.asset"),
+            5
+          ))
         );
     }
   }

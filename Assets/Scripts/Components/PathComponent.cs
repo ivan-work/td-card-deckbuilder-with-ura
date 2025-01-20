@@ -6,7 +6,7 @@ using Components;
 using UnityEngine;
 
 // Возможно, должен объединиться с GridComponent 
-public class PathComponent : MonoBehaviour, ITargetableComponent {
+public class PathComponent : MonoBehaviour {
   public float distanceToBase = float.PositiveInfinity;
   public float moveCost = 1;
 

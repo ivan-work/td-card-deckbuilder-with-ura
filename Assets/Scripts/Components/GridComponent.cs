@@ -16,7 +16,6 @@ namespace Components {
     }
 
     private void OnDestroy() {
-      Debug.Log("GridComponent.OnDestroy()");
       gridSystem.unregister(this, gridPos);
     }
 
