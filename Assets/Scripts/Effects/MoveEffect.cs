@@ -35,16 +35,22 @@ namespace Effects {
       if (hasPath && !hasMob) {
         animation = new MoveAnimation(moveComponent, gridSystem.gridPos2World(sourcePos), gridSystem.gridPos2World(targetPos));
         moveComponent.gridComponent.moveTo(targetPos);
-
-
-        moveComponent.GetComponents<StatusComponent>().ToList().ForEach(statusComponent => {
-          statusComponent.OnMove(am);
-        });
+        SendEvents(am, gridSystem);
       } else {
         animation = new MoveAttemptAnimation(moveComponent, gridSystem.gridPos2World(sourcePos),
           gridSystem.gridPos2World(targetPos));
       }
     }
+
+    private void SendEvents(ActorManager am, GridSystem gridSystem) {
+      gridSystem.getGridEntitiesSpecial<TrapComponent>(targetPos).ToList()
+        .ForEach(trapComponent => trapComponent.OnEntityEnter(am, moveComponent.gridComponent));
+
+      moveComponent.GetComponents<StatusComponent>().ToList().ForEach(statusComponent => {
+        statusComponent.OnMove(am);
+      });
+    }
+
 
     public override string ToString() {
       return $"MoveEffect({sourcePos}+{direction})";
