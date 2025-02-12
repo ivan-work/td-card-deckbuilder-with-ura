@@ -9,7 +9,7 @@ namespace Status.StatusData {
         new DamageEffect(context.component.gridComponent.gridPos, DamageType.Internal, context.statusStruct.stacks)
       );
       
-      context.component.decreaseStatus(context.statusStruct);
+      context.component.updateStatus(context.statusStruct, -1);
     }
   }
 }

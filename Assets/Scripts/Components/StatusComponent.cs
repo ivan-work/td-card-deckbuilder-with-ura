@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Architecture;
 using Effects;
@@ -10,6 +11,7 @@ using UnityEngine.Events;
 
 namespace Components {
   public class StatusComponent : MonoBehaviour {
+
     [SerializeField] private GameObject statusBar;
     [SerializeField] private StatusIconPrefab statusIconPrefab;
 
@@ -23,16 +25,25 @@ namespace Components {
     }
 
     public void addStatus(StatusStruct statusStruct, ActorManager actorManager) {
-      statusList.Add(statusStruct);
-      statusStruct.data.OnApply(new StatusContext {actorManager = actorManager, component = this, statusStruct = statusStruct});
-
-      var statusIcon = Instantiate(statusIconPrefab, statusBar.transform);
-      statusStruct.OnChange.AddListener(statusIcon.onChangeListener);
-      statusStruct.OnRemove.AddListener(statusIcon.onRemoveListener);
-      statusIconList.Add(statusIcon);
-      
-      statusStruct.OnChange.Invoke(statusStruct);
+      if (getStatus(statusStruct.data, out var oldStatusStruct)) {
+        updateStatus(oldStatusStruct, statusStruct.stacks);
+      } else {
+        statusList.Add(statusStruct);
+        
+        var statusIcon = Instantiate(statusIconPrefab, statusBar.transform);
+        statusStruct.OnChange.AddListener(statusIcon.onChangeListener);
+        statusStruct.OnRemove.AddListener(statusIcon.onRemoveListener);
+        statusIconList.Add(statusIcon);
+        
+        statusStruct.OnChange.Invoke(statusStruct);
+      }
     }
+
+    private bool getStatus(BaseStatusData statusData, out StatusStruct outStatusStruct) {
+      outStatusStruct = statusList.Find(statusStruct => statusData == statusStruct.data);
+      return outStatusStruct != null;
+    }
+    
 
     private void removeStatus(StatusStruct statusStruct) {
       statusList.Remove(statusStruct);
@@ -62,16 +73,18 @@ namespace Components {
     }
 
     public bool hasStatus(BaseStatusData statusData) {
-      return statusList.Exists(statusStruct => statusStruct.data == statusData);
+      return getStatus(statusData, out _);
     }
 
-    public void decreaseStatus(StatusStruct statusStruct) {
-      statusStruct.stacks--;
+    public void updateStatus(StatusStruct statusStruct, int stacksChange) {
+      statusStruct.stacks += stacksChange;
       statusStruct.OnChange.Invoke(statusStruct);
       
       if (statusStruct.stacks <= 0) {
         removeStatus(statusStruct);
       }
     }
+
+
   }
 }

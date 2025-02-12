@@ -8,7 +8,7 @@ namespace Status.StatusData {
     [SerializeField] private BaseStatusData anotherStatus;
 
     public override void OnEndTurn(StatusContext context) {
-      context.component.decreaseStatus(context.statusStruct);
+      context.component.updateStatus(context.statusStruct, -1);
     }
 
     public override void OnDamage(StatusContext context, DamageEffect damageEffect) {
