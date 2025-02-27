@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Architecture;
 using Effects;
+using Intents;
 using JetBrains.Annotations;
 using Status;
 using Status.StatusData;
@@ -59,6 +60,14 @@ namespace Components {
         statusStruct.data.OnDamage(
           new StatusContext {actorManager = actorManager, component = this, statusStruct = statusStruct}, damageEffect)
       );
+    }
+
+    public void OnDamage(IntentContext<DamageIntentValues> context) {
+      // TODO FIX
+      // statusList.ToList().ForEach(statusStruct =>
+      //   statusStruct.data.OnDamage(
+      //     new StatusContext {actorManager = context.ActorManager, component = this, statusStruct = statusStruct}, damageEffect)
+      // );
     }
 
     private void OnEndTurnListner(ActorManager actorManager) {

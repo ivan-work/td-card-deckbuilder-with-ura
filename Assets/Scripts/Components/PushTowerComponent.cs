@@ -25,21 +25,22 @@ namespace Components {
     private void Awake() {
       gridComponent = this.GetAssertComponent<GridComponent>();
       statusComponent = this.GetAssertComponent<StatusComponent>();
-      
+
       shootAttachment = shootAttachmentGO.transform.localPosition;
     }
 
 
     public void getIntents(ActorManager actorManager) {
-        if (!statusComponent.hasStatus(cooldownStatusData)) {
-          var targetPos = searchNewTarget();
-          if (targetPos.HasValue) {
-            var effects = gridComponent.gridSystem.getGridEntitiesSpecial<MoveComponent>(targetPos.Value)
-              .Select<MoveComponent, BaseEffect>(component => new PushEffect(component, direction, force))
-              .Append(new ApplyStatusEffect(statusComponent, new StatusStruct(cooldownStatusData, cooldown))).ToArray();
-            actorManager.addImmediateEffects(effects);
-          }
+      if (!statusComponent.hasStatus(cooldownStatusData)) {
+        var targetPos = searchNewTarget();
+        if (targetPos.HasValue) {
+          var effects = gridComponent.gridSystem.getGridEntitiesSpecial<MoveComponent>(targetPos.Value)
+            .Select<MoveComponent, BaseEffect>(component => new PushEffect(component, direction, force))
+            .Append(new ApplyStatusEffect(statusComponent, new StatusStruct(cooldownStatusData, cooldown)))
+            .ToArray();
+          actorManager.addImmediateEffects(effects);
         }
+      }
     }
 
     private Vector2Int? searchNewTarget() {
