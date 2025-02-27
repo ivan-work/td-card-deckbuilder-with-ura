@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Architecture;
 using Effects;
+using JetBrains.Annotations;
 using Status;
 using Status.StatusData;
 using Unity.VisualScripting;
@@ -12,8 +13,8 @@ using UnityEngine.Events;
 namespace Components {
   public class StatusComponent : MonoBehaviour {
 
-    [SerializeField] private GameObject statusBar;
-    [SerializeField] private StatusIconPrefab statusIconPrefab;
+    [SerializeField] [CanBeNull] private GameObject statusBar;
+    [SerializeField] [CanBeNull] private StatusIconPrefab statusIconPrefab;
 
     public GridComponent gridComponent;
     private readonly List<StatusStruct> statusList = new();
@@ -29,11 +30,13 @@ namespace Components {
         updateStatus(oldStatusStruct, statusStruct.stacks);
       } else {
         statusList.Add(statusStruct);
-        
-        var statusIcon = Instantiate(statusIconPrefab, statusBar.transform);
-        statusStruct.OnChange.AddListener(statusIcon.onChangeListener);
-        statusStruct.OnRemove.AddListener(statusIcon.onRemoveListener);
-        statusIconList.Add(statusIcon);
+
+        if (statusBar && statusIconPrefab) {
+          var statusIcon = Instantiate(statusIconPrefab, statusBar.transform);
+          statusStruct.OnChange.AddListener(statusIcon.onChangeListener);
+          statusStruct.OnRemove.AddListener(statusIcon.onRemoveListener);
+          statusIconList.Add(statusIcon);
+        }
         
         statusStruct.OnChange.Invoke(statusStruct);
       }

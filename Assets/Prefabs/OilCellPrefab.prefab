@@ -140,6 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridSystem: {fileID: 0}
   gridPos: {x: 0, y: 0}
+  zLayer: 4
 --- !u!114 &3426524215788652512
 MonoBehaviour:
   m_ObjectHideFlags: 0

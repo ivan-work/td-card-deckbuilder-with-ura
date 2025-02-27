@@ -7,8 +7,6 @@ namespace Effects {
     private readonly TowerComponent component;
     private readonly Vector2Int targetPos;
 
-    private Vector2Int sourcePos => component.gridComponent.gridPos;
-
     public ShootEffect(TowerComponent component, Vector2Int targetPos) {
       this.component = component;
       this.targetPos = targetPos;
@@ -16,13 +14,13 @@ namespace Effects {
 
     public override void start(ActorManager am, GridSystem gridSystem) {
       isActive = true;
-      am.StartCoroutine(playAnimation(am));
+      am.StartCoroutine(playAnimation(am, gridSystem));
     }
 
-    private IEnumerator playAnimation(ActorManager am) {
-      var bullet = Object.Instantiate(component.bulletPrefab, component.gameObject.transform.position + component.shootAttachment, Quaternion.identity);
-
-      yield return am.StartCoroutine(bullet.Shoot(component.gridComponent.gridPos2World(targetPos)));
+    private IEnumerator playAnimation(ActorManager am, GridSystem gridSystem) {
+      var bullet = Object.Instantiate(component.bulletPrefab, component.gameObject.transform.position + component.shootAttachment,
+        Quaternion.identity);
+      yield return am.StartCoroutine(bullet.Shoot(gridSystem.gridPos2World(targetPos, component.gameObject.transform.position.z)));
 
       isActive = false;
     }

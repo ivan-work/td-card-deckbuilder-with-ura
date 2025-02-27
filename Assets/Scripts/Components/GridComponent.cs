@@ -2,9 +2,18 @@ using UnityEngine;
 
 namespace Components {
   public class GridComponent : MonoBehaviour {
+    public enum zLayerEnum {
+      Ground = 5,
+      Entity = 4,
+      Mob = 3,
+      
+      
+      
+    }
     [SerializeField] public GridSystem gridSystem;
 
     [SerializeField] public Vector2Int gridPos = Vector2Int.zero;
+    [SerializeField] public zLayerEnum zLayer = 0;
 
     private void Awake() {
       gridSystem = this.GetAssertComponentInParent<GridSystem>();
@@ -12,7 +21,7 @@ namespace Components {
 
     private void Start() {
       moveTo(gridPos);
-      gameObject.transform.position = gridPos2World(gridPos);
+      gameObject.transform.position = gridPos2World();
     }
 
     private void OnDestroy() {
@@ -24,11 +33,7 @@ namespace Components {
     }
 
     public Vector3 gridPos2World() {
-      return gridPos2World(gridPos);
-    }
-    
-    public Vector3 gridPos2World(Vector2Int vector) {
-      return gridSystem.gridPos2World(vector);
+      return gridSystem.gridPos2World(gridPos, (float)zLayer);
     }
   }
 }

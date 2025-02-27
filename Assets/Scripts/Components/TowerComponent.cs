@@ -6,10 +6,11 @@ using Effects;
 using UnityEngine;
 
 public class TowerComponent : MonoBehaviour, IHasIntent {
-  [SerializeField] private int damage = 3;
   [SerializeField] private int range = 3;
   [SerializeField] private GameObject shootAttachmentGO;
   public Vector3 shootAttachment = Vector3.zero;
+  
+  [SerializeField] private int damage = 3;
   [SerializeField] public BulletPrefab bulletPrefab;
   [SerializeField] private AbstractTargetCondition condition;
 
