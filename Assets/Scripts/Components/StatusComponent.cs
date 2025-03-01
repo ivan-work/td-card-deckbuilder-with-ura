@@ -63,7 +63,7 @@ namespace Components {
     }
 
     public void OnDamage(IntentContext<DamageIntentValues> context) {
-      // TODO FIX
+      // #TODO #INTENT FIX
       // statusList.ToList().ForEach(statusStruct =>
       //   statusStruct.data.OnDamage(
       //     new StatusContext {actorManager = context.ActorManager, component = this, statusStruct = statusStruct}, damageEffect)

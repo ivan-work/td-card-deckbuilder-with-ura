@@ -2630,6 +2630,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f172d6fa02ec274998333d64eafac36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Spawner:
+    IntentData: {fileID: 11400000, guid: 90f5ae81e667d2447b426376bae274c9, type: 2}
+    ValuesReference:
+      rid: -2
+    ValuesField:
+      ValueName: 
+  Spawner2:
+    IntentData: {fileID: 11400000, guid: a4f373befa45cd246811ea0312d42997, type: 2}
+    ValuesReference:
+      rid: -2
+    ValuesField:
+      ValueName: 
+  Source: {fileID: 0}
+  Target: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!4 &1491406655
 Transform:
   m_ObjectHideFlags: 0
