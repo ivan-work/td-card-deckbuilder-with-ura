@@ -1,8 +1,14 @@
-﻿using Components;
+﻿using System;
+using Components;
 using Effects.EffectAnimations;
 using UnityEngine;
 
 namespace Intents {
+  [Serializable]
+  public class DamageIntentValues : BaseIntentValues {
+    public int Damage;
+  }
+  
   [CreateAssetMenu]
   public class DamageIntentData : BaseIntentData<DamageIntentValues> {
     private BaseAnimation animation;

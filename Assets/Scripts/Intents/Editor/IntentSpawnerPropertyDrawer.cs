@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 namespace Intents.Editor {
   [Serializable]
-  [CustomPropertyDrawer(typeof(IntentSpawner))]
+  [CustomPropertyDrawer(typeof(IntentCreator))]
   public class IntentSpawnerPropertyDrawer : PropertyDrawer {
     private const string IntentDataPropertyName = "IntentData";
     private const string IntentValuesPropertyName = "IntentValues";

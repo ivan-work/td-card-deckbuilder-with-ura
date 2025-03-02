@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cbe93c42b454b78b7cc2cb4bf9c91be, type: 3}
-  m_Name: StatusIntentData-SO
+  m_Script: {fileID: 11500000, guid: 14b8a9da706d4025825b84d28ed33672, type: 3}
+  m_Name: Move Intent Data
   m_EditorClassIdentifier: 
-  defaultValues:
-    ValueName: 
-    Stacks: 0
