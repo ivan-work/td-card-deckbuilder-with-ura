@@ -1,57 +1,20 @@
 using System;
-using System.Reflection;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Object = UnityEngine.Object;
-
 
 namespace Intents.Editor {
-  [CustomPropertyDrawer(typeof(SimpleReferenceProperty))]
-  public sealed class SimpleReferencePropertyDrawer : PropertyDrawer {
-    public override VisualElement CreatePropertyGUI(SerializedProperty property) {
-      var visualElement = new VisualElement();
-
-      var propertyField = new PropertyField();
-      propertyField.BindProperty(property);
-
-      visualElement.Add(propertyField);
-
-      return visualElement;
-    }
-  }
-
   public class IntentDataAndValuesPropertyDrawer {
     private readonly SerializedProperty property;
     private readonly Foldout foldout = new();
-    private PropertyField intentValuesDataField;
     private const string IntentDataFieldName = "IntentData";
     private const string IntentValuesFieldName = "ValuesReference";
+    private const string IntentValuesDataFieldName = "IntentValuesDataField";
 
     public IntentDataAndValuesPropertyDrawer(SerializedProperty property) {
       this.property = property;
-    }
-
-    private void OnChangedIntentData(ChangeEvent<Object> evt) {
-      var intentData = evt.newValue as BaseIntentData;
-      Debug.Log($"OnChangedIntentData");
-      if (intentData) {
-        var copiedDefaultValues = intentData.BaseDefaultValues.Clone();
-        Debug.Log($"copiedDefaultValues: {copiedDefaultValues}");
-
-        var intentValuesProperty = property.FindPropertyRelative(IntentValuesFieldName);
-        intentValuesProperty.managedReferenceValue = copiedDefaultValues;
-        intentValuesProperty.serializedObject.ApplyModifiedProperties();
-
-        if (intentValuesDataField != null) {
-          intentValuesDataField.Unbind();
-          foldout.Remove(intentValuesDataField);
-        }
-        intentValuesDataField = new PropertyField();
-        intentValuesDataField.BindProperty(intentValuesProperty);
-        foldout.Add(intentValuesDataField);
-      }
+      Debug.Log($"new IntentDataAndValuesPropertyDrawer");
     }
 
     public VisualElement CreatePropertyGUI() {
@@ -64,11 +27,38 @@ namespace Intents.Editor {
         objectType = typeof(BaseIntentData),
         bindingPath = intentDataProperty.propertyPath
       };
-      intentDataField.RegisterValueChangedCallback(OnChangedIntentData);
+
+      intentDataField.TrackPropertyValue(intentDataProperty, OnChangedIntentData);
       
       foldout.Add(intentDataField);
 
       return foldout;
+    }
+
+    private void OnChangedIntentData(SerializedProperty intentDataProperty) {
+      var previousIntentValuesDataField = foldout.Q<VisualElement>(IntentValuesDataFieldName);
+      if (previousIntentValuesDataField != null) {
+        previousIntentValuesDataField.Unbind();
+        foldout.Remove(previousIntentValuesDataField);
+      }
+
+      // Debug.Log($"OnChangedIntentData {intentDataProperty}");
+      if (intentDataProperty != null) {
+        var intentData = intentDataProperty.objectReferenceValue as BaseIntentData;
+        if (intentData != null) {
+          var copiedDefaultValues = intentData.BaseDefaultValues.Clone();
+          // Debug.Log($"copiedDefaultValues: {copiedDefaultValues}");
+
+          var intentValuesProperty = property.FindPropertyRelative(IntentValuesFieldName);
+          intentValuesProperty.managedReferenceValue = copiedDefaultValues;
+          intentValuesProperty.serializedObject.ApplyModifiedProperties();
+
+          var intentValuesDataField = new PropertyField();
+          intentValuesDataField.name = IntentValuesDataFieldName;
+          intentValuesDataField.BindProperty(intentValuesProperty);
+          foldout.Add(intentValuesDataField);
+        }
+      }
     }
   }
 
@@ -88,7 +78,7 @@ namespace Intents.Editor {
       };
       spawnEffectButton.clicked += () => {
         var intentSpawner = (property.boxedValue as IntentSpawner);
-        Debug.Log($"Intent is [{intentSpawner.Spawn<DamageIntentValues>()}]");
+        Debug.Log($"Intent is [{intentSpawner.Spawn()}]");
       };
       root.Add(spawnEffectButton);
       //

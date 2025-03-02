@@ -12,13 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cbe93c42b454b78b7cc2cb4bf9c91be, type: 3}
   m_Name: StatusIntentData-SO
   m_EditorClassIdentifier: 
-  DefaultValuesReference:
-    rid: -2
-  DefaultValues:
+  defaultValues:
     ValueName: 
     Stacks: 0
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }

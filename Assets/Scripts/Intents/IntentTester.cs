@@ -11,7 +11,7 @@ using UnityEngine.Serialization;
 namespace Intents {
   [Serializable]
   public class BaseIntentValues {
-    public string ValueName;
+    // public string ValueName;
 
     public BaseIntentValues Clone() {
       return MemberwiseClone() as BaseIntentValues;
@@ -47,7 +47,7 @@ namespace Intents {
 
 
   public abstract class BaseIntentData<T> : BaseIntentData where T : BaseIntentValues {
-    [SerializeField] public T defaultValues;
+    [SerializeField] private T defaultValues;
 
     public override BaseIntentValues BaseDefaultValues {
       get => defaultValues;
@@ -72,10 +72,10 @@ namespace Intents {
   public class AnyIntent: Intent<BaseIntentValues> { }
 
   public class IntentSystem {
-    private readonly List<Intent<BaseIntentValues>> queue = new();
+    private readonly List<AnyIntent> queue = new();
 
-    public void AddIntent<T>(Intent<T> intent) where T : BaseIntentValues {
-      queue.Add(intent as Intent<BaseIntentValues>);
+    public void AddIntent(AnyIntent intent) {
+      queue.Add(intent);
     }
 
     public void PerformIntents() {
@@ -97,19 +97,11 @@ namespace Intents {
     [SerializeReference] public BaseIntentValues ValuesReference;
     [SerializeField] public BaseIntentValues ValuesField;
 
-    public Intent<T> Spawn<T>() where T : BaseIntentValues {
-      return new Intent<T>() {
-        Data = GetIntentData<T>(),
-        Values = GetIntentValues<T>()
+    public AnyIntent Spawn() {
+      return new AnyIntent {
+        Data = IntentData as BaseIntentData<BaseIntentValues>,
+        Values = ValuesReference
       };
-    }
-
-    public T GetIntentValues<T>() where T : BaseIntentValues {
-      return ValuesReference as T;
-    }
-
-    public BaseIntentData<T> GetIntentData<T>() where T : BaseIntentValues {
-      return IntentData as BaseIntentData<T>;
     }
   }
 
@@ -126,67 +118,15 @@ namespace Intents {
     public GameObject Source;
     public GameObject Target;
 
-    #region Inspector Fields
-
-    [SerializeReference, MySubclassSelectorAttribute]
-    private IBaseInterface _baseInterface = null;
-
-    [SerializeReference, MySubclassSelectorAttribute]
-    private BaseClass _classBase = null;
-
-    [SerializeReference, MySubclassSelectorAttribute]
-    private List<BaseClass> _classes = new();
-
-    #endregion
-
-    #region Properties
-
-    public IBaseInterface BaseInterface => _baseInterface;
-
-    public BaseClass ClassBase => _classBase;
-
-    public List<BaseClass> Classes => _classes;
-
-    #endregion
-
     public void Awake() {
       var system = new IntentSystem();
-      // var data = ScriptableObject.CreateInstance<DamageIntentData>();
-      var intent = new Intent<DamageIntentValues> {
-        Data = Spawner.GetIntentData<DamageIntentValues>(),
-        Values = Spawner.GetIntentValues<DamageIntentValues>()
-      };
+      var intent = Spawner.Spawn();
       system.AddIntent(intent);
       system.PerformIntents();
 
-      var spawner = new IntentSpawner();
-      spawner.IntentData = new DamageIntentData();
-      spawner.IntentData.BaseDefaultValues = new DamageIntentValues();
+      // var spawner = new IntentSpawner();
+      // spawner.IntentData = ScriptableObject.CreateInstance<DamageIntentData>();
+      // spawner.IntentData.BaseDefaultValues = new DamageIntentValues();
     }
   }
-
-
-  #region Types
-
-  public interface IBaseInterface { }
-
-  [System.Serializable]
-  public abstract class BaseClass : IBaseInterface { }
-
-  [System.Serializable]
-  public class ClassA : BaseClass {
-    public string ClassAString;
-  }
-
-  [System.Serializable]
-  public class ClassB : BaseClass {
-    public float ClassBFLoat;
-  }
-
-  [System.Serializable]
-  public class ClassC : ClassA {
-    public int ClassCInt;
-  }
-
-  #endregion
 }
