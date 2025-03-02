@@ -94,27 +94,19 @@ namespace Intents {
   [Serializable]
   public class IntentSpawner {
     [SerializeReference] public BaseIntentData IntentData;
-    [SerializeReference] public BaseIntentValues ValuesReference;
-    [SerializeField] public BaseIntentValues ValuesField;
+    [SerializeReference] public BaseIntentValues IntentValues;
 
     public AnyIntent Spawn() {
       return new AnyIntent {
         Data = IntentData as BaseIntentData<BaseIntentValues>,
-        Values = ValuesReference
+        Values = IntentValues
       };
     }
   }
 
-  [Serializable]
-  public class IntentSpawnerPlain {
-    [SerializeField] public BaseIntentData IntentData;
-    [SerializeReference] public BaseIntentValues ValuesReference;
-    [SerializeField] public BaseIntentValues ValuesField;
-  }
-
   public class IntentTester : MonoBehaviour {
     [SerializeField] private IntentSpawner Spawner;
-    [SerializeField] private IntentSpawnerPlain Spawner2;
+    [SerializeField] private List<IntentSpawner> ListOfSpawners;
     public GameObject Source;
     public GameObject Target;
 
@@ -123,10 +115,6 @@ namespace Intents {
       var intent = Spawner.Spawn();
       system.AddIntent(intent);
       system.PerformIntents();
-
-      // var spawner = new IntentSpawner();
-      // spawner.IntentData = ScriptableObject.CreateInstance<DamageIntentData>();
-      // spawner.IntentData.BaseDefaultValues = new DamageIntentValues();
     }
   }
 }

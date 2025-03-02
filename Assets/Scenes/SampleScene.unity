@@ -2646,24 +2646,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawner:
-    IntentData: {fileID: 0}
-    ValuesReference:
-      rid: -2
-    ValuesField:
-      ValueName: 
-  Spawner2:
-    IntentData: {fileID: 0}
-    ValuesReference:
-      rid: -2
-    ValuesField:
-      ValueName: 
+    IntentData: {fileID: 11400000, guid: a4f373befa45cd246811ea0312d42997, type: 2}
+    IntentValues:
+      rid: 6949361035020337332
+  ListOfSpawners:
+  - IntentData: {fileID: 11400000, guid: a4f373befa45cd246811ea0312d42997, type: 2}
+    IntentValues:
+      rid: 6949361035020337333
+  - IntentData: {fileID: 11400000, guid: 56c63fec825907e42b0c95f0804f2e36, type: 2}
+    IntentValues:
+      rid: 6949361035020337343
+  - IntentData: {fileID: 11400000, guid: 90f5ae81e667d2447b426376bae274c9, type: 2}
+    IntentValues:
+      rid: 6949361035020337345
   Source: {fileID: 0}
   Target: {fileID: 0}
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 6949361035020337332
+      type: {class: DamageIntentValues, ns: Intents, asm: Assembly-CSharp}
+      data:
+        Damage: 0
+    - rid: 6949361035020337333
+      type: {class: DamageIntentValues, ns: Intents, asm: Assembly-CSharp}
+      data:
+        Damage: 0
+    - rid: 6949361035020337343
+      type: {class: MoveIntentValues, ns: Intents, asm: Assembly-CSharp}
+      data:
+        Direction:
+          x: 0
+          y: 0
+    - rid: 6949361035020337345
+      type: {class: StatusIntentValues, ns: Intents, asm: Assembly-CSharp}
+      data:
+        Stacks: 0
 --- !u!1 &1546652893
 GameObject:
   m_ObjectHideFlags: 0

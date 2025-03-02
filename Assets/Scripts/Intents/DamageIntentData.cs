@@ -1,9 +1,11 @@
 ﻿using Components;
+using Effects.EffectAnimations;
 using UnityEngine;
 
 namespace Intents {
   [CreateAssetMenu]
   public class DamageIntentData : BaseIntentData<DamageIntentValues> {
+    private BaseAnimation animation;
     // #TODO #INTENT FIX - make event
     public override void PerformIntent(IntentContext<DamageIntentValues> context) {
       GameObject source = context.Source;
