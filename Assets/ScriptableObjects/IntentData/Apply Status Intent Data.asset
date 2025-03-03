@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3cbe93c42b454b78b7cc2cb4bf9c91be, type: 3}
-  m_Name: Status Intent Data
+  m_Name: Apply Status Intent Data
   m_EditorClassIdentifier: 
   defaultValues:
     ValueName: 

@@ -1,16 +1,18 @@
 ﻿using System;
+using Intents.Engine;
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace Intents {
+namespace Intents.IntentData {
   [Serializable]
-  public class MoveIntentValues : BaseIntentValues {
+  public class MoveIntentDataValues : BaseIntentDataValues {
     public int2 Direction;
   }
 
   [CreateAssetMenu]
-  public class MoveIntentData : BaseIntentData<MoveIntentValues> {
-    public override void PerformIntent(IntentContext<MoveIntentValues> context) {
+  public class MoveIntentData : BaseIntentData<MoveIntentDataValues> {
+    
+    public override void PerformIntent(Intent<MoveIntentDataValues, IntentTargetValues> intent, IntentContext context) {
       throw new NotImplementedException();
     }
   }

@@ -4,6 +4,7 @@ using System.Linq;
 using Architecture;
 using Effects;
 using Intents;
+using Intents.IntentData;
 using JetBrains.Annotations;
 using Status;
 using Status.StatusData;
@@ -62,7 +63,7 @@ namespace Components {
       );
     }
 
-    public void OnDamage(IntentContext<DamageIntentValues> context) {
+    public void OnDamage() {
       // #TODO #INTENT FIX
       // statusList.ToList().ForEach(statusStruct =>
       //   statusStruct.data.OnDamage(

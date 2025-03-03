@@ -1,4 +1,5 @@
 using System;
+using Intents.Engine;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -9,7 +10,7 @@ namespace Intents.Editor {
   [CustomPropertyDrawer(typeof(IntentCreator))]
   public class IntentSpawnerPropertyDrawer : PropertyDrawer {
     private const string IntentDataPropertyName = "IntentData";
-    private const string IntentValuesPropertyName = "IntentValues";
+    private const string IntentValuesPropertyName = "IntentDataValues";
     private const string IntentValuesDataFieldName = "IntentValuesDataField";
 
     public override VisualElement CreatePropertyGUI(SerializedProperty property) {
@@ -44,7 +45,7 @@ namespace Intents.Editor {
       var intentValuesProperty = property.FindPropertyRelative(IntentValuesPropertyName);
       var intentData = intentDataProperty.objectReferenceValue as BaseIntentData;
       if (intentData != null) {
-        var copiedDefaultValues = intentData.BaseDefaultValues.Clone();
+        var copiedDefaultValues = intentData.BaseDefaultDataValues.Clone();
         intentValuesProperty.managedReferenceValue = copiedDefaultValues;
         // Debug.Log($"OnChangedIntentData: [{property.FindPropertyRelative(IntentValuesPropertyName).managedReferenceValue}]");
       } else {

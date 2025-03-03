@@ -1,6 +1,7 @@
 using Architecture;
 using Components;
 using Effects;
+using Intents;
 using Status;
 using Status.StatusData;
 using UnityEngine;

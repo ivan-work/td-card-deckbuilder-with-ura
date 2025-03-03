@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Intents.Engine;
 using UnityEngine;
 
 namespace Intents {
@@ -6,12 +7,12 @@ namespace Intents {
     [SerializeField] private IntentCreator Creator;
     [SerializeField] private List<IntentCreator> ListOfCreators;
     public GameObject Source;
-    public GameObject Target;
+    public GameObject TargetGameObject;
+    public Vector2Int TargetPosition;
 
     public void Awake() {
       var system = new IntentSystem();
-      var intent = Creator.Spawn();
-      system.AddIntent(intent);
+      system.AddIntents(Creator.CreateIntent(Source, new IntentTargetValues(TargetGameObject, TargetPosition)));
       system.PerformIntents();
     }
   }

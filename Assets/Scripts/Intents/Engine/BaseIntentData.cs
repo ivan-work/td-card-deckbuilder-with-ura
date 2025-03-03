@@ -1,23 +1,25 @@
 ﻿using UnityEngine;
 
-namespace Intents {
-  public abstract class BaseIntentData<T> : BaseIntentData where T : BaseIntentValues {
-    [SerializeField] private T defaultValues;
-
-    public override BaseIntentValues BaseDefaultValues {
-      get => defaultValues;
-      set => defaultValues = (T) value;
-    }
-
-    public T DefaultValues {
-      get => defaultValues;
-      set => defaultValues = value;
-    }
-
-    public abstract void PerformIntent(IntentContext<T> context);
-  }
-
+namespace Intents.Engine {
   public abstract class BaseIntentData : ScriptableObject {
-    public abstract BaseIntentValues BaseDefaultValues { get; set; }
+    public abstract BaseIntentDataValues BaseDefaultDataValues { get; set; }
   }
+
+  public abstract class BaseIntentData<TDataValues, TTargetValues> : BaseIntentData where TDataValues : BaseIntentDataValues {
+    [SerializeField] private TDataValues DefaultDataValues;
+
+    public override BaseIntentDataValues BaseDefaultDataValues {
+      get => DefaultDataValues;
+      set => DefaultDataValues = (TDataValues) value;
+    }
+
+    public TDataValues DefaultValues {
+      get => DefaultDataValues;
+      set => DefaultDataValues = value;
+    }
+
+    public abstract void PerformIntent(Intent<TDataValues, TTargetValues> intent, IntentContext context);
+  }
+
+  public abstract class BaseIntentData<TDataValues> : BaseIntentData<TDataValues, IntentTargetValues> where TDataValues : BaseIntentDataValues { }
 }
