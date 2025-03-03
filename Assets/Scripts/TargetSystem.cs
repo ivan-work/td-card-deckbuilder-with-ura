@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Architecture;
+using Intents;
+using Intents.Engine;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -11,32 +13,27 @@ public class TargetSystem : MonoBehaviour {
   [SerializeField] private GridSystem gridSystem;
 
   AbstractTargetMode currentTargetMode;
-  [SerializeField] ActorManager actorManager;
+
+  private IntentManagementSystem intentManagementSystem;
 
   private void Awake() {
     Debug.Log("TargetSystem.Awake()");
-    EventManager.CardClicked.AddListener(OnCardClicked);
-    EventManager.AmStartRequestIntent.AddListener(OnAmStartRequestIntent);
+    EventManager.CardClicked.AddListener(StartTargeting);
+    EventManager.ImsStartRequestIntent.AddListener(OnImsStartRequestIntent);
   }
 
-  private void OnAmStartRequestIntent(ActorManager _actorManager) {
-    Debug.Log($"TargetSystem.OnAmStartRequestIntent({_actorManager})");
-    actorManager = _actorManager;
-    Debug.Log($"TargetSystem.OnAmStartRequestIntent({actorManager != null})");
+  private void OnImsStartRequestIntent(IntentManagementSystem _intentManagementSystem) {
+    intentManagementSystem = _intentManagementSystem;
   }
 
-  public void OnCardClicked(Card card) {
-    StartTargeting(card);
-  }
-
-  void StartTargeting(Card card) {
-    Debug.Log($"TargetSystem.StartTargeting({actorManager}, {actorManager != null})");
-    if (actorManager) {
+  private void StartTargeting(Card card) {
+    // Debug.Log($"TargetSystem.StartTargeting({intentManagementSystem}, {intentManagementSystem != null})");
+    if (intentManagementSystem) {
       currentTargetMode = TargetModesHelper.createTargetMode(card);
     }
   }
 
-  void StopTargeting() {
+  private void StopTargeting() {
     currentTargetMode = null;
     CellIndicatorObjectPool.SharedInstance.reset();
   }
@@ -66,11 +63,12 @@ public class TargetSystem : MonoBehaviour {
             // Debug.Log($"shouldEndTargeting {shouldEndTargeting}");
 
             if (shouldEndTargeting) {
-              actorManager.addImmediateEffects(
-                currentTargetMode.card.doCardAction(
-                  gridSystem,
-                  selectionResult.affectedCells
-                ).ToArray()
+              currentTargetMode.card.DoCardAction(
+                new IntentGlobalContext() {
+                  GridSystem = gridSystem,
+                  IntentManagementSystem = intentManagementSystem
+                },
+                selectionResult.affectedCells
               );
 
               StopTargeting();

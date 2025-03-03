@@ -9,6 +9,7 @@ namespace Intents.Engine {
 
     public Intent(GameObject source, BaseIntentData<TDataValues, TTargetValues> data, TDataValues dataValues, TTargetValues targetValues) {
       Source = source;
+      Debug.Log($"Intent Contrustor {data}");
       Data = data;
       DataValues = dataValues;
       TargetValues = targetValues;
@@ -18,9 +19,9 @@ namespace Intents.Engine {
   public class AnyIntent : Intent<BaseIntentDataValues, IntentTargetValues> {
     public AnyIntent(
       GameObject source,
-      BaseIntentData<BaseIntentDataValues, IntentTargetValues> data,
+      BaseIntentData data,
       BaseIntentDataValues dataValues,
       IntentTargetValues targetValues
-    ) : base(source, data, dataValues, targetValues) { }
+    ) : base(source, data as BaseIntentData<BaseIntentDataValues, IntentTargetValues>, dataValues, targetValues) { }
   }
 }

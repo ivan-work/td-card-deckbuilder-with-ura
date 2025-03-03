@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Effects;
+using Intents.Engine;
 using UnityEngine;
 
 public abstract class Card : ScriptableObject {
@@ -8,7 +9,5 @@ public abstract class Card : ScriptableObject {
   [SerializeField] public TargetModesHelper.TargetMode targetMode;
   [SerializeField] public AbstractTargetCondition[] targetCondition;
 
-  public virtual IEnumerable<BaseEffect> doCardAction(GridSystem gridSystem, Vector2Int[] affectedCells) {
-    throw new NotImplementedException();
-  }
+  public abstract void DoCardAction(IntentGlobalContext context, Vector2Int[] gridPoses);
 }

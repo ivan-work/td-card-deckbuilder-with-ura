@@ -18,7 +18,7 @@ namespace Intents.Engine {
       set => DefaultDataValues = value;
     }
 
-    public abstract void PerformIntent(Intent<TDataValues, TTargetValues> intent, IntentContext context);
+    public abstract void PerformIntent(IntentContext<TDataValues, TTargetValues> context);
   }
 
   public abstract class BaseIntentData<TDataValues> : BaseIntentData<TDataValues, IntentTargetValues> where TDataValues : BaseIntentDataValues { }

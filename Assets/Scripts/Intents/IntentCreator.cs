@@ -9,12 +9,14 @@ namespace Intents {
     [SerializeReference] private BaseIntentDataValues IntentDataValues;
 
     public AnyIntent CreateIntent(GameObject source, IntentTargetValues targetValues) {
-      return new AnyIntent(
+      var intent = new AnyIntent(
         source: source, 
-        data: IntentData as BaseIntentData<BaseIntentDataValues, IntentTargetValues>, 
+        data: IntentData, 
         dataValues: IntentDataValues, 
         targetValues: targetValues
       );
+      Debug.Log($"IntentData = [{IntentData}] => intent.Data [{intent.Data}]");
+      return intent;
     }
   }
 }

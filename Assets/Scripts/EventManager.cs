@@ -1,4 +1,5 @@
 using Architecture;
+using Intents;
 using Status;
 using UnityEngine.Events;
 
@@ -23,5 +24,7 @@ public static class EventManager {
   
   public static readonly UnityEvent<ActorManager> AmStartRequestIntent = new();
   public static readonly UnityEvent<ActorManager> AmEndTurn = new();
+  public static readonly UnityEvent<IntentManagementSystem> ImsStartRequestIntent = new();
+  public static readonly UnityEvent<IntentManagementSystem> ImsEndTurn = new();
 
 }

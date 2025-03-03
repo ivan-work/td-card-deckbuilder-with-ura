@@ -12,7 +12,7 @@ namespace Intents.IntentData {
 
   [CreateAssetMenu]
   public class ApplyStatusIntentData : BaseIntentData<ApplyStatusIntentDataValues> {
-    public override void PerformIntent(Intent<ApplyStatusIntentDataValues, IntentTargetValues> intent, IntentContext context) {
+    public override void PerformIntent(IntentContext<ApplyStatusIntentDataValues, IntentTargetValues> context) {
       throw new NotImplementedException();
     }
   }

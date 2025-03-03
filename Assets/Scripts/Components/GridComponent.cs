@@ -3,13 +3,12 @@ using UnityEngine;
 namespace Components {
   public class GridComponent : MonoBehaviour {
     public enum zLayerEnum {
-      Ground = 5,
-      Entity = 4,
+      Effect = -5,
       Mob = 3,
-      
-      
-      
+      Entity = 4,
+      Ground = 5,
     }
+
     [SerializeField] public GridSystem gridSystem;
 
     [SerializeField] public Vector2Int gridPos = Vector2Int.zero;
@@ -33,7 +32,7 @@ namespace Components {
     }
 
     public Vector3 gridPos2World() {
-      return gridSystem.gridPos2World(gridPos, (float)zLayer);
+      return gridSystem.gridPos2World(gridPos, (float) zLayer);
     }
   }
 }

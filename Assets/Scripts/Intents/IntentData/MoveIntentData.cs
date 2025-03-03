@@ -12,7 +12,7 @@ namespace Intents.IntentData {
   [CreateAssetMenu]
   public class MoveIntentData : BaseIntentData<MoveIntentDataValues> {
     
-    public override void PerformIntent(Intent<MoveIntentDataValues, IntentTargetValues> intent, IntentContext context) {
+    public override void PerformIntent(IntentContext<MoveIntentDataValues, IntentTargetValues> context) {
       throw new NotImplementedException();
     }
   }

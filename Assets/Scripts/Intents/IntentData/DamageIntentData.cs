@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Components;
 using Effects.EffectAnimations;
 using Intents.Engine;
@@ -13,20 +14,24 @@ namespace Intents.IntentData {
   
   [CreateAssetMenu]
   public class DamageIntentData : BaseIntentData<DamageIntentDataValues> {
-    private BaseAnimation animation;
     // #TODO #INTENT FIX - make event
-
-    public override void PerformIntent(Intent<DamageIntentDataValues, IntentTargetValues> intent, IntentContext context) {
-      GameObject source = intent.Source;
-      GameObject target = intent.TargetValues.TargetGo;
-      DamageIntentDataValues dataValues = intent.DataValues;
+    public override void PerformIntent(IntentContext<DamageIntentDataValues, IntentTargetValues> context) {
+      var target = context.TargetValues.TargetGo;
+      var targetPos = context.TargetValues.TargetPos;
       
-      if (target.TryGetComponent<HealthComponent>(out var healthComponent)) {
-        healthComponent.OnDamage(intent.DataValues.Damage);
+      if (target != null && target.TryGetComponent<HealthComponent>(out var healthComponent)) {
+        healthComponent.OnDamage(context.DataValues.Damage);
       }
 
-      if (target.TryGetComponent<StatusComponent>(out var statusComponent)) {
+      if (target != null && target.TryGetComponent<StatusComponent>(out var statusComponent)) {
         statusComponent.OnDamage();
+      }
+
+      if (targetPos.HasValue) {
+        context.Animation = new DamageAnimation(
+          context.GridSystem.gridPos2World(targetPos.Value, (float) GridComponent.zLayerEnum.Effect),
+          context.DataValues.DamageType
+        );
       }
     }
   }

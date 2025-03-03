@@ -16,4 +16,5 @@ MonoBehaviour:
   targetMode: 1
   targetCondition:
   - {fileID: 11400000, guid: f3621047f6ac78340a4420ad3bc1bba2, type: 2}
-  force: 2
+  PushIntentData: {fileID: 11400000, guid: c6b1525e377ba2e409f42685015092dd, type: 2}
+  Force: 2

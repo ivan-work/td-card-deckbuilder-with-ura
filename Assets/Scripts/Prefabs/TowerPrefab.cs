@@ -12,9 +12,9 @@ public class TowerPrefab : MonoBehaviour {
     attachmentPoint = transform.Find("ShootAttachment").transform.position;
     gridComponent = GetComponent<GridComponent>();
     towerComponent = GetComponentInChildren<TowerComponent>();
-    lineRenderer = GetComponentInChildren<LineRenderer>();
-    lineRenderer.SetPosition(0, attachmentPoint);
-    lineRenderer.enabled = false;
+    // lineRenderer = GetComponentInChildren<LineRenderer>();
+    // lineRenderer.SetPosition(0, attachmentPoint);
+    // lineRenderer.enabled = false;
   }
 
   void Update() {

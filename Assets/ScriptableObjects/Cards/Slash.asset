@@ -9,11 +9,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10418c108237f7d4ab3e69033daaa0d7, type: 3}
+  m_Script: {fileID: 11500000, guid: a20a0deac5c54932be0dbe0632529da8, type: 3}
   m_Name: Slash
   m_EditorClassIdentifier: 
   cardName: Slash
   targetMode: 0
   targetCondition:
   - {fileID: 11400000, guid: fb153646edd4e42478b9becf924039a3, type: 2}
-  damage: 3
+  IntentCreator:
+    IntentData: {fileID: 11400000, guid: a4f373befa45cd246811ea0312d42997, type: 2}
+    IntentDataValues:
+      rid: 6949361072243736652
+  references:
+    version: 2
+    RefIds:
+    - rid: 6949361072243736652
+      type: {class: DamageIntentDataValues, ns: Intents.IntentData, asm: Assembly-CSharp}
+      data:
+        Damage: 3
+        DamageType: 1
