@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Intents {
   [Serializable]
   public class IntentCreator {
-    [SerializeReference] private BaseIntentData IntentData;
+    [SerializeReference] private BaseIntentData<BaseIntentDataValues> IntentData;
     [SerializeReference] private BaseIntentDataValues IntentDataValues;
 
     public AnyIntent CreateIntent(GameObject source, IntentTargetValues targetValues) {

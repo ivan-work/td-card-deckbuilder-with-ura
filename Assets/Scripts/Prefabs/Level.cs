@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Components;
 using Unity.VisualScripting;
-using UnityEditor.U2D.IK;
 using UnityEngine;
 
 [RequireComponent(typeof(Grid))]
