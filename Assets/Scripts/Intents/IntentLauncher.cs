@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Effects.EffectAnimations;
+using Intents.Engine;
 using UnityEngine;
 
 namespace Intents2 {
@@ -9,6 +10,7 @@ namespace Intents2 {
     public BaseIntentValues Clone() {
       return MemberwiseClone() as BaseIntentValues;
     }
+
     public T Clone<T>() where T : BaseIntentValues {
       return MemberwiseClone() as T;
     }
@@ -32,19 +34,11 @@ namespace Intents2 {
     public BaseIntentValues Values { get; init; }
     public IntentTargets Targets { get; init; }
   }
-  
+
   public class Intent<T> where T : BaseIntentValues {
     public IntentBehaviour<T> Behaviour { get; init; }
     public T Values { get; init; }
     public IntentTargets Targets { get; init; }
-
-    public static Intent<T> FromBaseIntent(BaseIntent baseIntent) {
-      var intent = new Intent<T>() {
-        Behaviour = IntentBehaviour<T>.FromIntentBehaviour(baseIntent.Behaviour),
-        Values = baseIntent.Values.Clone<T>(),
-      };
-      return intent;
-    }
   }
 
   public class IntentContext<T> where T : BaseIntentValues {
@@ -53,24 +47,28 @@ namespace Intents2 {
     public BaseAnimation Animation { get; set; }
   }
 
-  public interface IIntentBehaviour<in T> where T : BaseIntentValues {
-    public void Perform(IntentContext<T> context);
-  }
 
   public abstract class IntentBehaviour : ScriptableObject {
-    public abstract void BasePerform(IntentContext<BaseIntentValues> context);
+    public abstract void Perform(BaseIntent intent, IntentManagementSystem system);
   }
 
-  public abstract class IntentBehaviour<in T> : IntentBehaviour where T : BaseIntentValues {
-    public override void BasePerform(IntentContext<BaseIntentValues> context) {
-      Perform(context);
-    }
-
+  public abstract class IntentBehaviour<T> : IntentBehaviour where T : BaseIntentValues {
     public abstract void Perform(IntentContext<T> context);
 
-    public static IntentBehaviour<T> FromIntentBehaviour(IntentBehaviour foo) {
-      IntentBehaviour<T> newfoo = CreateInstance<IntentBehaviour<T>>();
-      return newfoo;
+    public override void Perform(BaseIntent intent, IntentManagementSystem system) {
+      if (intent.Values is T values) {
+        var context = new IntentContext<T> {
+          Intent = new Intent<T> {
+            Behaviour = this,
+            Values = values,
+            Targets = intent.Targets
+          },
+          IntentManagementSystem = system
+        };
+        Perform(context);
+      } else {
+        Debug.LogError($"Type mismatch: Expected {typeof(T)}, got {intent.Values.GetType()}");
+      }
     }
   }
 
@@ -89,18 +87,15 @@ namespace Intents2 {
 
     public void PerformIntents() {
       foreach (var intent in Queue) {
-        intent.Behaviour.BasePerform(new IntentContext<BaseIntentValues> {
-          IntentManagementSystem = this,
-          Intent = Intent<BaseIntentValues>.FromBaseIntent(intent)
-        });
+        intent.Behaviour.Perform(intent, this);
       }
     }
   }
 
   public class IntentFactory : MonoBehaviour {
-    [SerializeField] private IntentBehaviour Behaviour;
+    [SerializeField] private IntentBehaviour Behaviour; // Can't be generic
 
-    [SerializeField] private BaseIntentValues Values;
+    [SerializeField] private BaseIntentValues Values; // Can't be generic
 
 #if UNITY_INCLUDE_TESTS
     public IntentBehaviour BehaviourTest {

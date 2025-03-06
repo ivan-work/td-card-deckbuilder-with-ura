@@ -63,7 +63,7 @@ public class IntentTestScript {
 
       // Assert: Verify that the behaviour's Perform method was called
       Assert.IsTrue(testBehaviour.WasPerformed, "The intent behaviour was not performed.");
-      Assert.Equals(testBehaviour.LastValues, "Working");
+      Assert.AreEqual(testBehaviour.LastValues.TestString, "Working");
     }
   }
 }
