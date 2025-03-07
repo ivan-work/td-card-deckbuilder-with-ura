@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Health Condition
   m_EditorClassIdentifier: 
   component:
-    m_TypeName: Components.HealthComponent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: Components.HealthComponent, MainAssembly, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
