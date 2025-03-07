@@ -14,6 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Test
   targetMode: 0
-  targetCondition:
-  - {fileID: 11400000, guid: f3621047f6ac78340a4420ad3bc1bba2, type: 2}
-  count: 2
+  targetCondition: []
+  IntentFactory:
+    Behaviour: {fileID: 11400000, guid: ec7ba173684e5fb49bb4fce8a7275ec4, type: 2}
+    Values:
+      rid: 6949361146470334530
+  references:
+    version: 2
+    RefIds:
+    - rid: 6949361146470334530
+      type: {class: DamageIntentValues, ns: Intents.IntentBehaviours, asm: MainAssembly}
+      data:
+        Damage: 0
+        DamageType: 0

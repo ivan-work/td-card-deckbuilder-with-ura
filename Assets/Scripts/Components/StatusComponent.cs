@@ -4,7 +4,6 @@ using System.Linq;
 using Architecture;
 using Effects;
 using Intents;
-using Intents.IntentData;
 using JetBrains.Annotations;
 using Status;
 using Status.StatusData;

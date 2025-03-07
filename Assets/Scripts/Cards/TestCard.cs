@@ -6,12 +6,12 @@ using UnityEngine;
 namespace Cards {
   [CreateAssetMenu(menuName = "Card/TestCard")]
   public class TestCard : Card {
-    [SerializeField] private IntentCreator IntentCreator;
+    [SerializeField] private IntentFactory IntentFactory;
 
     public override void DoCardAction(IntentGlobalContext context, Vector2Int[] gridPoses) {
       context.IntentManagementSystem.AddImmediateIntents(
         gridPoses
-          .Select(gridPos => IntentCreator.CreateIntent(null, new IntentTargetValues(null, gridPos)))
+          .Select(gridPos => IntentFactory.CreateIntent(null, new IntentTargets(null, gridPos)))
           .ToArray()
       );
     }

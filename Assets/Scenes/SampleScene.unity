@@ -1784,8 +1784,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck:
-  - {fileID: 11400000, guid: e9c30ae3297fbac459954e417e7047a2, type: 2}
-  - {fileID: 11400000, guid: fecf2b189ccb0204388a9b8e199c565c, type: 2}
+  - {fileID: 11400000, guid: 85d99f0423ceec9408de96c7761f0291, type: 2}
+  - {fileID: 11400000, guid: 7795965e73fb5b3478c7ae123b94add2, type: 2}
   - {fileID: 11400000, guid: 5e9ab694b8710644bb64ad2b0a2d7ab9, type: 2}
   - {fileID: 11400000, guid: cb932870744c0c84a9fa70cd39aa7df1, type: 2}
   hand: []
@@ -3441,8 +3441,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IntentCreators:
-  - IntentData: {fileID: 0}
-    IntentDataValues:
+  - Behaviour: {fileID: 0}
+    Values:
       rid: -2
   references:
     version: 2

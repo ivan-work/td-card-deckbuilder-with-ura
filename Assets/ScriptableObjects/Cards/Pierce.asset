@@ -16,15 +16,15 @@ MonoBehaviour:
   targetMode: 1
   targetCondition:
   - {fileID: 11400000, guid: f3621047f6ac78340a4420ad3bc1bba2, type: 2}
-  IntentCreator:
-    IntentData: {fileID: 11400000, guid: a4f373befa45cd246811ea0312d42997, type: 2}
-    IntentDataValues:
-      rid: 6949361072243736651
+  IntentFactory:
+    Behaviour: {fileID: 11400000, guid: ec7ba173684e5fb49bb4fce8a7275ec4, type: 2}
+    Values:
+      rid: 6949361146470334531
   references:
     version: 2
     RefIds:
-    - rid: 6949361072243736651
-      type: {class: DamageIntentDataValues, ns: Intents.IntentData, asm: Assembly-CSharp}
+    - rid: 6949361146470334531
+      type: {class: DamageIntentValues, ns: Intents.IntentBehaviours, asm: MainAssembly}
       data:
         Damage: 2
         DamageType: 0

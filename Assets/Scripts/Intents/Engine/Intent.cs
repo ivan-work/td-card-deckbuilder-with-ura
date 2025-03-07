@@ -1,27 +1,17 @@
 ﻿using UnityEngine;
 
 namespace Intents.Engine {
-  public class Intent<TDataValues, TTargetValues> where TDataValues : BaseIntentDataValues {
-    public readonly GameObject Source;
-    public readonly BaseIntentData<TDataValues, TTargetValues> Data;
-    public readonly TDataValues DataValues;
-    public readonly TTargetValues TargetValues;
-
-    public Intent(GameObject source, BaseIntentData<TDataValues, TTargetValues> data, TDataValues dataValues, TTargetValues targetValues) {
-      Source = source;
-      Debug.Log($"Intent Contrustor {data}");
-      Data = data;
-      DataValues = dataValues;
-      TargetValues = targetValues;
-    }
+  public class Intent {
+    public GameObject Source { get; init; }
+    public IntentBehaviour Behaviour { get; init; }
+    public IntentValues Values { get; init; }
+    public IntentTargets Targets { get; init; }
   }
 
-  public class AnyIntent : Intent<BaseIntentDataValues, IntentTargetValues> {
-    public AnyIntent(
-      GameObject source,
-      BaseIntentData data,
-      BaseIntentDataValues dataValues,
-      IntentTargetValues targetValues
-    ) : base(source, data as BaseIntentData<BaseIntentDataValues, IntentTargetValues>, dataValues, targetValues) { }
+  public class Intent<T> where T : IntentValues {
+    public GameObject Source { get; init; }
+    public IntentBehaviour<T> Behaviour { get; init; }
+    public T Values { get; init; }
+    public IntentTargets Targets { get; init; }
   }
 }

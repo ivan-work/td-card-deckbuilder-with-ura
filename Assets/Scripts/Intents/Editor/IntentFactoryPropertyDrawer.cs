@@ -1,5 +1,5 @@
 using System;
-using Intents.Engine;
+using JetBrains.Annotations;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -7,10 +7,10 @@ using UnityEngine.UIElements;
 
 namespace Intents.Editor {
   [Serializable]
-  [CustomPropertyDrawer(typeof(IntentCreator))]
+  [CustomPropertyDrawer(typeof(IntentFactory))]
   public class IntentSpawnerPropertyDrawer : PropertyDrawer {
-    private const string IntentDataPropertyName = "IntentData";
-    private const string IntentValuesPropertyName = "IntentDataValues";
+    private const string IntentBehaviourPropertyName = "Behaviour";
+    private const string IntentValuesPropertyName = "Values";
     private const string IntentValuesDataFieldName = "IntentValuesDataField";
 
     public override VisualElement CreatePropertyGUI(SerializedProperty property) {
@@ -19,19 +19,24 @@ namespace Intents.Editor {
       root.text = property.displayName;
       root.BindProperty(property);
 
-      var intentDataProperty = property.FindPropertyRelative(IntentDataPropertyName);
+      var intentBehaviourProperty = property.FindPropertyRelative(IntentBehaviourPropertyName);
 
-      var intentDataField = new ObjectField {
-        label = intentDataProperty.displayName,
-        objectType = typeof(BaseIntentData),
-        bindingPath = intentDataProperty.propertyPath
+      Debug.Log($"property [{property.serializedObject.targetObject}]");
+      Debug.Log($"property [{JsonUtility.ToJson(property.serializedObject.targetObject)}]");
+      Debug.Log($"intentBehaviourProperty2 [{property.serializedObject.FindProperty("Behaviour")}]");
+      Debug.Log($"intentBehaviourProperty [{intentBehaviourProperty}]");
+
+      var intentBehaviourField = new ObjectField {
+        label = intentBehaviourProperty?.displayName ?? "NEW PROPERTY",
+        objectType = typeof(IntentBehaviour),
+        bindingPath = intentBehaviourProperty?.propertyPath ?? IntentBehaviourPropertyName
       };
 
       // Debug.Log($"{IntentValuesPropertyName}: [{property.FindPropertyRelative(IntentValuesPropertyName).managedReferenceValue}]");
 
-      intentDataField.TrackPropertyValue(intentDataProperty, (_) => OnChangedIntentData(root, property));
+      intentBehaviourField.TrackPropertyValue(intentBehaviourProperty, (_) => OnChangedIntentData(root, property));
 
-      root.Add(intentDataField);
+      root.Add(intentBehaviourField);
 
       RecreatePropertyValue(root, property);
 
@@ -41,11 +46,11 @@ namespace Intents.Editor {
     }
 
     private void OnChangedIntentData(VisualElement root, SerializedProperty property) {
-      var intentDataProperty = property.FindPropertyRelative(IntentDataPropertyName);
+      var intentDataProperty = property.FindPropertyRelative(IntentBehaviourPropertyName);
       var intentValuesProperty = property.FindPropertyRelative(IntentValuesPropertyName);
-      var intentData = intentDataProperty.objectReferenceValue as BaseIntentData;
+      var intentData = intentDataProperty.objectReferenceValue as IntentBehaviour;
       if (intentData != null) {
-        var copiedDefaultValues = intentData.BaseDefaultDataValues.Clone();
+        var copiedDefaultValues = intentData.BaseDefaultValues.Clone();
         intentValuesProperty.managedReferenceValue = copiedDefaultValues;
         // Debug.Log($"OnChangedIntentData: [{property.FindPropertyRelative(IntentValuesPropertyName).managedReferenceValue}]");
       } else {

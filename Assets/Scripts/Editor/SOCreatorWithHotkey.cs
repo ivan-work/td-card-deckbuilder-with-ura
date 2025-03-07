@@ -21,7 +21,7 @@ namespace Editor {
           string path = AssetDatabase.GetAssetPath(script);
           string directory = Path.GetDirectoryName(path);
 
-          string targetPath = $"{directory}/{script.name}-SO.asset";
+          string targetPath = $"{directory}/{ObjectNames.NicifyVariableName(script.name)}.asset";
           Debug.Log(targetPath);
 
           if (isInRenameMode) {

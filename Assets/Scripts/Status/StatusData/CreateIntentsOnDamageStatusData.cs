@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Status.StatusData {
   [CreateAssetMenu(menuName = "Status/CreateIntentsOnDamageStatusData")]
   public class CreateIntentsOnDamageStatusData : BaseStatusData {
-    [SerializeField] private List<IntentCreator> IntentCreators;
+    [SerializeField] private List<IntentFactory> IntentFactory;
     [SerializeField] private DamageType DamageType;
 
     public override void OnEndTurn(StatusContext context) {

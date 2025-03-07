@@ -9,6 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14b8a9da706d4025825b84d28ed33672, type: 3}
-  m_Name: Move Intent Data
+  m_Script: {fileID: 11500000, guid: ebc1cf428030429b99e0d2d0418bf68d, type: 3}
+  m_Name: Damage Intent Behaviour
   m_EditorClassIdentifier: 
+  M_DefaultValues:
+    Damage: 0
+    DamageType: 0

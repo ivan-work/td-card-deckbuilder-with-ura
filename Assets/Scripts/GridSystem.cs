@@ -45,7 +45,7 @@ public class GridSystem : MonoBehaviour {
     return new List<GridComponent>();
   }
 
-  public IEnumerable<T> getGridEntitiesSpecial<T>(Vector2Int gridPos) where T : MonoBehaviour {
+  public IEnumerable<T> getGridEntitiesSpecial<T>(Vector2Int gridPos) {
     return getGridEntities(gridPos)
       .Select(entity => entity.GetComponent<T>())
       .Where(entity => entity != null);

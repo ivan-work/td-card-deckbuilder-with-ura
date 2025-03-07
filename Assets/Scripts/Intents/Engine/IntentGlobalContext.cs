@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿using Effects.EffectAnimations;
 
 namespace Intents.Engine {
   public class IntentGlobalContext {
-    public GridSystem GridSystem { get; init; }
     public IntentManagementSystem IntentManagementSystem { get; init; }
+    public GridSystem GridSystem { get; init; }
   }
 }

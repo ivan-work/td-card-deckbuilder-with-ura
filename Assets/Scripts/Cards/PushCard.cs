@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using Effects;
 using Intents.Engine;
-using Intents.IntentData;
+using Intents.IntentBehaviours;
 using UnityEngine;
 
 namespace Cards {
   [CreateAssetMenu(menuName = "Card/PushCard")]
   public class PushCard : Card {
-    [SerializeField] private PushIntentData PushIntentData;
+    [SerializeField] private PushIntentBehaviour PushIntentBehaviour;
     [SerializeField] private int Force = 1;
 
     public override void DoCardAction(IntentGlobalContext context, Vector2Int[] gridPoses) {
@@ -31,9 +31,11 @@ namespace Cards {
       // yield return ApplyForceComponent.applyForce(gridSystem, gridPoses[0], direction, Force);
     
       var intents = context.GridSystem.getGridEntitiesSpecial<MoveComponent>(sourcePos)
-        .Select(component => new AnyIntent(null, PushIntentData, new PushIntentDataValues(Force), new IntentTargetValues(
-          component.gameObject, direction
-        )))
+        .Select(component => new Intent {
+          Behaviour = PushIntentBehaviour,
+          Values = new PushIntentValues(Force),
+          Targets = new IntentTargets(component.gameObject, direction)
+        })
         .ToArray();
       context.IntentManagementSystem.AddImmediateIntents(intents);
     }

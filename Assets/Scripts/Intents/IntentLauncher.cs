@@ -4,7 +4,7 @@ using Effects.EffectAnimations;
 using Intents.Engine;
 using UnityEngine;
 
-namespace Intents2 {
+namespace IntentsForTestSingleFile {
   [Serializable]
   public class BaseIntentValues {
     public BaseIntentValues Clone() {
