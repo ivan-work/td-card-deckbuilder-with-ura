@@ -10,8 +10,8 @@ namespace Intents.Engine {
 
   public class Intent<T> where T : IntentValues {
     public GameObject Source { get; init; }
+    public IntentTargets Targets { get; init; }
     public IntentBehaviour<T> Behaviour { get; init; }
     public T Values { get; init; }
-    public IntentTargets Targets { get; init; }
   }
 }

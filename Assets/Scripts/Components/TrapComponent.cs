@@ -1,18 +1,16 @@
-using Architecture;
+using System.Collections.Generic;
+using System.Linq;
 using Components;
-using Effects;
 using Intents;
-using Status;
-using Status.StatusData;
+using Intents.Engine;
 using UnityEngine;
 
 public class TrapComponent : MonoBehaviour {
-  [SerializeField] private BaseStatusData statusData;
-  [SerializeField] private int stacks;
+  [SerializeField] private List<IntentFactory> IntentCreators;
 
-  public void OnEntityEnter(ActorManager am, GridComponent entity) {
-    if (entity.TryGetComponent<StatusComponent>(out var statusComponent)) {
-      am.addEffects(new ApplyStatusEffect(statusComponent, new StatusStruct(statusData, stacks)));
-    }
+  public void OnEntityEnter(IntentSystem intentSystem, GridComponent targetEntity) {
+    intentSystem.AddIntents(IntentCreators.Select(intentCreator =>
+        intentCreator.CreateIntent(gameObject, new IntentTargets(targetEntity.gameObject, targetEntity.gridPos)))
+      .ToArray());
   }
 }

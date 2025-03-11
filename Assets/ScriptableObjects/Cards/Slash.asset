@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Slash
   targetMode: 0
-  targetCondition: []
+  targetCondition:
+  - {fileID: 11400000, guid: fb153646edd4e42478b9becf924039a3, type: 2}
   IntentFactory:
     Behaviour: {fileID: 11400000, guid: ec7ba173684e5fb49bb4fce8a7275ec4, type: 2}
     Values:

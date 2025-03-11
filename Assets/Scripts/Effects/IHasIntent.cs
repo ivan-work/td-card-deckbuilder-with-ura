@@ -1,8 +1,8 @@
-﻿using Architecture;
+﻿using Intents;
 
 namespace Effects {
   public interface IHasIntent {
     bool isActiveAndEnabled { get; }
-    void getIntents(ActorManager actorManager);
+    void WriteIntents(IntentSystem intentSystem);
   }
 }

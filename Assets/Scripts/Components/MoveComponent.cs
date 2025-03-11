@@ -1,9 +1,8 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using Architecture;
 using Components;
 using Effects;
+using Intents;
 using JetBrains.Annotations;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -24,41 +23,42 @@ public class MoveComponent : MonoBehaviour, IHasIntent {
     EventManager.PhasePlayerIntent.AddListener(() => state = State.Calm);
   }
 
-  public void getIntents(ActorManager actorManager) {
-    startMovingChain(effect => {
-      Debug.Log($"Adding {effect}");
-      actorManager.addEffects(effect);
-    });
+  public void WriteIntents(IntentSystem intentSystem) {
+    // startMovingChain(effect => {
+    //   Debug.Log($"Adding {effect}");
+    //   actorManager.addEffects(effect);
+    // });
   }
 
-  private void startMovingChain(Action<BaseEffect> addEffect) {
-    Debug.Log($"MoveComponent(pos: {gridComponent.gridPos}, state: {state}).startMovingChain()");
-    if (state == State.Tired) return;
+  // private void startMovingChain(Action<BaseEffect> addEffect) {
+  // #TODO INTENT FIX
+  // Debug.Log($"MoveComponent(pos: {gridComponent.gridPos}, state: {state}).startMovingChain()");
+  // if (state == State.Tired) return;
+  //
+  // state = State.Charged;
+  //
+  // var targetPos = findPath();
+  //
+  // if (!targetPos.HasValue) {
+  //   state = State.Tired;
+  //   return;
+  // }
+  //
+  // TryChargeNextTarget(addEffect, targetPos.Value); // Двигает других мобов
+  //
+  // state = State.Tired;
+  //
+  // addEffect(new MoveEffect(this, targetPos.Value - gridComponent.gridPos));
+  // }
 
-    state = State.Charged;
-
-    var targetPos = findPath();
-
-    if (!targetPos.HasValue) {
-      state = State.Tired;
-      return;
-    }
-
-    TryChargeNextTarget(addEffect, targetPos.Value); // Двигает других мобов
-    
-    state = State.Tired;
-
-    addEffect(new MoveEffect(this, targetPos.Value - gridComponent.gridPos));
-  }
-
-  private void TryChargeNextTarget(Action<BaseEffect> addEffect, Vector2Int targetPos) {
-    var targetMoveComponent = findTargetMoveComponent(targetPos);
-    if (targetMoveComponent?.state == State.Calm) {
-      Debug.Log($".checkIfNextChainMoved: Другой чел чилит, заряжаем его => ???");
-      // Другой чел чилит, заряжаем его
-      targetMoveComponent.startMovingChain(addEffect);
-    } 
-  }
+  // private void TryChargeNextTarget(Action<BaseEffect> addEffect, Vector2Int targetPos) {
+  //   var targetMoveComponent = findTargetMoveComponent(targetPos);
+  //   if (targetMoveComponent?.state == State.Calm) {
+  //     Debug.Log($".checkIfNextChainMoved: Другой чел чилит, заряжаем его => ???");
+  //     // Другой чел чилит, заряжаем его
+  //     targetMoveComponent.startMovingChain(addEffect);
+  //   } 
+  // }
 
   [CanBeNull]
   private MoveComponent findTargetMoveComponent(Vector2Int targetPos) {

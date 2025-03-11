@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using Architecture;
 using Components;
 using Effects;
+using Intents;
 using UnityEngine;
 
 public class TowerComponent : MonoBehaviour, IHasIntent {
@@ -20,14 +18,14 @@ public class TowerComponent : MonoBehaviour, IHasIntent {
     gridComponent = this.GetAssertComponent<GridComponent>();
   }
 
-  public void getIntents(ActorManager actorManager) {
-    var targetPos = searchNewTarget();
-    if (targetPos.HasValue) {
-      actorManager.addImmediateEffects(
-        new ShootEffect(this, targetPos.Value),
-        new DamageEffect(targetPos.Value, DamageType.Pierce, damage)
-      );
-    }
+  public void WriteIntents(IntentSystem intentSystem) {
+    // var targetPos = searchNewTarget();
+    // if (targetPos.HasValue) {
+    //   actorManager.addImmediateEffects(  
+    //     new ShootEffect(this, targetPos.Value),
+    //     new DamageEffect(targetPos.Value, DamageType.Pierce, damage)
+    //   );
+    // }
   }
 
   private void Start() {

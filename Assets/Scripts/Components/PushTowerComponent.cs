@@ -1,7 +1,5 @@
-﻿using System.Linq;
-using Architecture;
-using Effects;
-using Status;
+﻿using Effects;
+using Intents;
 using Status.StatusData;
 using UnityEngine;
 
@@ -30,17 +28,17 @@ namespace Components {
     }
 
 
-    public void getIntents(ActorManager actorManager) {
-      if (!statusComponent.hasStatus(cooldownStatusData)) {
-        var targetPos = searchNewTarget();
-        if (targetPos.HasValue) {
-          var effects = gridComponent.gridSystem.getGridEntitiesSpecial<MoveComponent>(targetPos.Value)
-            .Select<MoveComponent, BaseEffect>(component => new PushEffect(component, direction, force))
-            .Append(new ApplyStatusEffect(statusComponent, new StatusStruct(cooldownStatusData, cooldown)))
-            .ToArray();
-          actorManager.addImmediateEffects(effects);
-        }
-      }
+    public void WriteIntents(IntentSystem intentSystem) {
+      // if (!statusComponent.hasStatus(cooldownStatusData)) {
+      //   var targetPos = searchNewTarget();
+      //   if (targetPos.HasValue) {
+      //     var effects = gridComponent.gridSystem.getGridEntitiesSpecial<MoveComponent>(targetPos.Value)
+      //       .Select<MoveComponent, BaseEffect>(component => new PushEffect(component, direction, force))
+      //       .Append(new ApplyStatusEffect(statusComponent, new StatusStruct(cooldownStatusData, cooldown)))
+      //       .ToArray();
+      //     actorManager.addImmediateEffects(effects);
+      //   }
+      // }
     }
 
     private Vector2Int? searchNewTarget() {

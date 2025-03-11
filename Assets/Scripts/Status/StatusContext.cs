@@ -1,11 +1,10 @@
-﻿using Architecture;
-using Components;
-using UnityEngine;
+﻿using Components;
+using Intents;
 
 namespace Status {
   public struct StatusContext {
-    public ActorManager actorManager;
-    public StatusStruct statusStruct;
-    public StatusComponent component;
+    public IntentSystem IntentSystem;
+    public StatusStruct StatusStruct;
+    public StatusComponent Component;
   }
 }

@@ -2,7 +2,7 @@
 
 namespace Intents.Engine {
   public class IntentGlobalContext {
-    public IntentManagementSystem IntentManagementSystem { get; init; }
+    public IntentSystem IntentSystem { get; init; }
     public GridSystem GridSystem { get; init; }
   }
 }

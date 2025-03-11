@@ -1,20 +1,13 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Architecture;
 using Intents;
 using Intents.Engine;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 public class TargetSystem : MonoBehaviour {
   [SerializeField] private GridSystem gridSystem;
 
   AbstractTargetMode currentTargetMode;
 
-  private IntentManagementSystem intentManagementSystem;
+  private IntentSystem intentSystem;
 
   private void Awake() {
     Debug.Log("TargetSystem.Awake()");
@@ -22,13 +15,13 @@ public class TargetSystem : MonoBehaviour {
     EventManager.ImsStartRequestIntent.AddListener(OnImsStartRequestIntent);
   }
 
-  private void OnImsStartRequestIntent(IntentManagementSystem _intentManagementSystem) {
-    intentManagementSystem = _intentManagementSystem;
+  private void OnImsStartRequestIntent(IntentSystem intentSystem) {
+    this.intentSystem = intentSystem;
   }
 
   private void StartTargeting(Card card) {
     // Debug.Log($"TargetSystem.StartTargeting({intentManagementSystem}, {intentManagementSystem != null})");
-    if (intentManagementSystem) {
+    if (intentSystem) {
       currentTargetMode = TargetModesHelper.createTargetMode(card);
     }
   }
@@ -66,7 +59,7 @@ public class TargetSystem : MonoBehaviour {
               currentTargetMode.card.DoCardAction(
                 new IntentGlobalContext() {
                   GridSystem = gridSystem,
-                  IntentManagementSystem = intentManagementSystem
+                  IntentSystem = intentSystem
                 },
                 selectionResult.affectedCells
               );

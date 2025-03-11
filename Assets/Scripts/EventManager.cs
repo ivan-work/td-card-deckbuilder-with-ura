@@ -1,6 +1,4 @@
-using Architecture;
 using Intents;
-using Status;
 using UnityEngine.Events;
 
 public static class EventManager {
@@ -21,10 +19,7 @@ public static class EventManager {
   public static readonly UnityEvent PhasePlayerIntent = new();
   public static readonly UnityEvent PhaseApplyEffects = new();
   
-  
-  public static readonly UnityEvent<ActorManager> AmStartRequestIntent = new();
-  public static readonly UnityEvent<ActorManager> AmEndTurn = new();
-  public static readonly UnityEvent<IntentManagementSystem> ImsStartRequestIntent = new();
-  public static readonly UnityEvent<IntentManagementSystem> ImsEndTurn = new();
+  public static readonly UnityEvent<IntentSystem> ImsStartRequestIntent = new();
+  public static readonly UnityEvent<IntentSystem> ImsEndTurn = new();
 
 }

@@ -9,7 +9,7 @@ namespace Cards {
     [SerializeField] private IntentFactory IntentFactory;
 
     public override void DoCardAction(IntentGlobalContext context, Vector2Int[] gridPoses) {
-      context.IntentManagementSystem.AddImmediateIntents(
+      context.IntentSystem.AddImmediateIntents(
         gridPoses
           .Select(gridPos => IntentFactory.CreateIntent(null, new IntentTargets(null, gridPos)))
           .ToArray()

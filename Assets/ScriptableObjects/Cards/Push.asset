@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Push
   m_EditorClassIdentifier: 
   cardName: Push
-  targetMode: 1
+  targetMode: 0
   targetCondition:
   - {fileID: 11400000, guid: f3621047f6ac78340a4420ad3bc1bba2, type: 2}
-  PushIntentData: {fileID: 11400000, guid: c6b1525e377ba2e409f42685015092dd, type: 2}
+  PushIntentBehaviour: {fileID: 11400000, guid: bd8d31ce7de1dda4fa14398859e062c5, type: 2}
   Force: 2

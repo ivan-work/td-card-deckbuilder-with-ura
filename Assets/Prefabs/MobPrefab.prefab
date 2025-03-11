@@ -479,7 +479,6 @@ GameObject:
   - component: {fileID: 8256373260676036069}
   - component: {fileID: 6447357505403991216}
   - component: {fileID: 5070260721680661478}
-  - component: {fileID: 2624427623063441250}
   - component: {fileID: 5541647216063209052}
   - component: {fileID: 5722982609132356716}
   m_Layer: 0
@@ -561,18 +560,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridComponent: {fileID: 0}
---- !u!114 &2624427623063441250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8680051336320485547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf43de8ce62f473eb1dbe383f7e5f5cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5541647216063209052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -600,18 +587,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e879cc1ca1f9458298c0e2d930ef3242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnDamage:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6447357505403991216}
-        m_TargetAssemblyTypeName: Components.HealthComponent, MainAssembly
-        m_MethodName: OnDamage
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2

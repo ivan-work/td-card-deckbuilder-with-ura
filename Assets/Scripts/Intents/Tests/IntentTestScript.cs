@@ -25,7 +25,7 @@ namespace Intents.Tests {
       public IntentTargets Targets;
 
       public void Test() {
-        var ims = gameObject.AddComponent<IntentManagementSystem>();
+        var ims = gameObject.AddComponent<IntentSystem>();
         var intent = IntentFactory.CreateIntent(null, Targets);
         ims.AddIntents(intent);
         ims.PerformNextIntent();

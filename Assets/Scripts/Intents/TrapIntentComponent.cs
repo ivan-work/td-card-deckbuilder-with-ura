@@ -8,7 +8,7 @@ using UnityEngine;
 public class TrapIntentComponent : MonoBehaviour {
   [SerializeField] private List<IntentFactory> IntentCreators;
 
-  public void OnEntityEnter(IntentManagementSystem intentSystem, GridComponent targetEntity) {
+  public void OnEntityEnter(IntentSystem intentSystem, GridComponent targetEntity) {
     intentSystem.AddIntents(
       IntentCreators
         .Select(intentCreator => intentCreator

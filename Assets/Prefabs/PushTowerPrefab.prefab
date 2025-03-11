@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 3655297484020949884}
   - component: {fileID: 5026698093575206529}
   - component: {fileID: -8212489864985689608}
-  - component: {fileID: 5651737965945472215}
+  - component: {fileID: 8503324385731837587}
   - component: {fileID: 4014373770546706930}
   m_Layer: 0
   m_Name: PushTowerPrefab
@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootAttachmentGO: {fileID: 935805172754130369}
+  cooldown: 3
   cooldownStatusData: {fileID: 11400000, guid: 1005d03efa61bfb4a8e4dce5ea866e46, type: 2}
   range: 1
   direction: {x: 0, y: 0}
@@ -130,7 +131,7 @@ MonoBehaviour:
   gridSystem: {fileID: 0}
   gridPos: {x: 0, y: 0}
   zLayer: 4
---- !u!114 &5651737965945472215
+--- !u!114 &8503324385731837587
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,7 +140,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3299584715087770911}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf43de8ce62f473eb1dbe383f7e5f5cc, type: 3}
+  m_Script: {fileID: 11500000, guid: e879cc1ca1f9458298c0e2d930ef3242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &4014373770546706930

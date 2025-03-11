@@ -1,29 +1,28 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Effects;
 using Intents;
 using Intents.Engine;
+using Intents.IntentBehaviours;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Status.StatusData {
   [CreateAssetMenu(menuName = "Status/CreateIntentsOnDamageStatusData")]
   public class CreateIntentsOnDamageStatusData : BaseStatusData {
-    [SerializeField] private List<IntentFactory> IntentFactory;
+    [SerializeField] private List<IntentFactory> IntentFactories;
     [SerializeField] private DamageType DamageType;
 
     public override void OnEndTurn(StatusContext context) {
-      context.component.updateStatus(context.statusStruct, -1);
+      context.Component.updateStatus(context.StatusStruct, -1);
     }
 
-    public override void OnDamage(StatusContext context, DamageEffect damageEffect) {
-      if (damageEffect.damageType == DamageType) {
-        // context.intentSystem.addImmediateIntents(
-        //   IntentCreators
-        //     .Select(intentCreator => intentCreator
-        //       .CreateIntent(context.component.gameObject, new IntentTargetValues(context.component.gameObject, null))
-        //     )
-        //     .ToArray()
-        // );
+    public override void OnDamage(StatusContext context, Intent<DamageIntentValues> intent) {
+      if (intent.Values.DamageType == DamageType) {
+        context.IntentSystem.AddImmediateIntents(
+          IntentFactories
+            .Select(intentFactory => intentFactory
+              .CreateIntent(intent.Source, new IntentTargets(context.Component.gameObject, null)))
+            .ToArray());
       }
     }
   }

@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 3655297484020949884}
   - component: {fileID: -5471401934987967124}
   - component: {fileID: -8212489864985689608}
-  - component: {fileID: 5651737965945472215}
+  - component: {fileID: 3986644985690633327}
   m_Layer: 0
   m_Name: ArcherTowerPrefab
   m_TagString: Untagged
@@ -109,10 +109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d92d4ec7d0cad464b8769443bea080c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
   range: 3
   shootAttachmentGO: {fileID: 935805172754130369}
   shootAttachment: {x: 0, y: 0, z: 0}
+  damage: 1
   bulletPrefab: {fileID: 1569649981313330607, guid: cd528c56b6f9ee246a50ad57f46045a1, type: 3}
   condition: {fileID: 11400000, guid: fb153646edd4e42478b9becf924039a3, type: 2}
   gridComponent: {fileID: 0}
@@ -131,7 +131,7 @@ MonoBehaviour:
   gridSystem: {fileID: 0}
   gridPos: {x: 0, y: 0}
   zLayer: 4
---- !u!114 &5651737965945472215
+--- !u!114 &3986644985690633327
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,9 +140,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 3299584715087770911}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf43de8ce62f473eb1dbe383f7e5f5cc, type: 3}
+  m_Script: {fileID: 11500000, guid: e879cc1ca1f9458298c0e2d930ef3242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3453082179634749415
 GameObject:
   m_ObjectHideFlags: 0

@@ -37,7 +37,7 @@ namespace Cards {
           Targets = new IntentTargets(component.gameObject, direction)
         })
         .ToArray();
-      context.IntentManagementSystem.AddImmediateIntents(intents);
+      context.IntentSystem.AddImmediateIntents(intents);
     }
   }
 }

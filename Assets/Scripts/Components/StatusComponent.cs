@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Architecture;
-using Effects;
 using Intents;
+using Intents.Engine;
+using Intents.IntentBehaviours;
 using JetBrains.Annotations;
 using Status;
 using Status.StatusData;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Components {
-  public class StatusComponent : MonoBehaviour {
+  public class StatusComponent : MonoBehaviour, IReactToDamage {
 
     [SerializeField] [CanBeNull] private GameObject statusBar;
     [SerializeField] [CanBeNull] private StatusIconPrefab statusIconPrefab;
@@ -23,10 +21,10 @@ namespace Components {
 
     private void Awake() {
       gridComponent = this.GetAssertComponent<GridComponent>();
-      EventManager.AmEndTurn.AddListener(OnEndTurnListner);
+      EventManager.ImsEndTurn.AddListener(OnEndTurnListner);
     }
 
-    public void addStatus(StatusStruct statusStruct, ActorManager actorManager) {
+    public void AddStatus(StatusStruct statusStruct) {
       if (getStatus(statusStruct.data, out var oldStatusStruct)) {
         updateStatus(oldStatusStruct, statusStruct.stacks);
       } else {
@@ -54,33 +52,28 @@ namespace Components {
       statusStruct.OnRemove.Invoke();
       statusIconList.RemoveAll(icon => icon.isGoingToBeDestroyed);
     }
+    
 
-    public void OnDamage(ActorManager actorManager, DamageEffect damageEffect) {
-      statusList.ToList().ForEach(statusStruct =>
-        statusStruct.data.OnDamage(
-          new StatusContext {actorManager = actorManager, component = this, statusStruct = statusStruct}, damageEffect)
-      );
-    }
-
-    public void OnDamage() {
-      // #TODO #INTENT FIX
+    public void OnDamage(Intent<DamageIntentValues> intent, IntentProgressContext context) {
+      //#TODO INTENT FIX
       // statusList.ToList().ForEach(statusStruct =>
       //   statusStruct.data.OnDamage(
       //     new StatusContext {actorManager = context.ActorManager, component = this, statusStruct = statusStruct}, damageEffect)
       // );
+      throw new NotImplementedException();
     }
 
-    private void OnEndTurnListner(ActorManager actorManager) {
+    private void OnEndTurnListner(IntentSystem intentSystem) {
       statusList.ToList().ForEach(statusStruct =>
         statusStruct.data.OnEndTurn(new StatusContext
-          {actorManager = actorManager, component = this, statusStruct = statusStruct})
+          {IntentSystem = intentSystem, Component = this, StatusStruct = statusStruct})
       );
     }
 
-    public void OnMove(ActorManager actorManager) {
+    public void OnMove(IntentSystem intentSystem) {
       statusList.ToList().ForEach(statusStruct =>
         statusStruct.data.OnMove(new StatusContext
-          {actorManager = actorManager, component = this, statusStruct = statusStruct})
+          {IntentSystem = intentSystem, Component = this, StatusStruct = statusStruct})
       );
     }
 

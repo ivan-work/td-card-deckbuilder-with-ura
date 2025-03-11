@@ -7,7 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Intents {
-  public class IntentManagementSystem : MonoBehaviour {
+  public class IntentSystem : MonoBehaviour {
     private LinkedList<Intent> queuedIntents = new();
     private readonly LinkedList<IntentProgressContext> activeIntents = new();
     private bool isPerformingIntents;
@@ -24,7 +24,7 @@ namespace Intents {
 
       globalContext = new IntentGlobalContext {
         GridSystem = gridSystem,
-        IntentManagementSystem = this
+        IntentSystem = this
       };
     }
 

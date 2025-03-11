@@ -153,8 +153,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec9644c2969d5a4ea811e2e6372b581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statusData: {fileID: 11400000, guid: 394eaa673e59e834aa3c62cc4f459af3, type: 2}
-  stacks: 3
+  IntentCreators:
+  - Behaviour: {fileID: 11400000, guid: 347767417ee96df458ccf15fcb39f605, type: 2}
+    Values:
+      rid: 9139818213536432195
+  references:
+    version: 2
+    RefIds:
+    - rid: 9139818213536432195
+      type: {class: ApplyStatusIntentValues, ns: Intents.IntentBehaviours, asm: MainAssembly}
+      data:
+        StatusData: {fileID: 11400000, guid: 394eaa673e59e834aa3c62cc4f459af3, type: 2}
+        Stacks: 5
 --- !u!23 &985266525614120393
 MeshRenderer:
   m_ObjectHideFlags: 0
