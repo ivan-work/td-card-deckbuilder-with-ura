@@ -31,7 +31,7 @@ namespace Components {
       gridSystem.moveTo(this, targetPos);
     }
 
-    public Vector3 gridPos2World() {
+    private Vector3 gridPos2World() {
       return gridSystem.gridPos2World(gridPos, (float) zLayer);
     }
   }

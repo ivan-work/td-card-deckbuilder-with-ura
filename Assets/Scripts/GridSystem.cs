@@ -66,7 +66,7 @@ public class GridSystem : MonoBehaviour {
 
   public Vector3 gridPos2World(Vector2Int vector, float? z = null) {
     var worldPosition = grid.GetCellCenterWorld(new Vector3Int(vector.x, vector.y));
-    worldPosition.z = z ?? gameObject.transform.position.z;
+    // worldPosition.z = z ?? gameObject.transform.position.z;
     return worldPosition;
   }
 }

@@ -17,7 +17,7 @@ public class CellPrefab : MonoBehaviour {
 
   public CellPrefab OnSpawn(CellType _cellType) {
     cellType = _cellType;
-    this.GetAssertComponentInChildren<SpriteRenderer>().color = getColor(cellType);
+    this.GetAssertComponentInChildren<MeshRenderer>().material.color = getColor(cellType);
     return this;
   }
 

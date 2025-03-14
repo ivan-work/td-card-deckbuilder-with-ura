@@ -1,0 +1,6 @@
+﻿<Project>
+    <PropertyGroup>
+        <Nullable>enable</Nullable>
+        <NoWarn>CS0114</NoWarn>
+    </PropertyGroup>
+</Project>
