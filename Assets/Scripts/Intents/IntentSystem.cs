@@ -46,8 +46,7 @@ namespace Intents {
     private void OnPerformIntents() {
       EventManager.ImsEndTurn.Invoke(this);
       isPerformingIntents = true;
-      Debug.Log(queuedIntents.Aggregate(new StringBuilder("On Perform Intents: "),
-        (sb, val) => sb.Append(val).Append(", "),
+      Debug.Log(queuedIntents.Aggregate(new StringBuilder("On Perform Intents: "), (sb, val) => sb.Append(val).Append(", "),
         sb => sb.ToString()));
       // foreach (var intent in queuedIntents) {
       //   var context = new GlobalContext {
@@ -63,12 +62,14 @@ namespace Intents {
         var currentIntent = queuedIntents.First();
         if (!activeIntents.Any()) {
           queuedIntents.RemoveFirst();
-          var context = new IntentProgressContext {
-            GlobalContext = globalContext
-          };
-          currentIntent.Behaviour.Perform(currentIntent, context);
-          if (context.Animation != null) {
-            activeIntents.AddLast(context);
+          if (!currentIntent.Source.IsDestroyed()) {
+            var context = new IntentProgressContext {
+              GlobalContext = globalContext
+            };
+            currentIntent.Behaviour.Perform(currentIntent, context);
+            if (context.Animation != null) {
+              activeIntents.AddLast(context);
+            }
           }
         }
       }

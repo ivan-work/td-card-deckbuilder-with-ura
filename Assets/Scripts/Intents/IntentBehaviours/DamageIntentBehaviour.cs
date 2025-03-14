@@ -4,10 +4,6 @@ using Intents.Engine;
 using UnityEngine;
 
 namespace Intents.IntentBehaviours {
-  interface IReactToDamage {
-    void OnDamage(Intent<DamageIntentValues> intent, IntentProgressContext context);
-  }
-  
   [CreateAssetMenu]
   public class DamageIntentBehaviour : IntentBehaviour<DamageIntentValues> {
     // #TODO #INTENT FIX - make event

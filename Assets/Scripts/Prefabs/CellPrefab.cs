@@ -14,6 +14,7 @@ public enum CellType {
 
 public class CellPrefab : MonoBehaviour {
   [SerializeField] public CellType cellType = CellType.Empty;
+  [SerializeField] private TextMeshPro? _distanceText;
 
   public CellPrefab OnSpawn(CellType _cellType) {
     cellType = _cellType;
@@ -28,10 +29,11 @@ public class CellPrefab : MonoBehaviour {
     CellType.Spawner => new Color(1, 0, 0),
     _ => throw new InvalidEnumArgumentException(nameof(cell)),
   };
+  
 
   private void Start() {
-    if (TryGetComponent(out PathComponent pathComponent) && TryGetComponent(out TextMeshPro text)) {
-      text.text = $"{pathComponent.distanceToBase}";
+    if (TryGetComponent(out PathComponent pathComponent) && _distanceText != null) {
+      _distanceText.text = $"{pathComponent.distanceToBase}";
     }
   }
 }
