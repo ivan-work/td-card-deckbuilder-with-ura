@@ -1,28 +1,29 @@
 ﻿using UnityEngine;
 
-// [CreateAssetMenu(menuName = "Architecture/Targeting/TargetMode/TargetModeSingle")]
-public class TargetModeSingle : AbstractTargetMode {
-  public TargetModeSingle(Card card) : base(card) { }
+namespace Architecture.Targeting.TargetMode {
+  public class TargetModeSingle : AbstractTargetMode {
+    public TargetModeSingle(Card card) : base(card) { }
 
-  private GameObject cellIndicator = CellIndicatorObjectPool.SharedInstance.getPooledObject();
+    private readonly GameObject cellIndicator = CellIndicatorObjectPool.SharedInstance.getPooledObject();
 
+    public override SelectionResult drawIndicator(
+      GridSystem gridSystem,
+      Vector2Int mouseCell,
+      AbstractTargetCondition condition
+    ) {
+      bool isValid = condition.isValidTarget(gridSystem, mouseCell);
 
-  public override SelectionResult drawIndicator(GridSystem gridSystem, Vector2Int mouseCell,
-    AbstractTargetCondition condition) {
-    var isValid = condition.isValidTarget(gridSystem, mouseCell);
+      cellIndicator.GetComponent<SpriteRenderer>().color = isValid ? Color.green : Color.red;
+      cellIndicator.transform.position = gridSystem.gridPos2World(mouseCell); //grid.GetCellCenterWorld(new Vector3Int(mouseCell.x, mouseCell.y, 0)));
 
-    cellIndicator.GetComponent<SpriteRenderer>().color = isValid ? Color.green : Color.red;
-    cellIndicator.transform.position =
-      gridSystem.grid.GetCellCenterWorld(new Vector3Int(mouseCell.x, mouseCell.y, -10));
+      return new SelectionResult() {
+        IsValid = isValid,
+        AffectedCells = new[] {mouseCell}
+      };
+    }
 
-    return new SelectionResult() {
-      isValid = isValid,
-      affectedCells = new[] {mouseCell}
-    };
-  }
-
-  public override bool onClick(GridSystem gridSystem, SelectionResult selectionResult) {
-    return true;
+    public override bool onClick(GridSystem gridSystem, SelectionResult selectionResult) {
+      return true;
+    }
   }
 }
-

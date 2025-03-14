@@ -18,12 +18,17 @@ public static class AssertComponents {
   }
 
   public static T GetAssertComponentInParent<T>(this MonoBehaviour target) {
-    var component = target.GetComponentInParent<T>() ?? throw new NoComponentException($"No component ${typeof(T)}");
+    var component = target.GetComponentInParent<T>() ?? throw new NoComponentException($"Error in .GetAssertComponentInParent: No component ${typeof(T)}");
     return component;
   }
 
   public static T GetAssertComponentInChildren<T>(this MonoBehaviour target) {
-    var component = target.GetComponentInChildren<T>() ?? throw new NoComponentException($"No component ${typeof(T)}");
+    var component = target.GetComponentInChildren<T>() ?? throw new NoComponentException($"Error in .GetAssertComponentInChildren: No component ${typeof(T)}");
+    return component;
+  }
+  
+  public static T AssertFind<T>(this MonoBehaviour target) where T : Object {
+    var component = Object.FindFirstObjectByType<T>() ?? throw new NoComponentException($"Error in .FindFirstObjectByType: No component ${typeof(T)}");
     return component;
   }
 }

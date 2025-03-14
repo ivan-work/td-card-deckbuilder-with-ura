@@ -1,16 +1,16 @@
+using Architecture.Targeting.TargetMode;
 using Intents;
 using Intents.Engine;
 using UnityEngine;
 
 public class TargetSystem : MonoBehaviour {
-  [SerializeField] private GridSystem gridSystem;
-
-  AbstractTargetMode currentTargetMode;
-
-  private IntentSystem intentSystem;
+  [SerializeField] private GridSystem _gridSystem = null!;
+  private AbstractTargetMode? currentTargetMode;
+  private IntentSystem? intentSystem;
 
   private void Awake() {
     Debug.Log("TargetSystem.Awake()");
+    _gridSystem = this.AssertFind<GridSystem>();
     EventManager.CardClicked.AddListener(StartTargeting);
     EventManager.ImsStartRequestIntent.AddListener(OnImsStartRequestIntent);
   }
@@ -36,7 +36,7 @@ public class TargetSystem : MonoBehaviour {
       var targetCondition = currentTargetMode.card.targetCondition[0];
 
       var selectionResult = currentTargetMode.drawIndicator(
-        gridSystem,
+        _gridSystem,
         mouseCell: GetMouseCell(),
         targetCondition
       );
@@ -48,9 +48,9 @@ public class TargetSystem : MonoBehaviour {
 
         if (Input.GetMouseButtonDown(0)) {
           // Debug.Log($"CLICK HAPPENED, valid: {selectionResult.isValid}");
-          if (selectionResult.isValid) {
+          if (selectionResult.IsValid) {
             var shouldEndTargeting = currentTargetMode.onClick(
-              gridSystem,
+              _gridSystem,
               selectionResult
             );
             // Debug.Log($"shouldEndTargeting {shouldEndTargeting}");
@@ -58,10 +58,10 @@ public class TargetSystem : MonoBehaviour {
             if (shouldEndTargeting) {
               currentTargetMode.card.DoCardAction(
                 new IntentGlobalContext() {
-                  GridSystem = gridSystem,
+                  GridSystem = _gridSystem,
                   IntentSystem = intentSystem
                 },
-                selectionResult.affectedCells
+                selectionResult.AffectedCells
               );
 
               StopTargeting();
@@ -78,7 +78,7 @@ public class TargetSystem : MonoBehaviour {
 
   Vector2Int GetMouseCell() {
     // Debug.Log($"{Input.mousePosition}, {Camera.main.ScreenToWorldPoint(Input.mousePosition, 0)}, {Camera.main.ScreenToWorldPoint(Input.mousePosition)}");
-    Vector3Int cellPosition = gridSystem.grid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+    Vector3Int cellPosition = _gridSystem.grid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
     return ((Vector2Int) cellPosition);
   }
 }

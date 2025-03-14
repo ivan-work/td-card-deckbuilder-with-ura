@@ -1,0 +1,8 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/TDCDWU%20Style%20Sheet.uss?fileID=7433441132597879392&amp;guid=6a8a48da351206643bbd2af5a91804a1&amp;type=3#TDCDWU Style Sheet" />
+    <engine:VisualElement name="VisualElement" style="position: absolute; left: 0; bottom: 50%; height: 150px; width: 100px; flex-direction: column;">
+        <engine:Button text="End Turn" name="EndTurnButton" style="justify-content: space-between; align-self: stretch; align-content: stretch; flex-direction: column; -unity-text-align: middle-center; flex-grow: 1;">
+            <engine:Label text="Turn: 0" style="top: -15px;" />
+        </engine:Button>
+    </engine:VisualElement>
+</engine:UXML>
