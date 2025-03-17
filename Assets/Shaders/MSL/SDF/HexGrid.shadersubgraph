@@ -603,7 +603,7 @@
         },
         "preventRotation": true
     },
-    "m_Path": "MSL\\SDF",
+    "m_Path": "MSL/SDF",
     "m_GraphPrecision": 0,
     "m_PreviewMode": 1,
     "m_OutputNode": {
@@ -1072,8 +1072,8 @@
     "m_ObjectId": "2414b343ef534cfcaceb123547c42dbd",
     "m_Title": "Create equal size hexes per tile and draw smooth edge",
     "m_Position": {
-        "x": 679.333251953125,
-        "y": 12.66668701171875
+        "x": 679.3333740234375,
+        "y": 12.666633605957032
     }
 }
 

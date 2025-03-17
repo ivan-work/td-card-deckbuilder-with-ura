@@ -29,7 +29,7 @@ namespace Architecture {
         lock (Lock) {
           if (_instance != null)
             return _instance;
-          var instances = FindObjectsOfType<T>();
+          var instances = FindObjectsByType<T>(FindObjectsSortMode.None);
           var count = instances.Length;
           if (count > 0) {
             if (count == 1)
