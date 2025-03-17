@@ -1,8 +1,6 @@
-﻿<Project>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
     <PropertyGroup>
         <Nullable>enable</Nullable>
-    </PropertyGroup>
-    <PropertyGroup>
-        <NoWarn>CS0114</NoWarn>
     </PropertyGroup>
 </Project>

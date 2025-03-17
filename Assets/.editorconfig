@@ -3,7 +3,6 @@ indent_style = space
 indent_size = 2
 trim_trailing_whitespace = false
 insert_final_newline = true
-indent_style = space
 
 # Microsoft .NET properties
 csharp_new_line_before_else = false
@@ -135,7 +134,7 @@ csharp_new_line_before_open_brace = none
 csharp_new_line_before_else = false
 csharp_new_line_before_catch = false
 csharp_new_line_before_finally = false
-csharp_new_line_before_members_in_object_initializers = false
-csharp_new_line_before_members_in_anonymous_types = false
+csharp_new_line_before_members_in_object_initializers = true
+csharp_new_line_before_members_in_anonymous_types = true
 csharp_new_line_between_query_expression_clauses = false
-#tab_width = 2
+dotnet_diagnostic.CS0114.severity = none
