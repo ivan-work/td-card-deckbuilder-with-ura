@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
-using Architecture;
 using Intents;
 using Intents.Engine;
+using Intents.IntentBehaviours;
+using Unity.VisualScripting;
 using UnityEngine;
 using Utils;
 
@@ -23,24 +26,119 @@ namespace Abilities {
     }
   }
 
-  public class TargetingContext {
-    public readonly HashSet<ITarget> Targets = new();
-    public IEnumerable<ITargetCondition> Conditions;
-    public Ability Ability;
-    public TargetMode TargetMode;
-    public IntentGlobalContext GlobalContext;
+  public class AbilityContext {
+    public readonly IEnumerable<ITargetCondition> Conditions;
+    public readonly Ability Ability;
+    public readonly TargetingSettings TargetingSettings;
+    public readonly ITargetingContext TargetingContext;
+    public readonly IntentGlobalContext GlobalContext;
 
-    public TargetingContext(Ability ability, IntentGlobalContext intentGlobalContext) {
+    public AbilityContext(Ability ability, IntentGlobalContext intentGlobalContext) {
       Ability = ability;
       Conditions = ability.Conditions;
-      TargetMode = ability.TargetMode;
+      TargetingSettings = ability._targetingSettings;
+      TargetingContext = TargetingSettings.CreateTargetingContext();
       GlobalContext = intentGlobalContext;
     }
   }
 
-  public abstract class TargetMode : ScriptableObject {
-    [SerializeField] private int _targetsCount = 1;
+  public interface ITargetingContext {
+    void Stop();
+    void OnHoverStart(AbilityContext context, ITarget potentialTarget);
+    void OnHoverStop(AbilityContext context, ITarget potentialTarget);
+    void ConfirmTarget(AbilityContext context, ITarget potentialTarget);
+  }
 
+  public abstract class TargetingSettings : ScriptableObject {
+    public abstract ITargetingContext CreateTargetingContext();
+  }
+
+  public class SingleTargetModeContext : ITargetingContext {
+    private readonly SingleTargetingSettings settings;
+    private readonly HashSet<ITarget> lockedTargets = new();
+    private readonly HashSet<ITarget> currentTargets = new();
+
+    private int clickCount = 0;
+
+    public SingleTargetModeContext(SingleTargetingSettings targetingSettings) {
+      settings = targetingSettings;
+    }
+
+    private List<Vector2Int> GetAffectedPoses(Vector2Int targetPos) {
+      var offsets = settings.TargetArea;
+      return offsets.Select(offset => GridSystem.AxialToOddr(GridSystem.OddrToAxial(targetPos) + offset)).ToList();
+    }
+
+    public void OnHoverStart(AbilityContext context, ITarget potentialTarget) {
+      var affectedPoses = GetAffectedPoses(potentialTarget.GetPos());
+
+      var potentialTargets = affectedPoses
+        .SelectMany(pos => context.GlobalContext.GridSystem.getGridEntitiesSpecial<ITarget>(pos))
+        .Where(t => CheckTarget(context, t))
+        .ToList();
+
+      potentialTargets
+        .ToList()
+        .ForEach(target => {
+          currentTargets.Add(target);
+          target.Highlight(true);
+        });
+
+      // context.TargetingSettings.DrawIndicator(affectedPoses, targets);
+    }
+
+    public void ConfirmTarget(AbilityContext context, ITarget potentialTarget) {
+      clickCount++;
+      if (clickCount <= settings.MaxClicks) {
+        lockedTargets.AddRange(currentTargets);
+      } else {
+        Debug.Log("FIRE");
+      }
+      // context.Ability.Perform...
+    }
+
+    public void OnHoverStop(AbilityContext context, ITarget potentialTarget) {
+      foreach (var target in currentTargets) {
+        if (!lockedTargets.Contains(target)) {
+          target.Highlight(false);
+        }
+      }
+
+      currentTargets.Clear();
+    }
+
+    public void Stop() {
+      foreach (var target in lockedTargets) {
+        target.Highlight(false);
+      }
+
+      foreach (var target in currentTargets) {
+        target.Highlight(false);
+      }
+    }
+
+    private static bool CheckTarget(AbilityContext abilityContext, ITarget target) {
+      return abilityContext.Conditions
+        .All(condition => condition.isValidTarget(target));
+    }
+  }
+
+  public class SingleTargetingSettings : TargetingSettings {
+    [SerializeField] public int MaxClicks = 3;
+
+    [SerializeField] public List<Vector2Int> TargetArea = new() {
+      Vector2Int.zero,
+      new Vector2Int(0, -1),
+      new Vector2Int(+1, -1),
+      new Vector2Int(+1, 0),
+      new Vector2Int(0, +1),
+      new Vector2Int(-1, +1),
+      new Vector2Int(-1, 0),
+    };
+
+    public override ITargetingContext CreateTargetingContext() {
+      return new SingleTargetModeContext(this);
+    }
 
     private GameObject indicator;
     private LineRenderer lineRenderer;
@@ -55,27 +153,9 @@ namespace Abilities {
       lineRenderer.loop = true;
     }
 
-    public int TargetsCount => _targetsCount;
-
-    [SerializeField] public List<Vector2Int> TargetArea = new() {
-      Vector2Int.zero,
-      new Vector2Int(1, 0),
-      new Vector2Int(1, -1),
-      new Vector2Int(0, -1),
-      new Vector2Int(-1, 0),
-      new Vector2Int(-1, 1),
-      new Vector2Int(0, 1),
-    };
-
-    public List<Vector2Int> GetAffectedCells(Vector2Int pivotPos) {
-      var offsets = TargetArea;
-      var targetPos = pivotPos;
-      return offsets.Select(offset => targetPos + offset).ToList();
-    }
-
-    public void DrawIndicator(List<Vector2Int> affectedCells, List<ITarget> targets) {
+    public void DrawIndicator(List<Vector2Int> affectedPoses, List<ITarget> targets) {
       var gridSystem = FindAnyObjectByType<GridSystem>();
-      var positions = affectedCells
+      var positions = affectedPoses
         .Select(pos => gridSystem.gridPos2World(pos, 1).With(y: .3f))
         .ToArray();
       lineRenderer.positionCount = positions.Count();
@@ -83,78 +163,60 @@ namespace Abilities {
     }
   }
 
-  public class SingleTargetMode : TargetMode { }
+  public class LineTargetingSettings : TargetingSettings {
+    public override ITargetingContext CreateTargetingContext() {
+      return null;
+      // return new SingleTargetModeContext();
+    }
+  }
 
-  public class AbilityManager : Singleton<AbilityManager> {
-    private TargetingContext? context;
+  public class AbilityManager : Architecture.Singleton<AbilityManager> {
+    private AbilityContext? context;
     private GridSystem gridSystem = null!;
 
     protected override void OnAwake() {
       gridSystem = this.AssertFind<GridSystem>();
       var intentSystem = this.AssertFind<IntentSystem>();
       var ability = ScriptableObject.CreateInstance<Ability>();
-      ability._name = "Fierbol";
-      ability._icon = Texture2D.redTexture;
-      ability._intentFactory = new IntentFactory();
+      ability.Name = "Fierbol";
+      ability.Icon = Texture2D.redTexture;
+      ability.IntentFactory = new IntentFactory();
+      ability.IntentFactory.Behaviour = ScriptableObject.CreateInstance<DamageIntentBehaviour>();
+      ability.IntentFactory.Values = new DamageIntentValues() {Damage = 3, DamageType = DamageType.Fire};
       ability.Conditions = new();
-      ability.TargetMode = ScriptableObject.CreateInstance<SingleTargetMode>();
-      context = new TargetingContext(ability, new IntentGlobalContext() {IntentSystem = intentSystem, GridSystem = gridSystem});
+      ability._targetingSettings = ScriptableObject.CreateInstance<SingleTargetingSettings>();
+      context = new AbilityContext(ability, new IntentGlobalContext() {IntentSystem = intentSystem, GridSystem = gridSystem});
     }
 
     public void OnHoverStart(ITarget potentialTarget) {
-      if (context is not null) {
-        var affectedCells = context.TargetMode.GetAffectedCells(potentialTarget.GetPos());
-
-        var targets = affectedCells
-          .SelectMany(pos => gridSystem.getGridEntitiesSpecial<ITarget>(pos))
-          .Where(checkTarget)
-          .ToList();
-
-        targets
-          .ForEach(target => {
-            context.Targets.Add(target);
-            target.Highlight(true);
-          });
-
-        context.TargetMode.DrawIndicator(affectedCells, targets);
-      }
+      context?.TargetingContext.OnHoverStart(context, potentialTarget);
     }
 
     public void OnHoverStop(ITarget potentialTarget) {
-      if (context is not null) {
-        foreach (var target in context.Targets) {
-          target.Highlight(false);
-        }
+      context?.TargetingContext.OnHoverStop(context, potentialTarget);
+    }
 
-        context.Targets.Clear();
+    public void ConfirmTarget(ITarget potentialTarget) {
+      context?.TargetingContext.ConfirmTarget(context, potentialTarget);
+    }
+
+    public void Update() {
+      if (Input.GetMouseButtonDown(1) && context is not null) {
+        stopAbility();
       }
     }
 
-    public void OnClick(ITarget potentialTarget) {
-      if (context is not null) {
-        context.Targets.Add(potentialTarget);
-        if (context.Targets.Count >= context.TargetMode.TargetsCount) {
-          PerformAbility(context);
-        }
-      }
+    private void stopAbility() {
+      context?.TargetingContext.Stop();
+      context = null;
     }
 
-    private void PerformAbility(TargetingContext localContext) {
+    private void PerformAbility(AbilityContext localContext) {
       localContext.GlobalContext.IntentSystem.AddImmediateIntents(
-        localContext.TargetMode.TargetArea
-          .Select(gridPos => localContext.Ability._intentFactory.CreateIntent(null, new IntentTargets(null, gridPos)))
+        localContext.TargetingContext.GetTargets
+          .Select(gridPos => localContext.Ability.IntentFactory.CreateIntent(null, new IntentTargets(null, gridPos)))
           .ToArray()
       );
-    }
-
-    private bool checkTarget(ITarget target) {
-      // TODO проверять все цели на все кондишены
-      if (context is not null) {
-        return context.Conditions
-          .All(condition => condition.isValidTarget(target));
-      }
-
-      return false;
     }
   }
 }

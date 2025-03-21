@@ -6,9 +6,9 @@ using UnityEngine;
 namespace Intents {
   [Serializable]
   public class IntentFactory {
-    [SerializeReference] private IntentBehaviour Behaviour = null!; // Can't be generic
+    [SerializeReference] public IntentBehaviour Behaviour = null!; // Can't be generic
 
-    [SerializeReference] private IntentValues Values = null!; // Can't be generic
+    [SerializeReference] public IntentValues Values = null!; // Can't be generic
     
     
 

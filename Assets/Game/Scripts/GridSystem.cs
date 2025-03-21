@@ -62,11 +62,23 @@ public class GridSystem : MonoBehaviour {
 
     return results;
   }
-  
+
 
   public Vector3 gridPos2World(Vector2Int vector, float? y = null) {
     var worldPosition = grid.GetCellCenterWorld(new Vector3Int(vector.x, vector.y));
     // worldPosition.z = z ?? gameObject.transform.position.z;
     return worldPosition;
+  }
+
+  public static Vector2Int AxialToOddr(Vector2Int hex) {
+    var col = hex.x + (hex.y - (hex.y & 1)) / 2;
+    var row = hex.y;
+    return new Vector2Int(col, row);
+  }
+
+  public static Vector2Int OddrToAxial(Vector2Int hex) {
+    var q = hex.x - (hex.y - (hex.y & 1)) / 2;
+    var r = hex.y;
+    return new Vector2Int(q, r);
   }
 }

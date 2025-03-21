@@ -34,13 +34,16 @@ public class CellPrefab : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
 
   private void Start() {
-    if (TryGetComponent(out PathComponent pathComponent) && _distanceText != null) {
-      _distanceText.text = $"{pathComponent.distanceToBase}";
+    // if (TryGetComponent(out PathComponent pathComponent) && _distanceText != null) {
+    //   _distanceText.text = $"{pathComponent.distanceToBase}";
+    // }
+    if (TryGetComponent(out GridComponent gridComponent) && _distanceText != null) {
+      _distanceText.text = $"{gridComponent.gridPos.x}:{gridComponent.gridPos.y}";
     }
   }
 
   public void OnPointerClick(PointerEventData eventData) {
-    AbilityManager.Instance.OnClick(this);
+    AbilityManager.Instance.ConfirmTarget(this);
   }
 
   public void OnPointerEnter(PointerEventData eventData) {
