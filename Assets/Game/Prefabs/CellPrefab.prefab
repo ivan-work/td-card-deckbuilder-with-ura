@@ -187,6 +187,7 @@ GameObject:
   - component: {fileID: 466440228032219436}
   - component: {fileID: 7948036231712262991}
   - component: {fileID: -8799382719110564996}
+  - component: {fileID: 5631494104543143823}
   m_Layer: 0
   m_Name: CellPrefab
   m_TagString: Untagged
@@ -244,6 +245,28 @@ MonoBehaviour:
   gridSystem: {fileID: 0}
   gridPos: {x: 0, y: 0}
   zLayer: 5
+--- !u!64 &5631494104543143823
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6055034822822915093}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6202518890732439607, guid: 12dd1f2bca9fe0e48bc79397590626dd, type: 3}
 --- !u!1001 &8514749511930879855
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,6 +1,8 @@
 using System;
 using System.ComponentModel;
 using System.Collections.Generic;
+using Abilities;
+using Components;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,7 +14,7 @@ public enum CellType {
   Spawner = 3,
 }
 
-public class CellPrefab : MonoBehaviour {
+public class CellPrefab : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, ITarget {
   [SerializeField] public CellType cellType = CellType.Empty;
   [SerializeField] private TextMeshPro? _distanceText;
 
@@ -29,11 +31,40 @@ public class CellPrefab : MonoBehaviour {
     CellType.Spawner => new Color(1, 0, 0),
     _ => throw new InvalidEnumArgumentException(nameof(cell)),
   };
-  
+
 
   private void Start() {
     if (TryGetComponent(out PathComponent pathComponent) && _distanceText != null) {
       _distanceText.text = $"{pathComponent.distanceToBase}";
     }
+  }
+
+  public void OnPointerClick(PointerEventData eventData) {
+    AbilityManager.Instance.OnClick(this);
+  }
+
+  public void OnPointerEnter(PointerEventData eventData) {
+    this.GetAssertComponentInChildren<MeshRenderer>().material.color = new Color(.1f, .1f, 0);
+    AbilityManager.Instance.OnHoverStart(this);
+  }
+
+  public void OnPointerExit(PointerEventData eventData) {
+    AbilityManager.Instance.OnHoverStop(this);
+  }
+
+  public void Highlight(bool enable) {
+    if (enable) {
+      this.GetAssertComponentInChildren<MeshRenderer>().material.color = new Color(1, 1, 0);
+    } else {
+      this.GetAssertComponentInChildren<MeshRenderer>().material.color = getColor(cellType);
+    }
+  }
+
+  public Vector2Int GetPos() {
+    return GetComponent<GridComponent>().gridPos;
+  }
+
+  public GameObject? GetGameObject() {
+    return null;
   }
 }
