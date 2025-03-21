@@ -3,12 +3,12 @@ using Intents;
 using UnityEngine;
 
 namespace Abilities {
-  [CreateAssetMenu(menuName = "Ability/BaseAbility")]
-  public class Ability : ScriptableObject {
+  public abstract class Ability : ScriptableObject {
     [SerializeField] public string Name = null!;
     [SerializeField] public Texture2D Icon = null!;
-    [SerializeField] public TargetingSettings _targetingSettings = null!;
     [SerializeField] public List<ITargetCondition> Conditions = new();
     [SerializeField] public IntentFactory IntentFactory = null!;
+
+    public abstract ITargetingContext CreateTargetingContext();
   }
 }

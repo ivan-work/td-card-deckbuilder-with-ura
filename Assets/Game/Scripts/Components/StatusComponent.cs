@@ -61,7 +61,7 @@ namespace Components {
       //   statusStruct.data.OnDamage(
       //     new StatusContext {actorManager = context.ActorManager, component = this, statusStruct = statusStruct}, damageEffect)
       // );
-      throw new NotImplementedException();
+      // throw new NotImplementedException();
     }
 
     private void OnEndTurnListner(IntentSystem intentSystem) {

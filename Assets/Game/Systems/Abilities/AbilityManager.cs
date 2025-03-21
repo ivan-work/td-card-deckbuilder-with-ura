@@ -29,39 +29,36 @@ namespace Abilities {
   public class AbilityContext {
     public readonly IEnumerable<ITargetCondition> Conditions;
     public readonly Ability Ability;
-    public readonly TargetingSettings TargetingSettings;
     public readonly ITargetingContext TargetingContext;
     public readonly IntentGlobalContext GlobalContext;
+    public readonly GameObject Source;
 
-    public AbilityContext(Ability ability, IntentGlobalContext intentGlobalContext) {
+    public AbilityContext(GameObject source, Ability ability, IntentGlobalContext intentGlobalContext) {
       Ability = ability;
       Conditions = ability.Conditions;
-      TargetingSettings = ability._targetingSettings;
-      TargetingContext = TargetingSettings.CreateTargetingContext();
+      TargetingContext = ability.CreateTargetingContext();
       GlobalContext = intentGlobalContext;
+      Source = source;
     }
+
   }
 
   public interface ITargetingContext {
     void Stop();
     void OnHoverStart(AbilityContext context, ITarget potentialTarget);
     void OnHoverStop(AbilityContext context, ITarget potentialTarget);
-    void ConfirmTarget(AbilityContext context, ITarget potentialTarget);
-  }
-
-  public abstract class TargetingSettings : ScriptableObject {
-    public abstract ITargetingContext CreateTargetingContext();
+    bool ConfirmTarget(AbilityContext context, ITarget potentialTarget);
   }
 
   public class SingleTargetModeContext : ITargetingContext {
-    private readonly SingleTargetingSettings settings;
+    private readonly SingleAbility settings;
     private readonly HashSet<ITarget> lockedTargets = new();
     private readonly HashSet<ITarget> currentTargets = new();
 
     private int clickCount = 0;
 
-    public SingleTargetModeContext(SingleTargetingSettings targetingSettings) {
-      settings = targetingSettings;
+    public SingleTargetModeContext(SingleAbility settings) {
+      this.settings = settings;
     }
 
     private List<Vector2Int> GetAffectedPoses(Vector2Int targetPos) {
@@ -87,14 +84,21 @@ namespace Abilities {
       // context.TargetingSettings.DrawIndicator(affectedPoses, targets);
     }
 
-    public void ConfirmTarget(AbilityContext context, ITarget potentialTarget) {
+    public bool ConfirmTarget(AbilityContext abilityContext, ITarget potentialTarget) {
       clickCount++;
-      if (clickCount <= settings.MaxClicks) {
-        lockedTargets.AddRange(currentTargets);
-      } else {
-        Debug.Log("FIRE");
+      lockedTargets.AddRange(currentTargets);
+      if (clickCount > settings.MaxClicks) {
+        abilityContext.GlobalContext.IntentSystem.AddIntents(
+          lockedTargets
+            // .Select(target => abilityContext.Ability.IntentFactory.CreateIntent(null, new IntentTargets(null, target.GetPos())))
+            .Where(target => target.GetGameObject() is not null)
+            .Select(target => abilityContext.Ability.IntentFactory.CreateIntent(abilityContext.Source, new IntentTargets(target.GetGameObject()!, null)))
+            .ToArray()
+        );
+        return true;
       }
-      // context.Ability.Perform...
+
+      return false;
     }
 
     public void OnHoverStop(AbilityContext context, ITarget potentialTarget) {
@@ -123,53 +127,6 @@ namespace Abilities {
     }
   }
 
-  public class SingleTargetingSettings : TargetingSettings {
-    [SerializeField] public int MaxClicks = 3;
-
-    [SerializeField] public List<Vector2Int> TargetArea = new() {
-      Vector2Int.zero,
-      new Vector2Int(0, -1),
-      new Vector2Int(+1, -1),
-      new Vector2Int(+1, 0),
-      new Vector2Int(0, +1),
-      new Vector2Int(-1, +1),
-      new Vector2Int(-1, 0),
-    };
-
-    public override ITargetingContext CreateTargetingContext() {
-      return new SingleTargetModeContext(this);
-    }
-
-    private GameObject indicator;
-    private LineRenderer lineRenderer;
-
-    private void Awake() {
-      indicator = new GameObject();
-      lineRenderer = indicator.AddComponent<LineRenderer>();
-      lineRenderer.startWidth = .25f;
-      lineRenderer.endWidth = .25f;
-      lineRenderer.numCapVertices = 3;
-      lineRenderer.numCornerVertices = 3;
-      lineRenderer.loop = true;
-    }
-
-    public void DrawIndicator(List<Vector2Int> affectedPoses, List<ITarget> targets) {
-      var gridSystem = FindAnyObjectByType<GridSystem>();
-      var positions = affectedPoses
-        .Select(pos => gridSystem.gridPos2World(pos, 1).With(y: .3f))
-        .ToArray();
-      lineRenderer.positionCount = positions.Count();
-      lineRenderer.SetPositions(positions);
-    }
-  }
-
-  public class LineTargetingSettings : TargetingSettings {
-    public override ITargetingContext CreateTargetingContext() {
-      return null;
-      // return new SingleTargetModeContext();
-    }
-  }
-
   public class AbilityManager : Architecture.Singleton<AbilityManager> {
     private AbilityContext? context;
     private GridSystem gridSystem = null!;
@@ -177,15 +134,14 @@ namespace Abilities {
     protected override void OnAwake() {
       gridSystem = this.AssertFind<GridSystem>();
       var intentSystem = this.AssertFind<IntentSystem>();
-      var ability = ScriptableObject.CreateInstance<Ability>();
+      var ability = ScriptableObject.CreateInstance<SingleAbility>();
       ability.Name = "Fierbol";
       ability.Icon = Texture2D.redTexture;
       ability.IntentFactory = new IntentFactory();
       ability.IntentFactory.Behaviour = ScriptableObject.CreateInstance<DamageIntentBehaviour>();
       ability.IntentFactory.Values = new DamageIntentValues() {Damage = 3, DamageType = DamageType.Fire};
       ability.Conditions = new();
-      ability._targetingSettings = ScriptableObject.CreateInstance<SingleTargetingSettings>();
-      context = new AbilityContext(ability, new IntentGlobalContext() {IntentSystem = intentSystem, GridSystem = gridSystem});
+      context = new AbilityContext(gameObject, ability, new IntentGlobalContext() {IntentSystem = intentSystem, GridSystem = gridSystem});
     }
 
     public void OnHoverStart(ITarget potentialTarget) {
@@ -197,7 +153,9 @@ namespace Abilities {
     }
 
     public void ConfirmTarget(ITarget potentialTarget) {
-      context?.TargetingContext.ConfirmTarget(context, potentialTarget);
+      if (context is not null && context.TargetingContext.ConfirmTarget(context, potentialTarget)) {
+        stopAbility();
+      }
     }
 
     public void Update() {
@@ -209,14 +167,6 @@ namespace Abilities {
     private void stopAbility() {
       context?.TargetingContext.Stop();
       context = null;
-    }
-
-    private void PerformAbility(AbilityContext localContext) {
-      localContext.GlobalContext.IntentSystem.AddImmediateIntents(
-        localContext.TargetingContext.GetTargets
-          .Select(gridPos => localContext.Ability.IntentFactory.CreateIntent(null, new IntentTargets(null, gridPos)))
-          .ToArray()
-      );
     }
   }
 }
