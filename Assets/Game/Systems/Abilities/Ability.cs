@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Intents;
 using UnityEngine;
 
@@ -10,5 +11,10 @@ namespace Abilities {
     [SerializeField] public IntentFactory IntentFactory = null!;
 
     public abstract ITargetingContext CreateTargetingContext();
+    
+    public bool CheckTarget(ITarget target) {
+      return Conditions
+        .All(condition => condition.isValidTarget(target));
+    }
   }
 }

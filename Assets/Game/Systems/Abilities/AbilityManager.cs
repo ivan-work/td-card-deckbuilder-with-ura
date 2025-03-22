@@ -45,86 +45,9 @@ namespace Abilities {
 
   public interface ITargetingContext {
     void Stop();
-    void OnHoverStart(AbilityContext context, ITarget potentialTarget);
+    void OnHoverStart(AbilityContext abilityContext, ITarget potentialTarget);
     void OnHoverStop(AbilityContext context, ITarget potentialTarget);
     bool ConfirmTarget(AbilityContext context, ITarget potentialTarget);
-  }
-
-  public class SingleTargetModeContext : ITargetingContext {
-    private readonly SingleAbility settings;
-    private readonly HashSet<ITarget> lockedTargets = new();
-    private readonly HashSet<ITarget> currentTargets = new();
-
-    private int clickCount = 0;
-
-    public SingleTargetModeContext(SingleAbility settings) {
-      this.settings = settings;
-    }
-
-    private List<Vector2Int> GetAffectedPoses(Vector2Int targetPos) {
-      var offsets = settings.TargetArea;
-      return offsets.Select(offset => GridSystem.AxialToOddr(GridSystem.OddrToAxial(targetPos) + offset)).ToList();
-    }
-
-    public void OnHoverStart(AbilityContext context, ITarget potentialTarget) {
-      var affectedPoses = GetAffectedPoses(potentialTarget.GetPos());
-
-      var potentialTargets = affectedPoses
-        .SelectMany(pos => context.GlobalContext.GridSystem.getGridEntitiesSpecial<ITarget>(pos))
-        .Where(t => CheckTarget(context, t))
-        .ToList();
-
-      potentialTargets
-        .ToList()
-        .ForEach(target => {
-          currentTargets.Add(target);
-          target.Highlight(true);
-        });
-
-      // context.TargetingSettings.DrawIndicator(affectedPoses, targets);
-    }
-
-    public bool ConfirmTarget(AbilityContext abilityContext, ITarget potentialTarget) {
-      clickCount++;
-      lockedTargets.AddRange(currentTargets);
-      if (clickCount > settings.MaxClicks) {
-        abilityContext.GlobalContext.IntentSystem.AddIntents(
-          lockedTargets
-            // .Select(target => abilityContext.Ability.IntentFactory.CreateIntent(null, new IntentTargets(null, target.GetPos())))
-            .Where(target => target.GetGameObject() is not null)
-            .Select(target => abilityContext.Ability.IntentFactory.CreateIntent(abilityContext.Source, new IntentTargets(target.GetGameObject()!, null)))
-            .ToArray()
-        );
-        return true;
-      }
-
-      return false;
-    }
-
-    public void OnHoverStop(AbilityContext context, ITarget potentialTarget) {
-      foreach (var target in currentTargets) {
-        if (!lockedTargets.Contains(target)) {
-          target.Highlight(false);
-        }
-      }
-
-      currentTargets.Clear();
-    }
-
-    public void Stop() {
-      foreach (var target in lockedTargets) {
-        target.Highlight(false);
-      }
-
-      foreach (var target in currentTargets) {
-        target.Highlight(false);
-      }
-    }
-
-    private static bool CheckTarget(AbilityContext abilityContext, ITarget target) {
-      return abilityContext.Conditions
-        .All(condition => condition.isValidTarget(target));
-    }
   }
 
   public class AbilityManager : Architecture.Singleton<AbilityManager> {
@@ -134,7 +57,8 @@ namespace Abilities {
     protected override void OnAwake() {
       gridSystem = this.AssertFind<GridSystem>();
       var intentSystem = this.AssertFind<IntentSystem>();
-      var ability = ScriptableObject.CreateInstance<SingleAbility>();
+      var ability = ScriptableObject.CreateInstance<LineAbility>();
+      ability.MaxClicks = 4;
       ability.Name = "Fierbol";
       ability.Icon = Texture2D.redTexture;
       ability.IntentFactory = new IntentFactory();

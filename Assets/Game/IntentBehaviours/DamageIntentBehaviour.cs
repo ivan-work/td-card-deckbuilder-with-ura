@@ -32,9 +32,15 @@ namespace Intents.IntentBehaviours {
       //   statusComponent.OnDamage();
       // }
 
-      if (targetPos.HasValue) {
+      // #TODO this code is bad, rework
+      if (targetPos is not null) {
         context.Animation = new DamageAnimation(
-          context.GlobalContext.GridSystem.gridPos2World(targetPos.Value, (float) GridComponent.zLayerEnum.Effect),
+          context.GlobalContext.GridSystem.gridPos2World(targetPos.Value),
+          intent.Values.DamageType
+        );
+      } else if (target is not null) {
+        context.Animation = new DamageAnimation(
+          target.transform.position,
           intent.Values.DamageType
         );
       }

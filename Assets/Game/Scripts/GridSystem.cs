@@ -70,15 +70,47 @@ public class GridSystem : MonoBehaviour {
     return worldPosition;
   }
 
-  public static Vector2Int AxialToOddr(Vector2Int hex) {
+  /*
+   * HEX
+   */
+  public static IEnumerable<Vector2Int> GetLine(Vector2Int startPos, Vector2Int endPos) {
+    var startAxial = OffsetToAxial(startPos);
+    var endAxial = OffsetToAxial(endPos);
+    var points = getAxialDistance(startAxial, endAxial);
+    var results = new List<Vector2Int> {startPos};
+    for (var i = 1; i <= points; i++) {
+      var lerped = Vector2.Lerp(startAxial, endAxial, (float) (1.0 / points * i));
+      var lerpedRound = Vector2Int.RoundToInt(lerped);
+      var offsetLerpedRound = AxialToOffset(lerpedRound);
+      results.Add(offsetLerpedRound);
+    }
+
+    return results;
+  }
+
+  public static Vector2Int AxialToOffset(Vector2Int hex) {
     var col = hex.x + (hex.y - (hex.y & 1)) / 2;
     var row = hex.y;
     return new Vector2Int(col, row);
   }
 
-  public static Vector2Int OddrToAxial(Vector2Int hex) {
+  public static Vector2Int OffsetToAxial(Vector2Int hex) {
     var q = hex.x - (hex.y - (hex.y & 1)) / 2;
     var r = hex.y;
     return new Vector2Int(q, r);
+  }
+
+  public static int getOffsetDistance(Vector2Int a, Vector2Int b) {
+    return getAxialDistance(OffsetToAxial(a), OffsetToAxial(b));
+  }
+
+
+  public static Vector2Int getAxialSubstract(Vector2Int a, Vector2Int b) {
+    return new Vector2Int(a.x - b.x, a.y - b.y);
+  }
+
+  public static int getAxialDistance(Vector2Int a, Vector2Int b) {
+    var vec = getAxialSubstract(a, b);
+    return (Math.Abs(vec.x) + Math.Abs(vec.x + vec.y) + Math.Abs(vec.y)) / 2;
   }
 }
