@@ -6,12 +6,12 @@ namespace Intents.Engine {
     public GameObject Source { get; init; } = null!;
     public IntentBehaviour Behaviour { get; init; } = null!;
     public IntentValues Values { get; init; } = null!;
-    public IntentTargets Targets { get; init; } = null!;
+    public IntentTargets Targets { get; init; }
   }
 
   public class Intent<T> where T : IntentValues, new() {
     public GameObject Source { get; init; } = null!;
-    public IntentTargets Targets { get; init; } = null!;
+    public IntentTargets Targets { get; init; }
     public IntentBehaviour<T> Behaviour { get; init; } = null!;
     public T Values { get; init; } = null!;
   }

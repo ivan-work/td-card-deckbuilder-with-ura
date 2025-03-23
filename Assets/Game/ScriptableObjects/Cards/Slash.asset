@@ -12,19 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a20a0deac5c54932be0dbe0632529da8, type: 3}
   m_Name: Slash
   m_EditorClassIdentifier: 
-  cardName: Slash
+  cardName: 
   targetMode: 0
-  targetCondition:
-  - {fileID: 11400000, guid: fb153646edd4e42478b9becf924039a3, type: 2}
+  targetCondition: []
   IntentFactory:
-    Behaviour: {fileID: 11400000, guid: ec7ba173684e5fb49bb4fce8a7275ec4, type: 2}
+    Behaviour: {fileID: 0}
     Values:
-      rid: 6949361146470334532
+      rid: -2
   references:
     version: 2
     RefIds:
-    - rid: 6949361146470334532
-      type: {class: DamageIntentValues, ns: Intents.IntentBehaviours, asm: MainAssembly}
-      data:
-        Damage: 3
-        DamageType: 1
+    - rid: -2
+      type: {class: , ns: , asm: }

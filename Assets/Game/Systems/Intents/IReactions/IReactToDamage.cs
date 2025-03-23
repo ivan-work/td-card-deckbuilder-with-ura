@@ -1,4 +1,5 @@
-﻿using Intents.Engine;
+﻿using IntentBehaviours;
+using Intents.Engine;
 using Intents.IntentBehaviours;
 
 namespace Intents.IReactions {

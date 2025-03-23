@@ -125,7 +125,6 @@ resharper_csharp_naming_rule.static_readonly = AaBb
 resharper_csharp_tab_width = 2
 resharper_enforce_line_ending_style = true
 resharper_indent_preprocessor_directives = normal
-resharper_space_within_single_line_array_initializer_braces = false
 resharper_use_indent_from_vs = false
 
 [*.cs]

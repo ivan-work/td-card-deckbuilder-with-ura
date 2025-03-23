@@ -4,12 +4,31 @@ using UnityEngine;
 namespace Intents.Engine {
   [Serializable]
   public class IntentTargets {
-    public GameObject? TargetGameObject { get; init; }
-    public Vector2Int? TargetPos { get; init; }
-    
-    public IntentTargets(GameObject? targetGameObject, Vector2Int? targetPos) {
-      TargetGameObject = targetGameObject;
-      TargetPos = targetPos;
+    public readonly GameObject[] GameObjects;
+    public readonly Vector2Int[] Positions;
+
+    public IntentTargets(GameObject[] gameObjects, Vector2Int[] positions) {
+      GameObjects = gameObjects;
+      Positions = positions;
+    }
+
+    public static IntentTargets Create(GameObject[] gameObjects, Vector2Int[] positions) {
+      return new IntentTargets(gameObjects, positions);
+    }
+
+    public static IntentTargets Create(params GameObject[] gameObjects) {
+      return new IntentTargets(
+        gameObjects,
+        new Vector2Int[] { }
+      );
+    }
+
+    public static IntentTargets Create(params Vector2Int[] positions) {
+      return new IntentTargets(new GameObject[] { }, positions);
+    }
+
+    public static IntentTargets Create(GameObject gameObject, Vector2Int position) {
+      return new IntentTargets(new[] { gameObject }, new[] { position });
     }
   }
 }

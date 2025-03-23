@@ -33,8 +33,10 @@ namespace Cards {
 
       // yield return ApplyForceComponent.applyForce(gridSystem, gridPoses[0], direction, Force);
 
-      var intents = context.GridSystem.getGridEntitiesSpecial<MoveComponent>(sourcePos)
-        .Select(component => new Intent {Behaviour = _pushIntentBehaviour, Values = new PushIntentValues(_force), Targets = new IntentTargets(component.gameObject, direction)})
+      var intents = context.GridSystem.GetGridEntities<MoveComponent>(sourcePos)
+        .Select(
+          component => new Intent { Behaviour = _pushIntentBehaviour, Values = new PushIntentValues(_force), Targets = IntentTargets.Create(component.gameObject, direction) }
+        )
         .ToArray();
       context.IntentSystem.AddImmediateIntents(intents);
     }

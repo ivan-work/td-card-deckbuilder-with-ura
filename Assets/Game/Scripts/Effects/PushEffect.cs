@@ -16,8 +16,8 @@ namespace Effects {
   //   public override void start(ActorManager am, GridSystem gridSystem) {
   //     if (moveComponent.gameObject.IsDestroyed()) return; // TODO better death
   //
-  //     bool hasPath = gridSystem.getGridEntitiesSpecial<PathComponent>(targetPos).Any();
-  //     bool hasMobs = gridSystem.getGridEntitiesSpecial<MoveComponent>(targetPos).Any();
+  //     bool hasPath = gridSystem.GetGridEntities<PathComponent>(targetPos).Any();
+  //     bool hasMobs = gridSystem.GetGridEntities<MoveComponent>(targetPos).Any();
   //     if (hasPath && !hasMobs) {
   //       animation = new MoveAnimation(
   //         moveComponent,

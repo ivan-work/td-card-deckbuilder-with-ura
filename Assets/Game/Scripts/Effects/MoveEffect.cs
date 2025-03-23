@@ -15,8 +15,8 @@
   //   public override void start(ActorManager am, GridSystem gridSystem) {
   //     if (moveComponent.gameObject.IsDestroyed()) return; // TODO better death
   //
-  //     bool hasPath = gridSystem.getGridEntitiesSpecial<PathComponent>(targetPos).Any();
-  //     bool hasMob = gridSystem.getGridEntitiesSpecial<MoveComponent>(targetPos).Any();
+  //     bool hasPath = gridSystem.GetGridEntities<PathComponent>(targetPos).Any();
+  //     bool hasMob = gridSystem.GetGridEntities<MoveComponent>(targetPos).Any();
   //
   //     Debug.Log($"Starting {this}: {hasPath && !hasMob}");
   //
@@ -32,7 +32,7 @@
   //   }
   //
   //   private void SendEvents(ActorManager am, GridSystem gridSystem) {
-  //     // gridSystem.getGridEntitiesSpecial<TrapComponent>(targetPos).ToList()
+  //     // gridSystem.GetGridEntities<TrapComponent>(targetPos).ToList()
   //     //   .ForEach(trapComponent => trapComponent.OnEntityEnter(am, moveComponent.gridComponent));
   //     //
   //     // moveComponent.GetComponents<StatusComponent>().ToList().ForEach(statusComponent => {

@@ -15,7 +15,7 @@ public class BuildTowerCard : Card {
 
   // public override IEnumerable<BaseEffect> doCardAction(GridSystem gridSystem, Vector2Int[] gridPoses) {
   //   foreach (var gridPos in gridPoses) {
-  //     var entities = gridSystem.getGridEntities(gridPos);
+  //     var entities = gridSystem.GetGridEntities(gridPos);
   //
   //     bool isNewTower = true;
   //

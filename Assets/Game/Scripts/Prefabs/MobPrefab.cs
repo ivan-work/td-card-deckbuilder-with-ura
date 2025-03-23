@@ -8,7 +8,7 @@ namespace Prefabs {
     [SerializeField] private GameObject _model = null!;
     private HealthComponent healthComponent = null!;
     private GridComponent gridComponent = null!;
-    
+
     private Color OriginalColor { get; set; }
     private Material OriginalMaterial { get; set; }
 
@@ -26,21 +26,23 @@ namespace Prefabs {
       }
     }
 
-    public void Highlight(bool enable) {
+    public void Highlight(bool isEnable, bool isValid) {
       // #TODO REMOVE ASAP
-      if (enable) {
+      if (isEnable) {
         OriginalMaterial.color = new Color(1, 1, 0);
       } else {
         OriginalMaterial.color = OriginalColor;
       }
     }
 
-    public Vector2Int GetPos() {
+    public Vector2Int GetLoc() {
       return gridComponent.gridPos;
     }
 
     public GameObject GetGameObject() {
       return gameObject;
     }
+
+    public bool IsCell => false;
   }
 }

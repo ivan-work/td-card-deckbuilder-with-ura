@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using IntentBehaviours;
 using Intents;
 using Intents.Engine;
 using Intents.IntentBehaviours;
@@ -21,7 +22,7 @@ namespace Status.StatusData {
         context.IntentSystem.AddImmediateIntents(
           IntentFactories
             .Select(intentFactory => intentFactory
-              .CreateIntent(intent.Source, new IntentTargets(context.Component.gameObject, null)))
+              .CreateIntent(intent.Source, IntentTargets.Create(context.Component.gameObject)))
             .ToArray());
       }
     }

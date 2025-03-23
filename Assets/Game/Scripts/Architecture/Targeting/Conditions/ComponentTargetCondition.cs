@@ -15,7 +15,7 @@ public class ComponentTargetCondition : AbstractTargetCondition {
 
   public override bool isValidTarget(GridSystem gridSystem, Vector2Int gridPos) {
     if (component is {Type: { }}) {
-      return gridSystem.getGridEntities(gridPos).Any(entity => entity.GetComponent(component.Type));
+      return gridSystem.GetGridEntities(gridPos).Any(entity => entity.GetComponent(component.Type));
     }
 
     return false;

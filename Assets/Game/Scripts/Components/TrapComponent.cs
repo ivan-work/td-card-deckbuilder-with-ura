@@ -11,7 +11,7 @@ namespace Components {
 
     public void OnEntityEnter(IntentGlobalContext context, GameObject targetEntity) {
       context.IntentSystem.AddIntents(_intentCreators.Select(intentCreator =>
-          intentCreator.CreateIntent(gameObject, new IntentTargets(targetEntity, null)))
+          intentCreator.CreateIntent(gameObject, IntentTargets.Create(targetEntity)))
         .ToArray());
     }
   }

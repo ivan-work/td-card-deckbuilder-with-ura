@@ -55,19 +55,21 @@ public class CellPrefab : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     AbilityManager.Instance.OnHoverStop(this);
   }
 
-  public void Highlight(bool enable) {
-    if (enable) {
+  public void Highlight(bool isEnable, bool isValid) {
+    if (isEnable) {
       this.GetAssertComponentInChildren<MeshRenderer>().material.color = new Color(1, 1, 0);
     } else {
       this.GetAssertComponentInChildren<MeshRenderer>().material.color = getColor(cellType);
     }
   }
 
-  public Vector2Int GetPos() {
+  public Vector2Int GetLoc() {
     return GetComponent<GridComponent>().gridPos;
   }
 
-  public GameObject? GetGameObject() {
-    return null;
+  public GameObject GetGameObject() {
+    return gameObject;
   }
+
+  public bool IsCell => true;
 }

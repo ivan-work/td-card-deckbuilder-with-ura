@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Architecture;
+using IntentBehaviours;
 using Intents;
 using Intents.Engine;
-using Intents.IntentBehaviours;
-using Unity.VisualScripting;
 using UnityEngine;
-using Utils;
 
 namespace Abilities {
   public interface ITarget {
-    public void Highlight(bool enable);
-    public Vector2Int GetPos();
-    public GameObject? GetGameObject();
+    public void Highlight(bool isEnable, bool isValid);
+    public Vector2Int GetLoc();
+    public GameObject GetGameObject();
+
+    public bool IsCell { get; }
   }
 
   public interface ITargetCondition {
@@ -22,12 +19,11 @@ namespace Abilities {
 
   public class IsCellTargetCondition : ITargetCondition {
     public bool isValidTarget(ITarget target) {
-      return target.GetGameObject() is null;
+      return target.IsCell;
     }
   }
 
   public class AbilityContext {
-    public readonly IEnumerable<ITargetCondition> Conditions;
     public readonly Ability Ability;
     public readonly ITargetingContext TargetingContext;
     public readonly IntentGlobalContext GlobalContext;
@@ -35,22 +31,20 @@ namespace Abilities {
 
     public AbilityContext(GameObject source, Ability ability, IntentGlobalContext intentGlobalContext) {
       Ability = ability;
-      Conditions = ability.Conditions;
       TargetingContext = ability.CreateTargetingContext();
       GlobalContext = intentGlobalContext;
       Source = source;
     }
-
   }
 
   public interface ITargetingContext {
-    void Stop();
-    void OnHoverStart(AbilityContext abilityContext, ITarget potentialTarget);
+    void OnHoverStart(AbilityContext context, ITarget potentialTarget);
     void OnHoverStop(AbilityContext context, ITarget potentialTarget);
     bool ConfirmTarget(AbilityContext context, ITarget potentialTarget);
+    void Stop(AbilityContext context);
   }
 
-  public class AbilityManager : Architecture.Singleton<AbilityManager> {
+  public class AbilityManager : Singleton<AbilityManager> {
     private AbilityContext? context;
     private GridSystem gridSystem = null!;
 
@@ -63,9 +57,9 @@ namespace Abilities {
       ability.Icon = Texture2D.redTexture;
       ability.IntentFactory = new IntentFactory();
       ability.IntentFactory.Behaviour = ScriptableObject.CreateInstance<DamageIntentBehaviour>();
-      ability.IntentFactory.Values = new DamageIntentValues() {Damage = 3, DamageType = DamageType.Fire};
+      ability.IntentFactory.Values = new DamageIntentValues() { Damage = 3, DamageType = DamageType.Fire };
       ability.Conditions = new();
-      context = new AbilityContext(gameObject, ability, new IntentGlobalContext() {IntentSystem = intentSystem, GridSystem = gridSystem});
+      context = new AbilityContext(gameObject, ability, new IntentGlobalContext() { IntentSystem = intentSystem, GridSystem = gridSystem });
     }
 
     public void OnHoverStart(ITarget potentialTarget) {
@@ -89,7 +83,7 @@ namespace Abilities {
     }
 
     private void stopAbility() {
-      context?.TargetingContext.Stop();
+      context?.TargetingContext.Stop(context);
       context = null;
     }
   }

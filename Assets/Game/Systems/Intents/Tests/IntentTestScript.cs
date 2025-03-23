@@ -35,10 +35,8 @@ namespace Intents.Tests {
     [TestFixture]
     public class IntentTesterTests {
       [Test]
-      public void Test_IntentConversion() {
-      
-      }
-    
+      public void Test_IntentConversion() { }
+
       [Test]
       public void Test_AddsIntentToSystemAndPerformsIt() {
         // Setup the test environment
@@ -54,8 +52,8 @@ namespace Intents.Tests {
         intentFactory.BehaviourTest = testBehaviour;
 
         // Set up test values and targets
-        intentFactory.ValuesTest = new TestIntentValues() {TestString = "Working"};
-        intentTester.Targets = new IntentTargets(null, null);
+        intentFactory.ValuesTest = new TestIntentValues { TestString = "Working" };
+        intentTester.Targets = IntentTargets.Create(gameObject);
 
         // Act: Trigger the test method
         intentTester.Test();

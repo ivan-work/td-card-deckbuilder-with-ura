@@ -11,7 +11,7 @@ namespace Architecture {
     // ReSharper disable once StaticMemberInGenericType
     private static readonly object Lock = new object();
 
-    [SerializeField] private bool _persistent = true;
+    [SerializeField] private bool _persistent = false;
 
     #endregion
 

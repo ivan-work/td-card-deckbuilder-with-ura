@@ -37,7 +37,7 @@ public class GridSystem : MonoBehaviour {
     // Debug.Log($"Unregister@{gridPos}: {entities[gridPos]}");
   }
 
-  public IEnumerable<GridComponent> getGridEntities(Vector2Int gridPos) {
+  public IEnumerable<GridComponent> GetGridEntities(Vector2Int gridPos) {
     if (entities.ContainsKey(gridPos)) {
       return new List<GridComponent>(entities[gridPos]);
     }
@@ -45,8 +45,8 @@ public class GridSystem : MonoBehaviour {
     return new List<GridComponent>();
   }
 
-  public IEnumerable<T> getGridEntitiesSpecial<T>(Vector2Int gridPos) {
-    return getGridEntities(gridPos)
+  public IEnumerable<T> GetGridEntities<T>(Vector2Int gridPos) {
+    return GetGridEntities(gridPos)
       .SelectMany(entity => entity.GetComponents<T>())
       .Where(entity => entity != null);
   }
@@ -55,7 +55,7 @@ public class GridSystem : MonoBehaviour {
     IEnumerable<GridComponent> results = new List<GridComponent>();
 
     foreach (var offset in offsetsForCross) {
-      var gridComponents = getGridEntities(gridPos + offset);
+      var gridComponents = GetGridEntities(gridPos + offset);
 
       results = results.Concat(gridComponents);
     }
