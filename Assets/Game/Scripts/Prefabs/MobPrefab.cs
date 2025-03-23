@@ -36,7 +36,7 @@ namespace Prefabs {
     }
 
     public Vector2Int GetLoc() {
-      return gridComponent.gridPos;
+      return gridComponent.gridLoc;
     }
 
     public GameObject GetGameObject() {

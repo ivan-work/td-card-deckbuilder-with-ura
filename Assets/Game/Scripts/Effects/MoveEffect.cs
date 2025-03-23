@@ -9,7 +9,7 @@
   //   public MoveEffect(MoveComponent moveComponent, Vector2Int direction) : base(moveComponent) {
   //     this.moveComponent = moveComponent;
   //     this.direction = direction;
-  //     sourcePos = moveComponent.gridComponent.gridPos;
+  //     sourcePos = moveComponent.gridComponent.gridLoc;
   //   }
   //
   //   public override void start(ActorManager am, GridSystem gridSystem) {

@@ -12,7 +12,7 @@ namespace Intents.IntentBehaviours {
     protected override void Perform(Intent<MoveIntentValues> intent, IntentProgressContext context) {
       // var direction = intent.Targets.Positions.FirstOrDefault(null);
       // if (intent.Source.TryGetComponent<GridComponent>(out var gridComponent) && direction is not null) {
-      //   var sourcePos = gridComponent.gridPos;
+      //   var sourcePos = gridComponent.gridLoc;
       //   var targetPos = direction.Value + sourcePos;
       //   var gridSystem = context.GlobalContext.GridSystem;
       //

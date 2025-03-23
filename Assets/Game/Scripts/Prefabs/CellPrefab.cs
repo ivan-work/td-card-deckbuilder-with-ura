@@ -38,7 +38,8 @@ public class CellPrefab : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     //   _distanceText.text = $"{pathComponent.distanceToBase}";
     // }
     if (TryGetComponent(out GridComponent gridComponent) && _distanceText != null) {
-      _distanceText.text = $"{gridComponent.gridPos.x}:{gridComponent.gridPos.y}";
+      var loc = GridSystem.OffsetToAxial(gridComponent.gridLoc);
+      _distanceText.text = $"{gridComponent.gridLoc.x}:{gridComponent.gridLoc.y}\n{loc.x}:{loc.y}";
     }
   }
 
@@ -57,14 +58,18 @@ public class CellPrefab : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
   public void Highlight(bool isEnable, bool isValid) {
     if (isEnable) {
-      this.GetAssertComponentInChildren<MeshRenderer>().material.color = new Color(1, 1, 0);
+      if (isValid) {
+        this.GetAssertComponentInChildren<MeshRenderer>().material.color = new Color(.5f, 1, 0);
+      } else {
+        this.GetAssertComponentInChildren<MeshRenderer>().material.color = new Color(1, .5f, 0);
+      }
     } else {
       this.GetAssertComponentInChildren<MeshRenderer>().material.color = getColor(cellType);
     }
   }
 
   public Vector2Int GetLoc() {
-    return GetComponent<GridComponent>().gridPos;
+    return GetComponent<GridComponent>().gridLoc;
   }
 
   public GameObject GetGameObject() {

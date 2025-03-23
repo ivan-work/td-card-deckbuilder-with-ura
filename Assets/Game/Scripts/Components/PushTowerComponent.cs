@@ -42,7 +42,7 @@ namespace Components {
     }
 
     private Vector2Int? searchNewTarget() {
-      var currentPos = gridComponent.gridPos;
+      var currentPos = gridComponent.gridLoc;
       for (int i = 0; i < range; i++) {
         currentPos += direction;
         if (condition.isValidTarget(gridComponent.gridSystem, currentPos)) {

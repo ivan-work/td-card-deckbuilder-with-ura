@@ -10,16 +10,16 @@ public class GridSystem : MonoBehaviour {
   readonly Dictionary<Vector2Int, List<GridComponent>> entities = new();
   [NonSerialized] public Grid grid;
 
-  private Vector2Int[] offsetsForCross = {new(0, 1), new(1, 0), new(0, -1), new(-1, 0)};
+  private Vector2Int[] offsetsForCross = { new(0, 1), new(1, 0), new(0, -1), new(-1, 0) };
 
   private void Awake() {
     grid = GetComponent<Grid>();
   }
 
   public void moveTo(GridComponent gridComponent, Vector2Int newGridPos) {
-    unregister(gridComponent, gridComponent.gridPos);
-    gridComponent.gridPos = newGridPos;
-    register(gridComponent, gridComponent.gridPos);
+    unregister(gridComponent, gridComponent.gridLoc);
+    gridComponent.gridLoc = newGridPos;
+    register(gridComponent, gridComponent.gridLoc);
   }
 
   public void register(GridComponent gridComponent, Vector2Int gridPos) {
@@ -34,7 +34,7 @@ public class GridSystem : MonoBehaviour {
     if (entities.ContainsKey(gridPos)) {
       entities[gridPos].Remove(gridComponent);
     }
-    // Debug.Log($"Unregister@{gridPos}: {entities[gridPos]}");
+    // Debug.Log($"Unregister@{gridLoc}: {entities[gridLoc]}");
   }
 
   public IEnumerable<GridComponent> GetGridEntities(Vector2Int gridPos) {
@@ -76,11 +76,11 @@ public class GridSystem : MonoBehaviour {
   public static IEnumerable<Vector2Int> GetLine(Vector2Int startPos, Vector2Int endPos) {
     var startAxial = OffsetToAxial(startPos);
     var endAxial = OffsetToAxial(endPos);
-    var points = getAxialDistance(startAxial, endAxial);
-    var results = new List<Vector2Int> {startPos};
+    var points = GetAxialDistance(startAxial, endAxial);
+    var results = new List<Vector2Int> { startPos };
     for (var i = 1; i <= points; i++) {
       var lerped = Vector2.Lerp(startAxial, endAxial, (float) (1.0 / points * i));
-      var lerpedRound = Vector2Int.RoundToInt(lerped);
+      var lerpedRound = Vector2Int.RoundToInt(lerped + new Vector2(.01f, -.01f));
       var offsetLerpedRound = AxialToOffset(lerpedRound);
       results.Add(offsetLerpedRound);
     }
@@ -100,17 +100,17 @@ public class GridSystem : MonoBehaviour {
     return new Vector2Int(q, r);
   }
 
-  public static int getOffsetDistance(Vector2Int a, Vector2Int b) {
-    return getAxialDistance(OffsetToAxial(a), OffsetToAxial(b));
+  public static int GetOffsetDistance(Vector2Int a, Vector2Int b) {
+    return GetAxialDistance(OffsetToAxial(a), OffsetToAxial(b));
   }
 
 
-  public static Vector2Int getAxialSubstract(Vector2Int a, Vector2Int b) {
+  public static Vector2Int GetAxialSubstract(Vector2Int a, Vector2Int b) {
     return new Vector2Int(a.x - b.x, a.y - b.y);
   }
 
-  public static int getAxialDistance(Vector2Int a, Vector2Int b) {
-    var vec = getAxialSubstract(a, b);
+  public static int GetAxialDistance(Vector2Int a, Vector2Int b) {
+    var vec = GetAxialSubstract(a, b);
     return (Math.Abs(vec.x) + Math.Abs(vec.x + vec.y) + Math.Abs(vec.y)) / 2;
   }
 }

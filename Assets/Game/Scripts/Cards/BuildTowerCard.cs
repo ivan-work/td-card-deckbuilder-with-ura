@@ -14,8 +14,8 @@ public class BuildTowerCard : Card {
   }
 
   // public override IEnumerable<BaseEffect> doCardAction(GridSystem gridSystem, Vector2Int[] gridPoses) {
-  //   foreach (var gridPos in gridPoses) {
-  //     var entities = gridSystem.GetGridEntities(gridPos);
+  //   foreach (var gridLoc in gridPoses) {
+  //     var entities = gridSystem.GetGridEntities(gridLoc);
   //
   //     bool isNewTower = true;
   //
@@ -30,7 +30,7 @@ public class BuildTowerCard : Card {
   //
   //     if (isNewTower) {
   //       var tower = Instantiate(towerPrefab, gridSystem.grid.transform);
-  //       tower.GetComponent<GridComponent>().moveTo(gridPos);
+  //       tower.GetComponent<GridComponent>().moveTo(gridLoc);
   //       tower.GetComponent<TowerComponent>().enabled = false;
   //       tower.GetComponent<BuildTowerComponent>().enabled = true;
   //     }

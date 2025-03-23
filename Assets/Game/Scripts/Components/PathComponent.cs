@@ -10,7 +10,7 @@ public class PathComponent : MonoBehaviour {
 
   public IEnumerable<PathComponent> getNeighbors() {
     var gridSystem = GetComponent<GridComponent>().gridSystem;
-    var gridPos = GetComponent<GridComponent>().gridPos;
+    var gridPos = GetComponent<GridComponent>().gridLoc;
 
     return gridSystem.getNeighbors4(gridPos)
       .Select(x => x.GetComponent<PathComponent>())

@@ -51,8 +51,7 @@ namespace Abilities {
     protected override void OnAwake() {
       gridSystem = this.AssertFind<GridSystem>();
       var intentSystem = this.AssertFind<IntentSystem>();
-      var ability = ScriptableObject.CreateInstance<LineAbility>();
-      ability.MaxClicks = 4;
+      var ability = ScriptableObject.CreateInstance<MultiAreaAbility>();
       ability.Name = "Fierbol";
       ability.Icon = Texture2D.redTexture;
       ability.IntentFactory = new IntentFactory();

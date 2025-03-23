@@ -34,7 +34,7 @@ public class MoveComponent : MonoBehaviour, IHasIntent {
 
 
   private void startMovingChain(Action<Intent> addIntent) {
-    // Debug.Log($"MoveComponent(pos: {gridComponent.gridPos}, state: {state}).startMovingChain()");
+    // Debug.Log($"MoveComponent(pos: {gridComponent.gridLoc}, state: {state}).startMovingChain()");
     if (state == State.Tired) return;
 
     state = State.Charged;
@@ -55,7 +55,7 @@ public class MoveComponent : MonoBehaviour, IHasIntent {
       Source = gameObject,
       Behaviour = _moveIntentBehaviour,
       Values = new MoveIntentValues(),
-      Targets = IntentTargets.Create(targetPos.Value - gridComponent.gridPos),
+      Targets = IntentTargets.Create(targetPos.Value - gridComponent.gridLoc),
     });
   }
 
@@ -77,7 +77,7 @@ public class MoveComponent : MonoBehaviour, IHasIntent {
   }
 
   private Vector2Int? findPath() {
-    var mobCell = gridComponent.gridSystem.GetGridEntities(gridComponent.gridPos)
+    var mobCell = gridComponent.gridSystem.GetGridEntities(gridComponent.gridLoc)
       .Select(entity => entity.GetComponent<PathComponent>())
       .FirstOrDefault(entity => entity);
 
@@ -92,7 +92,7 @@ public class MoveComponent : MonoBehaviour, IHasIntent {
         });
 
       if (minimumNeighbor != null) {
-        return minimumNeighbor.GetComponent<GridComponent>().gridPos;
+        return minimumNeighbor.GetComponent<GridComponent>().gridLoc;
       }
     }
 

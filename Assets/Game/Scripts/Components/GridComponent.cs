@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Components {
   public class GridComponent : MonoBehaviour {
@@ -11,7 +12,7 @@ namespace Components {
 
     [SerializeField] public GridSystem gridSystem;
 
-    [SerializeField] public Vector2Int gridPos = Vector2Int.zero;
+    [FormerlySerializedAs("gridPos")] [SerializeField] public Vector2Int gridLoc = Vector2Int.zero;
     [SerializeField] public zLayerEnum zLayer = 0;
 
     private void Awake() {
@@ -19,12 +20,12 @@ namespace Components {
     }
 
     private void Start() {
-      moveTo(gridPos);
+      moveTo(gridLoc);
       gameObject.transform.position = gridPos2World();
     }
 
     private void OnDestroy() {
-      gridSystem.unregister(this, gridPos);
+      gridSystem.unregister(this, gridLoc);
     }
 
     public void moveTo(Vector2Int targetPos) {
@@ -32,7 +33,7 @@ namespace Components {
     }
 
     private Vector3 gridPos2World() {
-      return gridSystem.gridPos2World(gridPos, (float) zLayer);
+      return gridSystem.gridPos2World(gridLoc, (float) zLayer);
     }
   }
 }

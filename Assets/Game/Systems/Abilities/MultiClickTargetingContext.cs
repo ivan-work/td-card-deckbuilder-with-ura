@@ -1,45 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Intents.Engine;
 using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Abilities {
-  [CreateAssetMenu(menuName = "Ability/MultiClickAbility")]
-  public class MultiClickAbility : Ability {
-    [SerializeField] public int MaxClicks = 1;
-
-    private GameObject indicator;
-    private LineRenderer lineRenderer;
-
-    private void Awake() {
-      indicator = new GameObject();
-      lineRenderer = indicator.AddComponent<LineRenderer>();
-      lineRenderer.startWidth = .25f;
-      lineRenderer.endWidth = .25f;
-      lineRenderer.numCapVertices = 3;
-      lineRenderer.numCornerVertices = 3;
-      lineRenderer.loop = true;
-    }
-
-    public override ITargetingContext CreateTargetingContext() {
-      return new MultiClickTargetModeContext(MaxClicks);
-    }
+  public interface IMultiClickTargetingContextConfig {
+    int MaxClicks { get; }
+    List<Vector2Int> GetAffectedLocs(AbilityContext context, ITarget target, IEnumerable<IEnumerable<Vector2Int>> lockedAreas);
   }
 
-  public class MultiClickTargetModeContext : ITargetingContext {
-    private readonly int MaxClicks;
+  public class MultiClickTargetingContext : ITargetingContext {
+    private readonly IMultiClickTargetingContextConfig config;
     private readonly HashSet<Vector2Int> allClickedLocs = new(); // Все точки, которые юзер кликнул
     private readonly HashSet<HashSet<Vector2Int>> lockedAreas = new(); // Области, которые юзер кликнул
     private List<Vector2Int>? hoverLocs; // Цели которые ховерит юзер
 
-    public MultiClickTargetModeContext(int maxClicks) {
-      MaxClicks = maxClicks;
+    public MultiClickTargetingContext(IMultiClickTargetingContextConfig config) {
+      this.config = config;
     }
 
     public void OnHoverStart(AbilityContext context, ITarget potentialTarget) {
-      hoverLocs = GetAffectedLocs(context, potentialTarget.GetLoc());
+      hoverLocs = config.GetAffectedLocs(context, potentialTarget, lockedAreas);
 
       hoverLocs
         .ForEach(loc => {
@@ -79,7 +61,7 @@ namespace Abilities {
         lockedAreas.Add(new HashSet<Vector2Int>(hoverLocs));
       }
 
-      if (lockedAreas.Count < MaxClicks) return false;
+      if (lockedAreas.Count < config.MaxClicks) return false;
 
       foreach (var lockedArea in lockedAreas) {
         context.GlobalContext.IntentSystem.AddIntents(
@@ -105,15 +87,10 @@ namespace Abilities {
       }
     }
 
-    protected static void stopHighlightingLoc(AbilityContext context, Vector2Int loc) {
+    private static void stopHighlightingLoc(AbilityContext context, Vector2Int loc) {
       foreach (var target in context.GlobalContext.GridSystem.GetGridEntities<ITarget>(loc)) {
         target.Highlight(false, false);
       }
-    }
-
-    private List<Vector2Int> GetAffectedLocs(AbilityContext context, Vector2Int targetPos) {
-      throw new NotImplementedException();
-      // return context.Ability.TargetArea.Select(offset => GridSystem.AxialToOffset(GridSystem.OffsetToAxial(targetPos) + offset)).ToList();
     }
   }
 }

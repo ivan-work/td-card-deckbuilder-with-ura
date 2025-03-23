@@ -19,7 +19,7 @@ namespace Cards {
       // var splashIntents = _intentFactoryCenter.Select(intentFactory => intentFactory.CreateIntent(null, new IntentTargets(null, splashCells)));
       // context.IntentSystem.AddImmediateIntents(
       //   gridPoses
-      //     .Select(gridPos => IntentFactory.CreateIntent(null, new IntentTargets(null, gridPos)))
+      //     .Select(gridLoc => IntentFactory.CreateIntent(null, new IntentTargets(null, gridLoc)))
       //     .ToArray()
       // );
     }

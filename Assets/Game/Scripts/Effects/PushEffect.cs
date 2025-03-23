@@ -4,7 +4,7 @@ namespace Effects {
   //   private readonly Vector2Int direction;
   //   private readonly int force;
   //
-  //   private Vector2Int sourcePos => moveComponent.gridComponent.gridPos;
+  //   private Vector2Int sourcePos => moveComponent.gridComponent.gridLoc;
   //   private Vector2Int targetPos => sourcePos + direction;
   //
   //   public PushEffect(MoveComponent moveComponent, Vector2Int direction, int force) : base(moveComponent) {
