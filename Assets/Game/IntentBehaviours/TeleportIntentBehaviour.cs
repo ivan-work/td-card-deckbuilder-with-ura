@@ -2,18 +2,20 @@
 using System.Linq;
 using Components;
 using Effects.EffectAnimations;
+using Intents;
 using Intents.Engine;
 using Intents.IReactions;
 using UnityEngine;
 
-namespace Intents.IntentBehaviours {
-  [CreateAssetMenu(fileName = "IntentBehaviours/MoveIntentBehaviour")]
-  public class MoveIntentBehaviour : IntentBehaviour<MoveIntentValues> {
-    protected override void Perform(Intent<MoveIntentValues> intent, IntentProgressContext context) {
-      Vector2Int? direction = intent.Targets.Locations.FirstOrDefault();
-      if (intent.Source.TryGetComponent<GridComponent>(out var gridComponent) && direction is not null) {
+namespace IntentBehaviours {
+  [CreateAssetMenu(fileName = "IntentBehaviours/TeleportIntentBehaviour")]
+  public class TeleportIntentBehaviour: IntentBehaviour<IntentValues> {
+    protected override void Perform(Intent<IntentValues> intent, IntentProgressContext context) {
+      Vector2Int? target = intent.Targets.Locations.FirstOrDefault();
+      
+      if (intent.Source.TryGetComponent<GridComponent>(out var gridComponent) && target is not null) {
         var sourcePos = gridComponent.gridLoc;
-        var targetPos = direction.Value + sourcePos;
+        var targetPos = target.Value;
         var gridSystem = context.GlobalContext.GridSystem;
       
         var hasPath = gridSystem.GetGridEntities<PathComponent>(targetPos).Any();
@@ -30,7 +32,7 @@ namespace Intents.IntentBehaviours {
         }
       }
     }
-
+    //#TODO Убрать дублирование метода
     private static void sendEvents(IntentGlobalContext context, GameObject source, Vector2Int targetPos) {
       context.GridSystem.GetGridEntities<IReactToEntityEnter>(targetPos)
         .ToList()
@@ -39,7 +41,4 @@ namespace Intents.IntentBehaviours {
       source.GetComponents<IReactToMove>().ToList().ForEach(component => component.OnMove(context));
     }
   }
-
-  [Serializable]
-  public class MoveIntentValues : IntentValues { }
 }

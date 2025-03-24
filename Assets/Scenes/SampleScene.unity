@@ -439,6 +439,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5070260721680661478, guid: 6505b04f4e1d9e24f94d24df23177d43, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5657576737285148411, guid: 6505b04f4e1d9e24f94d24df23177d43, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1282,7 +1286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deck:
   - {fileID: 11400000, guid: 6c1ddcf34121d4049bb90e48b7c763fc, type: 2}
-  - {fileID: 11400000, guid: 6c1ddcf34121d4049bb90e48b7c763fc, type: 2}
+  - {fileID: 11400000, guid: c85b3754c61c10e4a843ead824dfe990, type: 2}
   - {fileID: 11400000, guid: 6c1ddcf34121d4049bb90e48b7c763fc, type: 2}
   - {fileID: 11400000, guid: cb932870744c0c84a9fa70cd39aa7df1, type: 2}
   hand: []
@@ -2480,6 +2484,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4592611824811156545, guid: 6505b04f4e1d9e24f94d24df23177d43, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5070260721680661478, guid: 6505b04f4e1d9e24f94d24df23177d43, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5657576737285148411, guid: 6505b04f4e1d9e24f94d24df23177d43, type: 3}

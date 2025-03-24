@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ba714c567e544ab8a6ef8a6ce88cd79, type: 3}
+  m_Name: Pierce Ability
+  m_EditorClassIdentifier: 
+  Name: Pierce
+  Icon: {fileID: 4456449167576933126, guid: 22f1a7509f8f29d4eb64bc5336edc6f1, type: 3}
+  IntentFactory:
+    Behaviour: {fileID: 11400000, guid: ec7ba173684e5fb49bb4fce8a7275ec4, type: 2}
+    Values:
+      rid: 9139818509061324873
+  _maxClicks: 2
+  references:
+    version: 2
+    RefIds:
+    - rid: 9139818509061324873
+      type: {class: DamageIntentValues, ns: IntentBehaviours, asm: MainAssembly}
+      data:
+        Damage: 3
+        DamageType: 0
