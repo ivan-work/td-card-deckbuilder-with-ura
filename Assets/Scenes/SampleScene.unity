@@ -218,6 +218,51 @@ Transform:
   - {fileID: 1615569325}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &398440243
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 398440245}
+  - component: {fileID: 398440244}
+  m_Layer: 0
+  m_Name: AbilityManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &398440244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398440243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640cb38af96b43e9adbb488d07fb11f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+--- !u!4 &398440245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398440243}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &405618857
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1236,9 +1281,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck:
-  - {fileID: 11400000, guid: ff747f40a4ca5cd4d9dc2dc86cc1d4b5, type: 2}
-  - {fileID: 11400000, guid: 14cef3bb33c061449936c6f68eb22f76, type: 2}
-  - {fileID: 11400000, guid: 5e9ab694b8710644bb64ad2b0a2d7ab9, type: 2}
+  - {fileID: 11400000, guid: 6c1ddcf34121d4049bb90e48b7c763fc, type: 2}
+  - {fileID: 11400000, guid: 6c1ddcf34121d4049bb90e48b7c763fc, type: 2}
+  - {fileID: 11400000, guid: 6c1ddcf34121d4049bb90e48b7c763fc, type: 2}
   - {fileID: 11400000, guid: cb932870744c0c84a9fa70cd39aa7df1, type: 2}
   hand: []
   discard: []
@@ -2766,3 +2811,4 @@ SceneRoots:
   - {fileID: 693277884}
   - {fileID: 1065657777}
   - {fileID: 1574705160}
+  - {fileID: 398440245}
