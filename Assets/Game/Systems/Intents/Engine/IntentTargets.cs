@@ -5,11 +5,11 @@ namespace Intents.Engine {
   [Serializable]
   public class IntentTargets {
     public readonly GameObject[] GameObjects;
-    public readonly Vector2Int[] Positions;
+    public readonly Vector2Int[] Locations;
 
-    public IntentTargets(GameObject[] gameObjects, Vector2Int[] positions) {
+    public IntentTargets(GameObject[] gameObjects, Vector2Int[] locations) {
       GameObjects = gameObjects;
-      Positions = positions;
+      Locations = locations;
     }
 
     public static IntentTargets Create(GameObject[] gameObjects, Vector2Int[] positions) {

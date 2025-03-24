@@ -1,17 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using Components;
-using Effects;
-using Intents.Engine;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Card/BuildTowerCard")]
 public class BuildTowerCard : Card {
   [SerializeField] GameObject towerPrefab;
-
-  public override void DoCardAction(IntentGlobalContext context, Vector2Int[] gridPoses) {
-    throw new System.NotImplementedException();
-  }
 
   // public override IEnumerable<BaseEffect> doCardAction(GridSystem gridSystem, Vector2Int[] gridPoses) {
   //   foreach (var gridLoc in gridPoses) {

@@ -12,7 +12,7 @@ public class HandView : MonoBehaviour {
 
   private void OnCardDraw(Card card) {
     var instance = Instantiate(prefab, transform);
-    instance.card = card;
+    instance.Card = card;
     cardViews.Add(instance);
   }
 
@@ -23,7 +23,7 @@ public class HandView : MonoBehaviour {
   }
 
   private void OnCardDiscard(Card card) {
-    var cardView = cardViews.Find(instance => instance.card == card);
+    var cardView = cardViews.Find(instance => instance.Card == card);
     if (cardView) {
       cardViews.Remove(cardView);
       Destroy(cardView.gameObject);

@@ -1,14 +1,8 @@
-using System;
-using System.Collections.Generic;
-using Architecture.Targeting.TargetMode;
-using Effects;
-using Intents.Engine;
+using Abilities;
 using UnityEngine;
 
-public abstract class Card : ScriptableObject {
-  [SerializeField] public string cardName;
-  [SerializeField] public TargetModesHelper.TargetMode targetMode;
-  [SerializeField] public AbstractTargetCondition[] targetCondition;
-
-  public abstract void DoCardAction(IntentGlobalContext context, Vector2Int[] gridPoses);
+[CreateAssetMenu(menuName = "Card/Card")]
+public class Card : ScriptableObject {
+  [SerializeField] public string Name;
+  [SerializeField] public Ability Ability;
 }

@@ -10,7 +10,7 @@ namespace Intents.IntentBehaviours {
   [CreateAssetMenu(fileName = "IntentBehaviours/MoveIntentBehaviour")]
   public class MoveIntentBehaviour : IntentBehaviour<MoveIntentValues> {
     protected override void Perform(Intent<MoveIntentValues> intent, IntentProgressContext context) {
-      // var direction = intent.Targets.Positions.FirstOrDefault(null);
+      // var direction = intent.Targets.Locations.FirstOrDefault(null);
       // if (intent.Source.TryGetComponent<GridComponent>(out var gridComponent) && direction is not null) {
       //   var sourcePos = gridComponent.gridLoc;
       //   var targetPos = direction.Value + sourcePos;

@@ -3,13 +3,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class CardPrefab : MonoBehaviour, IPointerClickHandler {
-  [SerializeField] public Card card;
+  [SerializeField] public Card Card;
 
   public void Start() {
-    gameObject.GetComponentInChildren<TextMeshPro>().text = $"{card.cardName}";
+    gameObject.GetComponentInChildren<TextMeshPro>().text = $"{Card.Name}";
   }
   
   public void OnPointerClick(PointerEventData eventData) {
-    // EventManager.CardClicked.Invoke(card);
+    EventManager.Instance.StartAbility.Invoke(gameObject, Card.Ability);
   }
 }

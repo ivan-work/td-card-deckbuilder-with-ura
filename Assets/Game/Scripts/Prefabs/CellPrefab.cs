@@ -48,7 +48,6 @@ public class CellPrefab : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
   }
 
   public void OnPointerEnter(PointerEventData eventData) {
-    this.GetAssertComponentInChildren<MeshRenderer>().material.color = new Color(.1f, .1f, 0);
     AbilityManager.Instance.OnHoverStart(this);
   }
 

@@ -8,6 +8,8 @@ namespace Abilities {
   public interface IMultiClickTargetingContextConfig {
     int MaxClicks { get; }
     List<Vector2Int> GetAffectedLocs(AbilityContext context, ITarget target, IEnumerable<IEnumerable<Vector2Int>> lockedAreas);
+
+    GameObject? Indicator { get; }
   }
 
   public class MultiClickTargetingContext : ITargetingContext {
@@ -18,10 +20,17 @@ namespace Abilities {
 
     public MultiClickTargetingContext(IMultiClickTargetingContextConfig config) {
       this.config = config;
+      if (this.config.Indicator is not null) {
+        this.config.Indicator.SetActive(true);
+      }
     }
 
     public void OnHoverStart(AbilityContext context, ITarget potentialTarget) {
       hoverLocs = config.GetAffectedLocs(context, potentialTarget, lockedAreas);
+
+      if (config.Indicator is not null) {
+        config.Indicator.transform.position = potentialTarget.GetGameObject().transform.position;
+      }
 
       hoverLocs
         .ForEach(loc => {

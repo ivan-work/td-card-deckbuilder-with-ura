@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 namespace Abilities {
@@ -18,17 +19,25 @@ namespace Abilities {
       new Vector2Int(-1, 0),
     };
 
-    private GameObject indicator;
+    [SerializeField] private GameObject? _indicator = null;
+    public GameObject? Indicator => null; // TODO fix
     private LineRenderer lineRenderer;
 
     private void Awake() {
-      indicator = new GameObject();
-      lineRenderer = indicator.AddComponent<LineRenderer>();
-      lineRenderer.startWidth = .25f;
-      lineRenderer.endWidth = .25f;
-      lineRenderer.numCapVertices = 3;
-      lineRenderer.numCornerVertices = 3;
-      lineRenderer.loop = true;
+      // var gameObj = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Game/Prefabs/CircleIndicator.prefab");
+      // _indicator = Instantiate(gameObj);
+      // _indicator = new GameObject();
+      // var spriteRenderer = _indicator.AddComponent<SpriteRenderer>();
+      // spriteRenderer.sprite = Sprite.Create();
+      // _indicator.transform.Rotate(90, 0, 0);
+      // _indicator.transform.localScale.Set(2, 2, 2);
+      // indicator = new GameObject();
+      // lineRenderer = indicator.AddComponent<LineRenderer>();
+      // lineRenderer.startWidth = .25f;
+      // lineRenderer.endWidth = .25f;
+      // lineRenderer.numCapVertices = 3;
+      // lineRenderer.numCornerVertices = 3;
+      // lineRenderer.loop = true;
     }
 
     public override ITargetingContext CreateTargetingContext() {

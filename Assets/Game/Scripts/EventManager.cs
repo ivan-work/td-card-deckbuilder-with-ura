@@ -1,9 +1,11 @@
-﻿using Architecture;
+﻿using Abilities;
+using Architecture;
 using Intents;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class EventManager: Singleton<EventManager> {
-  public readonly UnityEvent<Card> CardClicked = new();
+  public readonly UnityEvent<GameObject, Ability> StartAbility = new();
   public readonly UnityEvent<Card> CardDraw = new();
   public readonly UnityEvent<Card> CardDiscard = new();
   

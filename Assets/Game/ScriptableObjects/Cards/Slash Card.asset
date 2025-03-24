@@ -7,11 +7,10 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82fe34d944dc48c4e91699eddd35aefc, type: 3}
-  m_Name: Archer Card
+  m_Script: {fileID: 11500000, guid: 163322440bd6e39488f1dc0813e6e9e8, type: 3}
+  m_Name: Slash Card
   m_EditorClassIdentifier: 
-  Name: Archer
-  Ability: {fileID: 0}
-  towerPrefab: {fileID: 3299584715087770911, guid: 965fd730c61ecab438d100039a0164c4, type: 3}
+  Name: Slash
+  Ability: {fileID: 11400000, guid: 1ff99c97fee086b4582a5c5dc4307b5f, type: 2}
