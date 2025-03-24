@@ -3,24 +3,20 @@ using System.Collections.Generic;
 using Architecture;
 using ObservableCollections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace UnitSelection {
   public class SelectionManager : Singleton<SelectionManager> {
     private readonly ObservableHashSet<SelectableComponent> selection = new();
 
-    public event EventHandler<IEnumerable<SelectableComponent>>? SelectionChanged;
+    public UnityEvent<IEnumerable<SelectableComponent>> SelectionChanged = new();
 
     public SelectionManager() {
-      NotifyCollectionChanged += OnNotifyCollectionChanged;
+      selection.CollectionChanged += onNotifyCollectionChanged;
     }
 
-    public event NotifyCollectionChangedEventHandler<SelectableComponent> NotifyCollectionChanged {
-      add => selection.CollectionChanged += value;
-      remove => selection.CollectionChanged -= value;
-    }
-
-    private void OnNotifyCollectionChanged(in NotifyCollectionChangedEventArgs<SelectableComponent> e) {
-      SelectionChanged?.Invoke(this, selection);
+    private void onNotifyCollectionChanged(in NotifyCollectionChangedEventArgs<SelectableComponent> e) {
+      SelectionChanged.Invoke(selection);
     }
 
     public void Select(SelectableComponent selectableComponent) {
@@ -28,7 +24,7 @@ namespace UnitSelection {
     }
 
     private void Update() {
-      if (Input.GetMouseButtonDown(0) && !Input.GetKey(KeyCode.LeftShift)) {
+      if (Input.GetMouseButtonDown(1) && !Input.GetKey(KeyCode.LeftShift)) {
         selection.Clear();
       }
     }

@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Linq;
-using ObservableCollections;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
@@ -17,10 +14,10 @@ namespace UnitSelection {
       Assert.IsNotNull(_selectedModel);
       _hoverModel.SetActive(false);
       _selectedModel.SetActive(false);
-      SelectionManager.Instance.SelectionChanged += OnSelectionChanged;
+      SelectionManager.Instance.SelectionChanged.AddListener(OnSelectionChanged);
     }
 
-    private void OnSelectionChanged(object sender, IEnumerable<SelectableComponent> selection) {
+    private void OnSelectionChanged(IEnumerable<SelectableComponent> selection) {
       setSelected(selection.Any(item => item == this));
     }
 
