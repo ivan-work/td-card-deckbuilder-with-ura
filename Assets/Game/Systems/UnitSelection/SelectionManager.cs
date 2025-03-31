@@ -11,7 +11,7 @@ namespace UnitSelection {
 
     public UnityEvent<IEnumerable<SelectableComponent>> SelectionChanged = new();
 
-    public SelectionManager() {
+    protected override void OnAwake() {
       selection.CollectionChanged += onNotifyCollectionChanged;
     }
 

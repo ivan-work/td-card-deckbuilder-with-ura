@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2433514224924916963}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ShootAttachment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: -5471401934987967124}
   - component: {fileID: -8212489864985689608}
   - component: {fileID: 3986644985690633327}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ArcherTowerPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridSystem: {fileID: 0}
-  gridPos: {x: 0, y: 0}
+  gridLoc: {x: 0, y: 0}
   zLayer: 4
 --- !u!114 &3986644985690633327
 MonoBehaviour:
@@ -143,21 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e879cc1ca1f9458298c0e2d930ef3242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnDamage:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &3453082179634749415
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,7 +154,7 @@ GameObject:
   - component: {fileID: 6570178138484940798}
   - component: {fileID: 425630264679508142}
   - component: {fileID: 4766259316583407260}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BuildingProgressLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +329,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8459807523809921961}
   - component: {fileID: 2203210005515019227}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,7 +416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4770708047584697337}
   - component: {fileID: 2200751965511995700}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Targeting Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}

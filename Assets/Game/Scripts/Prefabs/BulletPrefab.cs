@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+[SelectionBase]
 public class BulletPrefab : MonoBehaviour {
   public int speed = 15;
 

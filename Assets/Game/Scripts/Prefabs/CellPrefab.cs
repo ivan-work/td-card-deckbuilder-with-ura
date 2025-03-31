@@ -14,17 +14,18 @@ public enum CellType {
   Spawner = 3,
 }
 
-public class CellPrefab : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, ITarget {
-  [SerializeField] public CellType cellType = CellType.Empty;
+[SelectionBase]
+public class CellPrefab : MonoBehaviour {
+  [SerializeField] public CellType CellType = CellType.Empty;
   [SerializeField] private TextMeshPro? _distanceText;
 
-  public CellPrefab OnSpawn(CellType _cellType) {
-    cellType = _cellType;
-    this.GetAssertComponentInChildren<MeshRenderer>().material.color = getColor(cellType);
+  public CellPrefab OnSpawn(CellType cellType) {
+    CellType = cellType;
+    this.GetAssertComponentInChildren<MeshRenderer>().material.color = getColor(this.CellType);
     return this;
   }
 
-  Color getColor(CellType cell) => cell switch {
+  private static Color getColor(CellType cell) => cell switch {
     CellType.Empty => new Color(.5f, .5f, .5f),
     CellType.Road => new Color(1, 1, 1),
     CellType.Base => new Color(0, 1, 0),
@@ -34,46 +35,9 @@ public class CellPrefab : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
 
   private void Start() {
-    // if (TryGetComponent(out PathComponent pathComponent) && _distanceText != null) {
-    //   _distanceText.text = $"{pathComponent.distanceToBase}";
-    // }
     if (TryGetComponent(out GridComponent gridComponent) && _distanceText != null) {
       var loc = GridSystem.OffsetToAxial(gridComponent.gridLoc);
       _distanceText.text = $"{gridComponent.gridLoc.x}:{gridComponent.gridLoc.y}\n{loc.x}:{loc.y}";
     }
   }
-
-  public void OnPointerClick(PointerEventData eventData) {
-    AbilityManager.Instance.ConfirmTarget(this);
-  }
-
-  public void OnPointerEnter(PointerEventData eventData) {
-    AbilityManager.Instance.OnHoverStart(this);
-  }
-
-  public void OnPointerExit(PointerEventData eventData) {
-    AbilityManager.Instance.OnHoverStop(this);
-  }
-
-  public void Highlight(bool isEnable, bool isValid) {
-    if (isEnable) {
-      if (isValid) {
-        this.GetAssertComponentInChildren<MeshRenderer>().material.color = new Color(.5f, 1, 0);
-      } else {
-        this.GetAssertComponentInChildren<MeshRenderer>().material.color = new Color(1, .5f, 0);
-      }
-    } else {
-      this.GetAssertComponentInChildren<MeshRenderer>().material.color = getColor(cellType);
-    }
-  }
-
-  public Vector2Int GetLoc() {
-    return GetComponent<GridComponent>().gridLoc;
-  }
-
-  public GameObject GetGameObject() {
-    return gameObject;
-  }
-
-  public bool IsCell => true;
 }

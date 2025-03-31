@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+[SelectionBase]
 public class Deck : MonoBehaviour, IPointerClickHandler {
   private void Awake() {
     EventManager.Instance.CardDraw.AddListener(UpdateDeckCounter);

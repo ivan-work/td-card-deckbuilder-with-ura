@@ -18,5 +18,8 @@ public class EventManager: Singleton<EventManager> {
   public readonly UnityEvent PhaseApplyEffects = new();
   
   public readonly UnityEvent<IntentSystem> ImsStartRequestIntent = new();
-  public readonly UnityEvent<IntentSystem> ImsEndTurn = new();  
+  public readonly UnityEvent<IntentSystem> ImsEndTurn = new();
+
+  public readonly UnityEvent AbilityTargetingStart = new();
+  public readonly UnityEvent AbilityTargetingStop = new();
 }

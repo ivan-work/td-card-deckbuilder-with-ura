@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2157317503432922976}
   - component: {fileID: 8074830904773610935}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hexagon Flat-Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7114960477250155676}
   - component: {fileID: 7062095262927726215}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnerPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,5 +133,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridSystem: {fileID: 0}
-  gridPos: {x: 0, y: 0}
+  gridLoc: {x: 0, y: 0}
   zLayer: 4

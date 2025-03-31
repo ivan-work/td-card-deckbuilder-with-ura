@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+[SelectionBase]
 public class CardPrefab : MonoBehaviour, IPointerClickHandler {
   [SerializeField] public Card Card;
 

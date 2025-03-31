@@ -23,12 +23,16 @@ namespace Abilities {
     private void onStartAbility(GameObject source, Ability ability) {
       if (intentSystem is not null) {
         context = new AbilityContext(source, ability, new IntentGlobalContext() { IntentSystem = intentSystem, GridSystem = gridSystem });
+        EventManager.Instance.AbilityTargetingStart.Invoke();
       }
     }
     
     private void stopAbility() {
-      context?.TargetingContext.Stop(context);
-      context = null;
+      if (context is not null) {
+        EventManager.Instance.AbilityTargetingStop.Invoke();
+        context.TargetingContext.Stop(context);
+        context = null;
+      }
     }
 
     public void OnHoverStart(ITarget potentialTarget) {

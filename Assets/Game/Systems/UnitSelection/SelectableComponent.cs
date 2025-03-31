@@ -15,6 +15,9 @@ namespace UnitSelection {
       _hoverModel.SetActive(false);
       _selectedModel.SetActive(false);
       SelectionManager.Instance.SelectionChanged.AddListener(OnSelectionChanged);
+      
+      EventManager.Instance.AbilityTargetingStart.AddListener(() => enabled = false);
+      EventManager.Instance.AbilityTargetingStop.AddListener(() => enabled = true);
     }
 
     private void OnSelectionChanged(IEnumerable<SelectableComponent> selection) {

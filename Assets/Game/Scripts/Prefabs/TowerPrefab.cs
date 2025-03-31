@@ -2,6 +2,7 @@ using Components;
 using TMPro;
 using UnityEngine;
 
+[SelectionBase]
 public class TowerPrefab : MonoBehaviour {
   private GridComponent gridComponent;
   private TowerComponent towerComponent;
