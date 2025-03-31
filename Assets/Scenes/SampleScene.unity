@@ -2243,7 +2243,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 95
+    m_Bits: 223
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2317,8 +2317,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EventMask:
     serializedVersion: 2
-    m_Bits: 95
-  m_MaxRayIntersections: 2
+    m_Bits: 223
+  m_MaxRayIntersections: 0
 --- !u!4 &1678164275 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1393571310493105579, guid: 8e99fc424d59d514bac8dc70a45614ed, type: 3}
