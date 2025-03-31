@@ -22,13 +22,13 @@ public class MoveComponent : MonoBehaviour, IHasIntent {
 
   private void Awake() {
     gridComponent = this.GetAssertComponent<GridComponent>();
-    EventManager.Instance.PhasePlayerIntent.AddListener(() => state = State.Calm);
+    EventManager.Instance.PhasePerformIntents.AddListener(() => state = State.Calm);
   }
 
-  public void WriteIntents(IntentSystem intentSystem) {
+  public void WriteIntents(IntentComponent intentComponent) {
     startMovingChain(intent => {
       // Debug.Log($"Adding {intent}");
-      intentSystem.AddIntents(intent);
+      intentComponent.AddIntents(intent);
     });
   }
 

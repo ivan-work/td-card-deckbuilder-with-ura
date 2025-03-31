@@ -13,7 +13,7 @@ namespace Abilities {
     protected override void OnAwake() {
       gridSystem = this.AssertFind<GridSystem>();
       EventManager.Instance.StartAbility.AddListener(onStartAbility);
-      EventManager.Instance.ImsStartRequestIntent.AddListener(OnImsStartRequestIntent);
+      
     }
 
     private void OnImsStartRequestIntent(IntentSystem iSystem) {

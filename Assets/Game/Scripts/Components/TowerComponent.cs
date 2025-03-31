@@ -18,7 +18,8 @@ public class TowerComponent : MonoBehaviour, IHasIntent {
     gridComponent = this.GetAssertComponent<GridComponent>();
   }
 
-  public void WriteIntents(IntentSystem intentSystem) {
+  public void WriteIntents(IntentComponent intentComponent) {
+    //#TODO Заменить добавление в IntentSystem на intentComponent
     // var targetPos = searchNewTarget();
     // if (targetPos.HasValue) {
     //   actorManager.addImmediateEffects(  

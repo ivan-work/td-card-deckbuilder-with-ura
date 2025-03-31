@@ -28,7 +28,8 @@ namespace Components {
     }
 
 
-    public void WriteIntents(IntentSystem intentSystem) {
+    public void WriteIntents(IntentComponent intentComponent) {
+      //#TODO Заменить добавление в IntentSystem на intentComponent
       // if (!statusComponent.hasStatus(cooldownStatusData)) {
       //   var targetPos = searchNewTarget();
       //   if (targetPos.HasValue) {

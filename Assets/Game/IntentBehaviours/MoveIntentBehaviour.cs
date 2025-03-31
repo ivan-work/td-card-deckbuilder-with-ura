@@ -9,8 +9,10 @@ using UnityEngine;
 namespace Intents.IntentBehaviours {
   [CreateAssetMenu(fileName = "IntentBehaviours/MoveIntentBehaviour")]
   public class MoveIntentBehaviour : IntentBehaviour<MoveIntentValues> {
+    [SerializeField] private GameObject? _display;
     protected override void Perform(Intent<MoveIntentValues> intent, IntentProgressContext context) {
-      Vector2Int? direction = intent.Targets.Locations.FirstOrDefault();
+
+      Vector2Int? direction = GetDirection(intent);
       if (intent.Source.TryGetComponent<GridComponent>(out var gridComponent) && direction is not null) {
         var sourcePos = gridComponent.gridLoc;
         var targetPos = direction.Value + sourcePos;
@@ -29,6 +31,26 @@ namespace Intents.IntentBehaviours {
             gridSystem.gridPos2World(targetPos));
         }
       }
+    }
+
+    public override GameObject? CreateDisplay(Intent<MoveIntentValues> intent, IntentGlobalContext context) {
+      if (_display is not null) {
+        Vector2Int? direction = GetDirection(intent);
+        if (intent.Source.TryGetComponent<GridComponent>(out var gridComponent) && direction is not null) {
+          var sourcePos = gridComponent.gridLoc;
+          var targetPos = direction.Value + sourcePos;
+          
+          //var rotation = Quaternion.LookRotation(gridSystem.gridPos2World(sourcePos), Vector3.up);
+        }
+
+        GameObject display = Instantiate(_display, intent.Source.transform);
+        return display;
+      }
+      return null;
+    }
+
+    private static Vector2Int? GetDirection(Intent<MoveIntentValues> intent) {
+      return intent.Targets.Locations.FirstOrDefault();
     }
 
     private static void sendEvents(IntentGlobalContext context, GameObject source, Vector2Int targetPos) {

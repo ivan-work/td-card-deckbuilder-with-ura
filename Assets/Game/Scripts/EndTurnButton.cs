@@ -23,6 +23,6 @@ public class EndTurnButton : MonoBehaviour {
   }
 
   private void OnPointerClick() {
-    EventManager.Instance.PhasePlayerIntent.Invoke();
+    EventManager.Instance.PhasePerformIntents.Invoke();
   }
 }

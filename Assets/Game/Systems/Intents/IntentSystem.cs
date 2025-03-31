@@ -15,19 +15,20 @@ namespace Intents {
     private IntentGlobalContext globalContext = null!;
 
     private void Awake() {
-      EventManager.Instance.PhaseGetIntents.AddListener(OnGetIntents);
-      EventManager.Instance.PhaseApplyEffects.AddListener(OnPerformIntents);
+      EventManager.Instance.PhasePerformIntents.AddListener(OnPerformIntents);
 
       gridSystem = this.AssertFind<GridSystem>();
       Assert.IsNotNull(gridSystem, $"No component {typeof(GridSystem)}");
 
-      globalContext = new IntentGlobalContext {
-        GridSystem = gridSystem,
-        IntentSystem = this
-      };
+      globalContext = new IntentGlobalContext { GridSystem = gridSystem, IntentSystem = this };
     }
 
+
     public void AddIntents(params Intent[] intents) {
+      AddIntents((IEnumerable<Intent>) intents);
+    }
+
+    public void AddIntents(IEnumerable<Intent> intents) {
       queuedIntents.AddRange(intents);
       // Debug.Log(queuedEffects.Aggregate(new StringBuilder("Current chain of effects: "), (sb, val) => sb.Append(val).Append(", "), sb => sb.ToString()));
     }
@@ -37,16 +38,14 @@ namespace Intents {
       queuedIntents = new LinkedList<Intent>(intents.Concat(queuedIntents));
     }
 
-    private void OnGetIntents() {
-      // Debug.Log("ActorManager.OnGetIntents()");
-      EventManager.Instance.ImsStartRequestIntent.Invoke(this);
-    }
 
     private void OnPerformIntents() {
+      
       EventManager.Instance.ImsEndTurn.Invoke(this);
+      EventManager.Instance.ImsWriteIntents.Invoke(this);
+
       isPerformingIntents = true;
-      Debug.Log(queuedIntents.Aggregate(new StringBuilder("On Perform Intents: "), (sb, val) => sb.Append(val).Append(", "),
-        sb => sb.ToString()));
+      Debug.Log(queuedIntents.Aggregate(new StringBuilder("On Perform Intents: "), (sb, val) => sb.Append(val).Append(", "), sb => sb.ToString()));
       // foreach (var intent in queuedIntents) {
       //   var context = new GlobalContext {
       //     IntentManagementSystem = this,
@@ -62,9 +61,7 @@ namespace Intents {
         if (!activeIntents.Any()) {
           queuedIntents.RemoveFirst();
           if (!currentIntent.Source.IsDestroyed()) {
-            var context = new IntentProgressContext {
-              GlobalContext = globalContext
-            };
+            var context = new IntentProgressContext { GlobalContext = globalContext };
             currentIntent.Behaviour.Perform(currentIntent, context);
             if (context.Animation != null) {
               activeIntents.AddLast(context);
@@ -87,7 +84,7 @@ namespace Intents {
 
         if (!queuedIntents.Any() && !activeIntents.Any()) {
           isPerformingIntents = false;
-          EventManager.Instance.PhaseGetIntents.Invoke();
+          EventManager.Instance.PhaseCreateIntents.Invoke();
         }
       }
     }
