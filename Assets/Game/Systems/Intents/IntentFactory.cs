@@ -9,8 +9,6 @@ namespace Intents {
     [SerializeReference] public IntentBehaviour Behaviour = null!; // Can't be generic
 
     [SerializeReference] public IntentValues Values = null!; // Can't be generic
-    
-    
 
 #if UNITY_INCLUDE_TESTS
     public IntentBehaviour BehaviourTest {
@@ -25,12 +23,12 @@ namespace Intents {
 #endif
 
     public Intent CreateIntent(GameObject source, IntentTargets targets) {
-      return new Intent {
-        Source = source,
-        Behaviour = Behaviour,
-        Values = Values,
-        Targets = targets,
-      };
+      return new Intent(
+        source: source,
+        behaviour: Behaviour,
+        values: Values,
+        targets: targets
+      );
     }
   }
 }

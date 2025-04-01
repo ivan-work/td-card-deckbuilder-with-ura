@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Intents.Engine;
-using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,17 +10,16 @@ namespace Intents {
   public class IntentSystem : MonoBehaviour {
     private LinkedList<Intent> queuedIntents = new();
     private readonly LinkedList<IntentProgressContext> activeIntents = new();
-    private bool isPerformingIntents;
     private GridSystem gridSystem = null!;
-    private IntentGlobalContext globalContext = null!;
+    public IntentGlobalContext GlobalContext { get; private set; } = null!;
 
     private void Awake() {
-      EventManager.Instance.PhasePerformIntents.AddListener(OnPerformIntents);
+      EventManager.Instance.PhaseCreateIntents.AddListener(onCreateIntents);
+      EventManager.Instance.PhasePerformIntents.AddListener(onPerformIntents);
 
       gridSystem = this.AssertFind<GridSystem>();
-      Assert.IsNotNull(gridSystem, $"No component {typeof(GridSystem)}");
-
-      globalContext = new IntentGlobalContext { GridSystem = gridSystem, IntentSystem = this };
+      
+      GlobalContext = new IntentGlobalContext { GridSystem = gridSystem, IntentSystem = this };
     }
 
 
@@ -38,30 +37,43 @@ namespace Intents {
       queuedIntents = new LinkedList<Intent>(intents.Concat(queuedIntents));
     }
 
-
-    private void OnPerformIntents() {
-      
+    private void onCreateIntents() {
+      EventManager.Instance.ImsStartPlayerTurn.Invoke(this);
+    }
+    
+    private void onPerformIntents() {
       EventManager.Instance.ImsEndTurn.Invoke(this);
       EventManager.Instance.ImsWriteIntents.Invoke(this);
-
-      isPerformingIntents = true;
+      
       Debug.Log(queuedIntents.Aggregate(new StringBuilder("On Perform Intents: "), (sb, val) => sb.Append(val).Append(", "), sb => sb.ToString()));
-      // foreach (var intent in queuedIntents) {
-      //   var context = new GlobalContext {
-      //     IntentManagementSystem = this,
-      //   };
-      //   intent.Data.PerformIntent(intent, context);
-      // }
+      
+      StartCoroutine(performIntents());
     }
 
-    public void PerformNextIntent() {
+    private IEnumerator performIntents() {
+      while (queuedIntents.Any() || activeIntents.Any()) {
+        performNextIntent();
+        foreach (var activeIntent in activeIntents.ToList()) {
+          var result = activeIntent.Animation?.animate() ?? false;
+          if (!result) {
+            activeIntents.Remove(activeIntent);
+          }
+        }
+
+        yield return null;
+      }
+
+      EventManager.Instance.PhaseCreateIntents.Invoke();
+    }
+
+    private void performNextIntent() {
       // #TODO make private/internal
       if (queuedIntents.Any()) {
         var currentIntent = queuedIntents.First();
         if (!activeIntents.Any()) {
           queuedIntents.RemoveFirst();
           if (!currentIntent.Source.IsDestroyed()) {
-            var context = new IntentProgressContext { GlobalContext = globalContext };
+            var context = new IntentProgressContext { GlobalContext = GlobalContext };
             currentIntent.Behaviour.Perform(currentIntent, context);
             if (context.Animation != null) {
               activeIntents.AddLast(context);
@@ -70,23 +82,11 @@ namespace Intents {
         }
       }
     }
-
-    private void Update() {
-      if (isPerformingIntents) {
-        PerformNextIntent();
-
-        foreach (var activeIntent in activeIntents.ToList()) {
-          bool result = activeIntent.Animation?.animate() ?? false;
-          if (!result) {
-            activeIntents.Remove(activeIntent);
-          }
-        }
-
-        if (!queuedIntents.Any() && !activeIntents.Any()) {
-          isPerformingIntents = false;
-          EventManager.Instance.PhaseCreateIntents.Invoke();
-        }
-      }
+    
+#if UNITY_INCLUDE_TESTS
+    public void Test_performNextIntent() {
+      performNextIntent();
     }
+#endif
   }
 }

@@ -13,7 +13,9 @@ public class MoveComponent : MonoBehaviour, IHasIntent {
   [SerializeField] MoveIntentBehaviour _moveIntentBehaviour; // #TODO FIXNULL
 
   private enum State {
-    Calm, Charged, Tired
+    Calm,
+    Charged,
+    Tired
   }
 
   private State state = State.Calm;
@@ -51,12 +53,12 @@ public class MoveComponent : MonoBehaviour, IHasIntent {
     state = State.Tired;
 
 
-    addIntent(new Intent {
-      Source = gameObject,
-      Behaviour = _moveIntentBehaviour,
-      Values = new MoveIntentValues(),
-      Targets = IntentTargets.Create(targetPos.Value - gridComponent.gridLoc),
-    });
+    addIntent(new Intent(
+      source: gameObject,
+      behaviour: _moveIntentBehaviour,
+      values: new MoveIntentValues(),
+      targets: IntentTargets.Create(targetPos.Value - gridComponent.gridLoc)
+    ));
   }
 
   private void TryChargeNextTarget(Action<Intent> addIntent, Vector2Int targetPos) {

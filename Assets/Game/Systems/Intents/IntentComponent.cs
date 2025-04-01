@@ -3,7 +3,6 @@ using System.Linq;
 using Architecture;
 using Effects;
 using Intents.Engine;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Intents {
@@ -17,7 +16,10 @@ namespace Intents {
     }
 
     private void onPhaseCreateIntents() {
-      GetComponents<IHasIntent>().Where(component => component.isActiveAndEnabled).ToList().ForEach(component => { component.WriteIntents(this); });
+      GetComponents<IHasIntent>()
+        .Where(component => component.isActiveAndEnabled)
+        .ToList()
+        .ForEach(component => { component.WriteIntents(this); });
     }
 
     private void onWriteIntents(IntentSystem intentSystem) {
@@ -29,7 +31,11 @@ namespace Intents {
 
     public void AddIntents(params Intent[] intents) {
       queuedIntents.AddRange(intents);
-      displays.AddRange(intents.Select(intent => intent.Behaviour.CreateDisplay(intent, null)).MyNotNull());
+      displays.AddRange(
+        intents
+          .Select(intent => intent.Behaviour.CreateDisplay(intent, null))
+          .MyNotNull()
+      );
     }
   }
 }

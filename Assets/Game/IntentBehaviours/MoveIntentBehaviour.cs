@@ -33,7 +33,7 @@ namespace Intents.IntentBehaviours {
       }
     }
 
-    public override GameObject? CreateDisplay(Intent<MoveIntentValues> intent, IntentGlobalContext context) {
+    protected override GameObject? CreateDisplay(Intent<MoveIntentValues> intent, IntentGlobalContext context) {
       if (_display is not null) {
         Vector2Int? direction = GetDirection(intent);
         if (intent.Source.TryGetComponent<GridComponent>(out var gridComponent) && direction is not null) {
