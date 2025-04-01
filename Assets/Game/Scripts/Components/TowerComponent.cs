@@ -1,6 +1,7 @@
 using Components;
 using Effects;
 using Intents;
+using Intents.Engine;
 using UnityEngine;
 
 public class TowerComponent : MonoBehaviour, IHasIntent {
@@ -18,7 +19,7 @@ public class TowerComponent : MonoBehaviour, IHasIntent {
     gridComponent = this.GetAssertComponent<GridComponent>();
   }
 
-  public void WriteIntents(IntentComponent intentComponent) {
+  public void WriteIntents(IIntentHolder intentHolder) {
     //#TODO Заменить добавление в IntentSystem на intentComponent
     // var targetPos = searchNewTarget();
     // if (targetPos.HasValue) {

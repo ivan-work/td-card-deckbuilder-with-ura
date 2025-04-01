@@ -1,5 +1,6 @@
 ﻿using Effects;
 using Intents;
+using Intents.Engine;
 using Status.StatusData;
 using UnityEngine;
 
@@ -28,7 +29,7 @@ namespace Components {
     }
 
 
-    public void WriteIntents(IntentComponent intentComponent) {
+    public void WriteIntents(IIntentHolder intentHolder) {
       //#TODO Заменить добавление в IntentSystem на intentComponent
       // if (!statusComponent.hasStatus(cooldownStatusData)) {
       //   var targetPos = searchNewTarget();

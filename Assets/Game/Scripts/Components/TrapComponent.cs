@@ -10,9 +10,11 @@ namespace Components {
     [SerializeField] private List<IntentFactory> _intentCreators = new();
 
     public void OnEntityEnter(IntentGlobalContext context, GameObject targetEntity) {
-      context.IntentSystem.AddImmediateIntents(_intentCreators
-        .Select(intentCreator => intentCreator.CreateIntent(gameObject, IntentTargets.Create(targetEntity)))
-        .ToArray());
+      context.IntentHolder.AddIntents(
+        intents: _intentCreators
+          .Select(intentCreator => intentCreator.CreateIntent(gameObject, IntentTargets.Create(targetEntity))),
+        toFront: false
+      );
     }
   }
 }

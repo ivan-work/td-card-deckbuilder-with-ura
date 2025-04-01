@@ -27,10 +27,10 @@ public class MoveComponent : MonoBehaviour, IHasIntent {
     EventManager.Instance.PhasePerformIntents.AddListener(() => state = State.Calm);
   }
 
-  public void WriteIntents(IntentComponent intentComponent) {
+  public void WriteIntents(IIntentHolder intentHolder) {
     startMovingChain(intent => {
       // Debug.Log($"Adding {intent}");
-      intentComponent.AddIntents(intent);
+      intentHolder.AddIntents(intent);
     });
   }
 

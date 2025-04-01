@@ -1,5 +1,4 @@
 ﻿using Architecture;
-using IntentBehaviours;
 using Intents;
 using Intents.Engine;
 using UnityEngine;
@@ -26,11 +25,11 @@ namespace Abilities {
 
     private void onStartAbility(GameObject source, Ability ability) {
       if (isActiveAndEnabled) {
-        context = new AbilityContext(source, ability, new IntentGlobalContext() { IntentSystem = intentSystem, GridSystem = gridSystem });
+        context = new AbilityContext(source, ability, new IntentGlobalContext() { GridSystem = gridSystem, IntentHolder = intentComponent });
         EventManager.Instance.AbilityTargetingStart.Invoke();
       }
     }
-    
+
     private void stopAbility() {
       if (context is not null) {
         EventManager.Instance.AbilityTargetingStop.Invoke();
@@ -58,6 +57,5 @@ namespace Abilities {
         stopAbility();
       }
     }
-
   }
 }

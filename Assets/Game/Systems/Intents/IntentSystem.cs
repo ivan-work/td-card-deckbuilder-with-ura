@@ -7,46 +7,46 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Intents {
-  public class IntentSystem : MonoBehaviour {
+  public class IntentSystem : MonoBehaviour, IIntentHolder {
     private LinkedList<Intent> queuedIntents = new();
     private readonly LinkedList<IntentProgressContext> activeIntents = new();
     private GridSystem gridSystem = null!;
-    public IntentGlobalContext GlobalContext { get; private set; } = null!;
+    private IntentGlobalContext globalContext = null!;
 
     private void Awake() {
       EventManager.Instance.PhaseCreateIntents.AddListener(onCreateIntents);
       EventManager.Instance.PhasePerformIntents.AddListener(onPerformIntents);
 
       gridSystem = this.AssertFind<GridSystem>();
-      
-      GlobalContext = new IntentGlobalContext { GridSystem = gridSystem, IntentSystem = this };
+
+      globalContext = new IntentGlobalContext { GridSystem = gridSystem, IntentHolder = this };
     }
 
 
     public void AddIntents(params Intent[] intents) {
-      AddIntents((IEnumerable<Intent>) intents);
+      AddIntents(intents, false);
     }
 
-    public void AddIntents(IEnumerable<Intent> intents) {
-      queuedIntents.AddRange(intents);
+    public void AddIntents(IEnumerable<Intent> intents, bool toFront) {
+      if (toFront) {
+        // хз как добавить массив вначале линкед листа
+        queuedIntents = new LinkedList<Intent>(intents.Concat(queuedIntents));
+      } else {
+        queuedIntents.AddRange(intents);
+      }
       // Debug.Log(queuedEffects.Aggregate(new StringBuilder("Current chain of effects: "), (sb, val) => sb.Append(val).Append(", "), sb => sb.ToString()));
-    }
-
-    public void AddImmediateIntents(params Intent[] intents) {
-      // хз как добавить массив вначале линкед листа
-      queuedIntents = new LinkedList<Intent>(intents.Concat(queuedIntents));
     }
 
     private void onCreateIntents() {
       EventManager.Instance.ImsStartPlayerTurn.Invoke(this);
     }
-    
+
     private void onPerformIntents() {
       EventManager.Instance.ImsEndTurn.Invoke(this);
       EventManager.Instance.ImsWriteIntents.Invoke(this);
-      
+
       Debug.Log(queuedIntents.Aggregate(new StringBuilder("On Perform Intents: "), (sb, val) => sb.Append(val).Append(", "), sb => sb.ToString()));
-      
+
       StartCoroutine(performIntents());
     }
 
@@ -73,7 +73,7 @@ namespace Intents {
         if (!activeIntents.Any()) {
           queuedIntents.RemoveFirst();
           if (!currentIntent.Source.IsDestroyed()) {
-            var context = new IntentProgressContext { GlobalContext = GlobalContext };
+            var context = new IntentProgressContext { GlobalContext = globalContext };
             currentIntent.Behaviour.Perform(currentIntent, context);
             if (context.Animation != null) {
               activeIntents.AddLast(context);
@@ -82,7 +82,7 @@ namespace Intents {
         }
       }
     }
-    
+
 #if UNITY_INCLUDE_TESTS
     public void Test_performNextIntent() {
       performNextIntent();

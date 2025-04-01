@@ -6,7 +6,7 @@ using Intents.Engine;
 using UnityEngine;
 
 namespace Intents {
-  public class IntentComponent : MonoBehaviour {
+  public class IntentComponent : MonoBehaviour, IIntentHolder {
     private readonly List<Intent> queuedIntents = new();
     private readonly List<GameObject> displays = new();
 
@@ -23,10 +23,14 @@ namespace Intents {
     }
 
     private void onWriteIntents(IntentSystem intentSystem) {
-      intentSystem.AddIntents(queuedIntents);
+      intentSystem.AddIntents(queuedIntents, false);
       queuedIntents.Clear();
       displays.ForEach(Destroy);
       displays.Clear();
+    }
+
+    public void AddIntents(IEnumerable<Intent> intents, bool toFront) {
+      AddIntents(intents.ToArray());
     }
 
     public void AddIntents(params Intent[] intents) {
