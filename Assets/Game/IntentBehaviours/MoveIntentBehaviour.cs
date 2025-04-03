@@ -2,6 +2,7 @@
 using System.Linq;
 using Components;
 using Effects.EffectAnimations;
+using GridSystem;
 using Intents.Engine;
 using Intents.IReactions;
 using UnityEngine;
@@ -14,7 +15,7 @@ namespace Intents.IntentBehaviours {
 
       Vector2Int? direction = GetDirection(intent);
       if (intent.Source.TryGetComponent<GridComponent>(out var gridComponent) && direction is not null) {
-        var sourcePos = gridComponent.gridLoc;
+        var sourcePos = gridComponent.GridLoc;
         var targetPos = direction.Value + sourcePos;
         var gridSystem = context.GlobalContext.GridSystem;
       
@@ -22,13 +23,13 @@ namespace Intents.IntentBehaviours {
         var hasMob = gridSystem.GetGridEntities<MoveComponent>(targetPos).Any();
       
         if (hasPath && !hasMob) {
-          context.Animation = new MoveAnimation(intent.Source, gridSystem.gridPos2World(sourcePos),
-            gridSystem.gridPos2World(targetPos));
-          gridComponent.moveTo(targetPos);
+          context.Animation = new MoveAnimation(intent.Source, gridSystem.GridLoc2World(sourcePos),
+            gridSystem.GridLoc2World(targetPos));
+          gridComponent.MoveTo(targetPos);
           sendEvents(context.GlobalContext, intent.Source, targetPos);
         } else {
-          context.Animation = new MoveAttemptAnimation(intent.Source, gridSystem.gridPos2World(sourcePos),
-            gridSystem.gridPos2World(targetPos));
+          context.Animation = new MoveAttemptAnimation(intent.Source, gridSystem.GridLoc2World(sourcePos),
+            gridSystem.GridLoc2World(targetPos));
         }
       }
     }
@@ -37,10 +38,10 @@ namespace Intents.IntentBehaviours {
       if (_display is not null) {
         Vector2Int? direction = GetDirection(intent);
         if (intent.Source.TryGetComponent<GridComponent>(out var gridComponent) && direction is not null) {
-          var sourcePos = gridComponent.gridLoc;
+          var sourcePos = gridComponent.GridLoc;
           var targetPos = direction.Value + sourcePos;
           
-          //var rotation = Quaternion.LookRotation(gridSystem.gridPos2World(sourcePos), Vector3.up);
+          //var rotation = Quaternion.LookRotation(GridSystem.GridLoc2World(sourcePos), Vector3.up);
         }
 
         GameObject display = Instantiate(_display, intent.Source.transform);

@@ -10,14 +10,14 @@ namespace Intents {
   public class IntentSystem : MonoBehaviour, IIntentHolder {
     private LinkedList<Intent> queuedIntents = new();
     private readonly LinkedList<IntentProgressContext> activeIntents = new();
-    private GridSystem gridSystem = null!;
+    private GridSystem.GridSystem gridSystem = null!;
     private IntentGlobalContext globalContext = null!;
 
     private void Awake() {
       EventManager.Instance.PhaseCreateIntents.AddListener(onCreateIntents);
       EventManager.Instance.PhasePerformIntents.AddListener(onPerformIntents);
 
-      gridSystem = this.AssertFind<GridSystem>();
+      gridSystem = this.AssertFind<GridSystem.GridSystem>();
 
       globalContext = new IntentGlobalContext { GridSystem = gridSystem, IntentHolder = this };
     }

@@ -1,4 +1,5 @@
 ﻿using Effects;
+using GridSystem;
 using Intents;
 using Intents.Engine;
 using Status.StatusData;
@@ -34,7 +35,7 @@ namespace Components {
       // if (!statusComponent.hasStatus(cooldownStatusData)) {
       //   var targetPos = searchNewTarget();
       //   if (targetPos.HasValue) {
-      //     var effects = gridComponent.gridSystem.GetGridEntities<MoveComponent>(targetPos.Value)
+      //     var effects = gridComponent.GridSystem.GetGridEntities<MoveComponent>(targetPos.Value)
       //       .Select<MoveComponent, BaseEffect>(component => new PushEffect(component, direction, force))
       //       .Append(new ApplyStatusEffect(statusComponent, new StatusStruct(cooldownStatusData, cooldown)))
       //       .ToArray();
@@ -44,10 +45,10 @@ namespace Components {
     }
 
     private Vector2Int? searchNewTarget() {
-      var currentPos = gridComponent.gridLoc;
+      var currentPos = gridComponent.GridLoc;
       for (int i = 0; i < range; i++) {
         currentPos += direction;
-        if (condition.isValidTarget(gridComponent.gridSystem, currentPos)) {
+        if (condition.isValidTarget(gridComponent.GridSystem, currentPos)) {
           return currentPos;
         }
       }

@@ -8,7 +8,7 @@ namespace Status.StatusData {
     public override void OnEndTurn (StatusContext context) {
       //#TODO INTENT FIX
       // context.actorManager.addImmediateEffects(
-      //   new DamageEffect(context.component.gridComponent.gridLoc, DamageType.Fire, context.statusStruct.stacks)
+      //   new DamageEffect(context.component.gridComponent.GridLoc, DamageType.Fire, context.statusStruct.stacks)
       // );
       //
       // context.component.updateStatus(context.statusStruct, -1);

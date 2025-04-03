@@ -4,9 +4,9 @@ using UnityEngine;
 public class BuildTowerCard : Card {
   [SerializeField] GameObject towerPrefab;
 
-  // public override IEnumerable<BaseEffect> doCardAction(GridSystem gridSystem, Vector2Int[] gridPoses) {
-  //   foreach (var gridLoc in gridPoses) {
-  //     var entities = gridSystem.GetGridEntities(gridLoc);
+  // public override IEnumerable<BaseEffect> doCardAction(GridSystem GridSystem, Vector2Int[] gridPoses) {
+  //   foreach (var GridLoc in gridPoses) {
+  //     var entities = GridSystem.GetGridEntities(GridLoc);
   //
   //     bool isNewTower = true;
   //
@@ -20,8 +20,8 @@ public class BuildTowerCard : Card {
   //     }
   //
   //     if (isNewTower) {
-  //       var tower = Instantiate(towerPrefab, gridSystem.grid.transform);
-  //       tower.GetComponent<GridComponent>().moveTo(gridLoc);
+  //       var tower = Instantiate(towerPrefab, GridSystem.grid.transform);
+  //       tower.GetComponent<GridComponent>().MoveTo(GridLoc);
   //       tower.GetComponent<TowerComponent>().enabled = false;
   //       tower.GetComponent<BuildTowerComponent>().enabled = true;
   //     }

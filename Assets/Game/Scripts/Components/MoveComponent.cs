@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using Components;
 using Effects;
+using GridSystem;
 using Intents;
 using Intents.Engine;
 using Intents.IntentBehaviours;
@@ -36,7 +37,7 @@ public class MoveComponent : MonoBehaviour, IHasIntent {
 
 
   private void startMovingChain(Action<Intent> addIntent) {
-    // Debug.Log($"MoveComponent(pos: {gridComponent.gridLoc}, state: {state}).startMovingChain()");
+    // Debug.Log($"MoveComponent(pos: {gridComponent.GridLoc}, state: {state}).startMovingChain()");
     if (state == State.Tired) return;
 
     state = State.Charged;
@@ -57,7 +58,7 @@ public class MoveComponent : MonoBehaviour, IHasIntent {
       source: gameObject,
       behaviour: _moveIntentBehaviour,
       values: new MoveIntentValues(),
-      targets: IntentTargets.Create(targetPos.Value - gridComponent.gridLoc)
+      targets: IntentTargets.Create(targetPos.Value - gridComponent.GridLoc)
     ));
   }
 
@@ -71,7 +72,7 @@ public class MoveComponent : MonoBehaviour, IHasIntent {
   }
 
   private MoveComponent? findTargetMoveComponent(Vector2Int targetPos) {
-    return gridComponent.gridSystem.GetGridEntities(targetPos)
+    return gridComponent.GridSystem.GetGridEntities(targetPos)
       .Select(entity => entity.GetComponent<MoveComponent>())
       .FirstOrDefault(entity => entity);
 
@@ -79,7 +80,7 @@ public class MoveComponent : MonoBehaviour, IHasIntent {
   }
 
   private Vector2Int? findPath() {
-    var mobCell = gridComponent.gridSystem.GetGridEntities(gridComponent.gridLoc)
+    var mobCell = gridComponent.GridSystem.GetGridEntities(gridComponent.GridLoc)
       .Select(entity => entity.GetComponent<PathComponent>())
       .FirstOrDefault(entity => entity);
 
@@ -94,7 +95,7 @@ public class MoveComponent : MonoBehaviour, IHasIntent {
         });
 
       if (minimumNeighbor != null) {
-        return minimumNeighbor.GetComponent<GridComponent>().gridLoc;
+        return minimumNeighbor.GetComponent<GridComponent>().GridLoc;
       }
     }
 

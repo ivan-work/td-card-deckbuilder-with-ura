@@ -9,30 +9,30 @@
   //   public MoveEffect(MoveComponent moveComponent, Vector2Int direction) : base(moveComponent) {
   //     this.moveComponent = moveComponent;
   //     this.direction = direction;
-  //     sourcePos = moveComponent.gridComponent.gridLoc;
+  //     sourcePos = moveComponent.gridComponent.GridLoc;
   //   }
   //
-  //   public override void start(ActorManager am, GridSystem gridSystem) {
+  //   public override void start(ActorManager am, GridSystem GridSystem) {
   //     if (moveComponent.gameObject.IsDestroyed()) return; // TODO better death
   //
-  //     bool hasPath = gridSystem.GetGridEntities<PathComponent>(targetPos).Any();
-  //     bool hasMob = gridSystem.GetGridEntities<MoveComponent>(targetPos).Any();
+  //     bool hasPath = GridSystem.GetGridEntities<PathComponent>(targetPos).Any();
+  //     bool hasMob = GridSystem.GetGridEntities<MoveComponent>(targetPos).Any();
   //
   //     Debug.Log($"Starting {this}: {hasPath && !hasMob}");
   //
   //
   //     if (hasPath && !hasMob) {
-  //       animation = new MoveAnimation(moveComponent, gridSystem.gridPos2World(sourcePos), gridSystem.gridPos2World(targetPos));
-  //       moveComponent.gridComponent.moveTo(targetPos);
-  //       SendEvents(am, gridSystem);
+  //       animation = new MoveAnimation(moveComponent, GridSystem.GridLoc2World(sourcePos), GridSystem.GridLoc2World(targetPos));
+  //       moveComponent.gridComponent.MoveTo(targetPos);
+  //       SendEvents(am, GridSystem);
   //     } else {
-  //       animation = new MoveAttemptAnimation(moveComponent, gridSystem.gridPos2World(sourcePos),
-  //         gridSystem.gridPos2World(targetPos));
+  //       animation = new MoveAttemptAnimation(moveComponent, GridSystem.GridLoc2World(sourcePos),
+  //         GridSystem.GridLoc2World(targetPos));
   //     }
   //   }
   //
-  //   private void SendEvents(ActorManager am, GridSystem gridSystem) {
-  //     // gridSystem.GetGridEntities<TrapComponent>(targetPos).ToList()
+  //   private void SendEvents(ActorManager am, GridSystem GridSystem) {
+  //     // GridSystem.GetGridEntities<TrapComponent>(targetPos).ToList()
   //     //   .ForEach(trapComponent => trapComponent.OnEntityEnter(am, moveComponent.gridComponent));
   //     //
   //     // moveComponent.GetComponents<StatusComponent>().ToList().ForEach(statusComponent => {

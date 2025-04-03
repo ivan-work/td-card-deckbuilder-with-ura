@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Collections.Generic;
 using Abilities;
 using Components;
+using GridSystem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -36,8 +37,8 @@ public class CellPrefab : MonoBehaviour {
 
   private void Start() {
     if (TryGetComponent(out GridComponent gridComponent) && _distanceText != null) {
-      var loc = GridSystem.OffsetToAxial(gridComponent.gridLoc);
-      _distanceText.text = $"{gridComponent.gridLoc.x}:{gridComponent.gridLoc.y}\n{loc.x}:{loc.y}";
+      var loc = GridSystem.GridSystem.OffsetToAxial(gridComponent.GridLoc);
+      _distanceText.text = $"{gridComponent.GridLoc.x}:{gridComponent.GridLoc.y}\n{loc.x}:{loc.y}";
     }
   }
 }

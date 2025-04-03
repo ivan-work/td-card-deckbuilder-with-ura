@@ -7,12 +7,12 @@ namespace Abilities {
   [RequireComponent(typeof(IntentComponent))]
   public class AbilityManager : Singleton<AbilityManager> {
     private AbilityContext? context;
-    private GridSystem gridSystem = null!;
+    private GridSystem.GridSystem gridSystem = null!;
     private IntentSystem? intentSystem;
     private IntentComponent intentComponent = null!;
 
     protected override void OnAwake() {
-      gridSystem = this.AssertFind<GridSystem>();
+      gridSystem = this.AssertFind<GridSystem.GridSystem>();
       intentComponent = GetComponent<IntentComponent>();
       EventManager.Instance.ImsStartPlayerTurn.AddListener(onStartPlayerTurn);
       EventManager.Instance.StartAbility.AddListener(onStartAbility);
