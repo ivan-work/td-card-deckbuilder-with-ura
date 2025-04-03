@@ -37,7 +37,7 @@ namespace Intents {
       queuedIntents.AddRange(intents);
       displays.AddRange(
         intents
-          .Select(intent => intent.Behaviour.CreateDisplay(intent, null))
+          .Select(intent => intent.Behaviour.CreateDisplay(intent))
           .MyNotNull()
       );
     }

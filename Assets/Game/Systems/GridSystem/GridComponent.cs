@@ -11,9 +11,16 @@ namespace GridSystem {
       GridSystem = this.GetAssertComponentInParent<GridSystem>();
     }
 
+    private void Start() {
+      ensureLocalPosition();
+    }
+
     private void OnEnable() {
       GridSystem.Register(this);
-      gameObject.transform.localPosition = gridPos2World();
+      
+      if (didStart) {
+        ensureLocalPosition();
+      }
     }
 
     private void OnDisable() {
@@ -26,8 +33,8 @@ namespace GridSystem {
       GridSystem.Register(this);
     }
 
-    private Vector3 gridPos2World() {
-      return GridSystem.GridLoc2World(_gridLoc);
+    private void ensureLocalPosition() {
+      gameObject.transform.localPosition = GridSystem.GridLoc2World(_gridLoc);
     }
   }
 }

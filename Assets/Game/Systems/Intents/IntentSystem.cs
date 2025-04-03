@@ -45,7 +45,7 @@ namespace Intents {
       EventManager.Instance.ImsEndTurn.Invoke(this);
       EventManager.Instance.ImsWriteIntents.Invoke(this);
 
-      Debug.Log(queuedIntents.Aggregate(new StringBuilder("On Perform Intents: "), (sb, val) => sb.Append(val).Append(", "), sb => sb.ToString()));
+      // Debug.Log(queuedIntents.Aggregate(new StringBuilder("On Perform Intents: "), (sb, val) => sb.Append(val).Append(", "), sb => sb.ToString()));
 
       StartCoroutine(performIntents());
     }

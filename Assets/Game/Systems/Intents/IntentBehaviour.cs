@@ -7,7 +7,7 @@ namespace Intents {
     public abstract IntentValues BaseDefaultValues { get; set; }
     public abstract void Perform(Intent intent, IntentProgressContext context);
 
-    public abstract GameObject? CreateDisplay(Intent intent, IntentGlobalContext context);
+    public abstract GameObject? CreateDisplay(Intent intent);
   }
 
   public abstract class IntentBehaviour<T> : IntentBehaviour where T : IntentValues, new() {
@@ -24,12 +24,12 @@ namespace Intents {
       Perform(Intent<T>.FromBaseIntent(intent), context);
     }
 
-    protected virtual GameObject? CreateDisplay(Intent<T> intent, IntentGlobalContext context) {
+    protected virtual GameObject? CreateDisplay(Intent<T> intent) {
       return null;
     }
 
-    public override GameObject? CreateDisplay(Intent intent, IntentGlobalContext context) {
-      return CreateDisplay(Intent<T>.FromBaseIntent(intent), context);
+    public override GameObject? CreateDisplay(Intent intent) {
+      return CreateDisplay(Intent<T>.FromBaseIntent(intent));
     }
   }
 }
