@@ -1306,7 +1306,6 @@ MonoBehaviour:
   hand: []
   discard: []
   turn: 0
-  watchPlayersActions: 0
 --- !u!4 &948432313
 Transform:
   m_ObjectHideFlags: 0
