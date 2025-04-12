@@ -37,8 +37,7 @@ public class CellPrefab : MonoBehaviour {
 
   private void Start() {
     if (TryGetComponent(out GridComponent gridComponent) && _distanceText != null) {
-      var loc = GridSystem.GridSystem.OffsetToAxial(gridComponent.GridLoc);
-      _distanceText.text = $"{gridComponent.GridLoc.x}:{gridComponent.GridLoc.y}\n{loc.x}:{loc.y}";
+      _distanceText.text = $"{gridComponent.GridLoc.x}:{gridComponent.GridLoc.y}";
     }
   }
 }

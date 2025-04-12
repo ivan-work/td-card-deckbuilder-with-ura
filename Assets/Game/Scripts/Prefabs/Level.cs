@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Components;
 using GridSystem;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[RequireComponent(typeof(Grid))]
 public class Level : MonoBehaviour {
   [SerializeField] CellPrefab cellPrefab;
   [SerializeField] GameObject spawnerPrefab;

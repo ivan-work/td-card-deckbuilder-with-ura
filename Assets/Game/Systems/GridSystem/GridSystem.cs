@@ -4,16 +4,9 @@ using System.Linq;
 using UnityEngine;
 
 namespace GridSystem {
-  [RequireComponent(typeof(Grid))]
   public class GridSystem : MonoBehaviour {
-    [NonSerialized] private Grid grid = null!;
     [NonSerialized] private readonly Dictionary<Vector2Int, HashSet<GridComponent>> entities = new();
-
-    private static readonly Vector2Int[] OffsetsForCross = { new(0, 1), new(1, 0), new(0, -1), new(-1, 0) };
-
-    private void Awake() {
-      grid = this.GetAssertComponent<Grid>();
-    }
+    public HexGridDriver GridDriver { get; } = new HexGridDriver(.5f);
 
     public void Register(GridComponent gridComponent) {
       if (!entities.ContainsKey(gridComponent.GridLoc)) {
@@ -30,75 +23,42 @@ namespace GridSystem {
       // Debug.Log($"Unregister@{GridLoc}: {entities[GridLoc]}");
     }
 
-    public IEnumerable<GridComponent> GetGridEntities(Vector2Int gridPos) {
-      return entities.ContainsKey(gridPos) ? entities[gridPos] : Enumerable.Empty<GridComponent>();
+    public IEnumerable<GridComponent> GetGridEntities(Vector2Int gridLoc) {
+      return entities.ContainsKey(gridLoc) ? entities[gridLoc] : Enumerable.Empty<GridComponent>();
     }
 
-    public IEnumerable<T> GetGridEntities<T>(Vector2Int gridPos) {
-      return GetGridEntities(gridPos)
+    public IEnumerable<T> GetGridEntities<T>(Vector2Int gridLoc) {
+      return GetGridEntities(gridLoc)
         .SelectMany(entity => entity.GetComponents<T>());
     }
 
-    public HashSet<GridComponent> getNeighbors4(Vector2Int gridPos) {
-      var results = new HashSet<GridComponent>();
-
-      foreach (var offset in OffsetsForCross) {
-        var gridComponents = GetGridEntities(gridPos + offset);
-
-        results = results.Concat(gridComponents).ToHashSet();
-      }
-
-      return results;
+    public IEnumerable<GridComponent> GetNeighbors(Vector2Int gridLoc) {
+      return HexGridDriver.GetNeighbors(gridLoc)
+        .SelectMany(GetGridEntities);
     }
 
 
-    public Vector3 GridLoc2World(Vector2Int vector, float? y = null) {
-      var worldPosition = grid.GetCellCenterWorld(new Vector3Int(vector.x, vector.y));
-      // worldPosition.z = z ?? gameObject.transform.position.z;
-      return worldPosition;
+    public Vector3 GridLoc2World(Vector2Int vector) {
+      return GridDriver.GridLoc2World(vector);
     }
 
     /*
    * HEX
    */
-    public static IEnumerable<Vector2Int> GetLine(Vector2Int startPos, Vector2Int endPos) {
-      var startAxial = OffsetToAxial(startPos);
-      var endAxial = OffsetToAxial(endPos);
-      var points = GetAxialDistance(startAxial, endAxial);
-      var results = new List<Vector2Int> { startPos };
+    public static IEnumerable<Vector2Int> GetLine(Vector2Int startLoc, Vector2Int endLoc) {
+      var points = GetDistance(startLoc, endLoc);
+      var results = new List<Vector2Int> { startLoc };
       for (var i = 1; i <= points; i++) {
-        var lerped = Vector2.Lerp(startAxial, endAxial, (float) (1.0 / points * i));
+        var lerped = Vector2.Lerp(startLoc, endLoc, (float) (1.0 / points * i));
         var lerpedRound = Vector2Int.RoundToInt(lerped + new Vector2(.01f, -.01f));
-        var offsetLerpedRound = AxialToOffset(lerpedRound);
-        results.Add(offsetLerpedRound);
+        results.Add(lerpedRound);
       }
 
       return results;
     }
 
-    public static Vector2Int AxialToOffset(Vector2Int hex) {
-      var col = hex.x + (hex.y - (hex.y & 1)) / 2;
-      var row = hex.y;
-      return new Vector2Int(col, row);
-    }
-
-    public static Vector2Int OffsetToAxial(Vector2Int hex) {
-      var q = hex.x - (hex.y - (hex.y & 1)) / 2;
-      var r = hex.y;
-      return new Vector2Int(q, r);
-    }
-
-    public static int GetOffsetDistance(Vector2Int a, Vector2Int b) {
-      return GetAxialDistance(OffsetToAxial(a), OffsetToAxial(b));
-    }
-
-
-    public static Vector2Int GetAxialSubstract(Vector2Int a, Vector2Int b) {
-      return new Vector2Int(a.x - b.x, a.y - b.y);
-    }
-
-    public static int GetAxialDistance(Vector2Int a, Vector2Int b) {
-      var vec = GetAxialSubstract(a, b);
+    public static int GetDistance(Vector2Int a, Vector2Int b) {
+      var vec = a - b;
       return (Math.Abs(vec.x) + Math.Abs(vec.x + vec.y) + Math.Abs(vec.y)) / 2;
     }
   }

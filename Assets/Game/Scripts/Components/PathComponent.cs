@@ -13,7 +13,7 @@ public class PathComponent : MonoBehaviour {
     var gridSystem = GetComponent<GridComponent>().GridSystem;
     var gridPos = GetComponent<GridComponent>().GridLoc;
 
-    return gridSystem.getNeighbors4(gridPos)
+    return gridSystem.GetNeighbors(gridPos)
       .Select(x => x.GetComponent<PathComponent>())
       .Where(x => x);
   }
