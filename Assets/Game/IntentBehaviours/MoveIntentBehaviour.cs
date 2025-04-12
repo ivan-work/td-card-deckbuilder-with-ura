@@ -1,72 +1,63 @@
-﻿using System;
-using System.Linq;
-using Components;
+﻿using System.Linq;
 using Effects.EffectAnimations;
 using GridSystem;
+using Intents;
 using Intents.Engine;
 using Intents.IReactions;
 using UnityEngine;
 
-namespace Intents.IntentBehaviours {
-  [CreateAssetMenu(fileName = "IntentBehaviours/MoveIntentBehaviour")]
-  public class MoveIntentBehaviour : IntentBehaviour<MoveIntentValues> {
-    [SerializeField] private GameObject? _display;
+namespace IntentBehaviours {
+  public abstract class MoveIntentBehaviour : IntentBehaviour<IntentValues> {
+    [SerializeField] private LineRenderer? _display;
 
-    protected override void Perform(Intent<MoveIntentValues> intent, IntentProgressContext context) {
-      Vector2Int? direction = GetDirection(intent);
-      if (intent.Source.TryGetComponent<GridComponent>(out var gridComponent) && direction is not null) {
-        var sourcePos = gridComponent.GridLoc;
-        var targetPos = direction.Value + sourcePos;
+    protected override void Perform(Intent<IntentValues> intent, IntentProgressContext context) {
+      var targetLocNullable = GetTargetLoc(intent);
+      if (intent.Source.TryGetComponent<GridComponent>(out var gridComponent) && targetLocNullable is not null) {
+        var targetLoc = targetLocNullable.Value;
+
+        var sourcePosition = intent.Source.transform.position;
+        var targetPosition = gridComponent.GridSystem.GridLoc2World(targetLoc);
+
         var gridSystem = context.GlobalContext.GridSystem;
-
-        var hasPath = gridSystem.GetGridEntities<PathComponent>(targetPos).Any();
-        var hasMob = gridSystem.GetGridEntities<MoveComponent>(targetPos).Any();
+        var hasPath = gridSystem.GetGridEntities<PathComponent>(targetLoc).Any();
+        var hasMob = gridSystem.GetGridEntities<MoveComponent>(targetLoc).Any();
 
         if (hasPath && !hasMob) {
-          context.Animation = new MoveAnimation(intent.Source,
-            gridSystem.GridLoc2World(sourcePos),
-            gridSystem.GridLoc2World(targetPos));
-          gridComponent.MoveTo(targetPos);
-          sendEvents(context.GlobalContext, intent.Source, targetPos);
+          context.Animation = new MoveAnimation(intent.Source, sourcePosition, targetPosition);
+          gridComponent.MoveTo(targetLoc);
+          sendEvents(context.GlobalContext, intent.Source, targetLoc);
         } else {
-          context.Animation = new MoveAttemptAnimation(intent.Source,
-            gridSystem.GridLoc2World(sourcePos),
-            gridSystem.GridLoc2World(targetPos));
+          context.Animation = new MoveAttemptAnimation(intent.Source, sourcePosition, targetPosition);
         }
       }
     }
 
-    protected override GameObject? CreateDisplay(Intent<MoveIntentValues> intent) {
-      if (_display is not null) {
-        var direction = GetDirection(intent);
-        if (intent.Source.TryGetComponent<GridComponent>(out var gridComponent) && direction.HasValue) {
-          var sourceLoc = gridComponent.GridLoc;
-          var targetLoc = direction.Value + sourceLoc;
+
+    protected override GameObject? CreateDisplay(Intent<IntentValues> intent) {
+      if (_display) {
+        var targetLoc = GetTargetLoc(intent);
+        if (intent.Source.TryGetComponent<GridComponent>(out var gridComponent) && targetLoc.HasValue) {
           var sourcePosition = intent.Source.transform.position;
-          var targetPosition = gridComponent.GridSystem.GridLoc2World(targetLoc);
+          var targetPosition = gridComponent.GridSystem.GridLoc2World(targetLoc.Value);
 
-          var rotation = Quaternion.LookRotation(targetPosition - sourcePosition, Vector3.up);
+          var display = Instantiate(_display);
+          display.positionCount = 2;
+          display.SetPositions(new[] { sourcePosition, targetPosition });
 
-          return Instantiate(_display, sourcePosition, rotation);
+          return display.gameObject;
         }
       }
 
       return null;
     }
 
-    private static Vector2Int? GetDirection(Intent<MoveIntentValues> intent) {
-      return intent.Targets.Locations.FirstOrDefault();
-    }
+    protected abstract Vector2Int? GetTargetLoc(Intent<IntentValues> intent);
+
 
     private static void sendEvents(IntentGlobalContext context, GameObject source, Vector2Int targetPos) {
-      context.GridSystem.GetGridEntities<IReactToEntityEnter>(targetPos)
-        .ToList()
-        .ForEach(component => component.OnEntityEnter(context, source));
+      context.GridSystem.GetGridEntities<IReactToEntityEnter>(targetPos).ToList().ForEach(component => component.OnEntityEnter(context, source));
 
       source.GetComponents<IReactToMove>().ToList().ForEach(component => component.OnMove(context));
     }
   }
-
-  [Serializable]
-  public class MoveIntentValues : IntentValues { }
 }

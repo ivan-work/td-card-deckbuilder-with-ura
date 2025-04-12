@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57378e2e3094448db123416cf3f676ab, type: 3}
   m_Name: Teleport Intent Behaviour
   m_EditorClassIdentifier: 
+  _display: {fileID: 3552419583122919075, guid: e84845e6c00dcc74b826ac00445290b6, type: 3}

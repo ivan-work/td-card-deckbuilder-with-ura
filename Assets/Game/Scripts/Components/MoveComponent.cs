@@ -8,10 +8,11 @@ using Intents.Engine;
 using Intents.IntentBehaviours;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class MoveComponent : MonoBehaviour, IHasIntent {
-  [SerializeField] MoveIntentBehaviour _moveIntentBehaviour; // #TODO FIXNULL
+  [FormerlySerializedAs("_moveIntentBehaviour")] [SerializeField] StepIntentBehaviour _stepIntentBehaviour; // #TODO FIXNULL
 
   private enum State {
     Calm,
@@ -56,8 +57,8 @@ public class MoveComponent : MonoBehaviour, IHasIntent {
 
     addIntent(new Intent(
       source: gameObject,
-      behaviour: _moveIntentBehaviour,
-      values: new MoveIntentValues(),
+      behaviour: _stepIntentBehaviour,
+      values: new IntentValues(),
       targets: IntentTargets.Create(targetPos.Value - gridComponent.GridLoc)
     ));
   }

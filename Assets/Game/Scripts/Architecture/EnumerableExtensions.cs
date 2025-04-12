@@ -6,5 +6,9 @@ namespace Architecture {
     public static IEnumerable<T> MyNotNull<T>(this IEnumerable<T?> enumerable) where T : class {
       return enumerable.Where(i => i is not null).OfType<T>();
     }
+
+    public static TSource? MaybeFirst<TSource>(this IEnumerable<TSource> source) {
+      return (TSource?) source.FirstOrDefault();
+    }
   }
 }

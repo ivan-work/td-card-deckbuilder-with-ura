@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14b8a9da706d4025825b84d28ed33672, type: 3}
-  m_Name: Move Intent Behaviour
+  m_Name: Step Intent Behaviour
   m_EditorClassIdentifier: 
-  _display: {fileID: 919132149155446097, guid: 3bdd13be5513b6544a3cce0503719669, type: 3}
+  _display: {fileID: 3552419583122919075, guid: e84845e6c00dcc74b826ac00445290b6, type: 3}
