@@ -21,28 +21,15 @@ namespace Intents {
     protected abstract void Perform(Intent<T> intent, IntentProgressContext context);
 
     public override void Perform(Intent intent, IntentProgressContext context) {
-      if (intent.Values is T values) {
-        var typedIntent = new Intent<T> { Behaviour = this, Values = values, Source = intent.Source, Targets = intent.Targets };
-        Perform(typedIntent, context);
-      } else {
-        Debug.LogError($"Type mismatch: Expected {typeof(T)}, got {intent.Values.GetType()}");
-        throw new ArgumentException();
-      }
+      Perform(Intent<T>.FromBaseIntent(intent), context);
     }
 
-    public virtual GameObject? CreateDisplay(Intent<T> intent, IntentGlobalContext context) {
+    protected virtual GameObject? CreateDisplay(Intent<T> intent, IntentGlobalContext context) {
       return null;
     }
 
     public override GameObject? CreateDisplay(Intent intent, IntentGlobalContext context) {
-      if (intent.Values is T values) {
-        var typedIntent = new Intent<T> { Behaviour = this, Values = values, Source = intent.Source, Targets = intent.Targets };
-        return CreateDisplay(typedIntent, context);
-      } else {
-        Debug.LogError($"Type mismatch: Expected {typeof(T)}, got {intent.Values.GetType()}");
-        throw new ArgumentException();
-      }
-      
+      return CreateDisplay(Intent<T>.FromBaseIntent(intent), context);
     }
   }
 }

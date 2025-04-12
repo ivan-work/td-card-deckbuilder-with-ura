@@ -12,6 +12,7 @@ public class EventManager: Singleton<EventManager> {
   public readonly UnityEvent PhaseCreateIntents = new();
   public readonly UnityEvent PhasePerformIntents = new();
   
+  public readonly UnityEvent<IntentSystem> ImsStartPlayerTurn = new();
   public readonly UnityEvent<IntentSystem> ImsEndTurn = new();
   public readonly UnityEvent<IntentSystem> ImsWriteIntents = new();
   

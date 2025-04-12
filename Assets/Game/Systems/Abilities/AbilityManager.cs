@@ -5,23 +5,27 @@ using Intents.Engine;
 using UnityEngine;
 
 namespace Abilities {
+  [RequireComponent(typeof(IntentComponent))]
   public class AbilityManager : Singleton<AbilityManager> {
     private AbilityContext? context;
     private GridSystem gridSystem = null!;
     private IntentSystem? intentSystem;
+    private IntentComponent intentComponent = null!;
 
     protected override void OnAwake() {
       gridSystem = this.AssertFind<GridSystem>();
+      intentComponent = GetComponent<IntentComponent>();
+      EventManager.Instance.ImsStartPlayerTurn.AddListener(onStartPlayerTurn);
       EventManager.Instance.StartAbility.AddListener(onStartAbility);
-      
     }
 
-    private void OnImsStartRequestIntent(IntentSystem iSystem) {
+    private void onStartPlayerTurn(IntentSystem iSystem) {
       intentSystem = iSystem;
+      enabled = true;
     }
 
     private void onStartAbility(GameObject source, Ability ability) {
-      if (intentSystem is not null) {
+      if (isActiveAndEnabled) {
         context = new AbilityContext(source, ability, new IntentGlobalContext() { IntentSystem = intentSystem, GridSystem = gridSystem });
         EventManager.Instance.AbilityTargetingStart.Invoke();
       }
