@@ -16,7 +16,7 @@ namespace Abilities {
 
     public List<Vector2Int> GetAffectedLocs(AbilityContext context, ITarget target, IEnumerable<IEnumerable<Vector2Int>> lockedAreas) {
       var previousPos = (lockedAreas.LastOrDefault()?.LastOrDefault() ?? target.GetLoc());
-      return GridSystem.GetLine(previousPos, target.GetLoc()).ToList();
+      return GridSystem.GridSystem.GetLine(previousPos, target.GetLoc()).ToList();
     }
   }
 }

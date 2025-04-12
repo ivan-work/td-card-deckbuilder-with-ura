@@ -47,7 +47,7 @@ namespace Abilities {
 
     public List<Vector2Int> GetAffectedLocs(AbilityContext context, ITarget target, IEnumerable<IEnumerable<Vector2Int>> lockedAreas) {
       return TargetArea
-        .Select(offset => GridSystem.AxialToOffset(GridSystem.OffsetToAxial(target.GetLoc()) + offset))
+        .Select(offset => target.GetLoc() + offset)
         .ToList();
     }
   }

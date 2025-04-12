@@ -73,7 +73,7 @@ namespace Abilities {
       if (lockedAreas.Count < config.MaxClicks) return false;
 
       foreach (var lockedArea in lockedAreas) {
-        context.GlobalContext.IntentSystem.AddIntents(
+        context.GlobalContext.IntentHolder.AddIntents(
           context.Ability.IntentFactory.CreateIntent(
             context.Source,
             IntentTargets.Create(lockedArea.ToArray())

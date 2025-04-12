@@ -1,6 +1,8 @@
 using Components;
 using Effects;
+using GridSystem;
 using Intents;
+using Intents.Engine;
 using UnityEngine;
 
 public class TowerComponent : MonoBehaviour, IHasIntent {
@@ -18,7 +20,7 @@ public class TowerComponent : MonoBehaviour, IHasIntent {
     gridComponent = this.GetAssertComponent<GridComponent>();
   }
 
-  public void WriteIntents(IntentComponent intentComponent) {
+  public void WriteIntents(IIntentHolder intentHolder) {
     //#TODO Заменить добавление в IntentSystem на intentComponent
     // var targetPos = searchNewTarget();
     // if (targetPos.HasValue) {
@@ -37,8 +39,8 @@ public class TowerComponent : MonoBehaviour, IHasIntent {
   private Vector2Int? searchNewTarget() {
     for (int x = -range; x < range; x++) {
       for (int y = -range; y < range; y++) {
-        var absolutePos = gridComponent.gridLoc + new Vector2Int(x, y);
-        if (condition.isValidTarget(gridComponent.gridSystem, absolutePos)) {
+        var absolutePos = gridComponent.GridLoc + new Vector2Int(x, y);
+        if (condition.isValidTarget(gridComponent.GridSystem, absolutePos)) {
           return absolutePos;
         }
       }

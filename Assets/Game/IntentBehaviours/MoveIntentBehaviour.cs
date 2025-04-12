@@ -2,6 +2,7 @@
 using System.Linq;
 using Components;
 using Effects.EffectAnimations;
+using GridSystem;
 using Intents.Engine;
 using Intents.IReactions;
 using UnityEngine;
@@ -10,42 +11,46 @@ namespace Intents.IntentBehaviours {
   [CreateAssetMenu(fileName = "IntentBehaviours/MoveIntentBehaviour")]
   public class MoveIntentBehaviour : IntentBehaviour<MoveIntentValues> {
     [SerializeField] private GameObject? _display;
-    protected override void Perform(Intent<MoveIntentValues> intent, IntentProgressContext context) {
 
+    protected override void Perform(Intent<MoveIntentValues> intent, IntentProgressContext context) {
       Vector2Int? direction = GetDirection(intent);
       if (intent.Source.TryGetComponent<GridComponent>(out var gridComponent) && direction is not null) {
-        var sourcePos = gridComponent.gridLoc;
+        var sourcePos = gridComponent.GridLoc;
         var targetPos = direction.Value + sourcePos;
         var gridSystem = context.GlobalContext.GridSystem;
-      
+
         var hasPath = gridSystem.GetGridEntities<PathComponent>(targetPos).Any();
         var hasMob = gridSystem.GetGridEntities<MoveComponent>(targetPos).Any();
-      
+
         if (hasPath && !hasMob) {
-          context.Animation = new MoveAnimation(intent.Source, gridSystem.gridPos2World(sourcePos),
-            gridSystem.gridPos2World(targetPos));
-          gridComponent.moveTo(targetPos);
+          context.Animation = new MoveAnimation(intent.Source,
+            gridSystem.GridLoc2World(sourcePos),
+            gridSystem.GridLoc2World(targetPos));
+          gridComponent.MoveTo(targetPos);
           sendEvents(context.GlobalContext, intent.Source, targetPos);
         } else {
-          context.Animation = new MoveAttemptAnimation(intent.Source, gridSystem.gridPos2World(sourcePos),
-            gridSystem.gridPos2World(targetPos));
+          context.Animation = new MoveAttemptAnimation(intent.Source,
+            gridSystem.GridLoc2World(sourcePos),
+            gridSystem.GridLoc2World(targetPos));
         }
       }
     }
 
-    protected override GameObject? CreateDisplay(Intent<MoveIntentValues> intent, IntentGlobalContext context) {
+    protected override GameObject? CreateDisplay(Intent<MoveIntentValues> intent) {
       if (_display is not null) {
-        Vector2Int? direction = GetDirection(intent);
-        if (intent.Source.TryGetComponent<GridComponent>(out var gridComponent) && direction is not null) {
-          var sourcePos = gridComponent.gridLoc;
-          var targetPos = direction.Value + sourcePos;
-          
-          //var rotation = Quaternion.LookRotation(gridSystem.gridPos2World(sourcePos), Vector3.up);
-        }
+        var direction = GetDirection(intent);
+        if (intent.Source.TryGetComponent<GridComponent>(out var gridComponent) && direction.HasValue) {
+          var sourceLoc = gridComponent.GridLoc;
+          var targetLoc = direction.Value + sourceLoc;
+          var sourcePosition = intent.Source.transform.position;
+          var targetPosition = gridComponent.GridSystem.GridLoc2World(targetLoc);
 
-        GameObject display = Instantiate(_display, intent.Source.transform);
-        return display;
+          var rotation = Quaternion.LookRotation(targetPosition - sourcePosition, Vector3.up);
+
+          return Instantiate(_display, sourcePosition, rotation);
+        }
       }
+
       return null;
     }
 

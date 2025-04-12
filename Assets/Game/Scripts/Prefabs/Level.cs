@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Components;
+using GridSystem;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[RequireComponent(typeof(Grid))]
 public class Level : MonoBehaviour {
   [SerializeField] CellPrefab cellPrefab;
   [SerializeField] GameObject spawnerPrefab;
@@ -42,7 +41,7 @@ public class Level : MonoBehaviour {
         var cellType = (CellType) level[^(y + 1)][x];
 
         var instance = Instantiate(cellPrefab, transform).OnSpawn(cellType);
-        instance.GetComponent<GridComponent>().moveTo(new Vector2Int(x, y));
+        instance.GetComponent<GridComponent>().MoveTo(new Vector2Int(x, y));
 
         if (cellType != CellType.Empty) {
           instance.AddComponent<PathComponent>();
@@ -56,7 +55,7 @@ public class Level : MonoBehaviour {
 
         if (cellType == CellType.Spawner) {
           var spawner = Instantiate(spawnerPrefab, transform);
-          spawner.GetComponent<GridComponent>().moveTo(new Vector2Int(x, y));
+          spawner.GetComponent<GridComponent>().MoveTo(new Vector2Int(x, y));
           spawners.Add(spawner);
         }
       }
@@ -84,7 +83,7 @@ public class Level : MonoBehaviour {
 
   void SpawnMob(GameObject spawner) {
     GameObject mob = Instantiate(mobPrefab, transform);
-    mob.GetComponent<GridComponent>().gridLoc = spawner.GetComponent<GridComponent>().gridLoc;
+    mob.GetComponent<GridComponent>().MoveTo(spawner.GetComponent<GridComponent>().GridLoc);
   }
 
   IEnumerator OnEndTurn() {

@@ -17,7 +17,7 @@ namespace IntentBehaviours {
         }
 
         context.Animation ??= new DamageAnimation(
-          context.GlobalContext.GridSystem.gridPos2World(targetLoc),
+          context.GlobalContext.GridSystem.GridLoc2World(targetLoc),
           intent.Values.DamageType
         );
       }

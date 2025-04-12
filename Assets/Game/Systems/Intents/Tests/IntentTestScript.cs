@@ -1,67 +1,65 @@
+using Intents;
 using Intents.Engine;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace Intents.Tests {
+namespace Tests.Systems.Intents {
+  public class TestIntentValues : IntentValues {
+    public string TestString = "default";
+  }
+
+  public class TestIntentBehaviour : IntentBehaviour<TestIntentValues> {
+    public TestIntentValues LastValues;
+    public bool WasPerformed { get; private set; }
+
+    protected override void Perform(Intent<TestIntentValues> intent, IntentProgressContext context) {
+      var values = intent.Values;
+      LastValues = values;
+      WasPerformed = true;
+    }
+  }
+
+  public class IntentTester : MonoBehaviour {
+    public IntentFactory IntentFactory;
+    public IntentTargets Targets;
+
+    public void Test() {
+      var ims = gameObject.AddComponent<IntentSystem>();
+      var intent = IntentFactory.CreateIntent(null, Targets);
+      ims.AddIntents(intent);
+      ims.Test_performNextIntent();
+    }
+  }
+
+  [TestFixture]
   public class IntentTestScript {
-    // Define a test-specific IntentBehaviour to track if Perform is called
-    public class TestIntentValues : IntentValues {
-      public string TestString = "default";
-    }
+    [Test]
+    public void Test_IntentConversion() { }
 
-    public class TestIntentBehaviour : IntentBehaviour<TestIntentValues> {
-      public TestIntentValues LastValues;
-      public bool WasPerformed { get; private set; }
+    [Test]
+    public void Test_AddsIntentToSystemAndPerformsIt() {
+      // Setup the test environment
+      var gameObject = new GameObject();
+      var intentTester = gameObject.AddComponent<IntentTester>();
 
-      protected override void Perform(Intent<TestIntentValues> intent, IntentProgressContext context) {
-        var values = intent.Values;
-        LastValues = values;
-        WasPerformed = true;
-      }
-    }
+      // Create and set up the IntentFactory
+      var intentFactory = new IntentFactory();
+      intentTester.IntentFactory = intentFactory;
 
-    public class IntentTester : MonoBehaviour {
-      public IntentFactory IntentFactory;
-      public IntentTargets Targets;
+      // Create the test behaviour and assign it to the factory
+      var testBehaviour = ScriptableObject.CreateInstance<TestIntentBehaviour>();
+      intentFactory.BehaviourTest = testBehaviour;
 
-      public void Test() {
-        var ims = gameObject.AddComponent<IntentSystem>();
-        var intent = IntentFactory.CreateIntent(null, Targets);
-        ims.AddIntents(intent);
-        ims.Test_performNextIntent();
-      }
-    }
+      // Set up test values and targets
+      intentFactory.ValuesTest = new TestIntentValues { TestString = "Working" };
+      intentTester.Targets = IntentTargets.Create(gameObject);
 
-    [TestFixture]
-    public class IntentTesterTests {
-      [Test]
-      public void Test_IntentConversion() { }
+      // Act: Trigger the test method
+      intentTester.Test();
 
-      [Test]
-      public void Test_AddsIntentToSystemAndPerformsIt() {
-        // Setup the test environment
-        var gameObject = new GameObject();
-        var intentTester = gameObject.AddComponent<IntentTester>();
-
-        // Create and set up the IntentFactory
-        var intentFactory = new IntentFactory();
-        intentTester.IntentFactory = intentFactory;
-
-        // Create the test behaviour and assign it to the factory
-        var testBehaviour = ScriptableObject.CreateInstance<TestIntentBehaviour>();
-        intentFactory.BehaviourTest = testBehaviour;
-
-        // Set up test values and targets
-        intentFactory.ValuesTest = new TestIntentValues { TestString = "Working" };
-        intentTester.Targets = IntentTargets.Create(gameObject);
-
-        // Act: Trigger the test method
-        intentTester.Test();
-
-        // Assert: Verify that the behaviour's Perform method was called
-        Assert.IsTrue(testBehaviour.WasPerformed, "The intent behaviour was not performed.");
-        Assert.AreEqual(testBehaviour.LastValues.TestString, "Working");
-      }
+      // Assert: Verify that the behaviour's Perform method was called
+      Assert.IsTrue(testBehaviour.WasPerformed, "The intent behaviour was not performed.");
+      Assert.AreEqual(testBehaviour.LastValues.TestString, "Working");
     }
   }
 }

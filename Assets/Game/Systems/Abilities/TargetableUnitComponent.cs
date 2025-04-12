@@ -1,4 +1,5 @@
 ﻿using Components;
+using GridSystem;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -29,7 +30,7 @@ namespace Abilities {
     }
 
     public Vector2Int GetLoc() {
-      return gridComponent.gridLoc;
+      return gridComponent.GridLoc;
     }
 
     public GameObject GetGameObject() {

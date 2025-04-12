@@ -4,7 +4,7 @@ namespace Effects {
   //   private readonly Vector2Int direction;
   //   private readonly int force;
   //
-  //   private Vector2Int sourcePos => moveComponent.gridComponent.gridLoc;
+  //   private Vector2Int sourcePos => moveComponent.gridComponent.GridLoc;
   //   private Vector2Int targetPos => sourcePos + direction;
   //
   //   public PushEffect(MoveComponent moveComponent, Vector2Int direction, int force) : base(moveComponent) {
@@ -13,18 +13,18 @@ namespace Effects {
   //     this.force = force;
   //   }
   //
-  //   public override void start(ActorManager am, GridSystem gridSystem) {
+  //   public override void start(ActorManager am, GridSystem GridSystem) {
   //     if (moveComponent.gameObject.IsDestroyed()) return; // TODO better death
   //
-  //     bool hasPath = gridSystem.GetGridEntities<PathComponent>(targetPos).Any();
-  //     bool hasMobs = gridSystem.GetGridEntities<MoveComponent>(targetPos).Any();
+  //     bool hasPath = GridSystem.GetGridEntities<PathComponent>(targetPos).Any();
+  //     bool hasMobs = GridSystem.GetGridEntities<MoveComponent>(targetPos).Any();
   //     if (hasPath && !hasMobs) {
   //       animation = new MoveAnimation(
   //         moveComponent,
-  //         gridSystem.gridPos2World(sourcePos),
-  //         gridSystem.gridPos2World(targetPos)
+  //         GridSystem.GridLoc2World(sourcePos),
+  //         GridSystem.GridLoc2World(targetPos)
   //       );
-  //       moveComponent.gridComponent.moveTo(targetPos);
+  //       moveComponent.gridComponent.MoveTo(targetPos);
   //       if (force > 1) {
   //         am.addImmediateEffects(new PushEffect(moveComponent, direction, force - 1));
   //       }
@@ -35,8 +35,8 @@ namespace Effects {
   //       );
   //       animation = new MoveAttemptAnimation(
   //         moveComponent,
-  //         gridSystem.gridPos2World(sourcePos),
-  //         gridSystem.gridPos2World(targetPos)
+  //         GridSystem.GridLoc2World(sourcePos),
+  //         GridSystem.GridLoc2World(targetPos)
   //       );
   //     }
   //   }

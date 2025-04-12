@@ -1,5 +1,4 @@
 ﻿using Architecture;
-using IntentBehaviours;
 using Intents;
 using Intents.Engine;
 using UnityEngine;
@@ -8,12 +7,12 @@ namespace Abilities {
   [RequireComponent(typeof(IntentComponent))]
   public class AbilityManager : Singleton<AbilityManager> {
     private AbilityContext? context;
-    private GridSystem gridSystem = null!;
+    private GridSystem.GridSystem gridSystem = null!;
     private IntentSystem? intentSystem;
     private IntentComponent intentComponent = null!;
 
     protected override void OnAwake() {
-      gridSystem = this.AssertFind<GridSystem>();
+      gridSystem = this.AssertFind<GridSystem.GridSystem>();
       intentComponent = GetComponent<IntentComponent>();
       EventManager.Instance.ImsStartPlayerTurn.AddListener(onStartPlayerTurn);
       EventManager.Instance.StartAbility.AddListener(onStartAbility);
@@ -26,11 +25,11 @@ namespace Abilities {
 
     private void onStartAbility(GameObject source, Ability ability) {
       if (isActiveAndEnabled) {
-        context = new AbilityContext(source, ability, new IntentGlobalContext() { IntentSystem = intentSystem, GridSystem = gridSystem });
+        context = new AbilityContext(source, ability, new IntentGlobalContext() { GridSystem = gridSystem, IntentHolder = intentComponent });
         EventManager.Instance.AbilityTargetingStart.Invoke();
       }
     }
-    
+
     private void stopAbility() {
       if (context is not null) {
         EventManager.Instance.AbilityTargetingStop.Invoke();
@@ -58,6 +57,5 @@ namespace Abilities {
         stopAbility();
       }
     }
-
   }
 }

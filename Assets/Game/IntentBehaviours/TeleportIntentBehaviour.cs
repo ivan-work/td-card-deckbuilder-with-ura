@@ -2,6 +2,7 @@
 using System.Linq;
 using Components;
 using Effects.EffectAnimations;
+using GridSystem;
 using Intents;
 using Intents.Engine;
 using Intents.IReactions;
@@ -14,7 +15,7 @@ namespace IntentBehaviours {
       Vector2Int? target = intent.Targets.Locations.FirstOrDefault();
       
       if (intent.Source.TryGetComponent<GridComponent>(out var gridComponent) && target is not null) {
-        var sourcePos = gridComponent.gridLoc;
+        var sourcePos = gridComponent.GridLoc;
         var targetPos = target.Value;
         var gridSystem = context.GlobalContext.GridSystem;
       
@@ -22,13 +23,13 @@ namespace IntentBehaviours {
         var hasMob = gridSystem.GetGridEntities<MoveComponent>(targetPos).Any();
       
         if (hasPath && !hasMob) {
-          context.Animation = new MoveAnimation(intent.Source, gridSystem.gridPos2World(sourcePos),
-            gridSystem.gridPos2World(targetPos));
-          gridComponent.moveTo(targetPos);
+          context.Animation = new MoveAnimation(intent.Source, gridSystem.GridLoc2World(sourcePos),
+            gridSystem.GridLoc2World(targetPos));
+          gridComponent.MoveTo(targetPos);
           sendEvents(context.GlobalContext, intent.Source, targetPos);
         } else {
-          context.Animation = new MoveAttemptAnimation(intent.Source, gridSystem.gridPos2World(sourcePos),
-            gridSystem.gridPos2World(targetPos));
+          context.Animation = new MoveAttemptAnimation(intent.Source, gridSystem.GridLoc2World(sourcePos),
+            gridSystem.GridLoc2World(targetPos));
         }
       }
     }

@@ -30,7 +30,7 @@ namespace Cards {
     //     Debug.LogError($"PushCard.DoCardAction: direction is not valid: {direction}");
     //   }
     //
-    //   // yield return ApplyForceComponent.applyForce(gridSystem, gridPoses[0], direction, Force);
+    //   // yield return ApplyForceComponent.applyForce(GridSystem, gridPoses[0], direction, Force);
     //
     //   var intents = context.GridSystem.GetGridEntities<MoveComponent>(sourcePos)
     //     .Select(

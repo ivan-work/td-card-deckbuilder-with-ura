@@ -1,4 +1,5 @@
 using Components;
+using GridSystem;
 using TMPro;
 using UnityEngine;
 
@@ -20,7 +21,7 @@ public class TowerPrefab : MonoBehaviour {
 
   void Update() {
     // if (towerComponent.targetPos.HasValue) {
-    //   Vector3 targetPosition = gridComponent.gridPos2World(towerComponent.targetPos.Value);
+    //   Vector3 targetPosition = gridComponent.GridLoc2World(towerComponent.targetPos.Value);
     //   lineRenderer.enabled = true;
     //   lineRenderer.SetPosition(1, targetPosition - transform.position);
     //   // transform.LookAt(transform.InverseTransformPoint(targetPosition), Vector3.back);

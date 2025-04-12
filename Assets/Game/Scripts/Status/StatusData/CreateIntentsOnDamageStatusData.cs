@@ -19,11 +19,13 @@ namespace Status.StatusData {
 
     public override void OnDamage(StatusContext context, Intent<DamageIntentValues> intent) {
       if (intent.Values.DamageType == DamageType) {
-        context.IntentSystem.AddImmediateIntents(
-          IntentFactories
+        context.IntentSystem.AddIntents(
+          intents: IntentFactories
             .Select(intentFactory => intentFactory
-              .CreateIntent(intent.Source, IntentTargets.Create(context.Component.gameObject)))
-            .ToArray());
+              .CreateIntent(intent.Source, IntentTargets.Create(context.Component.gameObject))
+            ),
+          toFront: false
+        );
       }
     }
   }
