@@ -19,13 +19,12 @@ namespace IntentBehaviours {
         var targetPosition = gridComponent.GridSystem.GridLoc2World(targetLoc);
 
         var gridSystem = context.GlobalContext.GridSystem;
-        var hasPath = gridSystem.GetGridEntities<PathComponent>(targetLoc).Any();
-        var hasMob = gridSystem.GetGridEntities<MoveComponent>(targetLoc).Any();
 
-        if (hasPath && !hasMob) {
+
+        if (IsCellPathable(gridSystem, targetLoc)) {
           context.Animation = new MoveAnimation(intent.Source, sourcePosition, targetPosition);
           gridComponent.MoveTo(targetLoc);
-          sendEvents(context.GlobalContext, intent.Source, targetLoc);
+          SendEvents(context.GlobalContext, intent.Source, targetLoc);
         } else {
           context.Animation = new MoveAttemptAnimation(intent.Source, sourcePosition, targetPosition);
         }
@@ -54,10 +53,18 @@ namespace IntentBehaviours {
     protected abstract Vector2Int? GetTargetLoc(Intent<IntentValues> intent);
 
 
-    private static void sendEvents(IntentGlobalContext context, GameObject source, Vector2Int targetPos) {
-      context.GridSystem.GetGridEntities<IReactToEntityEnter>(targetPos).ToList().ForEach(component => component.OnEntityEnter(context, source));
-
+    public static void SendEvents(IntentGlobalContext context, GameObject source, Vector2Int targetPos) {
+      context
+        .GridSystem.GetGridEntities<IReactToEntityEnter>(targetPos)
+        .ToList()
+        .ForEach(component => component.OnEntityEnter(context, source));
       source.GetComponents<IReactToMove>().ToList().ForEach(component => component.OnMove(context));
+    }
+
+    public static bool IsCellPathable(GridSystem.GridSystem gridSystem, Vector2Int targetLoc) {
+      var hasPath = gridSystem.GetGridEntities<PathComponent>(targetLoc).Any();
+      var hasMob = gridSystem.GetGridEntities<MoveComponent>(targetLoc).Any();
+      return hasPath && !hasMob;
     }
   }
 }

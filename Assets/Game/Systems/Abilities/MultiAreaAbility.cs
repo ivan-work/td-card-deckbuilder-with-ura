@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Intents.Engine;
 using UnityEditor;
 using UnityEngine;
 
@@ -21,6 +22,8 @@ namespace Abilities {
 
     [SerializeField] private GameObject? _indicator = null;
     public GameObject? Indicator => null; // TODO fix
+
+
     private LineRenderer lineRenderer;
 
     private void Awake() {
@@ -49,6 +52,13 @@ namespace Abilities {
       return TargetArea
         .Select(offset => target.GetLoc() + offset)
         .ToList();
+    }
+    public void CreateIntents(AbilityContext context, IEnumerable<IEnumerable<Vector2Int>> lockedAreas) {
+      foreach (var intentArea in lockedAreas) {
+        context.GlobalContext.IntentHolder.AddIntents(
+          context.Ability.IntentFactory.CreateIntent(context.Source, IntentTargets.Create(intentArea.ToArray()))
+        );
+      }
     }
   }
 }

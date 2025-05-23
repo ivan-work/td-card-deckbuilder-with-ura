@@ -66,7 +66,7 @@ public class MoveComponent : MonoBehaviour, IHasIntent {
   private void TryChargeNextTarget(Action<Intent> addIntent, Vector2Int targetPos) {
     var targetMoveComponent = findTargetMoveComponent(targetPos);
     if (targetMoveComponent?.state == State.Calm) {
-      Debug.Log($".checkIfNextChainMoved: Другой чел чилит, заряжаем его => ???");
+      // Debug.Log($".checkIfNextChainMoved: Другой чел чилит, заряжаем его => ???");
       // Другой чел чилит, заряжаем его
       targetMoveComponent.startMovingChain(addIntent);
     }

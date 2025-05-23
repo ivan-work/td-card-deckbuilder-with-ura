@@ -242,6 +242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 398440245}
   - component: {fileID: 398440244}
+  - component: {fileID: 398440246}
   m_Layer: 0
   m_Name: AbilityManager
   m_TagString: Untagged
@@ -277,6 +278,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &398440246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398440243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e879cc1ca1f9458298c0e2d930ef3242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &405618857
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -701,13 +714,17 @@ PrefabInstance:
       propertyPath: gridPos.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8256373260676036069, guid: 6505b04f4e1d9e24f94d24df23177d43, type: 3}
+      propertyPath: _gridLoc.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8680051336320485547, guid: 6505b04f4e1d9e24f94d24df23177d43, type: 3}
       propertyPath: m_Name
       value: MobPrefab (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8680051336320485547, guid: 6505b04f4e1d9e24f94d24df23177d43, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9035975101217287866, guid: 6505b04f4e1d9e24f94d24df23177d43, type: 3}
       propertyPath: m_AnchorMax.y
@@ -736,10 +753,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 308164393489665566, guid: 6505b04f4e1d9e24f94d24df23177d43, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6505b04f4e1d9e24f94d24df23177d43, type: 3}
 --- !u!224 &470917547 stripped
 RectTransform:
@@ -1976,6 +1990,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: MobPrefab (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8851204028492289084, guid: 6505b04f4e1d9e24f94d24df23177d43, type: 3}
+      propertyPath: _abilities.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851204028492289084, guid: 6505b04f4e1d9e24f94d24df23177d43, type: 3}
+      propertyPath: '_abilities.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a63397c015cf6084e996508093babbb5, type: 2}
+    - target: {fileID: 8851204028492289084, guid: 6505b04f4e1d9e24f94d24df23177d43, type: 3}
+      propertyPath: '_abilities.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a48db04fd5be4f142b3ff83a3d8ce640, type: 2}
     - target: {fileID: 9035975101217287866, guid: 6505b04f4e1d9e24f94d24df23177d43, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2743,13 +2769,17 @@ PrefabInstance:
       propertyPath: gridPos.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8256373260676036069, guid: 6505b04f4e1d9e24f94d24df23177d43, type: 3}
+      propertyPath: _gridLoc.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8680051336320485547, guid: 6505b04f4e1d9e24f94d24df23177d43, type: 3}
       propertyPath: m_Name
       value: MobPrefab (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8680051336320485547, guid: 6505b04f4e1d9e24f94d24df23177d43, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9035975101217287866, guid: 6505b04f4e1d9e24f94d24df23177d43, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2778,10 +2808,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 308164393489665566, guid: 6505b04f4e1d9e24f94d24df23177d43, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6505b04f4e1d9e24f94d24df23177d43, type: 3}
 --- !u!4 &1865802167 stripped
 Transform:

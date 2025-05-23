@@ -2,6 +2,7 @@
 using UnityEngine.Events;
 
 namespace Status {
+
   public class StatusStruct {
     public readonly BaseStatusData data;
     public int stacks;

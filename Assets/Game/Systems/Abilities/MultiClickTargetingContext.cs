@@ -1,15 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Intents.Engine;
 using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Abilities {
   public interface IMultiClickTargetingContextConfig {
     int MaxClicks { get; }
-    List<Vector2Int> GetAffectedLocs(AbilityContext context, ITarget target, IEnumerable<IEnumerable<Vector2Int>> lockedAreas);
+
+    List<Vector2Int> GetAffectedLocs(AbilityContext context, ITarget target,
+      IEnumerable<IEnumerable<Vector2Int>> lockedAreas);
 
     GameObject? Indicator { get; }
+
+
+    void CreateIntents(AbilityContext context, IEnumerable<IEnumerable<Vector2Int>> lockedAreas);
   }
 
   public class MultiClickTargetingContext : ITargetingContext {
@@ -71,15 +75,8 @@ namespace Abilities {
       }
 
       if (lockedAreas.Count < config.MaxClicks) return false;
-
-      foreach (var lockedArea in lockedAreas) {
-        context.GlobalContext.IntentHolder.AddIntents(
-          context.Ability.IntentFactory.CreateIntent(
-            context.Source,
-            IntentTargets.Create(lockedArea.ToArray())
-          )
-        );
-      }
+      
+      config.CreateIntents(context, lockedAreas);
 
       return true;
     }

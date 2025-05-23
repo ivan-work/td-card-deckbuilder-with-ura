@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ba714c567e544ab8a6ef8a6ce88cd79, type: 3}
+  m_Name: Push Ability
+  m_EditorClassIdentifier: 
+  Name: PushAbility
+  Icon: {fileID: -4521532143779581420, guid: 22f1a7509f8f29d4eb64bc5336edc6f1, type: 3}
+  Condition: {fileID: 11400000, guid: d3e1eba0559a92d4eb4cc1d92370459a, type: 2}
+  IntentFactory:
+    Behaviour: {fileID: 11400000, guid: bd8d31ce7de1dda4fa14398859e062c5, type: 2}
+    Values:
+      rid: 1865327464852226127
+  _maxClicks: 2
+  references:
+    version: 2
+    RefIds:
+    - rid: 1865327464852226127
+      type: {class: PushIntentValues, ns: Intents.IntentBehaviours, asm: MainAssembly}
+      data:
+        Force: 5

@@ -534,9 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999844d949ce7294198f5a76c98122db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridSystem: {fileID: 0}
-  gridLoc: {x: 0, y: 0}
-  zLayer: 3
+  _gridLoc: {x: 0, y: 0}
 --- !u!114 &8933528229733079738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -576,7 +574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 580064f3b0870de48b7590a75c926350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveIntentBehaviour: {fileID: 11400000, guid: 04ed88ea7388a4d448aab93cb0527655, type: 2}
+  _stepIntentBehaviour: {fileID: 11400000, guid: 04ed88ea7388a4d448aab93cb0527655, type: 2}
 --- !u!114 &5541647216063209052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -632,6 +630,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _abilities:
   - {fileID: 11400000, guid: d10348870e18fc943b267ea1f4b54e10, type: 2}
+  - {fileID: 11400000, guid: a63397c015cf6084e996508093babbb5, type: 2}
 --- !u!65 &4844279133364157902
 BoxCollider:
   m_ObjectHideFlags: 0

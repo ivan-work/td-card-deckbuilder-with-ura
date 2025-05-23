@@ -12,6 +12,7 @@ namespace Status.StatusData {
       // );
       //
       // context.component.updateStatus(context.statusStruct, -1);
+      
     }
   }
 }

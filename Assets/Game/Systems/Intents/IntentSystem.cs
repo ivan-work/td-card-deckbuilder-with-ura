@@ -27,6 +27,10 @@ namespace Intents {
       AddIntents(intents, false);
     }
 
+    public void AddImmediateIntents(params Intent[] intents) {
+      AddIntents(intents, true);
+    }
+
     public void AddIntents(IEnumerable<Intent> intents, bool toFront) {
       if (toFront) {
         // хз как добавить массив вначале линкед листа
@@ -46,7 +50,7 @@ namespace Intents {
       EventManager.Instance.ImsWriteIntents.Invoke(this);
 
       // Debug.Log(queuedIntents.Aggregate(new StringBuilder("On Perform Intents: "), (sb, val) => sb.Append(val).Append(", "), sb => sb.ToString()));
-
+      
       StartCoroutine(performIntents());
     }
 
